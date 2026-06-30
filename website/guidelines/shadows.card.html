@@ -1,0 +1,38 @@
+<!-- @dsCard group="Spacing" viewport="700x160" name="Shadows & Radii" subtitle="Navy-tinted shadows · 3 radii" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body { margin: 0; padding: 28px; background: var(--color-off-white); display: flex; gap: 20px; align-items: flex-start; }
+    .card { background: #fff; padding: 16px 20px; flex: 1; }
+    .label { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 4px; }
+    .token { font-family: monospace; font-size: 10px; color: var(--color-steel-mid); }
+    .rad-row { display: flex; gap: 16px; align-items: center; }
+    .rad { background: #fff; border: 1px solid var(--color-border-strong); height: 40px; flex: 1; display: flex; align-items: center; justify-content: center; font-family: monospace; font-size: 10px; color: var(--color-steel); }
+  </style>
+</head>
+<body>
+  <div class="card" style="border-radius:var(--radius); box-shadow: var(--shadow-sm);">
+    <div class="label">Shadow SM</div>
+    <div class="token">--shadow-sm</div>
+  </div>
+  <div class="card" style="border-radius:var(--radius); box-shadow: var(--shadow-md);">
+    <div class="label">Shadow MD</div>
+    <div class="token">--shadow-md</div>
+  </div>
+  <div class="card" style="border-radius:var(--radius); box-shadow: var(--shadow-lg);">
+    <div class="label">Shadow LG</div>
+    <div class="token">--shadow-lg</div>
+  </div>
+  <div style="flex:1.2">
+    <div class="rad-row">
+      <div class="rad" style="border-radius:4px">4px sm</div>
+      <div class="rad" style="border-radius:8px">8px</div>
+      <div class="rad" style="border-radius:16px">16px lg</div>
+    </div>
+    <div class="token" style="margin-top:8px">--radius-sm · --radius · --radius-lg</div>
+  </div>
+</body>
+</html>

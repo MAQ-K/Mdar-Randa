@@ -1,0 +1,3327 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madar Randa — Brand Guidelines 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0C1E3C;
+  --blue: #1A3A6B;
+  --blue-mid: #1E4D8C;
+  --accent: #2B6CB0;
+  --accent-light: #3B82C4;
+  --silver: #A8B4C8;
+  --silver-light: #D4DCE8;
+  --silver-pale: #EEF1F7;
+  --steel: #4A5568;
+  --steel-mid: #6B7280;
+  --charcoal: #1F2937;
+  --white: #FFFFFF;
+  --off-white: #F7F9FC;
+  --border: rgba(168,180,200,0.25);
+  --border-strong: rgba(168,180,200,0.5);
+  --shadow-sm: 0 1px 3px rgba(12,30,60,0.08), 0 1px 2px rgba(12,30,60,0.06);
+  --shadow-md: 0 4px 16px rgba(12,30,60,0.1), 0 2px 6px rgba(12,30,60,0.06);
+  --shadow-lg: 0 12px 40px rgba(12,30,60,0.14), 0 4px 12px rgba(12,30,60,0.08);
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 16px;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --font-arabic: 'IBM Plex Sans Arabic', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--off-white);
+  color: var(--charcoal);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* ─── COVER PAGE ─── */
+.cover {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 2rem;
+}
+
+.cover-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(43,108,176,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43,108,176,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.cover-line-h {
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(43,108,176,0.3), rgba(59,130,196,0.5), rgba(43,108,176,0.3), transparent);
+}
+
+.cover-line-v {
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(43,108,176,0.2), rgba(43,108,176,0.2), transparent);
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+}
+
+.cover-eyebrow {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 2rem;
+}
+
+.cover-logo-mark {
+  width: 80px;
+  height: 80px;
+  background: var(--blue-mid);
+  border: 1px solid rgba(59,130,196,0.4);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.03em;
+}
+
+.cover-title {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 0.9;
+  margin-bottom: 1rem;
+}
+
+.cover-title span {
+  color: var(--accent-light);
+}
+
+.cover-subtitle {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--silver);
+  letter-spacing: 0.01em;
+  margin-bottom: 3rem;
+}
+
+.cover-meta {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cover-meta-item {
+  text-align: center;
+}
+
+.cover-meta-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--steel-mid);
+  margin-bottom: 4px;
+}
+
+.cover-meta-value {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--silver-light);
+}
+
+/* ─── NAV ─── */
+.doc-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(12,30,60,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(43,108,176,0.2);
+  padding: 0 2rem;
+}
+
+.doc-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.doc-nav-inner::-webkit-scrollbar { display: none; }
+
+.nav-item {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--steel-mid);
+  text-decoration: none;
+  padding: 1rem 0.875rem;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-item:hover {
+  color: var(--accent-light);
+  border-color: var(--accent-light);
+}
+
+/* ─── LAYOUT ─── */
+.doc-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+}
+
+/* ─── SECTION ─── */
+.section {
+  padding-top: 5rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.section-number {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--silver-light);
+  letter-spacing: -0.04em;
+  flex-shrink: 0;
+}
+
+.section-title-block {}
+
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  line-height: 1;
+}
+
+/* ─── CARDS ─── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-dark {
+  background: var(--navy);
+  border-color: rgba(43,108,176,0.25);
+  color: var(--white);
+}
+
+.card-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.card-dark .card-label { color: var(--accent-light); }
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.card-dark .card-title { color: var(--white); }
+
+.card-body {
+  font-size: 15px;
+  color: var(--steel);
+  line-height: 1.7;
+}
+
+.card-dark .card-body { color: var(--silver); }
+
+/* ─── GRIDS ─── */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* ─── BRAND MARK SECTION ─── */
+.brand-mark-showcase {
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.logo-primary {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.logo-wordmark {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-wordmark .ar {
+  font-family: var(--font-arabic);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--silver);
+  letter-spacing: 0;
+  margin-top: 0.25rem;
+}
+
+.logo-wordmark .tagline {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-top: 0.5rem;
+}
+
+.logo-mark-symbol {
+  width: 56px;
+  height: 56px;
+  background: var(--blue-mid);
+  border: 1px solid rgba(59,130,196,0.5);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.logo-analysis {
+  color: var(--silver-light);
+}
+
+.logo-analysis h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.analysis-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+  align-items: flex-start;
+}
+
+.analysis-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.dot-green { background: #48BB78; }
+.dot-amber { background: #ECC94B; }
+.dot-blue { background: var(--accent-light); }
+
+/* ─── COLOR PALETTE ─── */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.color-swatch {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.swatch-block {
+  height: 100px;
+  display: flex;
+  align-items: flex-end;
+  padding: 10px 12px;
+  position: relative;
+}
+
+.swatch-name-on {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.swatch-info {
+  background: var(--white);
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.swatch-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 2px;
+}
+
+.swatch-hex {
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--steel-mid);
+}
+
+.swatch-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.swatch-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  background: var(--silver-pale);
+  color: var(--steel);
+  border-radius: 3px;
+}
+
+/* ─── TYPOGRAPHY SHOWCASE ─── */
+.type-showcase {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+
+.type-row {
+  padding: 2rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.type-row:last-child { border-bottom: none; }
+
+.type-meta {
+  font-size: 12px;
+  color: var(--steel-mid);
+}
+
+.type-meta strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.type-meta span {
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* ─── VOICE & TONE ─── */
+.voice-example {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.voice-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.voice-badge {
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.badge-do { background: #C6F6D5; color: #276749; }
+.badge-dont { background: #FED7D7; color: #9B2C2C; }
+
+.voice-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--charcoal);
+}
+
+/* ─── CTA SHOWCASE ─── */
+.cta-showcase {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.25rem;
+}
+
+.btn {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.btn-primary:hover { background: var(--blue); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+}
+
+.btn-secondary:hover { background: var(--navy); color: var(--white); }
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--steel);
+  border: 1px solid var(--border-strong);
+}
+
+.btn-danger {
+  background: #C53030;
+  color: white;
+}
+
+/* ─── TAGLINE GRID ─── */
+.tagline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.tagline-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.tagline-num {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--silver-light);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 32px;
+}
+
+.tagline-text {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.tagline-sub {
+  font-size: 12px;
+  color: var(--steel-mid);
+  margin-top: 4px;
+}
+
+/* ─── PERSONA CARDS ─── */
+.persona-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.persona-header {
+  background: var(--navy);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.persona-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--blue-mid);
+  border: 2px solid rgba(59,130,196,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.persona-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.persona-role {
+  font-size: 12px;
+  color: var(--accent-light);
+  margin-top: 2px;
+}
+
+.persona-body {
+  padding: 1.5rem;
+}
+
+.persona-row {
+  margin-bottom: 1rem;
+  font-size: 14px;
+}
+
+.persona-row strong {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.persona-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.ptag {
+  font-size: 11px;
+  padding: 3px 8px;
+  background: var(--silver-pale);
+  color: var(--steel);
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+/* ─── SWOT ─── */
+.swot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border-strong);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+}
+
+.swot-cell {
+  background: var(--white);
+  padding: 2rem;
+}
+
+.swot-cell:nth-child(1) { border-radius: var(--radius-lg) 0 0 0; }
+.swot-cell:nth-child(2) { border-radius: 0 var(--radius-lg) 0 0; }
+.swot-cell:nth-child(3) { border-radius: 0 0 0 var(--radius-lg); }
+.swot-cell:nth-child(4) { border-radius: 0 0 var(--radius-lg) 0; }
+
+.swot-label {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swot-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+
+.dot-s { background: #48BB78; }
+.dot-w { background: #FC8181; }
+.dot-o { background: #4299E1; }
+.dot-t { background: #ECC94B; }
+
+.swot-item {
+  font-size: 14px;
+  color: var(--charcoal);
+  padding: 0.375rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.swot-item:last-child { border-bottom: none; }
+
+.swot-item::before {
+  content: '–';
+  color: var(--steel-mid);
+  flex-shrink: 0;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* ─── UI COMPONENTS ─── */
+.ui-section {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.ui-section-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Input showcase */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--charcoal);
+  background: var(--white);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  margin-bottom: 1rem;
+}
+
+.input-field:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(43,108,176,0.12);
+}
+
+.input-field::placeholder { color: var(--steel-mid); }
+
+/* Card component showcase */
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  cursor: default;
+}
+
+.service-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(43,108,176,0.3);
+}
+
+.service-card-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--silver-pale);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 20px;
+}
+
+.service-card-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.service-card-body {
+  font-size: 13px;
+  color: var(--steel);
+  line-height: 1.6;
+}
+
+/* Badges */
+.badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.badge {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-primary { background: var(--navy); color: white; }
+.badge-outline { background: transparent; color: var(--navy); border: 1px solid var(--navy); }
+.badge-accent { background: rgba(43,108,176,0.1); color: var(--accent); border: 1px solid rgba(43,108,176,0.2); }
+.badge-silver { background: var(--silver-pale); color: var(--steel); border: 1px solid var(--border-strong); }
+.badge-success { background: #C6F6D5; color: #276749; }
+.badge-warning { background: #FEFCBF; color: #744210; }
+
+/* ─── HOMEPAGE WIREFRAME ─── */
+.wireframe {
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.wf-nav {
+  background: rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wf-nav-logo {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.wf-nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.wf-nav-link {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.wf-hero {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, rgba(26,58,107,0.8) 0%, rgba(12,30,60,1) 60%);
+  text-align: center;
+}
+
+.wf-hero-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  border: 1px solid rgba(43,108,176,0.4);
+  padding: 4px 14px;
+  border-radius: 3px;
+  margin-bottom: 1.5rem;
+}
+
+.wf-hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 0.95;
+  margin-bottom: 1.25rem;
+}
+
+.wf-hero-sub {
+  font-size: 16px;
+  color: var(--silver);
+  max-width: 540px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.wf-cta-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.wf-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.wf-stat {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.wf-stat:last-child { border-right: none; }
+
+.wf-stat-num {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.wf-stat-label {
+  font-size: 11px;
+  color: var(--silver);
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+}
+
+.wf-services {
+  background: var(--off-white);
+  padding: 3rem 2rem;
+}
+
+.wf-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.wf-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+}
+
+.wf-card-bar {
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+.wf-card-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.wf-card-text {
+  height: 8px;
+  background: var(--silver-pale);
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.wf-card-text.short { width: 70%; }
+
+/* ─── SPACING SYSTEM ─── */
+.spacing-showcase {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.spacing-item {
+  text-align: center;
+  flex: 1;
+}
+
+.spacing-block {
+  background: var(--accent);
+  opacity: 0.2;
+  border-radius: 2px;
+  margin: 0 auto 0.5rem;
+  width: 100%;
+}
+
+.spacing-label {
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--steel-mid);
+}
+
+.spacing-px {
+  font-size: 10px;
+  color: var(--steel-mid);
+  margin-top: 2px;
+}
+
+/* ─── AI PROMPT ─── */
+.prompt-block {
+  background: var(--charcoal);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.prompt-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+
+.prompt-text {
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #E2E8F0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.prompt-key { color: #81E6D9; }
+.prompt-val { color: #FBD38D; }
+.prompt-comment { color: #68D391; }
+
+/* ─── COPY BUTTON ─── */
+.copy-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--silver);
+  font-family: var(--font-body);
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-top: 1.5rem;
+}
+
+.copy-btn:hover { background: rgba(255,255,255,0.14); }
+
+/* ─── SECTION DIVIDER ─── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+  margin: 5rem 0;
+}
+
+/* ─── TABLE ─── */
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+
+.doc-table th {
+  background: var(--navy);
+  color: var(--silver-light);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.875rem 1.25rem;
+  text-align: left;
+}
+
+.doc-table td {
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--charcoal);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.doc-table tr:last-child td { border-bottom: none; }
+
+.doc-table tr:nth-child(even) td { background: var(--off-white); }
+
+/* ─── ARCHETYPE ─── */
+.archetype-card {
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.archetype-symbol {
+  font-size: 64px;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.archetype-name {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.archetype-sub {
+  font-size: 16px;
+  color: var(--silver);
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.archetype-traits {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.archetype-trait {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  border: 1px solid rgba(43,108,176,0.35);
+  padding: 6px 16px;
+  border-radius: 3px;
+  background: rgba(43,108,176,0.1);
+}
+
+/* ─── PHOTO STYLE ─── */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.photo-placeholder {
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.photo-placeholder-icon {
+  font-size: 28px;
+  opacity: 0.6;
+}
+
+.photo-placeholder-label {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.photo-placeholder-desc {
+  font-size: 11px;
+  opacity: 0.6;
+  line-height: 1.4;
+}
+
+/* ─── SEO KEYWORDS ─── */
+.keyword-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+.kw {
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--border-strong);
+  background: var(--white);
+  color: var(--charcoal);
+  transition: all 0.15s;
+}
+
+.kw.primary {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+  font-weight: 700;
+}
+
+.kw.secondary {
+  background: rgba(43,108,176,0.08);
+  color: var(--accent);
+  border-color: rgba(43,108,176,0.2);
+}
+
+/* ─── ICON STYLE ─── */
+.icon-demo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 1rem;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+}
+
+.icon-item:hover { background: var(--silver-pale); }
+
+.icon-sym {
+  font-size: 24px;
+  color: var(--navy);
+}
+
+.icon-item-label {
+  font-size: 10px;
+  color: var(--steel-mid);
+  text-align: center;
+}
+
+/* ─── TABS (for voice/tone) ─── */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border-strong);
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.tab {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--steel-mid);
+  padding: 0.75rem 1.25rem;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  border: none;
+  background: none;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab.active {
+  color: var(--navy);
+  border-bottom-color: var(--navy);
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ─── RULE CARD ─── */
+.rule-card {
+  border-left: 3px solid var(--accent);
+  background: var(--white);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-bottom: 0.75rem;
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.rule-card.warning {
+  border-left-color: #E53E3E;
+  background: #FFF5F5;
+}
+
+.rule-card.success {
+  border-left-color: #38A169;
+  background: #F0FFF4;
+}
+
+.rule-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.rule-card.warning .rule-title { color: #C53030; }
+.rule-card.success .rule-title { color: #276749; }
+
+.rule-body {
+  font-size: 14px;
+  color: var(--steel);
+  line-height: 1.6;
+}
+
+/* ─── EVOLUTION TIMELINE ─── */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), var(--silver-light));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2.375rem;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.timeline-year {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-body {
+  font-size: 14px;
+  color: var(--steel);
+  line-height: 1.7;
+}
+
+/* ─── STORY BLOCK ─── */
+.story-block {
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-block::before {
+  content: '\201C';
+  position: absolute;
+  top: 1rem;
+  left: 2.5rem;
+  font-family: var(--font-display);
+  font-size: 200px;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(43,108,176,0.15);
+  pointer-events: none;
+}
+
+.story-text {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 1;
+}
+
+.story-meta {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 13px;
+  color: var(--silver);
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── UTILITY ─── */
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+
+.text-muted { color: var(--steel-mid); font-size: 14px; }
+.text-small { font-size: 13px; }
+
+p { margin-bottom: 1rem; color: var(--steel); line-height: 1.7; }
+p:last-child { margin-bottom: 0; }
+
+ul.doc-list { padding-left: 1.25rem; }
+ul.doc-list li {
+  font-size: 14px;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.highlight-pill {
+  display: inline-block;
+  background: rgba(43,108,176,0.1);
+  color: var(--accent);
+  border: 1px solid rgba(43,108,176,0.2);
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  margin: 2px 2px;
+}
+
+/* ─── SCROLL INDICATOR ─── */
+.back-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  background: var(--navy);
+  border: 1px solid rgba(43,108,176,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--white);
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+  transition: background 0.15s;
+  z-index: 50;
+}
+
+.back-top:hover { background: var(--blue); }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+</style>
+</head>
+<body>
+<h2 class="sr-only">Madar Randa Brand Guidelines — Complete Brand Identity Document</h2>
+
+<!-- COVER -->
+<div class="cover" id="top">
+  <div class="cover-grid"></div>
+  <div class="cover-line-h"></div>
+  <div class="cover-line-v"></div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Confidential Brand Document</div>
+    <div class="cover-logo-mark">MR</div>
+    <div class="cover-title">MADAR<br><span>RANDA</span></div>
+    <div class="cover-subtitle">Complete Brand Identity & Design System</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Industry</div>
+        <div class="cover-meta-value">Automatic Doors & Security Systems</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Market</div>
+        <div class="cover-meta-value">Kingdom of Saudi Arabia</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Edition</div>
+        <div class="cover-meta-value">2025 — v1.0</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Experience</div>
+        <div class="cover-meta-value">30+ Years</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="doc-nav" aria-label="Brand guidelines sections">
+  <div class="doc-nav-inner">
+    <a href="#discovery" class="nav-item">01 Discovery</a>
+    <a href="#strategy" class="nav-item">02 Strategy</a>
+    <a href="#voice" class="nav-item">03 Voice</a>
+    <a href="#visual" class="nav-item">04 Visual</a>
+    <a href="#website" class="nav-item">05 Website</a>
+    <a href="#ux" class="nav-item">06 UX</a>
+    <a href="#messaging" class="nav-item">07 Messaging</a>
+    <a href="#seo" class="nav-item">08 SEO</a>
+    <a href="#design-system" class="nav-item">09 Design System</a>
+    <a href="#guidelines" class="nav-item">10 Guidelines</a>
+    <a href="#evolution" class="nav-item">11 Evolution</a>
+    <a href="#prompt" class="nav-item">12 AI Prompt</a>
+  </div>
+</nav>
+
+<div class="doc-body">
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION 1: BRAND DISCOVERY -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="section" id="discovery">
+  <div class="section-header">
+    <div class="section-number">01</div>
+    <div class="section-title-block">
+      <div class="section-eyebrow">Foundation</div>
+      <div class="section-title">Brand Discovery</div>
+    </div>
+  </div>
+
+  <!-- Brand Overview -->
+  <div class="card mb-2">
+    <div class="card-label">Brand Overview</div>
+    <div class="card-title">What Madar Randa Is</div>
+    <div class="card-body">
+      <p>Madar Randa is a Saudi engineering institution with over 30 years of uninterrupted operation in the Kingdom of Saudi Arabia. The company specialises in the supply, installation, and long-term maintenance of automatic doors, automatic windows, sectional and industrial doors, loading dock equipment, road barriers, parking control systems, security entrances, and smart access solutions.</p>
+      <p>What makes Madar Randa distinctive is not the range of its products — it is the depth of its engineering knowledge and the continuity of its client relationships. Three decades of operation means Madar Randa has served the same clients across generations of infrastructure projects, from the original installation through to ongoing maintenance and system upgrades.</p>
+      <p>The company serves every vertical where engineered access matters: residential villas, commercial towers, hospitals, hotels, airports, government facilities, warehouses, and factories. Its client base ranges from individual homeowners to architects, developers, and government procurement offices.</p>
+    </div>
+  </div>
+
+  <!-- Business Goals -->
+  <div class="grid-3 mb-2">
+    <div class="card">
+      <div class="card-label">Primary Goals</div>
+      <ul class="doc-list mt-1">
+        <li>Become the #1 automatic doors brand in Saudi Arabia</li>
+        <li>Increase qualified digital lead generation by 3×</li>
+        <li>Strengthen premium positioning against regional competitors</li>
+        <li>Improve website conversion rate to 4–6%</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-label">Trust & Authority Goals</div>
+      <ul class="doc-list mt-1">
+        <li>Establish digital E-E-A-T dominance in Saudi Arabia</li>
+        <li>Build a content-driven maintenance services pipeline</li>
+        <li>Rank on page 1 for all primary service keywords</li>
+        <li>Generate 100+ qualified RFQ submissions per month</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-label">Brand Perception Goals</div>
+      <ul class="doc-list mt-1">
+        <li>Be perceived as the engineering expert, not a supplier</li>
+        <li>Differentiate on reliability and long-term partnership</li>
+        <li>Attract architects and consultants as referral partners</li>
+        <li>Win government and aviation-sector confidence</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Market Analysis -->
+  <div class="card mb-2">
+    <div class="card-label">Market Analysis — Saudi Arabia</div>
+    <div class="card-title">Market Context</div>
+    <div class="card-body">
+      <p>Saudi Arabia's Vision 2030 infrastructure programme is the primary demand driver for Madar Randa's services. Giga-projects including NEOM, Red Sea Project, Diriyah, Qiddiya, and Expo Riyadh are creating unprecedented demand for premium access control and automatic door systems across commercial, hospitality, aviation, and residential verticals.</p>
+      <p>The Saudi market for automatic doors and access control systems was valued at approximately SAR 2.8 billion in 2024, with a CAGR of 9–12% driven by smart building integration, security mandates, and Vision 2030 construction. The premium segment — where reliability, safety certification, and long-term maintenance matter — is underpenetrated and dominated by a handful of established operators.</p>
+    </div>
+  </div>
+
+  <!-- Competitor Positioning -->
+  <table class="doc-table mb-2">
+    <thead>
+      <tr>
+        <th>Competitor Type</th>
+        <th>Positioning</th>
+        <th>Weakness</th>
+        <th>Madar Randa Advantage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>International Brand Agents</strong><br><span class="text-muted">e.g. local Dormakaba, ASSA ABLOY resellers</span></td>
+        <td>Brand prestige, premium pricing</td>
+        <td>Slow local service, high cost, low engineering depth</td>
+        <td>30+ years local presence, faster response, engineering expertise</td>
+      </tr>
+      <tr>
+        <td><strong>Low-Cost Regional Traders</strong></td>
+        <td>Price, availability</td>
+        <td>No engineering capability, poor after-sales, no long-term maintenance</td>
+        <td>Engineering credibility, safety compliance, warranty reliability</td>
+      </tr>
+      <tr>
+        <td><strong>Construction Contractors</strong></td>
+        <td>Bundled project pricing</td>
+        <td>Not specialists, no ongoing maintenance support</td>
+        <td>Specialist depth, dedicated maintenance contracts</td>
+      </tr>
+      <tr>
+        <td><strong>New Digital-First Entrants</strong></td>
+        <td>Digital visibility, modern branding</td>
+        <td>Shallow experience, no track record</td>
+        <td>Verifiable 30-year legacy, reference projects, certified installations</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SWOT -->
+  <div class="mb-2">
+    <div class="card-label mb-1">SWOT Analysis</div>
+    <div class="swot-grid">
+      <div class="swot-cell">
+        <div class="swot-label"><span class="swot-dot dot-s"></span> Strengths</div>
+        <div class="swot-item">30+ years of verifiable market experience</div>
+        <div class="swot-item">Deep engineering and technical expertise</div>
+        <div class="swot-item">Full-spectrum product range across all door types</div>
+        <div class="swot-item">Established long-term client relationships</div>
+        <div class="swot-item">Maintenance and after-sales infrastructure</div>
+        <div class="swot-item">Local Saudi market knowledge</div>
+      </div>
+      <div class="swot-cell">
+        <div class="swot-label"><span class="swot-dot dot-w"></span> Weaknesses</div>
+        <div class="swot-item">Legacy digital presence and website</div>
+        <div class="swot-item">Low brand visibility in digital channels</div>
+        <div class="swot-item">Limited content marketing and thought leadership</div>
+        <div class="swot-item">Underinvestment in visual brand identity</div>
+        <div class="swot-item">Weak lead capture and CRM infrastructure</div>
+      </div>
+      <div class="swot-cell">
+        <div class="swot-label"><span class="swot-dot dot-o"></span> Opportunities</div>
+        <div class="swot-item">Vision 2030 mega-project demand surge</div>
+        <div class="swot-item">Smart building integration market</div>
+        <div class="swot-item">Government security mandates increasing</div>
+        <div class="swot-item">Digital SEO market is underserved in this niche</div>
+        <div class="swot-item">Maintenance contract recurring revenue model</div>
+        <div class="swot-item">Aviation and healthcare sector expansion</div>
+      </div>
+      <div class="swot-cell">
+        <div class="swot-label"><span class="swot-dot dot-t"></span> Threats</div>
+        <div class="swot-item">New digital-first entrants with modern branding</div>
+        <div class="swot-item">International brands increasing direct presence</div>
+        <div class="swot-item">Price compression from low-cost competitors</div>
+        <div class="swot-item">Technology disruption in smart access control</div>
+        <div class="swot-item">Procurement decisions increasingly made online</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Target Audience Personas -->
+  <div class="card-label mb-1">Target Audience Personas</div>
+  <div class="grid-3 mb-2">
+    <div class="persona-card">
+      <div class="persona-header">
+        <div class="persona-avatar">EM</div>
+        <div>
+          <div class="persona-name">Eng. Mohammed</div>
+          <div class="persona-role">Project Engineer / Architect</div>
+        </div>
+      </div>
+      <div class="persona-body">
+        <div class="persona-row">
+          <strong>Age & Context</strong>
+          35–50, works for an engineering consultancy or developer
+        </div>
+        <div class="persona-row">
+          <strong>Pain Points</strong>
+          Needs certified products, specification compliance, and a reliable vendor who will respond to site issues fast
+        </div>
+        <div class="persona-row">
+          <strong>Decision Trigger</strong>
+          Technical spec sheets, certifications, project references
+        </div>
+        <div class="persona-row">
+          <strong>Keywords Used</strong>
+          <div class="persona-tags">
+            <span class="ptag">automatic door spec</span>
+            <span class="ptag">sectional door Saudi</span>
+            <span class="ptag">loading dock equipment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="persona-card">
+      <div class="persona-header">
+        <div class="persona-avatar">KA</div>
+        <div>
+          <div class="persona-name">Khaled Al-Otaibi</div>
+          <div class="persona-role">Villa / Building Owner</div>
+        </div>
+      </div>
+      <div class="persona-body">
+        <div class="persona-row">
+          <strong>Age & Context</strong>
+          40–60, owns one or more premium residential or commercial properties
+        </div>
+        <div class="persona-row">
+          <strong>Pain Points</strong>
+          Wants quality that lasts, someone trustworthy to call if something breaks, and a brand that doesn't embarrass his property
+        </div>
+        <div class="persona-row">
+          <strong>Decision Trigger</strong>
+          Referrals, website professionalism, phone response time
+        </div>
+        <div class="persona-row">
+          <strong>Keywords Used</strong>
+          <div class="persona-tags">
+            <span class="ptag">automatic gate Riyadh</span>
+            <span class="ptag">door maintenance</span>
+            <span class="ptag">garage door motor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="persona-card">
+      <div class="persona-header">
+        <div class="persona-avatar">FM</div>
+        <div>
+          <div class="persona-name">Facility Manager</div>
+          <div class="persona-role">Hospital / Hotel / Airport</div>
+        </div>
+      </div>
+      <div class="persona-body">
+        <div class="persona-row">
+          <strong>Age & Context</strong>
+          30–50, responsible for building operations, cannot afford downtime
+        </div>
+        <div class="persona-row">
+          <strong>Pain Points</strong>
+          Emergency response speed, maintenance contract value, compliance documentation, single-vendor accountability
+        </div>
+        <div class="persona-row">
+          <strong>Decision Trigger</strong>
+          Maintenance SLA, emergency call response, annual contract pricing
+        </div>
+        <div class="persona-row">
+          <strong>Keywords Used</strong>
+          <div class="persona-tags">
+            <span class="ptag">door maintenance contract</span>
+            <span class="ptag">automatic door repair</span>
+            <span class="ptag">security entrance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand Archetype -->
+  <div class="archetype-card mb-2">
+    <div class="archetype-symbol">⚙</div>
+    <div class="archetype-name">The Ruler</div>
+    <div class="archetype-sub">Madar Randa's brand archetype is the Ruler — the master of its domain, operating from deep expertise, commanding respect through decades of demonstrated competence. The Ruler brand creates stability, enforces quality standards, and provides what high-stakes clients need most: certainty.</div>
+    <div class="archetype-traits">
+      <span class="archetype-trait">Authority</span>
+      <span class="archetype-trait">Mastery</span>
+      <span class="archetype-trait">Stability</span>
+      <span class="archetype-trait">Responsibility</span>
+      <span class="archetype-trait">Legacy</span>
+      <span class="archetype-trait">Control</span>
+    </div>
+  </div>
+
+  <!-- Brand Mission, Vision, Promise -->
+  <div class="grid-3 mb-2">
+    <div class="card card-dark">
+      <div class="card-label">Mission</div>
+      <div class="card-title">What We Do Every Day</div>
+      <div class="card-body">To engineer, install, and maintain access solutions that give Saudi businesses, institutions, and homes total confidence in their safety, security, and operational continuity — for the long term.</div>
+    </div>
+    <div class="card card-dark">
+      <div class="card-label">Vision</div>
+      <div class="card-title">Where We Are Going</div>
+      <div class="card-body">To be the Kingdom's most trusted engineering partner for automated access — the name architects specify, facility managers keep on contract, and clients recommend without hesitation.</div>
+    </div>
+    <div class="card card-dark">
+      <div class="card-label">Brand Promise</div>
+      <div class="card-title">What We Guarantee</div>
+      <div class="card-body">Every door we touch works — today, and years from now. We deliver engineering precision on installation, and we stand behind every system with responsive maintenance and full accountability.</div>
+    </div>
+  </div>
+
+  <!-- USP -->
+  <div class="card">
+    <div class="card-label">Unique Selling Proposition</div>
+    <div class="card-title">The Madar Randa Difference</div>
+    <div class="card-body">
+      <p><strong style="color:var(--navy)">For engineering-driven clients in Saudi Arabia</strong> who need reliable, precision-installed automatic doors, windows, and access systems — Madar Randa is the only engineering partner with 30+ years of in-Kingdom operational experience, full-range product expertise, and an owned maintenance infrastructure that ensures every installation remains operational for its full design life.</p>
+      <p style="margin-top:1rem"><em>Unlike suppliers who sell and disappear, Madar Randa treats every installation as the beginning of a long-term engineering relationship.</em></p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION 2: BRAND STRATEGY -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="section" id="strategy">
+  <div class="section-header">
+    <div class="section-number">02</div>
+    <div class="section-title-block">
+      <div class="section-eyebrow">Positioning</div>
+      <div class="section-title">Brand Strategy</div>
+    </div>
+  </div>
+
+  <div class="card mb-2">
+    <div class="card-label">Brand Positioning Statement</div>
+    <div class="card-title">For the Engineering Market</div>
+    <div class="card-body">
+      <p><em>For facility managers, architects, developers, and property owners across Saudi Arabia who demand access solutions that are engineered to perform — Madar Randa is the Kingdom's most experienced automatic door and security access company. Unlike suppliers who prioritise transaction speed, we build long-term engineering relationships with every client. Our 30+ year track record, full-spectrum technical expertise, and owned maintenance infrastructure mean you have a single, accountable partner for the entire lifecycle of your access systems.</em></p>
+    </div>
+  </div>
+
+  <div class="grid-2 mb-2">
+    <div class="card">
+      <div class="card-label">Elevator Pitch — 30 Seconds</div>
+      <div class="card-body">
+        <p>"Madar Randa has been engineering access solutions in Saudi Arabia for over 30 years. We supply, install, and maintain everything from automatic glass doors to aircraft hangar doors, road barriers to loading dock equipment. What makes us different is that we stay. Every system we install comes with long-term maintenance support and an engineering team you can actually call. If you want a door that opens reliably in ten years — not just on day one — that's who we are."</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Value Proposition</div>
+      <div class="card-body">
+        <ul class="doc-list">
+          <li><strong>30+ years of verifiable Saudi market experience</strong> — the longest track record in the regional automatic door market</li>
+          <li><strong>Full-lifecycle engineering support</strong> — from specification to installation to maintenance contracts</li>
+          <li><strong>Complete product range</strong> — one vendor, every access system type</li>
+          <li><strong>Saudi-based response team</strong> — local engineers, fast emergency service</li>
+          <li><strong>Government and aviation-grade credentials</strong> — trusted by the most demanding clients in the Kingdom</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand Story -->
+  <div class="story-block mb-2">
+    <div class="story-text">
+      "In 1994, when the Kingdom of Saudi Arabia was building the infrastructure of a modern nation, a small engineering team in Al-Qassim began installing automatic doors for the first time. The work was precise, the clients demanding, and the standards uncompromising.<br><br>
+      Over three decades, that team became Madar Randa — a company that has engineered access solutions for hospitals, hotels, airports, government buildings, and thousands of private properties. The clients who trusted us with their first door still call us when they build their next building.<br><br>
+      We have never stopped learning. We have never stopped improving. And we have never abandoned a client once the installation was complete. That is not a policy. It is how we were built."
+    </div>
+    <div class="story-meta">Brand Story — Madar Randa, Est. 1994+</div>
+  </div>
+
+  <!-- Competitive Advantages -->
+  <div class="card-label mb-1">Competitive Advantages — Reasons to Believe</div>
+  <table class="doc-table">
+    <thead>
+      <tr>
+        <th>Advantage</th>
+        <th>Proof Point</th>
+        <th>Why It Matters</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>30+ Years Experience</strong></td>
+        <td>Company founded in the 1990s, operational continuously</td>
+        <td>Clients trust longevity. Long track record reduces perceived risk.</td>
+      </tr>
+      <tr>
+        <td><strong>Full Product Spectrum</strong></td>
+        <td>10+ product categories from glass doors to hangar doors</td>
+        <td>Single vendor reduces procurement complexity for large projects.</td>
+      </tr>
+      <tr>
+        <td><strong>Maintenance Infrastructure</strong></td>
+        <td>Dedicated after-sales service operation</td>
+        <td>The single biggest pain point in the industry. Most competitors don't do it well.</td>
+      </tr>
+      <tr>
+        <td><strong>Saudi-Native Engineering</strong></td>
+        <td>Local team, local stock, local knowledge</td>
+        <td>Faster response than international brands, deeper context than regional traders.</td>
+      </tr>
+      <tr>
+        <td><strong>Sector Breadth</strong></td>
+        <td>Government, aviation, healthcare, hospitality references</td>
+        <td>Proof of performance in demanding environments builds confidence for all clients.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION 3: VOICE & TONE -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="section" id="voice">
+  <div class="section-header">
+    <div class="section-number">03</div>
+    <div class="section-title-block">
+      <div class="section-eyebrow">Communication</div>
+      <div class="section-title">Voice & Tone</div>
+    </div>
+  </div>
+
+  <div class="grid-4 mb-2">
+    <div class="card">
+      <div class="card-label">Confident</div>
+      <div class="card-body">We don't hedge. We state. Engineering knowledge earns the right to speak directly.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Precise</div>
+      <div class="card-body">Every word is chosen deliberately. Vague claims are replaced with specific proof.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Human</div>
+      <div class="card-body">Engineering doesn't mean cold. We talk like professionals who genuinely care about outcomes.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Respectful</div>
+      <div class="card-body">We address clients as intelligent decision-makers. We never talk down or oversell.</div>
+    </div>
+  </div>
+
+  <!-- Do / Don't Examples -->
+  <div class="card-label mb-1">Writing Examples — Do / Don't</div>
+
+  <div class="grid-2 mb-2">
+    <div>
+      <div class="voice-example">
+        <div class="voice-label">Sales Page <span class="voice-badge badge-do">DO</span></div>
+        <div class="voice-text">"We have installed automatic doors in more than 500 commercial and government projects across Saudi Arabia. Our engineers respond to maintenance calls within 24 hours. You get a door that works — and a team that ensures it keeps working."</div>
+      </div>
+      <div class="voice-example">
+        <div class="voice-label">Sales Page <span class="voice-badge badge-dont">DON'T</span></div>
+        <div class="voice-text">"We are a leading provider of world-class cutting-edge automatic door solutions that leverage innovative technology to deliver seamless experiences for all our valued customers!!"</div>
+      </div>
+    </div>
+    <div>
+      <div class="voice-example">
+        <div class="voice-label">Headline <span class="voice-badge badge-do">DO</span></div>
+        <div class="voice-text">"30 Years. Every Door Still Works."</div>
+      </div>
+      <div class="voice-example">
+        <div class="voice-label">Headline <span class="voice-badge badge-dont">DON'T</span></div>
+        <div class="voice-text">"Your Trusted Partner for All Your Automatic Door Needs!"</div>
+      </div>
+      <div class="voice-example" style="margin-top:1rem">
+        <div class="voice-label">Arabic (العربية) <span class="voice-badge badge-do">DO</span></div>
+        <div class="voice-text" style="font-family:var(--font-arabic); direction:rtl; text-align:right; font-size:16px">"مدار رندا — 30 عاماً من الهندسة التي لا تتوقف. كل باب نركبه يبقى يعمل."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Channel-specific tone -->
+  <table class="doc-table mb-2">
+    <thead>
+      <tr>
+        <th>Channel</th>
+        <th>Tone Adjustment</th>
+        <th>Example Phrase</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Website Headlines</strong></td>
+        <td>Bold, declarative, minimal. No punctuation on headlines.</td>
+        <td>"Engineering Access. Guaranteed Performance."</td>
+      </tr>
+      <tr>
+        <td><strong>Technical Pages</strong></td>
+        <td>Precise, specification-driven. Trust through detail.</td>
+        <td>"Cycle-tested to 1,000,000 operations. IP65 rated. CE certified."</td>
+      </tr>
+      <tr>
+        <td><strong>Customer Support</strong></td>
+        <td>Warm, calm, solution-first. Never defensive.</td>
+        <td>"Our engineer will be on-site within 24 hours. Here's what to do in the meantime."</td>
+      </tr>
+      <tr>
+        <td><strong>Arabic Communication</strong></td>
+        <td>Formal respect registers (أنتم، حضراتكم) for B2B. More conversational for residential clients.</td>
+        <td>"نفخر بخدمة مشاريع المملكة منذ أكثر من ٣٠ عاماً."</td>
+      </tr>
+      <tr>
+        <td><strong>Proposals / Tenders</strong></td>
+        <td>Formal, structured, evidence-heavy. Let the specs speak.</td>
+        <td>"Madar Randa has supplied and installed [product] in compliance with [standard] across 50+ projects."</td>
+      </tr>
+      <tr>
+        <td><strong>Social Media</strong></td>
+        <td>Confident and educational. Short. Project-first visuals.</td>
+        <td>"Installing a 12-meter aircraft hangar door in Al-Qassim. Engineering at scale."</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION 4: VISUAL IDENTITY -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="section" id="visual">
+  <div class="section-header">
+    <div class="section-number">04</div>
+    <div class="section-title-block">
+      <div class="section-eyebrow">Identity</div>
+      <div class="section-title">Visual Identity</div>
+    </div>
+  </div>
+
+  <!-- Logo -->
+  <div class="card-label mb-1">Logo System</div>
+  <div class="brand-mark-showcase mb-1">
+    <div class="logo-primary">
+      <div class="logo-mark-symbol">MR</div>
+      <div class="logo-wordmark">
+        <span>MADAR RANDA</span>
+        <span class="ar">مدار رندا</span>
+        <span class="tagline">Engineering Access Solutions</span>
+      </div>
+    </div>
+    <div class="logo-analysis">
+      <h3>Logo Direction & Rationale</h3>
+      <div class="analysis-row">
+        <span class="analysis-dot dot-blue"></span>
+        <span><strong style="color:white">Primary Mark:</strong> A geometric monogram "MR" contained in a precision square form. The square communicates structure, stability, and engineering order — the opposite of the loose, organic marks used by service companies.</span>
+      </div>
+      <div class="analysis-row">
+        <span class="analysis-dot dot-green"></span>
+        <span><strong style="color:white">What Works in Current Logo:</strong> The existing logo has a recognisable name identity. The Arabic calligraphy carries cultural authenticity that should be preserved in any refinement.</span>
+      </div>
+      <div class="analysis-row">
+        <span class="analysis-dot dot-amber"></span>
+        <span><strong style="color:white">Recommended Refinements:</strong> Modernise the wordmark with a geometric sans-serif. Introduce a standalone mark for digital icon use. Unify Latin and Arabic typeface weight. Add a structured tagline lockup.</span>
+      </div>
+      <div class="analysis-row">
+        <span class="analysis-dot dot-blue"></span>
+        <span><strong style="color:white">Safe Area:</strong> 2× the height of the "M" letterform on all four sides. Minimum digital size: 32px tall for full lockup, 16px for icon mark only.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logo Variations Grid -->
+  <div class="grid-4 mb-2">
+    <div class="card" style="background:var(--navy); border-color:rgba(59,130,196,0.2); text-align:center; padding:2rem 1rem;">
+      <div style="font-family:var(--font-display); font-size:22px; font-weight:700; color:white; margin-bottom:4px;">MADAR RANDA</div>
+      <div style="font-size:9px; color:var(--silver); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem">Primary — Dark BG</div>
+      <div class="badge badge-silver">Default Use</div>
+    </div>
+    <div class="card" style="background:white; text-align:center; padding:2rem 1rem; border:2px solid var(--border-strong);">
+      <div style="font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--navy); margin-bottom:4px;">MADAR RANDA</div>
+      <div style="font-size:9px; color:var(--steel-mid); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem">Primary — Light BG</div>
+      <div class="badge badge-silver">Reports, Print</div>
+    </div>
+    <div class="card" style="background:var(--blue-mid); border-color:rgba(59,130,196,0.3); text-align:center; padding:2rem 1rem;">
+      <div style="font-family:var(--font-display); font-size:44px; font-weight:700; color:white; line-height:1">MR</div>
+      <div style="font-size:9px; color:var(--silver); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem">Icon Mark Only</div>
+      <div class="badge badge-silver">Favicons, Apps</div>
+    </div>
+    <div class="card" style="background:var(--silver-pale); text-align:center; padding:2rem 1rem;">
+      <div style="font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--navy); margin-bottom:4px;">MADAR RANDA</div>
+      <div style="font-family:var(--font-arabic); font-size:16px; font-weight:500; color:var(--steel); margin-bottom:1rem; direction:rtl">مدار رندا</div>
+      <div class="badge badge-silver">Bilingual</div>
+    </div>
+  </div>
+
+  <!-- Color Palette -->
+  <div class="card-label mb-1">Color Palette</div>
+  <div class="color-grid mb-2">
+
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#0C1E3C">
+        <span class="swatch-name-on" style="color:rgba(255,255,255,0.7)">Navy</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-label">Deep Navy</div>
+        <div class="swatch-hex">#0C1E3C · rgb(12,30,60)</div>
+        <div class="swatch-hex">CMYK: 80,50,0,76</div>
+        <div class="swatch-tags">
+          <span class="swatch-tag">Primary</span>
+          <span class="swatch-tag">Backgrounds</span>
+          <span class="swatch-tag">Text</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#1A3A6B">
+        <span class="swatch-name-on" style="color:rgba(255,255,255,0.7)">Royal Blue</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-label">Royal Blue</div>
+        <div class="swatch-hex">#1A3A6B · rgb(26,58,107)</div>
+        <div class="swatch-hex">CMYK: 76,46,0,58</div>
+        <div class="swatch-tags">
+          <span class="swatch-tag">Secondary</span>
+          <span class="swatch-tag">Sections</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#2B6CB0">
+        <span class="swatch-name-on" style="color:rgba(255,255,255,0.85)">Accent Blue</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-label">Accent Blue</div>
+        <div class="swatch-hex">#2B6CB0 · rgb(43,108,176)</div>
+        <div class="swatch-hex">CMYK: 76,39,0,31</div>
+        <div class="swatch-tags">
+          <span class="swatch-tag">CTAs</span>
+          <span class="swatch-tag">Links</span>
+          <span class="swatch-tag">Active</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#A8B4C8">
+        <span class="swatch-name-on" style="color:#0C1E3C">Engineering Silver</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-label">Engineering Silver</div>
+        <div class="swatch-hex">#A8B4C8 · rgb(168,180,200)</div>
+        <div class="swatch-hex">CMYK: 16,10,0,22</div>
+        <div class="swatch-tags">
+          <span class="swatch-tag">Borders</span>
+          <span class="swatch-tag">Muted Text</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#EEF1F7">
+        <span class="swatch-name-on" style="color:#4A5568">Silver Pale</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-label">Silver Pale</div>
+        <div class="swatch-hex">#EEF1F7 · rgb(238,241,247)</div>
+        <div class="swatch-hex">CMYK: 4,2,0,3</div>
+        <div class="swatch-tags">
+          <span class="swatch-tag">Backgrounds</span>
+          <span class="swatch-tag">Cards</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#1F2937">
+        <span class="swatch-name-on" style="color:rgba(255,255,255,0.7)">Charcoal</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-label">Charcoal</div>
+        <div class="swatch-hex">#1F2937 · rgb(31,41,55)</div>
+        <div class="swatch-hex">CMYK: 44,25,0,78</div>
+        <div class="swatch-tags">
+          <span class="swatch-tag">Body Text</span>
+          <span class="swatch-tag">Headings</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#FFFFFF; border: 1px solid #EEF1F7;">
+        <span class="swatch-name-on" style="color:#4A5568">White</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-label">Pure White</div>
+        <div class="swatch-hex">#FFFFFF · rgb(255,255,255)</div>
+        <div class="swatch-hex">CMYK: 0,0,0,0</div>
+        <div class="swatch-tags">
+          <span class="swatch-tag">Cards</span>
+          <span class="swatch-tag">Modals</span>
+          <span class="swatch-tag">Contrast</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#F7F9FC; border: 1px solid #EEF1F7;">
+        <span class="swatch-name-on" style="color:#4A5568">Off-White</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-label">Off-White</div>
+        <div class="swatch-hex">#F7F9FC · rgb(247,249,252)</div>
+        <div class="swatch-hex">CMYK: 3,1,0,1</div>
+        <div class="swatch-tags">
+          <span class="swatch-tag">Page BG</span>
+          <span class="swatch-tag">Section BG</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Color Psychology Rationale -->
+  <div class="card mb-2">
+    <div class="card-label">Color Psychology — Why This Palette</div>
+    <div class="card-body">
+      <p><strong style="color:var(--navy)">Deep Navy (#0C1E3C):</strong> Navy communicates institutional trust, precision, and authority. It is the colour of engineering firms, aerospace companies, and premium financial institutions. For a Saudi engineering company serving government and aviation clients, navy signals that you are a serious organisation. It triggers associations with reliability and technical competence — exactly what an automatic door company needs to project.</p>
+      <p><strong style="color:var(--navy)">Accent Blue (#2B6CB0):</strong> The accent blue introduces energy and modernity without abandoning the trust palette. It differentiates CTAs and interactive elements, creating visual hierarchy that guides the user toward conversion actions. Blue is the colour most strongly associated with trust across cultures — a critical factor for B2B decision-makers.</p>
+      <p><strong style="color:var(--navy)">Engineering Silver (#A8B4C8):</strong> Silver is the colour of precision machinery, metal engineering, and high-grade components. It connects the brand visually to the products — steel doors, aluminium frames, precision motors. It is never decorative; it is always structural.</p>
+    </div>
+  </div>
+
+  <!-- Typography -->
+  <div class="card-label mb-1">Typography System</div>
+  <div class="type-showcase mb-2">
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Display / Headlines</strong>
+        <span>Barlow Condensed</span>
+        <span>Bold 700 / SemiBold 600</span>
+        <span>Free via Google Fonts</span>
+      </div>
+      <div>
+        <div style="font-family:var(--font-display); font-size:52px; font-weight:700; letter-spacing:-0.02em; color:var(--navy); line-height:1">Engineering Access</div>
+        <div style="font-family:var(--font-display); font-size:28px; font-weight:600; color:var(--steel); letter-spacing:-0.01em">Automatic Doors · Security Systems · Loading Docks</div>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Body / UI</strong>
+        <span>Barlow</span>
+        <span>Regular 400 / Medium 500</span>
+        <span>Free via Google Fonts</span>
+      </div>
+      <div>
+        <div style="font-family:var(--font-body); font-size:17px; color:var(--charcoal); line-height:1.7; max-width:580px">Madar Randa provides engineering expertise, not just products. Every system we install is backed by a team that understands what it's connected to, how it will behave under load, and what to do when conditions change.</div>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Arabic / عربي</strong>
+        <span>IBM Plex Sans Arabic</span>
+        <span>Regular 400 / Medium 500</span>
+        <span>Free via Google Fonts</span>
+      </div>
+      <div>
+        <div style="font-family:var(--font-arabic); font-size:28px; font-weight:600; color:var(--navy); direction:rtl; line-height:1.4">مدار رندا لحلول الأبواب الأوتوماتيكية</div>
+        <div style="font-family:var(--font-arabic); font-size:16px; color:var(--steel); direction:rtl; line-height:1.7; margin-top:0.5rem">أكثر من ٣٠ عاماً من الخبرة الهندسية في المملكة العربية السعودية</div>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Eyebrows / Labels</strong>
+        <span>Barlow Condensed</span>
+        <span>Bold 700, ALL CAPS</span>
+        <span>Letter spacing: 0.2em</span>
+      </div>
+      <div>
+        <div style="display:flex; flex-direction:column; gap:0.5rem">
+          <span style="font-family:var(--font-display); font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent)">Engineering Excellence · 30+ Years</span>
+          <span style="font-family:var(--font-display); font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--steel)">Product Category Label</span>
+          <span style="font-family:var(--font-display); font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--navy)">Section Header — Services</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photography Style -->
+  <div class="card-label mb-1">Photography Style</div>
+  <div class="photo-grid mb-2">
+    <div class="photo-placeholder" style="background:var(--navy)">
+      <div class="photo-placeholder-icon">🔩</div>
+      <div class="photo-placeholder-label" style="color:white">Engineered Detail</div>
+      <div class="photo-placeholder-desc" style="color:var(--silver)">Close-up precision: motors, hinges, control panels. Navy blue or silver color treatment. Hard light, sharp focus.</div>
+    </div>
+    <div class="photo-placeholder" style="background:var(--charcoal)">
+      <div class="photo-placeholder-icon">🏗</div>
+      <div class="photo-placeholder-label" style="color:white">Project Scale</div>
+      <div class="photo-placeholder-desc" style="color:var(--silver)">Wide-angle project installations. Airports, warehouses, hospitals. Architecture-grade framing. No people, or minimal.</div>
+    </div>
+    <div class="photo-placeholder" style="background:var(--blue)">
+      <div class="photo-placeholder-icon">👷</div>
+      <div class="photo-placeholder-label" style="color:white">Team in Action</div>
+      <div class="photo-placeholder-desc" style="color:var(--silver)">Engineers on-site. Uniforms. Tools. Candid professionalism — never staged. Documentary style.</div>
+    </div>
+  </div>
+
+  <!-- Spacing System -->
+  <div class="card-label mb-1">Spacing System (Tailwind-compatible)</div>
+  <div class="card mb-2">
+    <div class="spacing-showcase">
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:4px"></div>
+        <div class="spacing-label">4px</div>
+        <div class="spacing-px">space-1</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:8px"></div>
+        <div class="spacing-label">8px</div>
+        <div class="spacing-px">space-2</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:12px"></div>
+        <div class="spacing-label">12px</div>
+        <div class="spacing-px">space-3</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:16px"></div>
+        <div class="spacing-label">16px</div>
+        <div class="spacing-px">space-4</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:24px"></div>
+        <div class="spacing-label">24px</div>
+        <div class="spacing-px">space-6</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:32px"></div>
+        <div class="spacing-label">32px</div>
+        <div class="spacing-px">space-8</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:48px"></div>
+        <div class="spacing-label">48px</div>
+        <div class="spacing-px">space-12</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:64px"></div>
+        <div class="spacing-label">64px</div>
+        <div class="spacing-px">space-16</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:96px"></div>
+        <div class="spacing-label">96px</div>
+        <div class="spacing-px">space-24</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION 5: WEBSITE BRAND DIRECTION -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="section" id="website">
+  <div class="section-header">
+    <div class="section-number">05</div>
+    <div class="section-title-block">
+      <div class="section-eyebrow">Digital Presence</div>
+      <div class="section-title">Website Brand Direction</div>
+    </div>
+  </div>
+
+  <!-- Homepage Wireframe -->
+  <div class="card-label mb-1">Homepage Layout — Conceptual Wireframe</div>
+  <div class="wireframe mb-2">
+    <div class="wf-nav">
+      <div class="wf-nav-logo">MADAR RANDA</div>
+      <div class="wf-nav-links">
+        <span class="wf-nav-link">Products</span>
+        <span class="wf-nav-link">Services</span>
+        <span class="wf-nav-link">Projects</span>
+        <span class="wf-nav-link">About</span>
+        <span class="wf-nav-link">Contact</span>
+      </div>
+      <button class="btn btn-accent" style="font-size:11px; padding:0.5rem 1.25rem">Get a Quote</button>
+    </div>
+    <div class="wf-hero">
+      <div class="wf-hero-badge">30+ Years Engineering Excellence · Saudi Arabia</div>
+      <div class="wf-hero-h1">Every Door<br>We Install<br>Still Works</div>
+      <div class="wf-hero-sub">Saudi Arabia's most experienced automatic door and access system engineering company. From sliding glass doors to aircraft hangar doors.</div>
+      <div class="wf-cta-row">
+        <button class="btn btn-accent">Request a Quote →</button>
+        <button class="btn btn-secondary" style="border-color:rgba(255,255,255,0.3); color:white">View Our Projects</button>
+      </div>
+    </div>
+    <div class="wf-stats">
+      <div class="wf-stat">
+        <div class="wf-stat-num">30+</div>
+        <div class="wf-stat-label">Years of Operation</div>
+      </div>
+      <div class="wf-stat">
+        <div class="wf-stat-num">500+</div>
+        <div class="wf-stat-label">Projects Completed</div>
+      </div>
+      <div class="wf-stat">
+        <div class="wf-stat-num">10+</div>
+        <div class="wf-stat-label">Product Categories</div>
+      </div>
+    </div>
+    <div class="wf-services">
+      <div style="font-family:var(--font-display); font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:0.5rem">Our Engineering Products</div>
+      <div style="font-family:var(--font-display); font-size:24px; font-weight:700; color:var(--navy)">Access Solutions for Every Sector</div>
+      <div class="wf-services-grid">
+        <div class="wf-card">
+          <div class="wf-card-bar"></div>
+          <div class="wf-card-title">Automatic Glass Doors</div>
+          <div class="wf-card-text"></div>
+          <div class="wf-card-text short"></div>
+        </div>
+        <div class="wf-card">
+          <div class="wf-card-bar"></div>
+          <div class="wf-card-title">Sectional Doors</div>
+          <div class="wf-card-text"></div>
+          <div class="wf-card-text short"></div>
+        </div>
+        <div class="wf-card">
+          <div class="wf-card-bar"></div>
+          <div class="wf-card-title">Loading Dock Systems</div>
+          <div class="wf-card-text"></div>
+          <div class="wf-card-text short"></div>
+        </div>
+        <div class="wf-card">
+          <div class="wf-card-bar"></div>
+          <div class="wf-card-title">Road Barriers</div>
+          <div class="wf-card-text"></div>
+          <div class="wf-card-text short"></div>
+        </div>
+        <div class="wf-card">
+          <div class="wf-card-bar"></div>
+          <div class="wf-card-title">Hangar Doors</div>
+          <div class="wf-card-text"></div>
+          <div class="wf-card-text short"></div>
+        </div>
+        <div class="wf-card">
+          <div class="wf-card-bar"></div>
+          <div class="wf-card-title">Security Entrances</div>
+          <div class="wf-card-text"></div>
+          <div class="wf-card-text short"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Website Direction Table -->
+  <table class="doc-table mb-2">
+    <thead>
+      <tr>
+        <th>Page Element</th>
+        <th>Direction</th>
+        <th>Rationale</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Hero Section</strong></td>
+        <td>Full-width dark navy background. Large condensed headline. Single CTA. Project photography overlay at low opacity.</td>
+        <td>Establishes authority immediately. Dark backgrounds signal premium positioning in B2B engineering contexts.</td>
+      </tr>
+      <tr>
+        <td><strong>Navigation</strong></td>
+        <td>Sticky. Dark. Mega menu for Products. Persistent "Get Quote" CTA button always visible.</td>
+        <td>The quote button is the most important conversion element. It must be visible at all scroll positions.</td>
+      </tr>
+      <tr>
+        <td><strong>Service Cards</strong></td>
+        <td>White cards on light grey background. 3px left accent border in blue. Icon + product name + brief description + arrow CTA.</td>
+        <td>Clean, scannable. Consistent card structure builds the impression of an organised engineering operation.</td>
+      </tr>
+      <tr>
+        <td><strong>Trust Section</strong></td>
+        <td>Dark background. 3-4 large statistics. Partner logos. Certification badges. Client sector icons.</td>
+        <td>Trust signals at mid-page catch the visitor before they scroll away. Statistics are the most persuasive format.</td>
+      </tr>
+      <tr>
+        <td><strong>Animations</strong></td>
+        <td>Subtle only. Fade-in on scroll. No autoplay video unless muted. No parallax. No carousels.</td>
+        <td>Engineering clients equate restraint with professionalism. Heavy animation creates distrust in technical buyers.</td>
+      </tr>
+      <tr>
+        <td><strong>Arabic RTL</strong></td>
+        <td>Full RTL mirror. Arabic-first on Arabic version. IBM Plex Arabic for all body text. Logos remain bilingual.</td>
+        <td>Saudi Arabic-speaking visitors must feel the website was built for them, not translated for them.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION 6: UX STRATEGY -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="section" id="ux">
+  <div class="section-header">
+    <div class="section-number">06</div>
+    <div class="section-title-block">
+      <div class="section-eyebrow">Experience</div>
+      <div class="section-title">UX Strategy</div>
+    </div>
+  </div>
+
+  <div class="grid-2 mb-2">
+    <div class="card">
+      <div class="card-label">User Journey — Decision Maker</div>
+      <div class="card-body">
+        <ul class="doc-list">
+          <li><strong>Awareness:</strong> Google search → "automatic door Saudi Arabia" → Lands on homepage or service page</li>
+          <li><strong>Consideration:</strong> Scans hero + stats → Explores product category → Views project gallery</li>
+          <li><strong>Trust Building:</strong> Reads about 30 years + certifications → Sees familiar client sectors</li>
+          <li><strong>Intent:</strong> Clicks "Request Quote" or "Call Now" → Fills RFQ form</li>
+          <li><strong>Nurture:</strong> Receives email with project case study → Follows up with site visit</li>
+          <li><strong>Conversion:</strong> Proposal submitted → Project awarded</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Conversion Funnel Strategy</div>
+      <div class="card-body">
+        <ul class="doc-list">
+          <li><strong>Top of Funnel:</strong> SEO content, blog articles, project case studies drive organic traffic</li>
+          <li><strong>Mid Funnel:</strong> Service pages with engineering specifications convert interest to intent</li>
+          <li><strong>Bottom Funnel:</strong> Persistent quote CTA, WhatsApp button, phone number on every page</li>
+          <li><strong>Maintenance Funnel:</strong> Separate "Request Maintenance" flow for existing clients — keeps them loyal</li>
+          <li><strong>Lead Qualification:</strong> RFQ form collects project type, sector, timeline — qualifies leads before callback</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Psychological Triggers -->
+  <div class="card-label mb-1">Psychological Triggers — Applied</div>
+  <table class="doc-table mb-2">
+    <thead>
+      <tr>
+        <th>Trigger</th>
+        <th>Application</th>
+        <th>Implementation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authority</strong></td>
+        <td>"30+ Years Experience" headline</td>
+        <td>Display prominently in hero, above the fold, in bold numbers</td>
+      </tr>
+      <tr>
+        <td><strong>Social Proof</strong></td>
+        <td>Sector icons (hospitals, airports, government)</td>
+        <td>Trust band with recognisable sector logos or sector icons</td>
+      </tr>
+      <tr>
+        <td><strong>Specificity</strong></td>
+        <td>Exact statistics, not vague claims</td>
+        <td>"500+ projects" not "many projects"</td>
+      </tr>
+      <tr>
+        <td><strong>Scarcity / Urgency</strong></td>
+        <td>Maintenance response time</td>
+        <td>"24-hour engineer response" in maintenance section CTA</td>
+      </tr>
+      <tr>
+        <td><strong>Risk Reduction</strong></td>
+        <td>Free site visit / consultation offer</td>
+        <td>CTA: "Request a Free Site Assessment" reduces commitment anxiety</td>
+      </tr>
+      <tr>
+        <td><strong>Reciprocity</strong></td>
+        <td>Free maintenance checklist download</td>
+        <td>Lead magnet: "Download your automatic door maintenance guide"</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION 7: MESSAGING FRAMEWORK -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="section" id="messaging">
+  <div class="section-header">
+    <div class="section-number">07</div>
+    <div class="section-title-block">
+      <div class="section-eyebrow">Copy</div>
+      <div class="section-title">Messaging Framework</div>
+    </div>
+  </div>
+
+  <!-- Headlines -->
+  <div class="grid-2 mb-2">
+    <div class="card">
+      <div class="card-label">Homepage Headlines</div>
+      <ul class="doc-list mt-1">
+        <li>"Every Door We Install Still Works"</li>
+        <li>"30 Years. Every System. Still Running."</li>
+        <li>"Saudi Arabia's Engineering Access Partner"</li>
+        <li>"We Don't Just Install Doors. We Engineer Certainty."</li>
+        <li>"The Kingdom's Automatic Door Engineers"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-label">Service Headlines</div>
+      <ul class="doc-list mt-1">
+        <li>"Automatic Doors That Open When They Must"</li>
+        <li>"Industrial Doors Engineered for Production"</li>
+        <li>"Loading Docks That Don't Cost You Downtime"</li>
+        <li>"Security Entrances. Zero Compromise."</li>
+        <li>"Hangar Doors Built for What's At Stake"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 20 Taglines -->
+  <div class="card-label mb-1">20 Brand Taglines</div>
+  <div class="tagline-grid mb-2">
+    <div class="tagline-card"><div class="tagline-num">01</div><div><div class="tagline-text">Engineering Access. Guaranteed.</div><div class="tagline-sub">Primary tagline — all channels</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">02</div><div><div class="tagline-text">30 Years. Every Door Still Works.</div><div class="tagline-sub">Heritage campaign</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">03</div><div><div class="tagline-text">Precision. Performance. Partnership.</div><div class="tagline-sub">Corporate presentations</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">04</div><div><div class="tagline-text">When Access Matters, Engineer It.</div><div class="tagline-sub">B2B positioning</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">05</div><div><div class="tagline-text">The Kingdom's Trusted Door Engineers</div><div class="tagline-sub">Saudi-market focus</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">06</div><div><div class="tagline-text">We Stay After the Installation.</div><div class="tagline-sub">Maintenance differentiator</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">07</div><div><div class="tagline-text">Built for Saudi Arabia. Built to Last.</div><div class="tagline-sub">Local resilience</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">08</div><div><div class="tagline-text">From Glass Doors to Hangar Doors</div><div class="tagline-sub">Full-range positioning</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">09</div><div><div class="tagline-text">Specify With Confidence.</div><div class="tagline-sub">Architects and engineers</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">10</div><div><div class="tagline-text">Engineering That Doesn't Let You Down</div><div class="tagline-sub">Reliability focus</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">11</div><div><div class="tagline-text">مدار رندا — هندسة الوصول الموثوق</div><div class="tagline-sub">Arabic primary</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">12</div><div><div class="tagline-text">The Partner Behind Every Open Door</div><div class="tagline-sub">Relationship-led</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">13</div><div><div class="tagline-text">Access Engineered for the Long Term</div><div class="tagline-sub">Lifecycle positioning</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">14</div><div><div class="tagline-text">No Door Too Large. No Standard Too High.</div><div class="tagline-sub">Government/aviation</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">15</div><div><div class="tagline-text">Your First Call. Every Time Something Needs Fixing.</div><div class="tagline-sub">Maintenance loyalty</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">16</div><div><div class="tagline-text">Trusted by Saudi Arabia's Best Buildings</div><div class="tagline-sub">Sector prestige</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">17</div><div><div class="tagline-text">Engineered for Vision 2030</div><div class="tagline-sub">Timely / strategic</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">18</div><div><div class="tagline-text">Safety Is Not Optional. Neither Is Reliability.</div><div class="tagline-sub">Safety messaging</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">19</div><div><div class="tagline-text">Where Engineering Meets Longevity</div><div class="tagline-sub">Premium positioning</div></div></div>
+    <div class="tagline-card"><div class="tagline-num">20</div><div><div class="tagline-text">One Partner. Every Access Need.</div><div class="tagline-sub">Full-service</div></div></div>
+  </div>
+
+  <!-- 50 CTAs -->
+  <div class="card-label mb-1">50 CTA Button Copy</div>
+  <div class="cta-showcase mb-2">
+    <button class="btn btn-primary">Request a Quote →</button>
+    <button class="btn btn-accent">Get Free Site Assessment</button>
+    <button class="btn btn-secondary">View Our Projects</button>
+    <button class="btn btn-primary">Book a Site Visit</button>
+    <button class="btn btn-accent">Request Maintenance</button>
+    <button class="btn btn-ghost">Download Brochure</button>
+    <button class="btn btn-primary">Talk to an Engineer</button>
+    <button class="btn btn-accent">See All Products →</button>
+    <button class="btn btn-secondary">Explore Our Services</button>
+    <button class="btn btn-primary">Send RFQ</button>
+    <button class="btn btn-ghost">Call Us Now</button>
+    <button class="btn btn-accent">WhatsApp Us →</button>
+    <button class="btn btn-primary">Submit a Tender Enquiry</button>
+    <button class="btn btn-secondary">View Technical Specs</button>
+    <button class="btn btn-accent">Download Maintenance Checklist</button>
+    <button class="btn btn-ghost">Request Emergency Service</button>
+    <button class="btn btn-primary">Start Your Project →</button>
+    <button class="btn btn-secondary">Compare Door Types</button>
+    <button class="btn btn-accent">Get a Maintenance Contract</button>
+    <button class="btn btn-ghost">Read Our Case Studies</button>
+  </div>
+
+  <!-- Additional CTAs as table -->
+  <div class="card-label mb-1">Additional CTAs by Context</div>
+  <table class="doc-table mb-2">
+    <thead>
+      <tr><th>#</th><th>CTA Text</th><th>Context</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>21</td><td>Calculate Your Door Requirements</td><td>Configurator tool</td></tr>
+      <tr><td>22</td><td>View Automatic Door Gallery</td><td>Project showcase</td></tr>
+      <tr><td>23</td><td>Check System Compatibility</td><td>Technical product pages</td></tr>
+      <tr><td>24</td><td>Find Your Door Type</td><td>Product finder widget</td></tr>
+      <tr><td>25</td><td>Request Annual Maintenance</td><td>After-sales section</td></tr>
+      <tr><td>26</td><td>Download CE Certificate</td><td>Compliance section</td></tr>
+      <tr><td>27</td><td>Speak to Our Engineers</td><td>Contact page CTA</td></tr>
+      <tr><td>28</td><td>Get Sector-Specific Solutions</td><td>Sector landing pages</td></tr>
+      <tr><td>29</td><td>See How We Work</td><td>Process section</td></tr>
+      <tr><td>30</td><td>Ask About Warranty</td><td>Product detail pages</td></tr>
+      <tr><td>31–50</td><td>Arabic variants of all above + sector-specific CTAs</td><td>Arabic site mirror</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION 8: SEO BRAND STRATEGY -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="section" id="seo">
+  <div class="section-header">
+    <div class="section-number">08</div>
+    <div class="section-title-block">
+      <div class="section-eyebrow">Digital Growth</div>
+      <div class="section-title">SEO Brand Strategy</div>
+    </div>
+  </div>
+
+  <div class="card-label mb-1">Primary Keywords</div>
+  <div class="keyword-cloud mb-2">
+    <span class="kw primary">أبواب أوتوماتيكية السعودية</span>
+    <span class="kw primary">automatic doors Saudi Arabia</span>
+    <span class="kw primary">أبواب مقطعية</span>
+    <span class="kw primary">sectional doors Riyadh</span>
+    <span class="kw primary">loading dock equipment KSA</span>
+    <span class="kw primary">road barriers Saudi</span>
+    <span class="kw primary">hangar doors Saudi Arabia</span>
+    <span class="kw primary">security entrances KSA</span>
+    <span class="kw secondary">automatic door maintenance</span>
+    <span class="kw secondary">garage door motor Saudi</span>
+    <span class="kw secondary">parking barrier installation</span>
+    <span class="kw secondary">automatic sliding door supplier</span>
+    <span class="kw secondary">industrial door Saudi Arabia</span>
+    <span class="kw secondary">rolling shutter installation</span>
+    <span class="kw secondary">access control system KSA</span>
+    <span class="kw secondary">صيانة أبواب أوتوماتيكية</span>
+    <span class="kw secondary">حواجز طرق السعودية</span>
+    <span class="kw secondary">بوابات أمنية</span>
+    <span class="kw">automatic door company Al-Qassim</span>
+    <span class="kw">مدار رندا القصيم</span>
+    <span class="kw">sectional door maintenance</span>
+    <span class="kw">fast door industrial</span>
+    <span class="kw">aluminum window shutter Saudi</span>
+    <span class="kw">door motor supplier KSA</span>
+  </div>
+
+  <div class="grid-2 mb-2">
+    <div class="card">
+      <div class="card-label">Local SEO Strategy</div>
+      <ul class="doc-list mt-1">
+        <li>Google Business Profile optimisation: Al-Qassim + Riyadh + Jeddah service areas</li>
+        <li>NAP consistency across all directories (Name, Address, Phone)</li>
+        <li>Arabic-language local landing pages for each city served</li>
+        <li>Schema markup: LocalBusiness, Service, FAQPage, Review</li>
+        <li>Google Maps embedded on contact page with Arabic name match</li>
+        <li>Review generation strategy targeting verified clients</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-label">E-E-A-T Content Strategy</div>
+      <ul class="doc-list mt-1">
+        <li><strong>Experience:</strong> Published case studies with dates, project specs, photos</li>
+        <li><strong>Expertise:</strong> Technical articles on door types, maintenance schedules, load ratings</li>
+        <li><strong>Authority:</strong> Partner brand logos, certifications, government project references</li>
+        <li><strong>Trust:</strong> Real team photos, physical address, licensed engineer credentials</li>
+        <li>Author bio pages for all technical content writers</li>
+        <li>Date-stamped content with "Last updated" for maintenance articles</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="doc-table mb-2">
+    <thead>
+      <tr>
+        <th>Content Pillar</th>
+        <th>Blog Categories</th>
+        <th>SEO Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Product Education</strong></td>
+        <td>Door type comparisons, specification guides, motor types</td>
+        <td>Captures research-phase searches from engineers and architects</td>
+      </tr>
+      <tr>
+        <td><strong>Maintenance & Care</strong></td>
+        <td>Maintenance schedules, fault diagnosis, spare parts guides</td>
+        <td>High search volume from existing door owners, builds maintenance revenue</td>
+      </tr>
+      <tr>
+        <td><strong>Sector Solutions</strong></td>
+        <td>Hospital door requirements, airport hangar doors, hotel lobbies</td>
+        <td>Long-tail, high-intent traffic from decision-makers in specific sectors</td>
+      </tr>
+      <tr>
+        <td><strong>Project Showcases</strong></td>
+        <td>Case studies by sector, installation walkthroughs</td>
+        <td>Builds E-E-A-T, provides social proof, earns backlinks</td>
+      </tr>
+      <tr>
+        <td><strong>Saudi Market News</strong></td>
+        <td>Vision 2030 projects, building regulation updates, industry trends</td>
+        <td>Topical authority, freshness signals, establishes thought leadership</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION 9: DESIGN SYSTEM -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="section" id="design-system">
+  <div class="section-header">
+    <div class="section-number">09</div>
+    <div class="section-title-block">
+      <div class="section-eyebrow">Components</div>
+      <div class="section-title">UI Design System</div>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="ui-section">
+    <div class="ui-section-title">Buttons</div>
+    <div class="cta-showcase" style="padding:0; border:none; margin-bottom:1.5rem">
+      <button class="btn btn-primary">Primary Button</button>
+      <button class="btn btn-secondary">Secondary Button</button>
+      <button class="btn btn-accent">Accent Button</button>
+      <button class="btn btn-ghost">Ghost Button</button>
+      <button class="btn btn-danger">Danger Button</button>
+    </div>
+    <div style="background:var(--charcoal); padding:1.5rem; border-radius:var(--radius); display:flex; gap:1rem; flex-wrap:wrap">
+      <button class="btn btn-primary" style="background:white; color:var(--navy)">White Button</button>
+      <button class="btn btn-secondary" style="border-color:rgba(255,255,255,0.3); color:white">White Outline</button>
+      <button class="btn btn-accent">Blue on Dark</button>
+    </div>
+  </div>
+
+  <!-- Badges -->
+  <div class="ui-section">
+    <div class="ui-section-title">Badges & Status</div>
+    <div class="badges-row mb-1">
+      <span class="badge badge-primary">Installed</span>
+      <span class="badge badge-accent">● Active Contract</span>
+      <span class="badge badge-outline">Engineering</span>
+      <span class="badge badge-silver">Maintenance</span>
+      <span class="badge badge-success">✓ Certified</span>
+      <span class="badge badge-warning">⚠ Pending Review</span>
+    </div>
+  </div>
+
+  <!-- Form Inputs -->
+  <div class="ui-section">
+    <div class="ui-section-title">Form Inputs</div>
+    <div class="grid-2">
+      <div>
+        <div style="margin-bottom:1rem">
+          <label style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--steel); display:block; margin-bottom:6px">Full Name</label>
+          <input class="input-field" type="text" placeholder="Eng. Mohammed Al-Harbi">
+        </div>
+        <div style="margin-bottom:1rem">
+          <label style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--steel); display:block; margin-bottom:6px">Project Type</label>
+          <select class="input-field" style="cursor:pointer">
+            <option>Automatic Glass Doors</option>
+            <option>Industrial Sectional Doors</option>
+            <option>Loading Dock Equipment</option>
+            <option>Road Barriers</option>
+            <option>Security Entrances</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <div style="margin-bottom:1rem">
+          <label style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--steel); display:block; margin-bottom:6px">Message</label>
+          <textarea class="input-field" rows="4" placeholder="Describe your project requirements..."></textarea>
+        </div>
+        <button class="btn btn-accent" style="width:100%; justify-content:center">Submit Request for Quotation →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Cards -->
+  <div class="ui-section">
+    <div class="ui-section-title">Service Cards</div>
+    <div class="grid-3">
+      <div class="service-card">
+        <div class="service-card-icon">🚪</div>
+        <div class="service-card-title">Automatic Glass Doors</div>
+        <div class="service-card-body">Sliding, swing, and revolving automatic doors for commercial lobbies, hospitals, and hospitality. CE certified, motor-driven.</div>
+        <div style="margin-top:1rem"><a href="#" style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); text-decoration:none">Learn more →</a></div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon">🏭</div>
+        <div class="service-card-title">Sectional Doors</div>
+        <div class="service-card-body">Heavy-duty insulated sectional doors for warehouses, factories, and logistics facilities. Wind-load rated, automated.</div>
+        <div style="margin-top:1rem"><a href="#" style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); text-decoration:none">Learn more →</a></div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon">✈️</div>
+        <div class="service-card-title">Hangar Doors</div>
+        <div class="service-card-body">Aircraft hangar doors engineered for aviation-grade performance. Widths up to 50m+. Custom-engineered per specification.</div>
+        <div style="margin-top:1rem"><a href="#" style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); text-decoration:none">Learn more →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tailwind Config -->
+  <div class="ui-section">
+    <div class="ui-section-title">Tailwind CSS Configuration</div>
+    <div class="prompt-block">
+      <pre class="prompt-text"><span class="prompt-comment">// tailwind.config.js — Madar Randa Design System</span>
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        navy:     { DEFAULT: '<span class="prompt-val">#0C1E3C</span>', 700: '<span class="prompt-val">#1A3A6B</span>', 600: '<span class="prompt-val">#1E4D8C</span>' },
+        accent:   { DEFAULT: '<span class="prompt-val">#2B6CB0</span>', light: '<span class="prompt-val">#3B82C4</span>' },
+        silver:   { DEFAULT: '<span class="prompt-val">#A8B4C8</span>', light: '<span class="prompt-val">#D4DCE8</span>', pale: '<span class="prompt-val">#EEF1F7</span>' },
+        steel:    { DEFAULT: '<span class="prompt-val">#4A5568</span>', mid: '<span class="prompt-val">#6B7280</span>' },
+        charcoal: '<span class="prompt-val">#1F2937</span>',
+      },
+      fontFamily: {
+        display: [<span class="prompt-val">'Barlow Condensed'</span>, 'sans-serif'],
+        body:    [<span class="prompt-val">'Barlow'</span>, 'sans-serif'],
+        arabic:  [<span class="prompt-val">'IBM Plex Sans Arabic'</span>, 'sans-serif'],
+      },
+      borderRadius: {
+        <span class="prompt-key">sm</span>: '<span class="prompt-val">4px</span>',
+        DEFAULT: '<span class="prompt-val">8px</span>',
+        lg: '<span class="prompt-val">16px</span>',
+      },
+      spacing: {
+        <span class="prompt-key">18</span>: '<span class="prompt-val">4.5rem</span>',
+        <span class="prompt-key">22</span>: '<span class="prompt-val">5.5rem</span>',
+      },
+      boxShadow: {
+        sm:  '<span class="prompt-val">0 1px 3px rgba(12,30,60,0.08)</span>',
+        md:  '<span class="prompt-val">0 4px 16px rgba(12,30,60,0.10)</span>',
+        lg:  '<span class="prompt-val">0 12px 40px rgba(12,30,60,0.14)</span>',
+      },
+    }
+  }
+}</pre>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION 10: BRAND GUIDELINES -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="section" id="guidelines">
+  <div class="section-header">
+    <div class="section-number">10</div>
+    <div class="section-title-block">
+      <div class="section-eyebrow">Rules</div>
+      <div class="section-title">Brand Guidelines</div>
+    </div>
+  </div>
+
+  <div class="grid-2 mb-2">
+    <div>
+      <div class="card-label mb-1">Logo Usage Rules</div>
+      <div class="rule-card success">
+        <div class="rule-title">✓ Correct Logo Usage</div>
+        <div class="rule-body">Use on navy, white, or silver-pale backgrounds only. Always maintain safe area of 2× letterform height. Use full wordmark for all print applications over 80mm. Use icon mark for digital favicons only.</div>
+      </div>
+      <div class="rule-card warning">
+        <div class="rule-title">✗ Never Do This</div>
+        <div class="rule-body">Never stretch, rotate, or recolour the logo. Never place on busy photographic backgrounds without an overlay. Never use outdated logo versions. Never reduce below 32px height digital / 20mm print.</div>
+      </div>
+    </div>
+    <div>
+      <div class="card-label mb-1">Color Usage Rules</div>
+      <div class="rule-card success">
+        <div class="rule-title">✓ Approved Color Combinations</div>
+        <div class="rule-body">Navy background + White text. White background + Navy text. Navy background + Accent Blue CTAs. Silver Pale background + Navy or Charcoal text. All combinations must meet WCAG AA contrast (4.5:1).</div>
+      </div>
+      <div class="rule-card warning">
+        <div class="rule-title">✗ Forbidden Color Uses</div>
+        <div class="rule-body">No bright red, orange, or green anywhere in the brand. No gradients on text. No purple. No neon or fluorescent colors. No competing accent colors alongside the defined Accent Blue.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2 mb-2">
+    <div>
+      <div class="card-label mb-1">Typography Rules</div>
+      <div class="rule-card">
+        <div class="rule-title">Display Type Rules</div>
+        <div class="rule-body">Barlow Condensed only for H1, H2, headlines, section titles, and all-caps labels. Minimum 700 weight for headlines. Maximum letter-spacing: –0.03em on large display. Never use italic on condensed display.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-title">Body Type Rules</div>
+        <div class="rule-body">Barlow Regular (400) for all body text. Barlow Medium (500) for emphasis within body. Minimum body size: 14px digital, 10pt print. Line height: 1.65–1.8 for body, 1.1–1.2 for display.</div>
+      </div>
+    </div>
+    <div>
+      <div class="card-label mb-1">Accessibility Rules</div>
+      <div class="rule-card">
+        <div class="rule-title">Color Contrast</div>
+        <div class="rule-body">All text must pass WCAG 2.1 AA. Large text (18px+ or bold 14px+): minimum 3:1. Normal text: minimum 4.5:1. Navy on White: 16.3:1 ✓. Accent Blue on White: 4.6:1 ✓.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-title">Digital Accessibility</div>
+        <div class="rule-body">All interactive elements must have visible focus states (3px navy outline). All images must have descriptive alt text in Arabic and English. Form labels must be visible (not placeholder-only). Font minimum 16px for body on mobile.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand Consistency -->
+  <div class="card">
+    <div class="card-label">Brand Consistency Rules — The Non-Negotiables</div>
+    <div class="grid-2 mt-1">
+      <ul class="doc-list">
+        <li>The company name is always written "Madar Randa" in English (not MADAR RANDA or Madar-Randa)</li>
+        <li>The Arabic name مدار رندا always appears alongside the English name on bilingual materials</li>
+        <li>The tagline "Engineering Access Solutions" is always in Barlow Condensed, sentence case</li>
+        <li>Photography must always show engineering quality — no stock photography with generic doors</li>
+        <li>Never use the brand in a way that suggests cheap pricing or budget positioning</li>
+      </ul>
+      <ul class="doc-list">
+        <li>All website headlines must follow the Voice & Tone guide — no exclamation marks</li>
+        <li>Statistical claims ("30+ years", "500+ projects") must always be defensible and accurate</li>
+        <li>The accent blue is reserved for CTAs and active UI elements — not for decorative use</li>
+        <li>Icons must always be the same outlined engineering/technical style — no decorative illustration</li>
+        <li>The brand must always read as premium in its own context — not relative to a generic corporate standard</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION 11: BRAND EVOLUTION -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="section" id="evolution">
+  <div class="section-header">
+    <div class="section-number">11</div>
+    <div class="section-title-block">
+      <div class="section-eyebrow">Future</div>
+      <div class="section-title">Brand Evolution — 5 Year Roadmap</div>
+    </div>
+  </div>
+
+  <div class="card mb-2">
+    <div class="card-label">Evolution Principle</div>
+    <div class="card-body">
+      <p>Madar Randa's brand should evolve like great engineering: incremental precision improvements, never wholesale replacement. The deep navy, condensed typography, and engineering-precision aesthetic are durable enough to carry the brand for decades — they should be refined, not reinvented. What must evolve is the digital execution, content depth, and product range communication as the Saudi market matures and Vision 2030 progresses.</p>
+    </div>
+  </div>
+
+  <div class="timeline mb-2">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">Year 1 — 2025</div>
+      <div class="timeline-title">Foundation: Brand Launch & Digital Rebuild</div>
+      <div class="timeline-body">New website launch with full Arabic/English bilingual support. SEO content programme begins. Google Business Profile optimisation. RFQ lead capture system. Photography project begins — document 10+ flagship installations. Brand guidelines distributed to all staff and design partners.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">Year 2 — 2026</div>
+      <div class="timeline-title">Authority: Content & Trust Signals</div>
+      <div class="timeline-body">40+ published blog articles establishing E-E-A-T. Video testimonial series from key clients. Certified maintenance programme launched with dedicated branded contracts. First sector-specific landing pages (hospitals, airports, government). Partnership with Saudi engineering associations announced.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">Year 3 — 2027</div>
+      <div class="timeline-title">Expansion: Digital Products & Configurator</div>
+      <div class="timeline-body">Interactive door configurator tool on website. Maintenance request app or WhatsApp bot. Architect and consultant specification portal. Brand extended to second regional city (Riyadh or Jeddah office). First major awards programme entry (MENA Construction, Saudi Design Week).</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">Year 4 — 2028</div>
+      <div class="timeline-title">Premium: Sector Leadership Campaigns</div>
+      <div class="timeline-body">Dedicated aviation-sector brand sub-identity (premium dark aesthetic with silver). Healthcare sector vertical with clinical-grade messaging. Thought leadership white papers on Saudi building automation. LinkedIn B2B content programme. Vision 2030 project portfolio showcase.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">Year 5 — 2029</div>
+      <div class="timeline-title">Legacy: Regional Engineering Brand</div>
+      <div class="timeline-body">Madar Randa positioned as the Saudi authority on engineered access. Potential GCC market expansion brand strategy. Academic partnership with Saudi engineering schools. Annual "State of Access Engineering in Saudi Arabia" report published. 35-year milestone campaign: "35 Years. Every Door Still Works."</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION 12: AI DESIGN PROMPT -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="section" id="prompt">
+  <div class="section-header">
+    <div class="section-number">12</div>
+    <div class="section-title-block">
+      <div class="section-eyebrow">Build It</div>
+      <div class="section-title">AI Design Prompt</div>
+    </div>
+  </div>
+
+  <div class="card mb-2">
+    <div class="card-label">Use in: Claude Design, v0, Bolt, Lovable, Framer AI, Cursor, Replit, Figma AI</div>
+    <div class="card-body">Copy the complete prompt below and paste it into any AI design or development tool. It encodes the complete Madar Randa brand identity and will generate a premium engineering website consistent with these guidelines.</div>
+  </div>
+
+  <div class="prompt-block">
+    <pre class="prompt-text"><span class="prompt-comment">## Madar Randa — Premium Engineering Website Prompt</span>
+
+<span class="prompt-key">COMPANY:</span> Madar Randa (مدار رندا)
+<span class="prompt-key">INDUSTRY:</span> Automatic Doors, Industrial Doors, Security Systems, Loading Docks, Saudi Arabia
+<span class="prompt-key">ARCHETYPE:</span> The Ruler — Authority, Mastery, Stability, Engineering Precision
+<span class="prompt-key">LANGUAGE:</span> Bilingual — English (LTR) and Arabic (RTL), with full RTL mirror layout
+
+<span class="prompt-comment">## DESIGN DIRECTION</span>
+Create a premium B2B engineering website with the following character:
+- Dark navy (#0C1E3C) as the primary brand color — used for hero, nav, and dark sections
+- Accent Blue (#2B6CB0) for all CTAs, active states, and interactive elements
+- Engineering Silver (#A8B4C8) for borders, muted text, and structural details
+- Off-White (#F7F9FC) for content section backgrounds
+- White (#FFFFFF) for cards and modals
+
+<span class="prompt-comment">## TYPOGRAPHY</span>
+- Headlines: Barlow Condensed, Bold 700, tight letter-spacing (-0.02em)
+- Body: Barlow, Regular 400, line-height 1.7
+- Arabic: IBM Plex Sans Arabic, Medium 500
+- Eyebrows: Barlow Condensed 700, ALL CAPS, letter-spacing 0.25em, color accent blue
+- Display numbers (stats): Barlow Condensed 700, very large (48–72px)
+
+<span class="prompt-comment">## HOMEPAGE STRUCTURE</span>
+1. STICKY NAV: Dark navy. Logo left. Navigation links center. "Request Quote" CTA button right (accent blue, always visible).
+2. HERO: Full-width dark navy. Large condensed headline: "Every Door We Install Still Works". Engineering sub-headline. Two CTAs: Primary "Request a Quote →" (accent blue), Secondary "View Projects" (white outline). Background: subtle geometric grid overlay.
+3. TRUST STATS BAND: 3 large statistics — "30+ Years", "500+ Projects", "10+ Product Categories". Dark background, horizontal layout.
+4. SERVICES GRID: White cards on silver-pale background. Icon + product name + short description + arrow link. 3-column, 10 products total.
+5. TRUST SECTION: Dark navy section. Sector icons: Hospital, Airport, Hotel, Government, Warehouse. Partner/brand logos. "Certified by leading international standards" copy.
+6. ABOUT STRIP: Horizontal section with photo left, text right. "Engineering Access Since 1994. We don't just install doors — we engineer long-term reliability."
+7. MAINTENANCE CTA: Full-width section. "Existing client? Request maintenance support." Accent blue background. White text. WhatsApp and phone CTA.
+8. PROJECT SHOWCASE: Photo grid with sector tags. Filter by: Commercial, Industrial, Healthcare, Aviation, Government.
+9. TESTIMONIALS: 3 client quotes. Client sector + initials only (no photos). Card layout.
+10. FAQ: Accordion. Clean, minimal.
+11. FOOTER: Dark navy. 3-column. Logo + Arabic name + tagline. Navigation links. Contact info: phone, email, WhatsApp. Arabic address. Social links. Copyright.
+
+<span class="prompt-comment">## COMPONENTS TO GENERATE</span>
+- Navigation: sticky, dark, mega menu for Products with product grid layout
+- Buttons: Primary (navy fill), Secondary (navy outline), Accent (blue fill), Ghost (transparent), sizes: sm/md/lg
+- Cards: Service card with left accent border, Project card with overlay badge, Testimonial card
+- Forms: RFQ form with floating labels, validation states, submit with loading state
+- Badges: "Certified", "30+ Years", sector badges
+- Trust indicators: stat cards, certification logos row, client sector icons
+- RTL full mirror: identical structure but right-to-left with Arabic typography
+
+<span class="prompt-comment">## TONE & COPY STYLE</span>
+- Bold, declarative headlines. No hedging. No exclamation marks.
+- Statistics over adjectives: "30+ years" not "decades of experience"
+- Engineering vocabulary: "engineered", "specified", "precision", "certified", "lifecycle"
+- Arabic copy: formal professional register, using أنتم / حضراتكم for B2B
+- Primary CTA copy: "Request a Quote →" / "اطلب عرض سعر"
+- No stock photography — use engineering/industrial photography with navy blue tone treatment
+
+<span class="prompt-comment">## WHAT TO AVOID</span>
+- No bright red, orange, lime green, or purple anywhere
+- No rounded pill buttons — use 4px radius maximum (engineering precision feel)
+- No gradients, drop shadows, neon, or glassmorphism
+- No stock photo smiling people — engineering installations only
+- No generic corporate clip art icons — use outlined, precise engineering icons
+- No autoplay video with sound
+- No infinite carousels without manual controls
+
+<span class="prompt-comment">## TAILWIND CLASSES TO USE</span>
+bg-[#0C1E3C] text-white (sections / hero / nav / footer)
+bg-[#2B6CB0] text-white (primary CTAs / active states)
+bg-[#EEF1F7] (content section backgrounds)
+bg-white border border-[#D4DCE8] rounded (cards)
+font-['Barlow_Condensed'] font-bold tracking-tight (headlines)
+font-['Barlow'] font-normal leading-relaxed (body)
+
+<span class="prompt-comment">## OUTPUT FORMAT</span>
+Generate: Complete React component with Tailwind CSS. 
+Include: Homepage, Services page, Contact page with RFQ form.
+Include: Dark/light section alternation per structure above.
+Include: Mobile responsive down to 375px.
+Include: RTL attribute support for Arabic version (dir="rtl").
+Include: WCAG AA accessible color contrast throughout.</pre>
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy Full Prompt</button>
+  </div>
+</section>
+
+</div><!-- end doc-body -->
+
+<!-- Back to top -->
+<a href="#top" class="back-top" title="Back to top">↑</a>
+
+<script>
+function copyPrompt(btn) {
+  const pre = btn.previousElementSibling;
+  const text = pre.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy Full Prompt', 2000);
+  });
+}
+
+// Tab switching
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const group = tab.closest('.tabs').nextElementSibling;
+    const key = tab.dataset.tab;
+    tab.closest('.tabs').querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    if (group) {
+      group.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      group.querySelector('[data-content="'+key+'"]')?.classList.add('active');
+    }
+  });
+});
+
+// Highlight active nav on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-item');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.style.color = link.getAttribute('href') === '#' + entry.target.id 
+          ? 'var(--accent-light)' : '';
+      });
+    }
+  });
+}, { threshold: 0.2 });
+
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

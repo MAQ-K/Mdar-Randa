@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Madar Randa Homepage" description="Full homepage: hero, stats band, services grid, trust section, maintenance CTA, contact form, and footer. Bilingual EN/AR toggle built-in." -->
+<helmet>
+  <script src="./ds-base.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--font-body); }
+    a { text-decoration: none; color: inherit; }
+  </style>
+</helmet>
+
+<!-- ══ NAV ══════════════════════════════════════════ -->
+<x-import component-from-global-scope="MadarRandaDesignSystem_7efd61.NavBar"
+  logo-src="../../assets/logos/logo.png"
+  cta-href="#contact"
+  hint-size="100%,68px">
+</x-import>
+
+<!-- ══ HERO ═════════════════════════════════════════ -->
+<section style="background:var(--color-navy);min-height:85vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:64px 0;">
+  <div style="position:absolute;inset:0;background-image:var(--grid-overlay);background-size:var(--grid-size);pointer-events:none;"></div>
+  <div style="max-width:var(--container-max);margin:0 auto;padding:0 var(--container-pad);position:relative;z-index:1;width:100%;">
+    <div style="max-width:760px;">
+      <x-import component-from-global-scope="MadarRandaDesignSystem_7efd61.Badge" variant="on-dark" hint-size="300px,28px" style="margin-bottom:28px;display:inline-flex;">
+        30+ Years Engineering Excellence · Saudi Arabia
+      </x-import>
+      <h1 style="font-family:var(--font-display);font-size:clamp(52px,8vw,96px);font-weight:700;letter-spacing:-0.02em;color:#fff;line-height:0.92;margin:0 0 24px;">Every Door<br/>We Install<br/>Still Works</h1>
+      <p style="font-family:var(--font-body);font-size:18px;color:var(--color-silver);max-width:480px;line-height:1.75;margin:0 0 36px;">Saudi Arabia's most experienced automatic door and engineering access company. 30+ years. 500+ projects. 10+ product categories.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <x-import component-from-global-scope="MadarRandaDesignSystem_7efd61.Button" variant="accent" size="lg" arrow="true" href="#contact" hint-size="240px,52px">Request a Quote</x-import>
+        <x-import component-from-global-scope="MadarRandaDesignSystem_7efd61.Button" variant="outline-white" size="lg" href="#projects" hint-size="220px,52px">View Our Projects</x-import>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS BAND ════════════════════════════════════ -->
+<div style="background:var(--color-royal-blue);">
+  <div style="max-width:var(--container-max);margin:0 auto;padding:0 var(--container-pad);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+    <sc-for list="{{ stats }}" as="stat" hint-placeholder-count="3">
+      <div style="padding:36px 24px;text-align:center;border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:var(--font-display);font-size:clamp(40px,6vw,68px);font-weight:700;color:#fff;letter-spacing:-0.02em;line-height:1;">{{ stat.n }}</div>
+        <div style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-silver);margin-top:8px;">{{ stat.l }}</div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<!-- ══ SERVICES GRID ═════════════════════════════════ -->
+<section id="products" style="background:var(--color-silver-pale);padding:var(--section-pad) 0;">
+  <div style="max-width:var(--container-max);margin:0 auto;padding:0 var(--container-pad);">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px;">Our Engineering Products</div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(24px,4vw,42px);font-weight:700;letter-spacing:-0.02em;color:var(--color-navy);margin:0;line-height:1.1;">Access Solutions for Every Sector</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;">
+      <sc-for list="{{ products }}" as="product" hint-placeholder-count="6">
+        <x-import component-from-global-scope="MadarRandaDesignSystem_7efd61.ServiceCard"
+          image-src="{{ product.img }}"
+          title="{{ product.title }}"
+          description="{{ product.desc }}"
+          hint-size="100%,200px">
+        </x-import>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST BAND ════════════════════════════════════ -->
+<section style="background:var(--color-navy);padding:var(--section-pad) 0;">
+  <div style="max-width:var(--container-max);margin:0 auto;padding:0 var(--container-pad);text-align:center;">
+    <div style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px;">Trusted Across Sectors</div>
+    <h2 style="font-family:var(--font-display);font-size:clamp(22px,4vw,40px);font-weight:700;letter-spacing:-0.02em;color:#fff;margin:0 0 40px;line-height:1.1;">Trusted by Saudi Arabia's Finest Facilities</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));border:1px solid rgba(43,108,176,0.2);border-radius:var(--radius);overflow:hidden;margin-bottom:36px;">
+      <sc-for list="{{ sectors }}" as="sector" hint-placeholder-count="6">
+        <div style="padding:20px 10px;text-align:center;border-right:1px solid rgba(43,108,176,0.2);background:rgba(255,255,255,0.02);">
+          <div style="font-size:28px;margin-bottom:8px;">{{ sector.icon }}</div>
+          <div style="font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-silver);">{{ sector.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:32px;padding-top:28px;border-top:1px solid rgba(43,108,176,0.15);">
+      <sc-for list="{{ partners }}" as="partner" hint-placeholder-count="4">
+        <img src="{{ partner }}" alt="Partner" style="max-height:28px;max-width:100px;filter:brightness(0) invert(1);opacity:0.4;">
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MAINTENANCE CTA ═══════════════════════════════ -->
+<section style="background:var(--color-accent);padding:44px 0;">
+  <div style="max-width:var(--container-max);margin:0 auto;padding:0 var(--container-pad);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+    <div>
+      <div style="font-family:var(--font-display);font-size:clamp(18px,2.5vw,26px);font-weight:700;letter-spacing:-0.01em;color:#fff;margin-bottom:6px;">Existing client? Request maintenance support.</div>
+      <div style="font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,0.85);">24-hour engineer response. On-call across Saudi Arabia.</div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <x-import component-from-global-scope="MadarRandaDesignSystem_7efd61.Button" href="tel:+966508009799" style="background:#fff;color:var(--color-accent);" hint-size="200px,44px">📞 +966 508 009 799</x-import>
+      <x-import component-from-global-scope="MadarRandaDesignSystem_7efd61.Button" variant="outline-white" href="https://wa.me/966508009799" hint-size="160px,44px">💬 WhatsApp</x-import>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ═══════════════════════════════════════ -->
+<section id="contact" style="background:var(--color-navy);padding:var(--section-pad) 0;">
+  <div style="max-width:var(--container-max);margin:0 auto;padding:0 var(--container-pad);">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:56px;align-items:start;">
+      <div>
+        <div style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--color-accent);margin-bottom:14px;">Get in Touch</div>
+        <h2 style="font-family:var(--font-display);font-size:clamp(26px,4vw,42px);font-weight:700;letter-spacing:-0.02em;color:#fff;margin:0 0 16px;line-height:1.1;">Request a Quote</h2>
+        <p style="font-family:var(--font-body);font-size:16px;color:var(--color-silver);line-height:1.75;margin-bottom:28px;">Send us your project details and one of our engineers will be in touch within 24 hours.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <a href="tel:+966508009799" style="display:flex;align-items:center;gap:12px;"><span style="font-size:16px;">📞</span><span style="font-family:var(--font-body);font-size:14px;color:var(--color-silver-light);">+966 508 009 799</span></a>
+          <a href="mailto:info@madaranda.com" style="display:flex;align-items:center;gap:12px;"><span style="font-size:16px;">📧</span><span style="font-family:var(--font-body);font-size:14px;color:var(--color-silver-light);">info@madaranda.com</span></a>
+          <a href="https://wa.me/966508009799" style="display:flex;align-items:center;gap:12px;"><span style="font-size:16px;">💬</span><span style="font-family:var(--font-body);font-size:14px;color:var(--color-silver-light);">WhatsApp: +966 508 009 799</span></a>
+          <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;">📍</span><span style="font-family:var(--font-body);font-size:14px;color:var(--color-silver-light);line-height:1.5;">Al-Fayiziyyah, Prince Sultan bin Abdulaziz Rd,<br/>Buraydah, Al-Qassim</span></div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(43,108,176,0.2);border-radius:var(--radius);padding:32px;">
+        <x-import component-from-global-scope="MadarRandaDesignSystem_7efd61.RFQForm" hint-size="100%,480px"></x-import>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════ -->
+<footer style="background:var(--color-navy);border-top:1px solid rgba(43,108,176,0.2);padding:48px 0 24px;">
+  <div style="max-width:var(--container-max);margin:0 auto;padding:0 var(--container-pad);">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-bottom:32px;">
+      <div>
+        <img src="../../assets/logos/logo.png" alt="Madar Randa" style="height:40px;margin-bottom:12px;" onerror="this.style.display='none'">
+        <div style="font-family:var(--font-arabic);font-size:15px;color:var(--color-silver);margin-bottom:6px;">مدار رندا</div>
+        <div style="font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent-light);margin-bottom:12px;">Engineering Access Solutions</div>
+        <p style="font-family:var(--font-body);font-size:13px;color:var(--color-silver);line-height:1.7;margin:0;">30+ years engineering access solutions across Saudi Arabia.</p>
+      </div>
+      <div>
+        <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-silver-light);margin-bottom:14px;">Contact</div>
+        <div style="font-family:var(--font-body);font-size:13px;color:var(--color-silver);line-height:2;">
+          <a href="tel:+966508009799" style="display:block;color:inherit;">📞 +966 508 009 799</a>
+          <a href="mailto:info@madaranda.com" style="display:block;color:inherit;">📧 info@madaranda.com</a>
+          <a href="https://wa.me/966508009799" style="display:block;color:inherit;">💬 WhatsApp</a>
+          <span style="display:block;">📍 Buraydah, Al-Qassim, KSA</span>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(43,108,176,0.12);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div style="font-family:var(--font-body);font-size:12px;color:var(--color-steel-mid);">© 2025 Madar Randa. All rights reserved.</div>
+      <img src="../../assets/partners/vision-2030.png" alt="Vision 2030" style="height:22px;opacity:0.3;filter:brightness(0) invert(1);">
+    </div>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { rtl: false };
+
+  renderVals() {
+    return {
+      stats: [
+        { n: '30+', l: 'Years of Operation' },
+        { n: '500+', l: 'Projects Completed' },
+        { n: '10+', l: 'Product Categories' },
+      ],
+      products: [
+        { title: 'Automatic Glass Doors',  desc: 'CE-certified sliding, swing & revolving doors.',         img: '../../assets/images/product-glass-door.jpg' },
+        { title: 'Sectional Doors',         desc: 'Insulated heavy-duty doors for warehouses & factories.', img: '../../assets/images/product-sectional-door.jpg' },
+        { title: 'Fast-Action Doors',       desc: 'High-speed roll-up for cold storage & industry.',        img: '../../assets/images/product-fast-door.jpg' },
+        { title: 'Loading Dock Systems',    desc: 'Dock levellers, bumpers & full dock solutions.',         img: '../../assets/images/product-loading-dock.jpg' },
+        { title: 'Road Barriers',           desc: 'Automatic boom gates & parking control systems.',        img: '../../assets/images/project-barrier.jpg' },
+        { title: 'Aircraft Hangar Doors',   desc: 'Custom-engineered to aviation-grade spec. 50m+ widths.', img: '../../assets/images/hero-hangar.jpg' },
+      ],
+      sectors: [
+        { icon: '🏥', label: 'Healthcare' },
+        { icon: '✈️', label: 'Aviation' },
+        { icon: '🏨', label: 'Hospitality' },
+        { icon: '🏛️', label: 'Government' },
+        { icon: '🏭', label: 'Industrial' },
+        { icon: '🏢', label: 'Commercial' },
+      ],
+      partners: [
+        '../../assets/partners/assa-abloy.png',
+        '../../assets/partners/bft.png',
+        '../../assets/partners/came.png',
+        '../../assets/partners/jielong.png',
+        '../../assets/partners/vision-2030.png',
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

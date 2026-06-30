@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Antra — Architecture & Interior Design</title>
+
+  <!-- Serif fonts for headings only -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet"/>
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="design1.css"/>
+</head>
+<body>
+
+  <!-- ══ CUSTOM CURSOR ══════════════════════════════════════════ -->
+  <div class="cur" id="cur">
+    <div class="cur-dot"></div>
+    <div class="cur-ring"></div>
+  </div>
+
+  <!-- ══ NAVIGATION ════════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">antra</a>
+
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <span class="nav-phone"><i class="ri-phone-line"></i> +1 (800) 123-4567</span>
+      <a href="#contact" class="nav-btn"><span>Get In Touch</span></a>
+      <button class="nav-burger" id="burger" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="mob-overlay" id="mobOverlay">
+    <nav class="mob-links">
+      <a href="#projects" class="mob-link">Projects</a>
+      <a href="#services" class="mob-link">Services</a>
+      <a href="#about"    class="mob-link">About</a>
+      <a href="#contact"  class="mob-link">Contact</a>
+    </nav>
+  </div>
+
+  <!-- ══ HERO ══════════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+
+    <!-- Full-section background slider -->
+    <div class="hero-slider" id="heroSlider">
+      <div class="hs-slide active" style="background-image:url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1800&q=85')"></div>
+      <div class="hs-slide"        style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800&q=85')"></div>
+      <div class="hs-slide"        style="background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1800&q=85')"></div>
+    </div>
+
+    <!-- Dark gradient overlay -->
+    <div class="hero-overlay"></div>
+
+    <!-- Content (sits above slider) -->
+    <div class="hero-content">
+
+      <p class="hero-badge"><span>+ Fast and Reliable</span></p>
+
+      <h1 class="hero-h1">
+        <span class="hero-line"><span>The Art</span></span>
+        <span class="hero-line"><span>Stunning Interior</span></span>
+      </h1>
+
+      <p class="hero-sub"><span>Whether it's your home, office, or a commercial project,<br>we are always dedicated to bringing your vision to life.</span></p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn-dark"><span>Take Counsel</span> <i class="ri-arrow-right-up-line"></i></a>
+        <a href="#projects" class="btn-line"><span>View Projects</span></a>
+      </div>
+
+    </div>
+
+    <!-- Right info card -->
+    <div class="hero-card">
+      <div class="hcard-num">260<em>+</em></div>
+      <p class="hcard-label">Successful projects<br>and counting</p>
+      <ul class="hcard-list">
+        <li><i class="ri-check-line"></i> Tech Specifications</li>
+        <li><i class="ri-check-line"></i> Design Project</li>
+        <li><i class="ri-check-line"></i> 3D Visualisation</li>
+      </ul>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">5<em>+</em></span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num">200<em>+</em></span>
+        <span class="stat-label">Projects Done</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num">100<em>+</em></span>
+        <span class="stat-label">Happy Clients</span>
+      </div>
+    </div>
+
+    <!-- Slider controls -->
+    <div class="hs-controls">
+      <div class="hs-dots">
+        <button class="hs-dot active" data-index="0"></button>
+        <button class="hs-dot"        data-index="1"></button>
+        <button class="hs-dot"        data-index="2"></button>
+      </div>
+      <div class="hs-counter">
+        <span class="hs-cur">01</span><span class="hs-sep"> / </span><span class="hs-total">03</span>
+      </div>
+    </div>
+
+    <!-- Prev / Next nav buttons -->
+    <button class="hs-nav hs-prev" id="hsPrev" aria-label="Previous slide"><i class="ri-arrow-left-line"></i></button>
+    <button class="hs-nav hs-next" id="hsNext" aria-label="Next slide"><i class="ri-arrow-right-line"></i></button>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+
+  </section>
+
+  <!-- ══ ABOUT US ══════════════════════════════════════════════ -->
+  <section class="about" id="about">
+    <div class="about-container">
+
+      <!--
+        Grid (3 cols):
+          Col 1: label + heading + stat
+          Col 2: portrait image
+          Col 3: tall image (rows 1–2) → text below (row 3)
+      -->
+      <div class="about-grid">
+
+        <!-- Col 1 row 1: label + heading -->
+        <div class="about-head">
+          <p class="about-badge"><span class="about-badge-dot"></span><span>Started in 1991</span></p>
+          <h2 class="about-h2">
+            <span class="abt-line"><span>We Shape </span><em>Interior Designs,</em></span>
+            <span class="abt-line"><span>Spaces</span></span>
+          </h2>
+        </div>
+
+        <!-- Col 1 row 2: stat number -->
+        <div class="about-stat fade-up">
+          <span class="about-num">26</span>
+          <span class="about-stat-label">Years of<br>experience</span>
+        </div>
+
+        <!-- Col 2 row 2: portrait image -->
+        <div class="about-portrait img-reveal">
+          <div class="img-inner" style="background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=700&q=80')"></div>
+        </div>
+
+        <!-- Col 3 rows 1–2: tall image -->
+        <div class="about-tall img-reveal">
+          <div class="img-inner" style="background-image:url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80')"></div>
+        </div>
+
+        <!-- Col 3 row 3: text + CTA -->
+        <div class="about-text fade-up">
+          <p>We believe that every space has the power to inspire, and that great design brings life. Our mission is to craft environments that stir creativity, evoke emotion, and reflect the essence of those who inhabit them.</p>
+          <a href="#" class="about-cta">
+            <span>More About Us</span>
+            <span class="about-cta-icon"><i class="ri-arrow-right-up-line"></i></span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- /about -->
+
+  <script src="design1.js"></script>
+</body>
+</html>

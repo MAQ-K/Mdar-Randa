@@ -1,0 +1,28 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="Neutral Palette" subtitle="Silver · Steel · Charcoal · White" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body { margin: 0; padding: 20px; background: var(--color-off-white); font-family: var(--font-body); }
+    .row { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+    .swatch { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .block { height: 80px; }
+    .info { background: #fff; border: 1px solid var(--color-border); border-top: none; padding: 7px 8px; }
+    .name { font-family: var(--font-display); font-size: 11px; font-weight: 700; color: var(--color-charcoal); line-height: 1.2; }
+    .hex  { font-family: monospace; font-size: 9px; color: var(--color-steel-mid); margin-top: 2px; }
+  </style>
+</head>
+<body>
+<div class="row">
+  <div class="swatch"><div class="block" style="background:#A8B4C8"></div><div class="info"><div class="name">Silver</div><div class="hex">#A8B4C8</div></div></div>
+  <div class="swatch"><div class="block" style="background:#D4DCE8"></div><div class="info"><div class="name">Silver Light</div><div class="hex">#D4DCE8</div></div></div>
+  <div class="swatch"><div class="block" style="background:#EEF1F7"></div><div class="info"><div class="name">Silver Pale</div><div class="hex">#EEF1F7</div></div></div>
+  <div class="swatch"><div class="block" style="background:#4A5568"></div><div class="info"><div class="name">Steel</div><div class="hex">#4A5568</div></div></div>
+  <div class="swatch"><div class="block" style="background:#6B7280"></div><div class="info"><div class="name">Steel Mid</div><div class="hex">#6B7280</div></div></div>
+  <div class="swatch"><div class="block" style="background:#1F2937"></div><div class="info"><div class="name">Charcoal</div><div class="hex">#1F2937</div></div></div>
+  <div class="swatch"><div class="block" style="background:#FFFFFF; border: 1px solid #EEF1F7;"></div><div class="info"><div class="name">White</div><div class="hex">#FFFFFF</div></div></div>
+</div>
+</body>
+</html>

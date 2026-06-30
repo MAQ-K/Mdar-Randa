@@ -1,0 +1,36 @@
+/* Madar Randa — Spacing Tokens
+   Base unit: 4px. Scale follows multiples of 4.
+   Container max matches brand guideline specification of 1200px.
+*/
+
+:root {
+  /* ── Base Scale ──────────────────────────────── */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+  --space-20:  80px;
+  --space-24:  96px;
+  --space-32:  128px;
+
+  /* ── Layout ──────────────────────────────────── */
+  --container-max:    1200px;
+  --container-narrow: 760px;
+  --container-wide:   1440px;
+  --container-pad:    var(--space-8);   /* 32px side padding */
+
+  /* ── Section Rhythm ──────────────────────────── */
+  --section-pad:      var(--space-20);  /* 80px vertical */
+  --section-pad-sm:   var(--space-12);  /* 48px smaller sections */
+
+  /* ── Component ───────────────────────────────── */
+  --card-pad:      var(--space-8);   /* 32px */
+  --card-pad-sm:   var(--space-6);   /* 24px */
+  --nav-height:    68px;
+}

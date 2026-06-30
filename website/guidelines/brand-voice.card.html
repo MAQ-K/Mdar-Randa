@@ -1,0 +1,40 @@
+<!-- @dsCard group="Brand" viewport="700x280" name="Voice & Tone" subtitle="Do/Don't copy · engineering register" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body { margin: 0; padding: 20px; background: var(--color-off-white); font-family: var(--font-body); }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 16px; }
+    .badge { display: inline-block; font-family: var(--font-display); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; }
+    .do { background: #C6F6D5; color: #276749; }
+    .dont { background: #FED7D7; color: #9B2C2C; }
+    .text { font-size: 14px; color: var(--color-charcoal); line-height: 1.6; }
+    .hl { font-family: var(--font-display); font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: var(--color-navy); line-height: 1.2; margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+<div class="grid">
+  <div class="card">
+    <span class="badge do">✓ Do</span>
+    <div class="hl">"30 Years. Every Door Still Works."</div>
+    <div class="text" style="color:var(--color-steel-mid); font-size:12px">Bold, declarative, fact-led. No hedging.</div>
+  </div>
+  <div class="card">
+    <span class="badge dont">✗ Don't</span>
+    <div style="font-size:15px;color:var(--color-steel);font-style:italic;line-height:1.5">"Your Trusted Partner for All Your Automatic Door Needs!"</div>
+    <div class="text" style="color:var(--color-steel-mid); font-size:12px">Vague, generic, uses exclamation mark.</div>
+  </div>
+  <div class="card">
+    <span class="badge do">✓ Do</span>
+    <div class="text">"We have installed automatic doors in <strong>500+ commercial and government projects</strong> across Saudi Arabia. Our engineers respond to maintenance calls within 24 hours."</div>
+  </div>
+  <div class="card">
+    <span class="badge dont">✗ Don't</span>
+    <div class="text" style="font-style:italic">"We are a leading provider of world-class cutting-edge automatic door solutions that leverage innovative technology to deliver seamless experiences!!"</div>
+  </div>
+</div>
+</body>
+</html>

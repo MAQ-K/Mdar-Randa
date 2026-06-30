@@ -1,0 +1,27 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="Brand Colors" subtitle="Navy · Royal Blue · Accent Blue" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body { margin: 0; padding: 20px; background: var(--color-off-white); font-family: var(--font-body); }
+    .row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+    .swatch { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .block { height: 80px; }
+    .info { background: #fff; border: 1px solid var(--color-border); border-top: none; padding: 8px 10px; }
+    .name { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--color-charcoal); }
+    .hex  { font-family: monospace; font-size: 10px; color: var(--color-steel-mid); margin-top: 2px; }
+    .tag  { display: inline-block; font-family: var(--font-display); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-silver-pale); color: var(--color-steel); padding: 2px 5px; border-radius: 2px; margin-top: 4px; }
+  </style>
+</head>
+<body>
+<div class="row">
+  <div class="swatch"><div class="block" style="background:#0C1E3C; display:flex;align-items:flex-end;padding:8px 10px"><span style="font-family:var(--font-display);font-size:11px;font-weight:700;color:rgba(255,255,255,0.5)">--color-navy</span></div><div class="info"><div class="name">Deep Navy</div><div class="hex">#0C1E3C</div><span class="tag">Primary</span> <span class="tag">BG</span></div></div>
+  <div class="swatch"><div class="block" style="background:#1A3A6B; display:flex;align-items:flex-end;padding:8px 10px"><span style="font-family:var(--font-display);font-size:11px;font-weight:700;color:rgba(255,255,255,0.5)">--color-royal-blue</span></div><div class="info"><div class="name">Royal Blue</div><div class="hex">#1A3A6B</div><span class="tag">Secondary</span></div></div>
+  <div class="swatch"><div class="block" style="background:#1E4D8C; display:flex;align-items:flex-end;padding:8px 10px"><span style="font-family:var(--font-display);font-size:11px;font-weight:700;color:rgba(255,255,255,0.5)">--color-blue-mid</span></div><div class="info"><div class="name">Blue Mid</div><div class="hex">#1E4D8C</div><span class="tag">Sections</span></div></div>
+  <div class="swatch"><div class="block" style="background:#2B6CB0; display:flex;align-items:flex-end;padding:8px 10px"><span style="font-family:var(--font-display);font-size:11px;font-weight:700;color:rgba(255,255,255,0.5)">--color-accent</span></div><div class="info"><div class="name">Accent Blue</div><div class="hex">#2B6CB0</div><span class="tag">CTAs</span> <span class="tag">Links</span></div></div>
+  <div class="swatch"><div class="block" style="background:#3B82C4; display:flex;align-items:flex-end;padding:8px 10px"><span style="font-family:var(--font-display);font-size:11px;font-weight:700;color:rgba(255,255,255,0.5)">--color-accent-light</span></div><div class="info"><div class="name">Accent Light</div><div class="hex">#3B82C4</div><span class="tag">Hover</span></div></div>
+</div>
+</body>
+</html>

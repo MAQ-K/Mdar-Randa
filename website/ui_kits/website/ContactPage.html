@@ -1,0 +1,174 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="Contact / RFQ" subtitle="Request for Quotation · bilingual · validation · mobile" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madar Randa — Request a Quote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>* { box-sizing: border-box; } body { margin: 0; }</style>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { NavBar, Button, Badge, RFQForm } = window.MadarRandaDesignSystem_7efd61;
+const A = '../../assets/';
+
+function useBreakpoint() {
+  const [w, setW] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+  React.useEffect(() => { const fn = () => setW(window.innerWidth); window.addEventListener('resize', fn); return () => window.removeEventListener('resize', fn); }, []);
+  return { xs: w < 480, sm: w < 640, md: w < 768, lg: w < 1024, w };
+}
+
+const cont = bp => ({ maxWidth: 'var(--container-max)', margin: '0 auto', padding: `0 ${bp.md ? '16px' : '32px'}` });
+const Eyebrow = ({ t }) => <div style={{ fontFamily: 'var(--font-display)', fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--color-accent)', marginBottom: 14 }}>{t}</div>;
+const H = ({ t, dark, rtl, sz = 48 }) => (
+  <h1 style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: `clamp(26px,5vw,${sz}px)`, fontWeight: 700, letterSpacing: rtl ? 0 : '-0.02em', color: dark ? '#fff' : 'var(--color-navy)', margin: '0 0 14px', lineHeight: rtl ? 1.25 : 1.05 }}>{t}</h1>
+);
+
+const CONTACT = [
+  { icon: '📞', labelEn: 'Phone',    labelAr: 'الهاتف',    val: '+966 508 009 799',                                                href: 'tel:+966508009799' },
+  { icon: '📧', labelEn: 'Email',    labelAr: 'البريد',     val: 'info@madaranda.com',                                             href: 'mailto:info@madaranda.com' },
+  { icon: '💬', labelEn: 'WhatsApp', labelAr: 'واتساب',    val: '+966 508 009 799',                                                href: 'https://wa.me/966508009799' },
+  { icon: '📍', labelEn: 'Address',  labelAr: 'العنوان',   val: 'Al-Fayiziyyah, Prince Sultan bin Abdulaziz Rd, Buraydah, Al-Qassim', valAr: 'القصيم - بريدة – الفايزية – طريق الأمير سلطان بن عبدالعزيز', href: '#' },
+];
+
+function PageHero({ bp, rtl }) {
+  return (
+    <section style={{ background: 'var(--color-navy)', padding: `${bp.md ? 52 : 64}px 0 ${bp.md ? 40 : 52}px`, position: 'relative', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', inset: 0, backgroundImage: 'var(--grid-overlay)', backgroundSize: 'var(--grid-size)', opacity: 0.7, pointerEvents: 'none' }} />
+      <div style={{ ...cont(bp), position: 'relative', zIndex: 1, direction: rtl ? 'rtl' : 'ltr' }}>
+        <Badge variant="on-dark" style={{ marginBottom: 18, display: 'inline-flex' }}>
+          {rtl ? 'استجابة ٢٤ ساعة' : '24-Hour Engineer Response'}
+        </Badge>
+        <H t={rtl ? 'اطلب عرض سعر' : 'Request a Quote'} dark rtl={rtl} sz={56} />
+        <p style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: bp.md ? 15 : 17, color: 'var(--color-silver)', maxWidth: 460, lineHeight: 1.75, margin: 0 }}>
+          {rtl ? 'أرسل لنا تفاصيل مشروعك وسيتواصل معك أحد مهندسينا خلال ٢٤ ساعة.' : 'Send us your project details and one of our engineers will be in touch within 24 hours.'}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function ContactMain({ bp, rtl }) {
+  return (
+    <section style={{ background: 'var(--color-off-white)', padding: `${bp.md ? 44 : 72}px 0` }}>
+      <div style={{ ...cont(bp), direction: rtl ? 'rtl' : 'ltr' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: bp.md ? '1fr' : '1fr 1.4fr', gap: bp.md ? 36 : 56, alignItems: 'start' }}>
+
+          {/* Contact info */}
+          <div>
+            <Eyebrow t={rtl ? 'معلومات التواصل' : 'Contact Information'} />
+            <H t={rtl ? 'نحن هنا للمساعدة' : "We're Here to Help"} rtl={rtl} sz={34} />
+            <p style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 15, color: 'var(--color-steel)', lineHeight: 1.75, marginBottom: 28 }}>
+              {rtl ? 'سواء كان مشروعاً جديداً أو طلب صيانة أو استفساراً فنياً — فريقنا الهندسي جاهز للمساعدة.' : "Whether it's a new project, a maintenance request, or a technical enquiry — our engineering team is ready."}
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 32 }}>
+              {CONTACT.map((c, i) => (
+                <a key={i} href={c.href} style={{ display: 'flex', alignItems: 'flex-start', gap: 14, padding: '14px 18px', background: '#fff', border: '1px solid var(--color-border)', borderRadius: 'var(--radius)', textDecoration: 'none', boxShadow: 'var(--shadow-sm)', transition: 'box-shadow 0.15s' }}>
+                  <span style={{ fontSize: 20, flexShrink: 0, marginTop: 1 }}>{c.icon}</span>
+                  <div>
+                    <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 10 : 9, fontWeight: 700, letterSpacing: rtl ? 0 : '0.15em', textTransform: rtl ? 'none' : 'uppercase', color: 'var(--color-accent)', marginBottom: 3 }}>{rtl ? c.labelAr : c.labelEn}</div>
+                    <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 14, color: 'var(--color-charcoal)', fontWeight: 500, lineHeight: 1.4 }}>{rtl && c.valAr ? c.valAr : c.val}</div>
+                  </div>
+                </a>
+              ))}
+            </div>
+            {/* Trust box */}
+            <div style={{ background: 'var(--color-navy)', borderRadius: 'var(--radius)', padding: '18px 20px' }}>
+              <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 12 : 10, fontWeight: 700, letterSpacing: rtl ? 0 : '0.15em', textTransform: rtl ? 'none' : 'uppercase', color: 'var(--color-accent-light)', marginBottom: 12 }}>
+                {rtl ? 'لماذا مدار رندا؟' : 'Why Madar Randa?'}
+              </div>
+              {(rtl
+                ? ['٣٠+ عاماً من الخبرة الهندسية', 'استجابة مهندسينا خلال ٢٤ ساعة', '٥٠٠+ مشروع منجز في المملكة', 'دعم هندسي كامل بعد التركيب']
+                : ['30+ years engineering experience', '24-hour engineer response guarantee', '500+ completed projects across KSA', 'Full post-installation engineering support']
+              ).map((item, i) => (
+                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: i < 3 ? 9 : 0 }}>
+                  <span style={{ color: 'var(--color-accent-light)', fontSize: 13, fontWeight: 700, flexShrink: 0, marginTop: 1 }}>✓</span>
+                  <span style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 13, color: 'var(--color-silver)', lineHeight: 1.5 }}>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* RFQ Form */}
+          <div style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 'var(--radius)', padding: bp.md ? '20px' : '32px', boxShadow: 'var(--shadow-md)' }}>
+            <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: bp.md ? 20 : 24, fontWeight: 700, letterSpacing: rtl ? 0 : '-0.01em', color: 'var(--color-navy)', marginBottom: 4 }}>
+              {rtl ? 'نموذج طلب عرض السعر' : 'Request for Quotation'}
+            </div>
+            <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 13, color: 'var(--color-steel-mid)', lineHeight: 1.6, marginBottom: 24 }}>
+              {rtl ? 'سيتواصل معك مهندسونا خلال ٢٤ ساعة.' : 'Our engineers will be in touch within 24 hours.'}
+            </div>
+            <RFQForm rtl={rtl} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function EmergencyCTA({ bp, rtl }) {
+  return (
+    <section style={{ background: 'var(--color-accent)', padding: `${bp.md ? 28 : 40}px 0`, direction: rtl ? 'rtl' : 'ltr' }}>
+      <div style={{ ...cont(bp), display: 'flex', flexDirection: bp.md ? 'column' : 'row', alignItems: bp.md ? 'flex-start' : 'center', justifyContent: 'space-between', gap: 18 }}>
+        <div>
+          <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: bp.md ? 18 : 24, fontWeight: 700, letterSpacing: rtl ? 0 : '-0.01em', color: '#fff', marginBottom: 5 }}>
+            {rtl ? 'طلب طارئ؟ اتصل بنا مباشرة.' : 'Emergency? Call us directly.'}
+          </div>
+          <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 14, color: 'rgba(255,255,255,0.85)' }}>
+            {rtl ? 'متاحون للحالات الطارئة.' : 'Available for urgent maintenance and system failures.'}
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+          <Button variant="primary" style={{ background: '#fff', color: 'var(--color-accent)' }} href="tel:+966508009799">📞 +966 508 009 799</Button>
+          <Button variant="outline-white" href="https://wa.me/966508009799">💬 WhatsApp</Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer({ bp, rtl }) {
+  return (
+    <footer style={{ background: 'var(--color-navy)', borderTop: '1px solid rgba(43,108,176,0.2)', padding: '28px 0 20px', direction: rtl ? 'rtl' : 'ltr' }}>
+      <div style={{ ...cont(bp), display: 'flex', flexDirection: bp.sm ? 'column' : 'row', alignItems: bp.sm ? 'flex-start' : 'center', justifyContent: 'space-between', gap: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <img src={A+'logos/logo.png'} alt="Madar Randa" style={{ height: 34 }} onError={e => e.target.style.display = 'none'} />
+          <div style={{ fontFamily: 'var(--font-body)', fontSize: 12, color: 'var(--color-silver)' }}>{rtl ? '© ٢٠٢٥ مدار رندا.' : '© 2025 Madar Randa.'}</div>
+        </div>
+        <div style={{ display: 'flex', gap: 16 }}>
+          <a href="index.html" style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 12 : 10, fontWeight: 700, letterSpacing: rtl ? 0 : '0.1em', textTransform: rtl ? 'none' : 'uppercase', color: 'var(--color-silver)', textDecoration: 'none' }}>{rtl ? 'الرئيسية' : 'Home'}</a>
+          <a href="ServicesPage.html" style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 12 : 10, fontWeight: 700, letterSpacing: rtl ? 0 : '0.1em', textTransform: rtl ? 'none' : 'uppercase', color: 'var(--color-silver)', textDecoration: 'none' }}>{rtl ? 'المنتجات' : 'Products'}</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function App() {
+  const bp = useBreakpoint();
+  const [rtl, setR] = React.useState(false);
+  return (
+    <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)' }}>
+      <NavBar logoSrc={A+'logos/logo.png'} rtl={rtl} ctaHref="#" ctaText={rtl ? 'اتصل بنا' : 'Call Now'} />
+      <PageHero bp={bp} rtl={rtl} />
+      <ContactMain bp={bp} rtl={rtl} />
+      <EmergencyCTA bp={bp} rtl={rtl} />
+      <Footer bp={bp} rtl={rtl} />
+      <div style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 999, display: 'flex', background: 'var(--color-navy)', border: '1px solid rgba(43,108,176,0.3)', borderRadius: 'var(--radius-sm)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
+        {[['EN', false], ['عربي', true]].map(([lbl, r]) => (
+          <button key={lbl} onClick={() => setR(r)} style={{ padding: '8px 14px', background: rtl === r ? 'var(--color-accent)' : 'transparent', color: rtl === r ? '#fff' : 'var(--color-silver)', border: 'none', cursor: 'pointer', fontFamily: r ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: r ? 13 : 11, fontWeight: 700, letterSpacing: r ? 0 : '0.06em', textTransform: r ? 'none' : 'uppercase', transition: 'all 0.15s' }}>{lbl}</button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

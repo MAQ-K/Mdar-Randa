@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madar Randa — Style Guide</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #f5f6f8;
+      color: #1F2937;
+      line-height: 1.6;
+    }
+
+    /* ── Layout ──────────────────────────────────────── */
+    .sg-wrap    { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+    .sg-section { margin-top: 60px; }
+    .sg-section + .sg-section { border-top: 1px solid #e2e6ed; padding-top: 60px; }
+
+    /* ── Page header ─────────────────────────────────── */
+    .sg-header {
+      background: #0C1E3C;
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .sg-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .sg-header p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 6px;
+    }
+
+    /* ── Section headings ────────────────────────────── */
+    .sg-h2 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #6B7280;
+      margin-bottom: 20px;
+    }
+    .sg-h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 10px;
+      margin-top: 24px;
+    }
+
+    /* ── Edit callout ────────────────────────────────── */
+    .sg-edit {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #1D4ED8;
+      margin-bottom: 16px;
+    }
+    .sg-edit::before { content: '✏️'; }
+
+    /* ── Color grid ──────────────────────────────────── */
+    .sg-colors {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+    }
+    .sg-color-chip {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      background: #fff;
+    }
+    .sg-color-chip__swatch { height: 64px; }
+    .sg-color-chip__info { padding: 8px 10px; }
+    .sg-color-chip__name { font-size: 11px; font-weight: 700; color: #374151; }
+    .sg-color-chip__var  { font-size: 10px; color: #9CA3AF; font-family: monospace; margin-top: 2px; }
+
+    /* ── Type scale ──────────────────────────────────── */
+    .sg-type-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f2f5;
+    }
+    .sg-type-row__label {
+      width: 100px;
+      font-size: 10px;
+      font-family: monospace;
+      color: #9CA3AF;
+      flex-shrink: 0;
+    }
+    .sg-type-row__sample { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+    /* ── Button row ──────────────────────────────────── */
+    .sg-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+
+    /* ── Component card ──────────────────────────────── */
+    .sg-preview {
+      background: #fff;
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .sg-preview--dark { background: #0C1E3C; }
+
+    /* ── Spacing blocks ──────────────────────────────── */
+    .sg-spacing { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+    .sg-space-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .sg-space-item__bar { background: #2B6CB0; border-radius: 3px; width: 28px; }
+    .sg-space-item__label { font-size: 10px; color: #9CA3AF; font-family: monospace; }
+
+    /* ── Shadow cards ────────────────────────────────── */
+    .sg-shadows { display: flex; flex-wrap: wrap; gap: 20px; }
+    .sg-shadow-item {
+      width: 140px;
+      height: 80px;
+      background: #fff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: #6B7280;
+    }
+
+    /* ── Section map ─────────────────────────────────── */
+    .sg-map {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .sg-map-card {
+      background: #fff;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+    .sg-map-card__title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+    .sg-map-card__desc {
+      font-size: 12px;
+      color: #6B7280;
+      line-height: 1.5;
+    }
+    .sg-map-card__file {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 11px;
+      font-family: monospace;
+      background: #F3F4F6;
+      border-radius: 3px;
+      padding: 2px 7px;
+      color: #374151;
+    }
+    @media (max-width: 640px) {
+      .sg-map { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="sg-header">
+  <h1>Madar Randa — Style Guide</h1>
+  <p>Reference for editing sections, tokens, and components. Open in browser alongside your code editor.</p>
+</div>
+
+<div class="sg-wrap">
+
+  <!-- ══ 1. WHERE TO EDIT WHAT ════════════════════════ -->
+  <div class="sg-section">
+    <p class="sg-h2">1 — Where to edit what</p>
+    <div class="sg-map">
+
+      <div class="sg-map-card">
+        <div class="sg-map-card__title">Navbar · Footer · Hero slider</div>
+        <div class="sg-map-card__desc">Phone, links, CTA button text, hero slide images & text, stats, footer columns, legal line — all from one file.</div>
+        <span class="sg-map-card__file">js/config.js</span>
+      </div>
+
+      <div class="sg-map-card">
+        <div class="sg-map-card__title">Colors · Fonts · Spacing tokens</div>
+        <div class="sg-map-card__desc">All CSS variables (--color-navy, --font-display, --section-pad, etc.) live here. Change once, applies everywhere.</div>
+        <span class="sg-map-card__file">css/tokens.css</span>
+      </div>
+
+      <div class="sg-map-card">
+        <div class="sg-map-card__title">Component styles</div>
+        <div class="sg-map-card__desc">Buttons, cards, navbar, hero, breadcrumb, footer, badges, forms, animations. All visual rules.</div>
+        <span class="sg-map-card__file">css/styles.css</span>
+      </div>
+
+      <div class="sg-map-card">
+        <div class="sg-map-card__title">Navbar + Footer HTML structure</div>
+        <div class="sg-map-card__desc">The JS that builds and injects the navbar, footer, hero slider, WhatsApp FAB, and back-to-top button.</div>
+        <span class="sg-map-card__file">js/components.js</span>
+      </div>
+
+      <div class="sg-map-card">
+        <div class="sg-map-card__title">Homepage content</div>
+        <div class="sg-map-card__desc">Products grid, sectors, about preview, Vision/Mission cards, testimonials, FAQ, contact form.</div>
+        <span class="sg-map-card__file">index.html</span>
+      </div>
+
+      <div class="sg-map-card">
+        <div class="sg-map-card__title">Product detail content</div>
+        <div class="sg-map-card__desc">Each product's title, description, features list, benefits, specs, applications — all products in one array.</div>
+        <span class="sg-map-card__file">js/app.js → SERVICES_DATA</span>
+      </div>
+
+      <div class="sg-map-card">
+        <div class="sg-map-card__title">About page</div>
+        <div class="sg-map-card__desc">Story text, Vision card, Mission card, Values grid, Partners section, CTA.</div>
+        <span class="sg-map-card__file">about.html</span>
+      </div>
+
+      <div class="sg-map-card">
+        <div class="sg-map-card__title">Products listing page</div>
+        <div class="sg-map-card__desc">Showcase cards (large alternating layout). Each card: image, number, eyebrow, title, body, tags, CTA.</div>
+        <span class="sg-map-card__file">services.html</span>
+      </div>
+
+      <div class="sg-map-card">
+        <div class="sg-map-card__title">Smooth scroll speed</div>
+        <div class="sg-map-card__desc"><b>duration</b> = how long the glide lasts (seconds). <b>wheelMultiplier</b> = distance per scroll notch.</div>
+        <span class="sg-map-card__file">js/app.js → initLenis()</span>
+      </div>
+
+      <div class="sg-map-card">
+        <div class="sg-map-card__title">Breadcrumb / page hero height</div>
+        <div class="sg-map-card__desc">min-height and max-height are both 40vh with !important. Safe to change both values together.</div>
+        <span class="sg-map-card__file">css/styles.css → .hero.hero--page</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 2. COLORS ════════════════════════════════════ -->
+  <div class="sg-section">
+    <p class="sg-h2">2 — Color tokens</p>
+    <div class="sg-edit">Edit in css/tokens.css</div>
+    <p class="sg-h3">Brand</p>
+    <div class="sg-colors">
+      <div class="sg-color-chip">
+        <div class="sg-color-chip__swatch" style="background:#0C1E3C"></div>
+        <div class="sg-color-chip__info">
+          <div class="sg-color-chip__name">Navy</div>
+          <div class="sg-color-chip__var">--color-navy</div>
+          <div class="sg-color-chip__var">#0C1E3C</div>
+        </div>
+      </div>
+      <div class="sg-color-chip">
+        <div class="sg-color-chip__swatch" style="background:#1A3A6B"></div>
+        <div class="sg-color-chip__info">
+          <div class="sg-color-chip__name">Royal Blue</div>
+          <div class="sg-color-chip__var">--color-royal-blue</div>
+          <div class="sg-color-chip__var">#1A3A6B</div>
+        </div>
+      </div>
+      <div class="sg-color-chip">
+        <div class="sg-color-chip__swatch" style="background:#2B6CB0"></div>
+        <div class="sg-color-chip__info">
+          <div class="sg-color-chip__name">Accent</div>
+          <div class="sg-color-chip__var">--color-accent</div>
+          <div class="sg-color-chip__var">#2B6CB0</div>
+        </div>
+      </div>
+      <div class="sg-color-chip">
+        <div class="sg-color-chip__swatch" style="background:#3B82C4"></div>
+        <div class="sg-color-chip__info">
+          <div class="sg-color-chip__name">Accent Light</div>
+          <div class="sg-color-chip__var">--color-accent-light</div>
+          <div class="sg-color-chip__var">#3B82C4</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="sg-h3">Neutrals</p>
+    <div class="sg-colors">
+      <div class="sg-color-chip">
+        <div class="sg-color-chip__swatch" style="background:#A8B4C8"></div>
+        <div class="sg-color-chip__info">
+          <div class="sg-color-chip__name">Silver</div>
+          <div class="sg-color-chip__var">--color-silver</div>
+        </div>
+      </div>
+      <div class="sg-color-chip">
+        <div class="sg-color-chip__swatch" style="background:#EEF1F7"></div>
+        <div class="sg-color-chip__info">
+          <div class="sg-color-chip__name">Silver Pale</div>
+          <div class="sg-color-chip__var">--color-silver-pale</div>
+        </div>
+      </div>
+      <div class="sg-color-chip">
+        <div class="sg-color-chip__swatch" style="background:#4A5568"></div>
+        <div class="sg-color-chip__info">
+          <div class="sg-color-chip__name">Steel</div>
+          <div class="sg-color-chip__var">--color-steel</div>
+        </div>
+      </div>
+      <div class="sg-color-chip">
+        <div class="sg-color-chip__swatch" style="background:#1F2937"></div>
+        <div class="sg-color-chip__info">
+          <div class="sg-color-chip__name">Charcoal</div>
+          <div class="sg-color-chip__var">--color-charcoal</div>
+        </div>
+      </div>
+      <div class="sg-color-chip">
+        <div class="sg-color-chip__swatch" style="background:#FFFFFF;border:1px solid #e5e7eb"></div>
+        <div class="sg-color-chip__info">
+          <div class="sg-color-chip__name">White</div>
+          <div class="sg-color-chip__var">--color-white</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="sg-h3">Status</p>
+    <div class="sg-colors">
+      <div class="sg-color-chip">
+        <div class="sg-color-chip__swatch" style="background:#38A169"></div>
+        <div class="sg-color-chip__info">
+          <div class="sg-color-chip__name">Success</div>
+          <div class="sg-color-chip__var">--color-success</div>
+        </div>
+      </div>
+      <div class="sg-color-chip">
+        <div class="sg-color-chip__swatch" style="background:#C53030"></div>
+        <div class="sg-color-chip__info">
+          <div class="sg-color-chip__name">Danger</div>
+          <div class="sg-color-chip__var">--color-danger</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 3. TYPOGRAPHY ════════════════════════════════ -->
+  <div class="sg-section">
+    <p class="sg-h2">3 — Typography</p>
+    <div class="sg-edit">Edit in css/tokens.css → font variables &amp; text sizes</div>
+
+    <p class="sg-h3">Font families</p>
+    <div class="sg-preview" style="margin-bottom:16px">
+      <div style="margin-bottom:12px">
+        <span style="font-size:10px;color:#9CA3AF;font-family:monospace;display:block;margin-bottom:4px">--font-display / --font-body = 'Helvetica Neue', Helvetica, Arial, sans-serif</span>
+        <span style="font-size:24px;font-weight:700;letter-spacing:-0.02em">Engineering Access Solutions</span>
+      </div>
+      <div>
+        <span style="font-size:10px;color:#9CA3AF;font-family:monospace;display:block;margin-bottom:4px">--font-arabic = 'IBM Plex Sans Arabic'</span>
+        <span style="font-family:'IBM Plex Sans Arabic',sans-serif;font-size:22px;font-weight:600">هندسة حلول الوصول</span>
+      </div>
+    </div>
+
+    <p class="sg-h3">Size scale</p>
+    <div>
+      <div class="sg-type-row"><span class="sg-type-row__label">--text-xs / 11px</span><span class="sg-type-row__sample" style="font-size:11px">EYEBROW LABEL</span></div>
+      <div class="sg-type-row"><span class="sg-type-row__label">--text-sm / 13px</span><span class="sg-type-row__sample" style="font-size:13px">Button text, small body</span></div>
+      <div class="sg-type-row"><span class="sg-type-row__label">--text-base / 15px</span><span class="sg-type-row__sample" style="font-size:15px">Body paragraph text</span></div>
+      <div class="sg-type-row"><span class="sg-type-row__label">--text-md / 17px</span><span class="sg-type-row__sample" style="font-size:17px">About body, section subtitle</span></div>
+      <div class="sg-type-row"><span class="sg-type-row__label">--text-lg / 20px</span><span class="sg-type-row__sample" style="font-size:20px">Card titles</span></div>
+      <div class="sg-type-row"><span class="sg-type-row__label">--text-xl / 24px</span><span class="sg-type-row__sample" style="font-size:24px">Small headings</span></div>
+      <div class="sg-type-row"><span class="sg-type-row__label">--text-2xl / 32px</span><span class="sg-type-row__sample" style="font-size:32px;font-weight:700">Medium headings</span></div>
+      <div class="sg-type-row"><span class="sg-type-row__label">--text-3xl / 40px</span><span class="sg-type-row__sample" style="font-size:40px;font-weight:700">Large headings</span></div>
+      <div class="sg-type-row"><span class="sg-type-row__label">clamp hero</span><span class="sg-type-row__sample" style="font-size:clamp(44px,7.5vw,88px);font-weight:700;letter-spacing:-0.03em;line-height:1">Hero</span></div>
+    </div>
+  </div>
+
+  <!-- ══ 4. SPACING ════════════════════════════════════ -->
+  <div class="sg-section">
+    <p class="sg-h2">4 — Spacing tokens</p>
+    <div class="sg-edit">Edit in css/tokens.css → spacing variables</div>
+    <div class="sg-spacing">
+      <div class="sg-space-item"><div class="sg-space-item__bar" style="height:4px"></div><span class="sg-space-item__label">--space-1<br>4px</span></div>
+      <div class="sg-space-item"><div class="sg-space-item__bar" style="height:8px"></div><span class="sg-space-item__label">--space-2<br>8px</span></div>
+      <div class="sg-space-item"><div class="sg-space-item__bar" style="height:12px"></div><span class="sg-space-item__label">--space-3<br>12px</span></div>
+      <div class="sg-space-item"><div class="sg-space-item__bar" style="height:16px"></div><span class="sg-space-item__label">--space-4<br>16px</span></div>
+      <div class="sg-space-item"><div class="sg-space-item__bar" style="height:24px"></div><span class="sg-space-item__label">--space-6<br>24px</span></div>
+      <div class="sg-space-item"><div class="sg-space-item__bar" style="height:32px"></div><span class="sg-space-item__label">--space-8<br>32px</span></div>
+      <div class="sg-space-item"><div class="sg-space-item__bar" style="height:48px"></div><span class="sg-space-item__label">--space-12<br>48px</span></div>
+      <div class="sg-space-item"><div class="sg-space-item__bar" style="height:64px"></div><span class="sg-space-item__label">--space-16<br>64px</span></div>
+      <div class="sg-space-item"><div class="sg-space-item__bar" style="height:80px"></div><span class="sg-space-item__label">--space-20<br>80px</span></div>
+    </div>
+    <p style="font-size:12px;color:#9CA3AF;margin-top:16px">Section padding: <code>--section-pad: 80px</code> · Container max: <code>--container-max: 1200px</code> · Nav height: <code>--nav-height: 68px</code></p>
+  </div>
+
+  <!-- ══ 5. BUTTONS ════════════════════════════════════ -->
+  <div class="sg-section">
+    <p class="sg-h2">5 — Buttons</p>
+    <div class="sg-edit">Edit in css/styles.css → .btn</div>
+
+    <div class="sg-preview" style="margin-bottom:12px">
+      <p class="sg-h3" style="margin-top:0">Light background</p>
+      <div class="sg-row">
+        <a class="btn btn--primary">btn--primary</a>
+        <a class="btn btn--accent">btn--accent</a>
+        <a class="btn btn--secondary">btn--secondary</a>
+        <a class="btn btn--ghost">btn--ghost</a>
+      </div>
+      <div class="sg-row" style="margin-top:12px">
+        <a class="btn btn--accent btn--lg">btn--lg</a>
+        <a class="btn btn--secondary btn--sm">btn--sm</a>
+      </div>
+    </div>
+
+    <div class="sg-preview sg-preview--dark">
+      <p class="sg-h3" style="margin-top:0;color:#fff">Dark background</p>
+      <div class="sg-row">
+        <a class="btn btn--accent">btn--accent</a>
+        <a class="btn btn--outline-white">btn--outline-white</a>
+        <a class="btn btn--white">btn--white</a>
+      </div>
+    </div>
+    <link rel="stylesheet" href="css/styles.css">
+  </div>
+
+  <!-- ══ 6. BADGES ════════════════════════════════════ -->
+  <div class="sg-section">
+    <p class="sg-h2">6 — Badges</p>
+    <div class="sg-edit">Edit in css/styles.css → .badge</div>
+    <div class="sg-preview" style="margin-bottom:12px">
+      <div class="sg-row">
+        <span class="badge badge--primary">badge--primary</span>
+        <span class="badge badge--accent">badge--accent</span>
+        <span class="badge badge--silver">badge--silver</span>
+      </div>
+    </div>
+    <div class="sg-preview sg-preview--dark">
+      <div class="sg-row">
+        <span class="badge badge--on-dark">badge--on-dark</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 7. SHADOWS ════════════════════════════════════ -->
+  <div class="sg-section">
+    <p class="sg-h2">7 — Shadows &amp; Radius</p>
+    <div class="sg-edit">Edit in css/tokens.css → shadow + radius variables</div>
+    <div class="sg-shadows">
+      <div class="sg-shadow-item" style="box-shadow:var(--shadow-sm)">--shadow-sm</div>
+      <div class="sg-shadow-item" style="box-shadow:var(--shadow-md)">--shadow-md</div>
+      <div class="sg-shadow-item" style="box-shadow:var(--shadow-lg)">--shadow-lg</div>
+    </div>
+    <div class="sg-row" style="margin-top:20px;align-items:flex-start">
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:var(--radius-sm);padding:12px 20px;font-size:12px;font-weight:600;color:#374151">--radius-sm<br>4px</div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:var(--radius);padding:12px 20px;font-size:12px;font-weight:600;color:#374151">--radius<br>8px</div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:var(--radius-lg);padding:12px 20px;font-size:12px;font-weight:600;color:#374151">--radius-lg<br>16px</div>
+    </div>
+  </div>
+
+  <!-- ══ 8. SECTION BACKGROUNDS ═══════════════════════ -->
+  <div class="sg-section">
+    <p class="sg-h2">8 — Section backgrounds</p>
+    <div class="sg-edit">Use these classes on &lt;section&gt; — Edit in css/styles.css → .section</div>
+    <div style="display:flex;flex-direction:column;gap:8px;border-radius:8px;overflow:hidden">
+      <div style="padding:16px 20px;font-size:12px;font-weight:700;background:#EEF1F7;color:#1F2937">.section--pale &nbsp;→ background: #EEF1F7</div>
+      <div style="padding:16px 20px;font-size:12px;font-weight:700;background:#FFFFFF;color:#1F2937;border:1px solid #E5E7EB">.section--white → background: #FFFFFF</div>
+      <div style="padding:16px 20px;font-size:12px;font-weight:700;background:#0C1E3C;color:#fff">.section--dark &nbsp;→ background: #0C1E3C (navy)</div>
+      <div style="padding:16px 20px;font-size:12px;font-weight:700;background:#2B6CB0;color:#fff">.section--accent → background: #2B6CB0</div>
+      <div style="padding:16px 20px;font-size:12px;font-weight:700;background:#1A3A6B;color:#fff">.section--royal &nbsp;→ background: #1A3A6B</div>
+    </div>
+  </div>
+
+  <!-- ══ 9. SECTION STRUCTURE ─═════════════════════════ -->
+  <div class="sg-section">
+    <p class="sg-h2">9 — Standard section structure</p>
+    <div class="sg-edit">Copy this pattern for any new section in HTML pages</div>
+    <div class="sg-preview" style="background:#1e293b">
+      <pre style="font-size:12px;color:#94a3b8;line-height:1.7;overflow-x:auto">&lt;section class="section section--pale" aria-labelledby="my-title"&gt;
+  &lt;div class="container"&gt;
+
+    &lt;!-- Optional: centred header --&gt;
+    &lt;div class="section-header section-header--center"&gt;
+      &lt;span class="eyebrow"&gt;Eyebrow label&lt;/span&gt;
+      &lt;h2 class="section-title" id="my-title"&gt;Section Heading&lt;/h2&gt;
+      &lt;p class="section-subtitle"&gt;Optional subtitle text.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Your content grid here --&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+    </div>
+    <p style="font-size:12px;color:#9CA3AF;margin-top:10px">Swap <code>section--pale</code> for any background class from §8 above.</p>
+  </div>
+
+  <!-- ══ 10. QUICK REFERENCE ══════════════════════════ -->
+  <div class="sg-section">
+    <p class="sg-h2">10 — Quick reference: change one thing</p>
+    <div style="display:flex;flex-direction:column;gap:6px">
+
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:12px 16px;display:flex;gap:16px;align-items:center">
+        <span style="font-size:12px;font-weight:700;color:#111827;min-width:220px">Change the phone number</span>
+        <code style="font-size:11px;color:#1D4ED8;background:#EFF6FF;padding:2px 7px;border-radius:3px">js/config.js → contact.phone + contact.phoneTel</code>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:12px 16px;display:flex;gap:16px;align-items:center">
+        <span style="font-size:12px;font-weight:700;color:#111827;min-width:220px">Change the logo</span>
+        <code style="font-size:11px;color:#1D4ED8;background:#EFF6FF;padding:2px 7px;border-radius:3px">js/config.js → logo.src</code>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:12px 16px;display:flex;gap:16px;align-items:center">
+        <span style="font-size:12px;font-weight:700;color:#111827;min-width:220px">Change a nav link</span>
+        <code style="font-size:11px;color:#1D4ED8;background:#EFF6FF;padding:2px 7px;border-radius:3px">js/config.js → nav.links[ ]</code>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:12px 16px;display:flex;gap:16px;align-items:center">
+        <span style="font-size:12px;font-weight:700;color:#111827;min-width:220px">Change hero slide image</span>
+        <code style="font-size:11px;color:#1D4ED8;background:#EFF6FF;padding:2px 7px;border-radius:3px">js/config.js → hero.slides[0].img</code>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:12px 16px;display:flex;gap:16px;align-items:center">
+        <span style="font-size:12px;font-weight:700;color:#111827;min-width:220px">Change the accent color</span>
+        <code style="font-size:11px;color:#1D4ED8;background:#EFF6FF;padding:2px 7px;border-radius:3px">css/tokens.css → --color-accent</code>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:12px 16px;display:flex;gap:16px;align-items:center">
+        <span style="font-size:12px;font-weight:700;color:#111827;min-width:220px">Change breadcrumb height</span>
+        <code style="font-size:11px;color:#1D4ED8;background:#EFF6FF;padding:2px 7px;border-radius:3px">css/styles.css → .hero.hero--page { min-height / max-height }</code>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:12px 16px;display:flex;gap:16px;align-items:center">
+        <span style="font-size:12px;font-weight:700;color:#111827;min-width:220px">Change scroll slide feel</span>
+        <code style="font-size:11px;color:#1D4ED8;background:#EFF6FF;padding:2px 7px;border-radius:3px">js/app.js → initLenis() { duration, wheelMultiplier }</code>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:12px 16px;display:flex;gap:16px;align-items:center">
+        <span style="font-size:12px;font-weight:700;color:#111827;min-width:220px">Change footer legal text</span>
+        <code style="font-size:11px;color:#1D4ED8;background:#EFF6FF;padding:2px 7px;border-radius:3px">js/config.js → footer.legalEn / footer.legalAr</code>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:12px 16px;display:flex;gap:16px;align-items:center">
+        <span style="font-size:12px;font-weight:700;color:#111827;min-width:220px">Add a product to dropdown</span>
+        <code style="font-size:11px;color:#1D4ED8;background:#EFF6FF;padding:2px 7px;border-radius:3px">js/config.js → nav.links[0].dropdown[ ]</code>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:12px 16px;display:flex;gap:16px;align-items:center">
+        <span style="font-size:12px;font-weight:700;color:#111827;min-width:220px">Change section spacing</span>
+        <code style="font-size:11px;color:#1D4ED8;background:#EFF6FF;padding:2px 7px;border-radius:3px">css/tokens.css → --section-pad</code>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /sg-wrap -->
+</body>
+</html>

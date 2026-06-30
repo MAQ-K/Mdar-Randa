@@ -1,0 +1,399 @@
+<!-- @startingPoint section="Website" subtitle="Full Madar Randa homepage · 11 sections · bilingual EN/AR · mobile responsive" viewport="1440x900" -->
+<!-- @dsCard group="Website" viewport="1440x900" name="Homepage" subtitle="Complete homepage · bilingual · all 11 sections · mobile" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madar Randa — Engineering Access Solutions</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>* { box-sizing: border-box; } body { margin: 0; }</style>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { NavBar, Button, Badge, ServiceCard, ProjectCard, TestimonialCard, RFQForm } = window.MadarRandaDesignSystem_7efd61;
+const A = '../../assets/';
+
+/* ── Breakpoint hook ─────────────────────────────────── */
+function useBreakpoint() {
+  const [w, setW] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+  React.useEffect(() => {
+    const fn = () => setW(window.innerWidth);
+    window.addEventListener('resize', fn);
+    return () => window.removeEventListener('resize', fn);
+  }, []);
+  return { xs: w < 480, sm: w < 640, md: w < 768, lg: w < 1024, w };
+}
+
+/* ── Layout helpers ──────────────────────────────────── */
+const cont = bp => ({ maxWidth: 'var(--container-max)', margin: '0 auto', padding: `0 ${bp.md ? '16px' : '32px'}` });
+const secStyle = (bg, bp, py = 80) => ({ background: bg, padding: `${bp.md ? Math.round(py * 0.6) : py}px 0` });
+
+/* ── Shared atoms ────────────────────────────────────── */
+const Eyebrow = ({ t, s }) => (
+  <div style={{ fontFamily: 'var(--font-display)', fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--color-accent)', ...s }}>{t}</div>
+);
+const H2 = ({ t, dark, rtl, sz = 42, s }) => (
+  <h2 style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: `clamp(22px,4vw,${sz}px)`, fontWeight: 700, letterSpacing: rtl ? 0 : '-0.02em', color: dark ? '#fff' : 'var(--color-navy)', margin: 0, lineHeight: rtl ? 1.3 : 1.1, ...s }}>{t}</h2>
+);
+
+/* ── Data ────────────────────────────────────────────── */
+const PRODUCTS = [
+  { title: 'Automatic Glass Doors', titleAr: 'الأبواب الزجاجية الأوتوماتيكية', desc: 'CE-certified sliding, swing, and revolving doors for commercial lobbies, hospitals, and hospitality.', descAr: 'أبواب أوتوماتيكية للمستشفيات والمراكز التجارية. معتمدة CE.', img: A+'images/product-glass-door.jpg' },
+  { title: 'Sectional Doors',        titleAr: 'الأبواب المقطعية',               desc: 'Heavy-duty insulated sectional doors for warehouses and factories. Wind-load rated, automated.',          descAr: 'أبواب مقطعية معزولة للمستودعات والمصانع. مقدّرة لحمل الرياح.', img: A+'images/product-sectional-door.jpg' },
+  { title: 'Fast-Action Doors',      titleAr: 'الأبواب السريعة',                desc: 'High-speed roll-up doors for cold storage and high-traffic industrial facilities.',                        descAr: 'أبواب سريعة للمخازن الباردة والمرافق الصناعية.', img: A+'images/product-fast-door.jpg' },
+  { title: 'Loading Dock Systems',   titleAr: 'رصيف معدات التحميل',             desc: 'Dock levellers, hydraulic bumpers, and complete dock solutions for logistics operations.',                  descAr: 'موازنات رصيف ومصدات هيدروليكية لعمليات اللوجستيات.', img: A+'images/product-loading-dock.jpg' },
+  { title: 'Road Barriers',          titleAr: 'حواجز الطرق',                   desc: 'Automatic boom gates and parking control for commercial and government facilities.',                        descAr: 'بوابات أوتوماتيكية وأنظمة التحكم في مواقف السيارات.', img: A+'images/project-barrier.jpg' },
+  { title: 'Security Entrances',     titleAr: 'البوابات الأمنية',               desc: 'Turnstiles, speed gates, and full-height security entrances for high-security environments.',               descAr: 'بوابات دوارة وأمنية للبيئات ذات الأمان العالي.', img: A+'images/project-security.jpg' },
+  { title: 'Automatic Windows',      titleAr: 'النوافذ الأوتوماتيكية',          desc: 'Aluminium roller shutters and automatic window systems. Remote and timer-controlled.',                    descAr: 'نوافذ وستائر أوتوماتيكية للمباني التجارية والسكنية.', img: A+'images/product-auto-window.jpg' },
+  { title: 'Villa & Palace Gates',   titleAr: 'أبواب الفلل والقصور',            desc: 'Engineered entrance gates for premium residential properties, villas, and private estates.',               descAr: 'بوابات هندسية للفلل والقصور والمنازل الفاخرة.', img: A+'images/product-villa-door.jpg' },
+  { title: 'Sliding Door Motors',    titleAr: 'محركات أبواب الحديد',            desc: 'Retrofit automation motors for existing iron sliding gates. Supply, install, and maintain.',             descAr: 'محركات أوتوماتيكية لأبواب الحديد الموجودة.', img: A+'images/product-iron-motor.jpg' },
+  { title: 'Aircraft Hangar Doors',  titleAr: 'أبواب هناجر الطائرات',          desc: 'Custom-engineered hangar doors to aviation-grade specifications. Widths up to 50m+.',                   descAr: 'أبواب هناجر مخصصة حسب المواصفات الطيرانية. تصل عروضها لأكثر من ٥٠م.', img: A+'images/hero-hangar.jpg' },
+];
+
+const PROJECTS = [
+  { image: A+'images/hero-glass-door.jpg',   sector: 'Commercial', title: 'Commercial Glass Entrance',  location: 'Riyadh, KSA' },
+  { image: A+'images/hero-hangar.jpg',        sector: 'Aviation',   title: 'Aircraft Hangar Door',       location: 'Al-Qassim, KSA' },
+  { image: A+'images/project-warehouse.jpg',  sector: 'Industrial', title: 'Warehouse Sectional Door',   location: 'Jeddah, KSA' },
+  { image: A+'images/project-install-1.png',  sector: 'Healthcare', title: 'Hospital Entrance System',   location: 'Riyadh, KSA' },
+  { image: A+'images/project-glass2.jpg',     sector: 'Commercial', title: 'Hotel Revolving Doors',      location: 'Mecca, KSA' },
+  { image: A+'images/project-install-2.png',  sector: 'Government', title: 'Government Building Entry',  location: 'Riyadh, KSA' },
+];
+
+const TESTIMONIALS = [
+  { quote: 'The door system has operated without issue for three years. Their engineers respond faster than any vendor we have worked with. We specified Madar Randa on our next three projects.', initials: 'KA', role: 'Facility Manager', sector: 'Healthcare' },
+  { quote: 'We engaged Madar Randa for our warehouse expansion — 14 sectional doors across two facilities. Installation was on schedule, specifications exact, and the maintenance contract gives complete peace of mind.', initials: 'EM', role: 'Operations Director', sector: 'Industrial' },
+  { quote: 'As an architect I need vendors I can specify with confidence. Madar Randa provides full technical documentation, CE certifications, and responds to site issues without delay.', initials: 'AH', role: 'Project Architect', sector: 'Commercial' },
+];
+
+const FAQS = [
+  { q: 'What types of automatic doors do you supply and install?', a: 'We supply 10+ categories: automatic glass doors (sliding, swing, revolving), sectional doors, fast-action doors, loading dock systems, road barriers, security entrances, automatic windows, villa gates, sliding motors, and aircraft hangar doors.' },
+  { q: 'Do you provide maintenance contracts?', a: 'Yes. Annual maintenance contracts for all installed systems. Our engineers provide scheduled preventive maintenance, 24-hour emergency response, spare parts, and compliance documentation.' },
+  { q: 'Are your products CE certified?', a: 'Yes. All systems are CE certified and meet relevant international standards. Full certification documentation provided on request.' },
+  { q: 'What sectors do you serve?', a: 'Commercial, industrial, healthcare, aviation, government, hospitality, and residential sectors across Saudi Arabia.' },
+  { q: 'How do I get a quote?', a: 'Use the Request a Quote form below, call us on +966 508 009 799, or send a WhatsApp message. An engineer responds within 24 hours.' },
+];
+
+const SECTORS = [
+  { icon: '🏥', en: 'Healthcare',  ar: 'الرعاية الصحية' },
+  { icon: '✈️', en: 'Aviation',    ar: 'الطيران' },
+  { icon: '🏨', en: 'Hospitality', ar: 'الضيافة' },
+  { icon: '🏛️', en: 'Government',  ar: 'الحكومة' },
+  { icon: '🏭', en: 'Industrial',  ar: 'الصناعة' },
+  { icon: '🏢', en: 'Commercial',  ar: 'التجاري' },
+];
+
+/* ── SECTIONS ────────────────────────────────────────── */
+
+function Hero({ bp, rtl }) {
+  return (
+    <section style={{ background: 'var(--color-navy)', minHeight: '88vh', position: 'relative', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', inset: 0, backgroundImage: 'var(--grid-overlay)', backgroundSize: 'var(--grid-size)', pointerEvents: 'none' }} />
+      <img src={A+'images/hero-glass-door.jpg'} alt="" aria-hidden="true" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.07, pointerEvents: 'none' }} />
+      <div style={{ ...cont(bp), position: 'relative', zIndex: 1, width: '100%', direction: rtl ? 'rtl' : 'ltr', padding: `0 ${bp.md ? '16px' : '32px'}` }}>
+        <div style={{ maxWidth: bp.md ? '100%' : 780, margin: '0 auto', textAlign: bp.md ? (rtl ? 'right' : 'left') : 'center' }}>
+          <Badge variant="on-dark" style={{ marginBottom: 24, display: 'inline-flex' }}>
+            {rtl ? '٣٠+ عاماً من التميز الهندسي · المملكة العربية السعودية' : '30+ Years Engineering Excellence · Saudi Arabia'}
+          </Badge>
+          <h1 style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: `clamp(44px,9vw,100px)`, fontWeight: 700, letterSpacing: rtl ? 0 : '-0.02em', color: '#fff', lineHeight: rtl ? 1.2 : 0.92, margin: '0 0 24px' }}>
+            {rtl ? 'كل باب نركّبه لا يزال يعمل' : <><span>Every Door</span><br /><span>We Install</span><br /><span>Still Works</span></>}
+          </h1>
+          <p style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: bp.md ? 16 : 18, color: 'var(--color-silver)', maxWidth: 520, margin: bp.md ? '0 0 32px' : '0 auto 40px', lineHeight: 1.75 }}>
+            {rtl ? 'أكثر من ٣٠ عاماً من الخبرة الهندسية في المملكة. من الأبواب الزجاجية حتى أبواب هناجر الطائرات.' : "Saudi Arabia's most experienced automatic door and access system engineering company. From sliding glass doors to aircraft hangar doors."}
+          </p>
+          <div style={{ display: 'flex', gap: 12, justifyContent: bp.md ? (rtl ? 'flex-start' : 'flex-start') : 'center', flexWrap: 'wrap' }}>
+            <Button variant="accent" size={bp.md ? 'md' : 'lg'} arrow href="#contact">{rtl ? 'اطلب عرض سعر' : 'Request a Quote'}</Button>
+            <Button variant="outline-white" size={bp.md ? 'md' : 'lg'} href="#projects">{rtl ? 'استعرض مشاريعنا' : 'View Our Projects'}</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Stats({ bp, rtl }) {
+  const items = rtl
+    ? [{ n: '٣٠+', l: 'سنة خبرة' }, { n: '٥٠٠+', l: 'مشروع منجز' }, { n: '١٠+', l: 'فئة منتجات' }]
+    : [{ n: '30+', l: 'Years of Operation' }, { n: '500+', l: 'Projects Completed' }, { n: '10+', l: 'Product Categories' }];
+  return (
+    <div style={{ background: 'var(--color-royal-blue)', direction: rtl ? 'rtl' : 'ltr' }}>
+      <div style={{ ...cont(bp), display: 'grid', gridTemplateColumns: bp.sm ? '1fr' : 'repeat(3,1fr)' }}>
+        {items.map((s, i) => (
+          <div key={i} style={{ padding: bp.sm ? '28px 20px' : '36px 24px', textAlign: 'center', borderBottom: bp.sm && i < 2 ? '1px solid rgba(255,255,255,0.08)' : 'none', borderRight: !bp.sm && i < 2 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: `clamp(36px,6vw,68px)`, fontWeight: 700, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1 }}>{s.n}</div>
+            <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 13 : 11, fontWeight: rtl ? 400 : 700, letterSpacing: rtl ? 0 : '0.12em', textTransform: rtl ? 'none' : 'uppercase', color: 'var(--color-silver)', marginTop: 8 }}>{s.l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Services({ bp, rtl }) {
+  return (
+    <section id="products" style={secStyle('var(--color-silver-pale)', bp)}>
+      <div style={cont(bp)}>
+        <div style={{ textAlign: bp.md ? (rtl ? 'right' : 'left') : 'center', marginBottom: 40, direction: rtl ? 'rtl' : 'ltr' }}>
+          <Eyebrow t={rtl ? 'منتجاتنا الهندسية' : 'Our Engineering Products'} s={{ marginBottom: 12 }} />
+          <H2 t={rtl ? 'حلول الوصول لكل القطاعات' : 'Access Solutions for Every Sector'} rtl={rtl} />
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(280px,1fr))', gap: 14 }}>
+          {PRODUCTS.map((p, i) => (
+            <ServiceCard key={i} imageSrc={p.img} title={rtl ? p.titleAr : p.title} description={rtl ? p.descAr : p.desc} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Trust({ bp, rtl }) {
+  const cols = bp.sm ? 3 : 6;
+  return (
+    <section style={secStyle('var(--color-navy)', bp)}>
+      <div style={{ ...cont(bp), direction: rtl ? 'rtl' : 'ltr' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <Eyebrow t={rtl ? 'ثقة القطاعات الرائدة' : 'Trusted Across Sectors'} s={{ marginBottom: 12 }} />
+          <H2 t={rtl ? 'موثوقون في أفضل المنشآت بالمملكة' : "Trusted by Saudi Arabia's Finest Facilities"} dark rtl={rtl} />
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: `repeat(${cols},1fr)`, border: '1px solid rgba(43,108,176,0.2)', borderRadius: 'var(--radius)', overflow: 'hidden', marginBottom: 36 }}>
+          {SECTORS.map((s, i) => (
+            <div key={i} style={{ padding: bp.sm ? '16px 8px' : '20px 10px', textAlign: 'center', borderRight: i < cols - 1 ? '1px solid rgba(43,108,176,0.2)' : 'none', borderBottom: bp.sm && i < 3 ? '1px solid rgba(43,108,176,0.2)' : 'none', background: 'rgba(255,255,255,0.02)' }}>
+              <div style={{ fontSize: bp.sm ? 22 : 28, marginBottom: 6 }}>{s.icon}</div>
+              <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 10 : 9, fontWeight: rtl ? 400 : 700, letterSpacing: rtl ? 0 : '0.1em', textTransform: rtl ? 'none' : 'uppercase', color: 'var(--color-silver)' }}>{rtl ? s.ar : s.en}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 0, borderTop: '1px solid rgba(43,108,176,0.15)', paddingTop: 28 }}>
+          {[A+'partners/assa-abloy.png', A+'partners/bft.png', A+'partners/came.png', A+'partners/jielong.png', A+'partners/vision-2030.png'].map((src, i) => (
+            <div key={i} style={{ padding: bp.md ? '10px 16px' : '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: bp.sm ? '33%' : 'auto', marginBottom: bp.sm ? 8 : 0 }}>
+              <img src={src} alt="" style={{ maxHeight: bp.sm ? 22 : 28, maxWidth: bp.sm ? 80 : 120, filter: 'brightness(0) invert(1)', opacity: 0.4 }} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About({ bp, rtl }) {
+  return (
+    <section id="about" style={secStyle('#fff', bp)}>
+      <div style={{ ...cont(bp), display: 'grid', gridTemplateColumns: bp.md ? '1fr' : '1fr 1fr', gap: bp.md ? 32 : 64, alignItems: 'center', direction: rtl ? 'rtl' : 'ltr' }}>
+        <img src={A+'images/project-install-1.png'} alt="Madar Randa installation" style={{ width: '100%', borderRadius: 'var(--radius)', aspectRatio: '4/3', objectFit: 'cover' }} />
+        <div>
+          <Eyebrow t={rtl ? 'عن مدار رندا' : 'About Madar Randa'} s={{ marginBottom: 14 }} />
+          <H2 t={rtl ? 'هندسة الوصول منذ ١٩٩٤' : 'Engineering Access Since 1994'} rtl={rtl} s={{ marginBottom: 16 }} />
+          <p style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: bp.md ? 15 : 17, color: 'var(--color-steel)', lineHeight: 1.75, marginBottom: 28 }}>
+            {rtl ? 'لا نركّب الأبواب فحسب — بل نهندس موثوقية تدوم. ثلاثة عقود من العمل المتواصل في المملكة تعني أننا شريك هندسي موثوق لأجيال من مشاريع البنية التحتية.' : "We don't just install doors — we engineer long-term reliability. Three decades of continuous Saudi operation. Trusted by hospitals, airports, government facilities, and industrial complexes across the Kingdom."}
+          </p>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <Button variant="primary" arrow href="#contact">{rtl ? 'تواصل مع مهندسينا' : 'Talk to an Engineer'}</Button>
+            <Button variant="ghost" href="#projects">{rtl ? 'استعرض مشاريعنا' : 'View Projects'}</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MaintCTA({ bp, rtl }) {
+  return (
+    <section style={{ background: 'var(--color-accent)', padding: `${bp.md ? 32 : 44}px 0`, direction: rtl ? 'rtl' : 'ltr' }}>
+      <div style={{ ...cont(bp), display: 'flex', flexDirection: bp.md ? 'column' : 'row', alignItems: bp.md ? 'flex-start' : 'center', justifyContent: 'space-between', gap: 20 }}>
+        <div>
+          <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: bp.md ? (rtl ? 17 : 18) : (rtl ? 20 : 24), fontWeight: 700, letterSpacing: rtl ? 0 : '-0.01em', color: '#fff', marginBottom: 6 }}>
+            {rtl ? 'عميل حالي؟ اطلب خدمة الصيانة.' : 'Existing client? Request maintenance support.'}
+          </div>
+          <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 14, color: 'rgba(255,255,255,0.85)' }}>
+            {rtl ? 'استجابة مهندسينا خلال ٢٤ ساعة في جميع أنحاء المملكة.' : '24-hour engineer response. On-call across Saudi Arabia.'}
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+          <Button variant="primary" style={{ background: '#fff', color: 'var(--color-accent)' }} href="tel:+966508009799">📞 {rtl ? '+966 508 009 799' : '+966 508 009 799'}</Button>
+          <Button variant="outline-white" href="https://wa.me/966508009799">💬 WhatsApp</Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Projects({ bp, rtl }) {
+  const FKEYS = ['All', 'Commercial', 'Industrial', 'Healthcare', 'Aviation', 'Government'];
+  const FL = rtl ? ['الكل', 'تجاري', 'صناعي', 'رعاية صحية', 'طيران', 'حكومي'] : FKEYS;
+  const [active, setA] = React.useState('All');
+  const shown = active === 'All' ? PROJECTS : PROJECTS.filter(p => p.sector === active);
+  return (
+    <section id="projects" style={secStyle('var(--color-silver-pale)', bp)}>
+      <div style={{ ...cont(bp), direction: rtl ? 'rtl' : 'ltr' }}>
+        <div style={{ display: 'flex', flexDirection: bp.md ? 'column' : 'row', alignItems: bp.md ? 'flex-start' : 'flex-end', justifyContent: 'space-between', marginBottom: 32, gap: 16 }}>
+          <div>
+            <Eyebrow t={rtl ? 'معرض مشاريعنا' : 'Project Showcase'} s={{ marginBottom: 10 }} />
+            <H2 t={rtl ? 'مشاريع مختارة' : 'Selected Installations'} rtl={rtl} />
+          </div>
+          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+            {FKEYS.map((k, i) => (
+              <button key={k} onClick={() => setA(k)} style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 12 : 10, fontWeight: 700, letterSpacing: rtl ? 0 : '0.08em', textTransform: rtl ? 'none' : 'uppercase', padding: '6px 12px', borderRadius: 'var(--radius-sm)', border: '1.5px solid', cursor: 'pointer', transition: 'all 0.15s', background: active === k ? 'var(--color-navy)' : '#fff', color: active === k ? '#fff' : 'var(--color-steel)', borderColor: active === k ? 'var(--color-navy)' : 'var(--color-border-strong)' }}>
+                {FL[i]}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(260px,1fr))', gap: 14 }}>
+          {shown.map((p, i) => <ProjectCard key={i} {...p} />)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Testimonials({ bp, rtl }) {
+  return (
+    <section style={secStyle('#fff', bp)}>
+      <div style={{ ...cont(bp), direction: rtl ? 'rtl' : 'ltr' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <Eyebrow t={rtl ? 'آراء العملاء' : 'Client Testimonials'} s={{ marginBottom: 12 }} />
+          <H2 t={rtl ? 'ما يقوله عملاؤنا' : 'What Our Clients Say'} rtl={rtl} />
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(260px,1fr))', gap: 18 }}>
+          {TESTIMONIALS.map((t, i) => <TestimonialCard key={i} {...t} />)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FAQ({ bp, rtl }) {
+  const [open, setO] = React.useState(null);
+  return (
+    <section id="faq" style={secStyle('var(--color-silver-pale)', bp)}>
+      <div style={{ ...cont(bp), maxWidth: 780, direction: rtl ? 'rtl' : 'ltr' }}>
+        <div style={{ textAlign: 'center', marginBottom: 36 }}>
+          <Eyebrow t={rtl ? 'أسئلة شائعة' : 'Frequently Asked Questions'} s={{ marginBottom: 12 }} />
+          <H2 t={rtl ? 'ما يسألنا عنه العملاء' : 'Questions We Get Asked'} rtl={rtl} />
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {FAQS.map((f, i) => (
+            <div key={i} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 'var(--radius)', overflow: 'hidden' }}>
+              <button onClick={() => setO(open === i ? null : i)} style={{ width: '100%', textAlign: rtl ? 'right' : 'left', padding: '16px 18px', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
+                <span style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 14 : 15, fontWeight: 700, color: 'var(--color-navy)', letterSpacing: rtl ? 0 : '-0.01em', textAlign: rtl ? 'right' : 'left' }}>{f.q}</span>
+                <span style={{ fontSize: 20, color: 'var(--color-accent)', flexShrink: 0, transform: open === i ? 'rotate(45deg)' : 'none', transition: 'transform 0.15s', display: 'inline-block' }}>+</span>
+              </button>
+              {open === i && <div style={{ padding: '0 18px 16px', fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 15, color: 'var(--color-steel)', lineHeight: 1.7 }}>{f.a}</div>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact({ bp, rtl }) {
+  return (
+    <section id="contact" style={secStyle('var(--color-navy)', bp)}>
+      <div style={{ ...cont(bp), direction: rtl ? 'rtl' : 'ltr' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: bp.md ? '1fr' : '1fr 1.2fr', gap: bp.md ? 36 : 64, alignItems: 'start' }}>
+          <div>
+            <Eyebrow t={rtl ? 'تواصل معنا' : 'Get in Touch'} s={{ marginBottom: 14 }} />
+            <H2 t={rtl ? 'اطلب عرض سعر' : 'Request a Quote'} dark rtl={rtl} s={{ marginBottom: 16 }} />
+            <p style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 15, color: 'var(--color-silver)', lineHeight: 1.75, marginBottom: 28 }}>
+              {rtl ? 'أرسل لنا تفاصيل مشروعك وسيتواصل معك أحد مهندسينا خلال ٢٤ ساعة.' : 'Send us your project details and one of our engineers will be in touch within 24 hours.'}
+            </p>
+            {[
+              { i: '📞', t: '+966 508 009 799',           href: 'tel:+966508009799' },
+              { i: '📧', t: 'info@madaranda.com',          href: 'mailto:info@madaranda.com' },
+              { i: '💬', t: 'WhatsApp: +966 508 009 799',  href: 'https://wa.me/966508009799' },
+              { i: '📍', t: rtl ? 'القصيم - بريدة – الفايزية – طريق الأمير سلطان بن عبدالعزيز' : 'Al-Fayiziyyah, Prince Sultan bin Abdulaziz Rd, Buraydah, Al-Qassim', href: '#' },
+            ].map((c, i) => (
+              <a key={i} href={c.href} style={{ display: 'flex', alignItems: 'flex-start', gap: 12, marginBottom: 14, textDecoration: 'none' }}>
+                <span style={{ fontSize: 16, marginTop: 2, flexShrink: 0 }}>{c.i}</span>
+                <span style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 14, color: 'var(--color-silver-light)', lineHeight: 1.5 }}>{c.t}</span>
+              </a>
+            ))}
+          </div>
+          <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(43,108,176,0.2)', borderRadius: 'var(--radius)', padding: bp.md ? 20 : 32 }}>
+            <RFQForm rtl={rtl} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer({ bp, rtl }) {
+  return (
+    <footer style={{ background: 'var(--color-navy)', borderTop: '1px solid rgba(43,108,176,0.2)', padding: `${bp.md ? 40 : 60}px 0 24px`, direction: rtl ? 'rtl' : 'ltr' }}>
+      <div style={cont(bp)}>
+        <div style={{ display: 'grid', gridTemplateColumns: bp.md ? '1fr' : '1.5fr 1fr 1fr', gap: bp.md ? 32 : 40, marginBottom: 36 }}>
+          <div>
+            <img src={A+'logos/logo.png'} alt="Madar Randa" style={{ height: 40, marginBottom: 12 }} onError={e => e.target.style.display = 'none'} />
+            <div style={{ fontFamily: 'var(--font-arabic)', fontSize: 15, color: 'var(--color-silver)', marginBottom: 4 }}>مدار رندا</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 9, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-accent-light)', marginBottom: 12 }}>Engineering Access Solutions</div>
+            <p style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 13, color: 'var(--color-silver)', lineHeight: 1.7 }}>
+              {rtl ? 'أكثر من ٣٠ عاماً من هندسة حلول الوصول.' : '30+ years engineering access solutions across Saudi Arabia.'}
+            </p>
+          </div>
+          <div>
+            <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 13 : 10, fontWeight: 700, letterSpacing: rtl ? 0 : '0.15em', textTransform: rtl ? 'none' : 'uppercase', color: 'var(--color-silver-light)', marginBottom: 14 }}>{rtl ? 'المنتجات' : 'Products'}</div>
+            {(rtl ? ['الأبواب الزجاجية', 'الأبواب المقطعية', 'الأبواب السريعة', 'رصيف التحميل', 'حواجز الطرق', 'أبواب الهناجر'] : ['Automatic Glass Doors', 'Sectional Doors', 'Fast-Action Doors', 'Loading Dock', 'Road Barriers', 'Hangar Doors']).map((l, i) => (
+              <a key={i} href="#products" style={{ display: 'block', fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 13, color: 'var(--color-silver)', textDecoration: 'none', marginBottom: 7 }}>{l}</a>
+            ))}
+          </div>
+          <div>
+            <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 13 : 10, fontWeight: 700, letterSpacing: rtl ? 0 : '0.15em', textTransform: rtl ? 'none' : 'uppercase', color: 'var(--color-silver-light)', marginBottom: 14 }}>{rtl ? 'تواصل معنا' : 'Contact'}</div>
+            <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 13, color: 'var(--color-silver)', lineHeight: 1.7 }}>
+              <a href="tel:+966508009799" style={{ display: 'block', color: 'inherit', textDecoration: 'none', marginBottom: 7 }}>📞 +966 508 009 799</a>
+              <a href="mailto:info@madaranda.com" style={{ display: 'block', color: 'inherit', textDecoration: 'none', marginBottom: 7 }}>📧 info@madaranda.com</a>
+              <a href="https://wa.me/966508009799" style={{ display: 'block', color: 'inherit', textDecoration: 'none', marginBottom: 14 }}>💬 WhatsApp</a>
+              <div style={{ lineHeight: 1.6 }}>📍 {rtl ? 'القصيم - بريدة – الفايزية' : 'Al-Fayiziyyah, Buraydah, Al-Qassim'}</div>
+            </div>
+          </div>
+        </div>
+        <div style={{ borderTop: '1px solid rgba(43,108,176,0.12)', paddingTop: 20, display: 'flex', flexDirection: bp.sm ? 'column' : 'row', alignItems: bp.sm ? 'flex-start' : 'center', justifyContent: 'space-between', gap: 12 }}>
+          <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 12, color: 'var(--color-steel-mid)' }}>
+            {rtl ? '© ٢٠٢٥ مدار رندا. جميع الحقوق محفوظة.' : '© 2025 Madar Randa. All rights reserved.'}
+          </div>
+          <img src={A+'partners/vision-2030.png'} alt="Vision 2030" style={{ height: 24, opacity: 0.3, filter: 'brightness(0) invert(1)' }} />
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ── App ─────────────────────────────────────────────── */
+function App() {
+  const bp = useBreakpoint();
+  const [rtl, setR] = React.useState(false);
+  return (
+    <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)' }}>
+      <NavBar logoSrc={A+'logos/logo.png'} rtl={rtl} />
+      <Hero bp={bp} rtl={rtl} />
+      <Stats bp={bp} rtl={rtl} />
+      <Services bp={bp} rtl={rtl} />
+      <Trust bp={bp} rtl={rtl} />
+      <About bp={bp} rtl={rtl} />
+      <MaintCTA bp={bp} rtl={rtl} />
+      <Projects bp={bp} rtl={rtl} />
+      <Testimonials bp={bp} rtl={rtl} />
+      <FAQ bp={bp} rtl={rtl} />
+      <Contact bp={bp} rtl={rtl} />
+      <Footer bp={bp} rtl={rtl} />
+      {/* Language toggle */}
+      <div style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 999, display: 'flex', background: 'var(--color-navy)', border: '1px solid rgba(43,108,176,0.3)', borderRadius: 'var(--radius-sm)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
+        {[['EN', false], ['عربي', true]].map(([lbl, r]) => (
+          <button key={lbl} onClick={() => setR(r)} style={{ padding: '8px 14px', background: rtl === r ? 'var(--color-accent)' : 'transparent', color: rtl === r ? '#fff' : 'var(--color-silver)', border: 'none', cursor: 'pointer', fontFamily: r ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: r ? 13 : 11, fontWeight: 700, letterSpacing: r ? 0 : '0.06em', textTransform: r ? 'none' : 'uppercase', transition: 'all 0.15s' }}>{lbl}</button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

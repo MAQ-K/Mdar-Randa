@@ -1,0 +1,180 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="Services Page" subtitle="All 10 product categories · sector filter · bilingual · mobile" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madar Randa — Products & Services</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>* { box-sizing: border-box; } body { margin: 0; }</style>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { NavBar, Button, Badge, ServiceCard } = window.MadarRandaDesignSystem_7efd61;
+const A = '../../assets/';
+
+function useBreakpoint() {
+  const [w, setW] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+  React.useEffect(() => { const fn = () => setW(window.innerWidth); window.addEventListener('resize', fn); return () => window.removeEventListener('resize', fn); }, []);
+  return { xs: w < 480, sm: w < 640, md: w < 768, lg: w < 1024, w };
+}
+
+const cont = bp => ({ maxWidth: 'var(--container-max)', margin: '0 auto', padding: `0 ${bp.md ? '16px' : '32px'}` });
+const secStyle = (bg, bp, py = 64) => ({ background: bg, padding: `${bp.md ? 40 : py}px 0` });
+const Eyebrow = ({ t }) => <div style={{ fontFamily: 'var(--font-display)', fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--color-accent)', marginBottom: 12 }}>{t}</div>;
+const H = ({ t, dark, rtl, s }) => <h1 style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: 'clamp(28px,5vw,56px)', fontWeight: 700, letterSpacing: rtl ? 0 : '-0.02em', color: dark ? '#fff' : 'var(--color-navy)', margin: 0, lineHeight: rtl ? 1.2 : 1.05, ...s }}>{t}</h1>;
+
+const PRODUCTS = [
+  { cat: 'Doors',    title: 'Automatic Glass Doors',  titleAr: 'الأبواب الزجاجية',       desc: 'CE-certified sliding, swing, and revolving doors for commercial, healthcare, and hospitality environments.',                        descAr: 'أبواب أوتوماتيكية زجاجية معتمدة CE للمراكز التجارية والمستشفيات.', img: A+'images/product-glass-door.jpg',    sectors: ['Commercial','Healthcare','Hospitality'] },
+  { cat: 'Doors',    title: 'Sectional Doors',         titleAr: 'الأبواب المقطعية',        desc: 'Heavy-duty insulated sectional doors for warehouses and factories. Wind-load rated and automated.',                                  descAr: 'أبواب مقطعية معزولة للمستودعات والمصانع. مقدّرة لحمل الرياح.', img: A+'images/product-sectional-door.jpg',sectors: ['Industrial','Commercial'] },
+  { cat: 'Doors',    title: 'Fast-Action Doors',       titleAr: 'الأبواب السريعة',         desc: 'High-speed roll-up doors for cold storage, food production, and high-traffic facilities. 1M cycle-tested.',                         descAr: 'أبواب سريعة للمخازن الباردة والمرافق الصناعية.', img: A+'images/product-fast-door.jpg',     sectors: ['Industrial'] },
+  { cat: 'Dock',     title: 'Loading Dock Systems',    titleAr: 'رصيف معدات التحميل',      desc: 'Dock levellers, hydraulic bumpers, and complete dock solutions for logistics and warehousing.',                                       descAr: 'موازنات رصيف ومصدات هيدروليكية لعمليات اللوجستيات والتخزين.', img: A+'images/product-loading-dock.jpg',  sectors: ['Industrial','Commercial'] },
+  { cat: 'Security', title: 'Road Barriers',           titleAr: 'حواجز الطرق',             desc: 'Automatic boom gates and parking control for commercial campuses, government facilities, and residential communities.',               descAr: 'بوابات أوتوماتيكية وأنظمة التحكم في مواقف السيارات.', img: A+'images/project-barrier.jpg',       sectors: ['Government','Commercial','Residential'] },
+  { cat: 'Security', title: 'Security Entrances',      titleAr: 'البوابات الأمنية',         desc: 'Turnstiles, speed gates, and full-height security entrances for high-security environments. CPTED compliant.',                       descAr: 'بوابات دوارة وأمنية للبيئات ذات الأمان العالي.', img: A+'images/project-security.jpg',      sectors: ['Government','Aviation','Healthcare'] },
+  { cat: 'Windows',  title: 'Automatic Windows',       titleAr: 'النوافذ الأوتوماتيكية',   desc: 'Aluminium roller shutters and automatic window systems. Remote and timer-controlled.',                                               descAr: 'نوافذ وستائر أوتوماتيكية للمباني التجارية والسكنية.', img: A+'images/product-auto-window.jpg',   sectors: ['Commercial','Residential','Hospitality'] },
+  { cat: 'Doors',    title: 'Villa & Palace Gates',    titleAr: 'أبواب الفلل والقصور',     desc: 'Engineered entrance gates for premium residential properties. Custom dimensions, finishing, and automation.',                         descAr: 'بوابات هندسية للفلل والقصور والمنازل الفاخرة.', img: A+'images/product-villa-door.jpg',    sectors: ['Residential'] },
+  { cat: 'Motors',   title: 'Sliding Door Motors',     titleAr: 'محركات أبواب الحديد',      desc: 'Retrofit automation motors for existing iron sliding gates. Supply, installation, and maintenance.',                                 descAr: 'محركات أوتوماتيكية لأبواب الحديد الموجودة.', img: A+'images/product-iron-motor.jpg',    sectors: ['Residential','Commercial'] },
+  { cat: 'Aviation', title: 'Aircraft Hangar Doors',  titleAr: 'أبواب هناجر الطائرات',    desc: 'Custom-engineered hangar doors to aviation-grade specifications. Widths up to 50m+.',                                               descAr: 'أبواب هناجر مخصصة حسب المواصفات الطيرانية. تصل عروضها لأكثر من ٥٠م.', img: A+'images/hero-hangar.jpg', sectors: ['Aviation'] },
+];
+
+const CATS    = ['All', 'Doors', 'Dock', 'Security', 'Windows', 'Motors', 'Aviation'];
+const CATS_AR = ['الكل', 'أبواب', 'رصيف', 'أمان', 'نوافذ', 'محركات', 'طيران'];
+
+function PageHero({ bp, rtl }) {
+  return (
+    <section style={{ background: 'var(--color-navy)', padding: `${bp.md ? 52 : 72}px 0 ${bp.md ? 44 : 60}px`, position: 'relative', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', inset: 0, backgroundImage: 'var(--grid-overlay)', backgroundSize: 'var(--grid-size)', opacity: 0.7, pointerEvents: 'none' }} />
+      <div style={{ ...cont(bp), position: 'relative', zIndex: 1, direction: rtl ? 'rtl' : 'ltr' }}>
+        <Badge variant="on-dark" style={{ marginBottom: 18, display: 'inline-flex' }}>
+          {rtl ? '١٠+ فئة منتجات' : '10+ Product Categories'}
+        </Badge>
+        <H t={rtl ? 'حلول الوصول الهندسية' : 'Engineering Access Solutions'} dark rtl={rtl} s={{ maxWidth: 620, marginBottom: 16 }} />
+        <p style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: bp.md ? 15 : 17, color: 'var(--color-silver)', maxWidth: 520, lineHeight: 1.75, marginBottom: 28 }}>
+          {rtl ? 'من الأبواب الزجاجية الأوتوماتيكية إلى أبواب هناجر الطائرات — نوفر الحل الهندسي لكل متطلبات الوصول.' : 'From automatic glass doors to aircraft hangar doors — a complete engineering solution for every access requirement.'}
+        </p>
+        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          <Button variant="accent" size={bp.md ? 'md' : 'lg'} arrow href="ContactPage.html">{rtl ? 'اطلب عرض سعر' : 'Request a Quote'}</Button>
+          <Button variant="outline-white" size={bp.md ? 'md' : 'lg'} href="ContactPage.html">{rtl ? 'تواصل مع مهندسينا' : 'Talk to an Engineer'}</Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProductsGrid({ bp, rtl }) {
+  const [active, setA] = React.useState('All');
+  const shown = active === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.cat === active);
+  return (
+    <section style={secStyle('var(--color-silver-pale)', bp)}>
+      <div style={{ ...cont(bp), direction: rtl ? 'rtl' : 'ltr' }}>
+        <div style={{ display: 'flex', gap: 6, marginBottom: 32, flexWrap: 'wrap', alignItems: 'center' }}>
+          <span style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 12 : 10, fontWeight: 700, letterSpacing: rtl ? 0 : '0.15em', textTransform: rtl ? 'none' : 'uppercase', color: 'var(--color-steel-mid)', marginInlineEnd: 8 }}>{rtl ? 'تصفية:' : 'Filter:'}</span>
+          {CATS.map((c, i) => (
+            <button key={c} onClick={() => setA(c)} style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 12 : 10, fontWeight: 700, letterSpacing: rtl ? 0 : '0.06em', textTransform: rtl ? 'none' : 'uppercase', padding: '6px 12px', borderRadius: 'var(--radius-sm)', border: '1.5px solid', cursor: 'pointer', transition: 'all 0.15s', background: active === c ? 'var(--color-navy)' : '#fff', color: active === c ? '#fff' : 'var(--color-steel)', borderColor: active === c ? 'var(--color-navy)' : 'var(--color-border-strong)' }}>
+              {rtl ? CATS_AR[i] : c}
+            </button>
+          ))}
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(270px,1fr))', gap: 16 }}>
+          {shown.map((p, i) => (
+            <div key={i}>
+              <ServiceCard imageSrc={p.img} title={rtl ? p.titleAr : p.title} description={rtl ? p.descAr : p.desc} />
+              <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', padding: '7px 0 0' }}>
+                {p.sectors.map((s, j) => (
+                  <span key={j} style={{ fontFamily: 'var(--font-display)', fontSize: 9, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '3px 7px', borderRadius: 2, background: 'var(--color-silver-pale)', color: 'var(--color-steel)', border: '1px solid var(--color-border-strong)' }}>{s}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SpecsBand({ bp, rtl }) {
+  const specs = rtl
+    ? [['معتمد CE', 'الأبواب الزجاجية والصناعية'], ['IP65', 'المحركات والأنظمة الخارجية'], ['مقدّر للرياح', 'الأبواب الصناعية والهناجر'], ['١م دورة', 'الأبواب السريعة']]
+    : [['CE Certified', 'All glass & industrial doors'], ['IP65 Rated', 'Motors & outdoor systems'], ['Wind-Load Rated', 'Industrial & hangar doors'], ['1M Cycle Tested', 'Fast-action doors']];
+  const cols = bp.sm ? 2 : 4;
+  return (
+    <div style={{ background: 'var(--color-navy)', direction: rtl ? 'rtl' : 'ltr' }}>
+      <div style={{ ...cont(bp), display: 'grid', gridTemplateColumns: `repeat(${cols},1fr)` }}>
+        {specs.map(([a, b], i) => (
+          <div key={i} style={{ padding: bp.sm ? '20px 14px' : '28px 24px', borderRight: (i + 1) % cols !== 0 ? '1px solid rgba(43,108,176,0.2)' : 'none', borderBottom: bp.sm && i < 2 ? '1px solid rgba(43,108,176,0.2)' : 'none', textAlign: 'center' }}>
+            <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: bp.sm ? 14 : 17, fontWeight: 700, color: 'var(--color-accent-light)', letterSpacing: rtl ? 0 : '-0.01em', marginBottom: 5 }}>{a}</div>
+            <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 12, color: 'var(--color-silver)', lineHeight: 1.5 }}>{b}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function MaintCTA({ bp, rtl }) {
+  return (
+    <section style={{ background: 'var(--color-accent)', padding: `${bp.md ? 32 : 44}px 0`, direction: rtl ? 'rtl' : 'ltr' }}>
+      <div style={{ ...cont(bp), display: 'flex', flexDirection: bp.md ? 'column' : 'row', alignItems: bp.md ? 'flex-start' : 'center', justifyContent: 'space-between', gap: 20 }}>
+        <div>
+          <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: bp.md ? 18 : 22, fontWeight: 700, letterSpacing: rtl ? 0 : '-0.01em', color: '#fff', marginBottom: 6 }}>
+            {rtl ? 'هل تحتاج إلى صيانة؟ تواصل معنا الآن.' : 'Need maintenance? We respond within 24 hours.'}
+          </div>
+          <div style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 14, color: 'rgba(255,255,255,0.85)' }}>
+            {rtl ? 'عقود صيانة سنوية لجميع الأنظمة المركّبة.' : 'Annual maintenance contracts for all installed systems.'}
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+          <Button variant="primary" style={{ background: '#fff', color: 'var(--color-accent)' }} href="ContactPage.html">{rtl ? 'اطلب عقد صيانة' : 'Request Maintenance'}</Button>
+          <Button variant="outline-white" href="tel:+966508009799">📞 +966 508 009 799</Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer({ bp, rtl }) {
+  return (
+    <footer style={{ background: 'var(--color-navy)', borderTop: '1px solid rgba(43,108,176,0.2)', padding: '32px 0 20px', direction: rtl ? 'rtl' : 'ltr' }}>
+      <div style={{ ...cont(bp), display: 'flex', flexDirection: bp.sm ? 'column' : 'row', alignItems: bp.sm ? 'flex-start' : 'center', justifyContent: 'space-between', gap: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <img src={A+'logos/logo.png'} alt="Madar Randa" style={{ height: 34 }} onError={e => e.target.style.display = 'none'} />
+          <div style={{ fontFamily: 'var(--font-body)', fontSize: 12, color: 'var(--color-silver)' }}>© 2025 Madar Randa</div>
+        </div>
+        <div style={{ display: 'flex', gap: 16 }}>
+          <a href="index.html" style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 12 : 10, fontWeight: 700, letterSpacing: rtl ? 0 : '0.1em', textTransform: rtl ? 'none' : 'uppercase', color: 'var(--color-silver)', textDecoration: 'none' }}>{rtl ? 'الرئيسية' : 'Home'}</a>
+          <a href="ContactPage.html" style={{ fontFamily: rtl ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: rtl ? 12 : 10, fontWeight: 700, letterSpacing: rtl ? 0 : '0.1em', textTransform: rtl ? 'none' : 'uppercase', color: 'var(--color-silver)', textDecoration: 'none' }}>{rtl ? 'تواصل' : 'Contact'}</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function App() {
+  const bp = useBreakpoint();
+  const [rtl, setR] = React.useState(false);
+  return (
+    <div>
+      <NavBar logoSrc={A+'logos/logo.png'} rtl={rtl} ctaHref="ContactPage.html" />
+      <PageHero bp={bp} rtl={rtl} />
+      <ProductsGrid bp={bp} rtl={rtl} />
+      <SpecsBand bp={bp} rtl={rtl} />
+      <MaintCTA bp={bp} rtl={rtl} />
+      <Footer bp={bp} rtl={rtl} />
+      <div style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 999, display: 'flex', background: 'var(--color-navy)', border: '1px solid rgba(43,108,176,0.3)', borderRadius: 'var(--radius-sm)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
+        {[['EN', false], ['عربي', true]].map(([lbl, r]) => (
+          <button key={lbl} onClick={() => setR(r)} style={{ padding: '8px 14px', background: rtl === r ? 'var(--color-accent)' : 'transparent', color: rtl === r ? '#fff' : 'var(--color-silver)', border: 'none', cursor: 'pointer', fontFamily: r ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: r ? 13 : 11, fontWeight: 700, letterSpacing: r ? 0 : '0.06em', textTransform: r ? 'none' : 'uppercase', transition: 'all 0.15s' }}>{lbl}</button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

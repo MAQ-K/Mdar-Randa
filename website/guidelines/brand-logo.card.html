@@ -1,0 +1,42 @@
+<!-- @dsCard group="Brand" viewport="700x180" name="Logo System" subtitle="Primary · on dark · on light · bilingual" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body { margin: 0; display: grid; grid-template-columns: 1fr 1fr 1fr; }
+    .panel { padding: 32px 24px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; }
+    .label { font-family: var(--font-display); font-size: 9px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <div class="panel" style="background: var(--color-navy)">
+    <img src="../assets/logos/logo.png" alt="Madar Randa logo" style="height:48px; width:auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+    <div style="display:none; flex-direction:column; line-height:1.1">
+      <span style="font-family:var(--font-display);font-size:22px;font-weight:700;color:#fff;letter-spacing:-0.01em">MADAR RANDA</span>
+      <span style="font-family:var(--font-arabic);font-size:14px;color:var(--color-silver)">مدار رندا</span>
+    </div>
+    <span class="label" style="color:var(--color-silver)">On Dark / Primary</span>
+  </div>
+  <div class="panel" style="background: #fff; border-left: 1px solid var(--color-border); border-right: 1px solid var(--color-border);">
+    <img src="../assets/logos/logo-bg.png" alt="Madar Randa logo" style="height:48px; width:auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+    <div style="display:none; flex-direction:column; line-height:1.1">
+      <span style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--color-navy);letter-spacing:-0.01em">MADAR RANDA</span>
+      <span style="font-family:var(--font-arabic);font-size:14px;color:var(--color-steel)">مدار رندا</span>
+    </div>
+    <span class="label" style="color:var(--color-steel)">On Light / Print</span>
+  </div>
+  <div class="panel" style="background: var(--color-silver-pale)">
+    <div style="display:flex;align-items:center;gap:16px">
+      <img src="../assets/logos/icon-mark.png" alt="MR icon" style="height:48px; width:48px; object-fit:contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+      <div style="display:none; width:48px;height:48px;background:var(--color-blue-mid);border-radius:var(--radius-sm);align-items:center;justify-content:center;font-family:var(--font-display);font-size:20px;font-weight:700;color:#fff">MR</div>
+      <div>
+        <div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--color-navy)">MADAR RANDA</div>
+        <div style="font-family:var(--font-arabic);font-size:13px;color:var(--color-steel);margin-top:2px">مدار رندا</div>
+      </div>
+    </div>
+    <span class="label" style="color:var(--color-steel)">Bilingual Lockup</span>
+  </div>
+</body>
+</html>

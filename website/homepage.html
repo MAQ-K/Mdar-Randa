@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madar Randa — Automatic Doors &amp; Windows</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- Icons + plugins -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome-5.css">
+    <link rel="stylesheet" href="assets/css/plugins/unicons.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+
+    <!-- Homepage stylesheet (all sections + utilities) -->
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+
+<!-- ── Custom cursor ─────────────────────────────── -->
+<div class="cur" id="cur">
+    <div class="cur-dot"></div>
+    <div class="cur-ring"></div>
+</div>
+
+<!-- ── Floating WhatsApp ─────────────────────────── -->
+<a href="https://wa.me/966508009799" class="float-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+</a>
+
+<!-- ── Back to top ────────────────────────────────── -->
+<button class="back-top" id="backTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+    </svg>
+</button>
+
+<!-- ── Navigation ────────────────────────────────── -->
+<nav class="nav" id="mainNav">
+    <a href="#" class="nav-logo">Madar</a>
+
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <span class="nav-phone"><i class="ri-phone-line"></i> +966 508 009 799</span>
+
+        <!-- Language toggle -->
+        <div class="lang-toggle" role="group" aria-label="Select language">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <a href="ar.html" class="lang-btn" data-lang="ar">عر</a>
+        </div>
+
+        <button class="nav-burger" id="burger" aria-label="Toggle menu">
+            <span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ── Mobile overlay ────────────────────────────── -->
+<div class="mob-overlay" id="mobOverlay">
+    <nav class="mob-links">
+        <a href="#about"    class="mob-link">About</a>
+        <a href="#services" class="mob-link">Services</a>
+        <a href="#why-us"   class="mob-link">Why Us</a>
+        <a href="#partners" class="mob-link">Partners</a>
+        <a href="#contact"  class="mob-link">Contact</a>
+    </nav>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     HERO SLIDER
+═══════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+    <div class="hero-slider" id="heroSlider">
+        <div class="hs-slide active" style="background-image:url('assets/images/banner/01.jpg')"></div>
+        <div class="hs-slide"        style="background-image:url('assets/images/banner/02.jpg')"></div>
+        <div class="hs-slide"        style="background-image:url('assets/images/banner/03.jpg')"></div>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <p class="hero-badge"><span>+ Automatic Doors &amp; Windows</span></p>
+        <h1 class="hero-h1">
+            <span class="hero-line"><span>The Art</span></span>
+            <span class="hero-line"><span>Stunning Interior</span></span>
+        </h1>
+        <p class="hero-sub"><span>Whether it's your home, office, or a commercial project,<br>we are always dedicated to bringing your vision to life.</span></p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn-dark"><span>Get In Touch</span> <i class="ri-arrow-right-up-line"></i></a>
+            <a href="#services" class="btn-line"><span>Our Services</span></a>
+        </div>
+    </div>
+
+    <div class="hero-card">
+        <div class="hcard-num">300<em>+</em></div>
+        <p class="hcard-label">Successful projects<br>and counting</p>
+        <ul class="hcard-list">
+            <li><i class="ri-check-line"></i> Government Projects</li>
+            <li><i class="ri-check-line"></i> Commercial Buildings</li>
+            <li><i class="ri-check-line"></i> Security Systems</li>
+        </ul>
+    </div>
+
+    <div class="hero-stats">
+        <div class="stat-item">
+            <span class="stat-num">30<em>+</em></span>
+            <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num">10<em>+</em></span>
+            <span class="stat-label">Product Categories</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num">50<em>+</em></span>
+            <span class="stat-label">Gov. Clients</span>
+        </div>
+    </div>
+
+    <div class="hs-controls">
+        <div class="hs-dots">
+            <button class="hs-dot active" data-index="0"></button>
+            <button class="hs-dot"        data-index="1"></button>
+            <button class="hs-dot"        data-index="2"></button>
+        </div>
+        <div class="hs-counter">
+            <span class="hs-cur">01</span><span class="hs-sep"> / </span><span class="hs-total">03</span>
+        </div>
+    </div>
+
+    <button class="hs-nav hs-prev" id="hsPrev" aria-label="Previous slide"><i class="ri-arrow-left-line"></i></button>
+    <button class="hs-nav hs-next" id="hsNext" aria-label="Next slide"><i class="ri-arrow-right-line"></i></button>
+
+    <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 01 — ABOUT US
+═══════════════════════════════════════════════ -->
+<section class="ab-section" id="about">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-6 col-md-12">
+                <div class="ab-images">
+                    <img class="ab-img-small" src="assets/images/about/main/about-02.png" alt="interior detail" loading="lazy">
+                    <img class="ab-img-main"  src="assets/images/about/main/about-01.png" alt="architecture main" loading="lazy">
+                    <div class="ab-exp-badge">
+                        <p class="ab-num">25+</p>
+                        <p class="ab-label">Years<br>Experience</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <div class="ab-content">
+                    <span class="ab-since">Since 1989</span>
+                    <h2 class="ab-heading">
+                        Architecture And <span class="ab-gold">Interiors,</span><br>
+                        <span class="ab-gold-bold">Our Dual</span> Expertise
+                    </h2>
+                    <p class="ab-desc">
+                        We believe that every space has the power to inspire, and that great
+                        design brings that inspiration to life. Our mission is to craft environments
+                        that stir creativity, evoke emotion, and reflect the essence of those who inhabit them.
+                    </p>
+                    <div class="ab-features">
+                        <div class="ab-feat-item">
+                            <h6 class="ab-feat-title">Residential Design</h6>
+                            <p class="ab-feat-desc">Our team of 30 experts ensures top-quality results</p>
+                        </div>
+                        <div class="ab-feat-item">
+                            <h6 class="ab-feat-title">Sustainable Solutions</h6>
+                            <p class="ab-feat-desc">Our team of 30 experts ensures top-quality results</p>
+                        </div>
+                    </div>
+                    <a class="ab-btn" href="#">
+                        More About Us
+                        <span class="ab-btn-icon"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 02 — OUR SERVICES
+═══════════════════════════════════════════════ -->
+<section class="sv-section" id="services">
+    <div class="container-xxl">
+        <div class="row align-items-center g-0">
+
+            <div class="col-lg-4 col-md-12">
+                <div class="sv-left reveal">
+                    <span class="sv-pill">Our Services</span>
+                    <h2 class="sv-heading">
+                        Explore Our<br>
+                        Comprehensive<br>
+                        <span class="sv-gold">Interior Design<br>Services</span>
+                    </h2>
+                    <p class="sv-desc">
+                        We believe that every space has the power to inspire, and that great
+                        design brings that inspiration to life. Our mission is to craft environments
+                        that stir creativity, evoke emotion, and reflect the essence of those who inhabit them.
+                    </p>
+                    <a class="sv-btn" href="#">
+                        Explore All Services
+                        <span class="sv-btn-icon"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <div class="sv-nav">
+                        <button class="sv-prev" aria-label="Previous"><i class="fas fa-arrow-left"></i></button>
+                        <button class="sv-next" aria-label="Next"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-12 sv-right">
+                <div class="swiper sv-swiper" id="sv-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide sv-card"><img src="assets/images/service/01.jpg" alt="Residential Interior Design" loading="lazy"><span class="sv-card-num">01</span><div class="sv-card-body"><h5 class="sv-card-title">Residential Interior Design</h5><p class="sv-card-desc">Tailored design for private homes, room makeovers and complete home transformations.</p></div></div>
+                        <div class="swiper-slide sv-card"><img src="assets/images/service/02.jpg" alt="Commercial Interior Design" loading="lazy"><span class="sv-card-num">02</span><div class="sv-card-body"><h5 class="sv-card-title">Commercial Interior Design</h5><p class="sv-card-desc">Creating inspiring workspaces, retail environments and hospitality interiors.</p></div></div>
+                        <div class="swiper-slide sv-card"><img src="assets/images/service/03.jpg" alt="Architectural Design" loading="lazy"><span class="sv-card-num">03</span><div class="sv-card-body"><h5 class="sv-card-title">Architectural Design</h5><p class="sv-card-desc">Innovative structural concepts that balance aesthetics, function and sustainability.</p></div></div>
+                        <div class="swiper-slide sv-card"><img src="assets/images/service/04.jpg" alt="Landscape Design" loading="lazy"><span class="sv-card-num">04</span><div class="sv-card-body"><h5 class="sv-card-title">Landscape Design</h5><p class="sv-card-desc">Transforming outdoor spaces into beautiful, functional extensions of the home.</p></div></div>
+                        <div class="swiper-slide sv-card"><img src="assets/images/service/05.jpg" alt="Space Planning" loading="lazy"><span class="sv-card-num">05</span><div class="sv-card-body"><h5 class="sv-card-title">Space Planning</h5><p class="sv-card-desc">Optimizing every square meter for flow, comfort and maximum visual impact.</p></div></div>
+                        <div class="swiper-slide sv-card"><img src="assets/images/service/06.jpg" alt="Furniture &amp; Styling" loading="lazy"><span class="sv-card-num">06</span><div class="sv-card-body"><h5 class="sv-card-title">Furniture &amp; Styling</h5><p class="sv-card-desc">Curating bespoke furniture selections and accessories that define the space.</p></div></div>
+                        <div class="swiper-slide sv-card"><img src="assets/images/service/07.jpg" alt="Lighting Design" loading="lazy"><span class="sv-card-num">07</span><div class="sv-card-body"><h5 class="sv-card-title">Lighting Design</h5><p class="sv-card-desc">Layered lighting schemes that enhance ambiance and highlight key architectural features.</p></div></div>
+                        <div class="swiper-slide sv-card"><img src="assets/images/service/08.jpg" alt="Renovation &amp; Fit-Out" loading="lazy"><span class="sv-card-num">08</span><div class="sv-card-body"><h5 class="sv-card-title">Renovation &amp; Fit-Out</h5><p class="sv-card-desc">End-to-end renovation management from concept through to final installation.</p></div></div>
+                        <div class="swiper-slide sv-card"><img src="assets/images/service/09.jpg" alt="Sustainable Design" loading="lazy"><span class="sv-card-num">09</span><div class="sv-card-body"><h5 class="sv-card-title">Sustainable Design</h5><p class="sv-card-desc">Eco-conscious material choices and energy-efficient solutions without compromise.</p></div></div>
+                        <div class="swiper-slide sv-card"><img src="assets/images/service/10.jpg" alt="3D Visualization" loading="lazy"><span class="sv-card-num">10</span><div class="sv-card-body"><h5 class="sv-card-title">3D Visualization</h5><p class="sv-card-desc">Photorealistic renders so you see your space exactly as it will look before work begins.</p></div></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 03 — WHY CHOOSE US
+═══════════════════════════════════════════════ -->
+<section class="wc-section" id="why-us">
+    <div class="container">
+
+        <div class="wc-header">
+            <div class="wc-header-left">
+                <span class="ab-since reveal">Who We Are</span>
+            </div>
+            <div class="wc-header-right reveal">
+                <h2 class="wc-heading">
+                    Experience <span class="wc-gold">The Art Of</span><br>
+                    <span class="wc-gold">Interior</span> Design
+                </h2>
+                <p class="wc-sub">
+                    We specialize in transforming visions into reality.
+                    Explore our portfolio of innovative architectural and interior design projects crafted with precision.
+                </p>
+            </div>
+        </div>
+
+        <div class="wc-grid">
+            <div class="wc-card reveal">
+                <div class="wc-card-top">
+                    <h5 class="wc-card-title">Architectural<br>Design</h5>
+                    <div class="wc-icon"><i class="uil uil-vector-square"></i></div>
+                </div>
+                <div class="wc-sep"></div>
+                <p class="wc-card-desc">Dream it, we'll design it! From big picture layouts to the tiniest details, our architectural magic brings your ideas to life with creativity and precision!</p>
+            </div>
+            <div class="wc-card reveal">
+                <div class="wc-card-top">
+                    <h5 class="wc-card-title">Interior Design<br>&amp; Planning</h5>
+                    <div class="wc-icon"><i class="uil uil-layer-group"></i></div>
+                </div>
+                <div class="wc-sep"></div>
+                <p class="wc-card-desc">Dream it, we'll design it! From big picture layouts to the tiniest details, our architectural magic brings your ideas to life with creativity and precision!</p>
+            </div>
+            <div class="wc-card reveal">
+                <div class="wc-card-top">
+                    <h5 class="wc-card-title">Consulting<br>Services</h5>
+                    <div class="wc-icon"><i class="uil uil-comment-alt-lines"></i></div>
+                </div>
+                <div class="wc-sep"></div>
+                <p class="wc-card-desc">Dream it, we'll design it! From big picture layouts to the tiniest details, our architectural magic brings your ideas to life with creativity and precision!</p>
+            </div>
+            <div class="wc-card reveal">
+                <div class="wc-card-top">
+                    <h5 class="wc-card-title">Project<br>Management</h5>
+                    <div class="wc-icon"><i class="uil uil-graph-bar"></i></div>
+                </div>
+                <div class="wc-sep"></div>
+                <p class="wc-card-desc">Dream it, we'll design it! From big picture layouts to the tiniest details, our architectural magic brings your ideas to life with creativity and precision!</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 05 — CTA BANNER
+═══════════════════════════════════════════════ -->
+<section class="cta-section" id="contact">
+    <div class="container">
+        <div class="cta-inner">
+
+            <div class="cta-body reveal">
+                <p class="cta-tag">Let's Work Together</p>
+                <h2 class="cta-heading">
+                    Ready to Transform<br>
+                    Your <span class="cta-gold">Dream Space</span><br>
+                    Into Reality?
+                </h2>
+                <p class="cta-desc">
+                    Our team of expert designers and architects is ready to bring your vision to life. From concept to completion, we handle every detail with precision and passion.
+                </p>
+                <div class="cta-btns">
+                    <a class="cta-btn-primary" href="tel:+966508009799">
+                        <i class="fas fa-phone-alt"></i>
+                        Call Us Now
+                    </a>
+                    <a class="cta-btn-outline" href="#">
+                        Send a Message
+                    </a>
+                </div>
+            </div>
+
+            <div class="cta-card reveal">
+                <p class="cta-card-label">Get in touch</p>
+                <a class="cta-card-phone" href="tel:+966508009799">+966 508 009 799</a>
+                <a class="cta-card-email" href="mailto:info@madaranda.com">info@madaranda.com</a>
+                <div class="cta-card-divider"></div>
+                <p class="cta-card-note">Available Sunday – Thursday, 8:00 am – 5:00 pm. We respond within 24 hours.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 06 — PARTNERS LOGOS STRIP
+═══════════════════════════════════════════════ -->
+<section class="pt-section" id="partners">
+    <div class="container">
+        <div class="pt-header reveal">
+            <span class="pt-label">Our Partners</span>
+            <div class="pt-line"></div>
+        </div>
+    </div>
+
+    <div class="pt-strip">
+        <div class="pt-track">
+            <div class="pt-logo"><img src="assets/images/client/01.png" alt="BFT"         loading="lazy"></div>
+            <div class="pt-logo"><img src="assets/images/client/02.png" alt="CAME"        loading="lazy"></div>
+            <div class="pt-logo"><img src="assets/images/client/03.png" alt="ASSA ABLOY"  loading="lazy"></div>
+            <div class="pt-logo"><img src="assets/images/client/04.png" alt="FAAC"        loading="lazy"></div>
+            <div class="pt-logo"><img src="assets/images/client/05.png" alt="DOORHAN"     loading="lazy"></div>
+            <div class="pt-logo"><img src="assets/images/client/06.png" alt="NICE"        loading="lazy"></div>
+            <!-- duplicate set for seamless loop -->
+            <div class="pt-logo"><img src="assets/images/client/01.png" alt="BFT"         loading="lazy"></div>
+            <div class="pt-logo"><img src="assets/images/client/02.png" alt="CAME"        loading="lazy"></div>
+            <div class="pt-logo"><img src="assets/images/client/03.png" alt="ASSA ABLOY"  loading="lazy"></div>
+            <div class="pt-logo"><img src="assets/images/client/04.png" alt="FAAC"        loading="lazy"></div>
+            <div class="pt-logo"><img src="assets/images/client/05.png" alt="DOORHAN"     loading="lazy"></div>
+            <div class="pt-logo"><img src="assets/images/client/06.png" alt="NICE"        loading="lazy"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 04 — VISION 2030
+═══════════════════════════════════════════════ -->
+<section class="v30-section" id="vision">
+    <div class="container">
+        <div class="row align-items-start">
+
+            <div class="col-lg-7 col-md-12">
+                <div class="v30-left">
+                    <span class="ab-since">Started In 1991</span>
+                    <h2 class="v30-heading">
+                        We Shape <span class="v30-gold">Interior Designs,<br>
+                        Crafting Timeless</span> And Inspiring<br>
+                        Spaces
+                    </h2>
+                    <div class="v30-bottom">
+                        <div class="v30-stat">
+                            <span class="v30-num">26</span>
+                            <p class="v30-stat-label">Years of<br>experience</p>
+                        </div>
+                        <div class="v30-img-small">
+                            <img src="assets/images/service/05.jpg" alt="interior design project" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 col-md-12">
+                <div class="v30-right">
+                    <div class="v30-img-main">
+                        <img src="assets/images/about/main/about-01.png" alt="vision design space" loading="lazy">
+                    </div>
+                    <p class="v30-desc">
+                        We believe that every space has the power to inspire, and that great design brings. Our mission is to craft environments that stir creativity, evoke emotion, and reflect the essence of those who inhabit them.
+                    </p>
+                    <a class="ab-btn" href="#">
+                        More About Us
+                        <span class="ab-btn-icon"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer class="ft">
+
+    <div class="ft-news">
+        <div class="container">
+            <div class="ft-news-inner">
+                <div class="ft-news-text">
+                    <p class="ft-news-label">Stay Updated</p>
+                    <h4 class="ft-news-title">Subscribe to Our Newsletter</h4>
+                </div>
+                <form class="ft-news-form" onsubmit="return false;">
+                    <input class="ft-news-input" type="email" placeholder="Enter your email address">
+                    <button class="ft-news-btn" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="ft-main">
+        <div class="container">
+            <div class="row g-5">
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-12">
+                    <a class="ft-brand-logo" href="#">
+                        <img src="assets/images/logo/logo-1.svg" alt="Madar Randa" loading="lazy">
+                    </a>
+                    <p class="ft-brand-desc">Crafting environments that inspire. Architecture and interior design built with precision, creativity and purpose.</p>
+                    <div class="ft-socials">
+                        <a class="ft-social-link" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="ft-social-link" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a class="ft-social-link" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="ft-social-link" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-2 col-md-6 col-6">
+                    <h6 class="ft-col-title">Quick Links</h6>
+                    <ul class="ft-links">
+                        <li><a href="#"><i class="far fa-arrow-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="far fa-arrow-right"></i> About Us</a></li>
+                        <li><a href="#services"><i class="far fa-arrow-right"></i> Services</a></li>
+                        <li><a href="#why-us"><i class="far fa-arrow-right"></i> Why Us</a></li>
+                        <li><a href="#partners"><i class="far fa-arrow-right"></i> Partners</a></li>
+                        <li><a href="#contact"><i class="far fa-arrow-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-12">
+                    <h6 class="ft-col-title">Contact Us</h6>
+                    <div class="ft-contact-item">
+                        <div class="ft-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <p class="ft-contact-label">Address</p>
+                            <span class="ft-contact-value">Buraydah, Al Qassim, Saudi Arabia</span>
+                        </div>
+                    </div>
+                    <div class="ft-contact-item">
+                        <div class="ft-contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <p class="ft-contact-label">Phone</p>
+                            <a class="ft-contact-value" href="tel:+966508009799">+966 508 009 799</a>
+                        </div>
+                    </div>
+                    <div class="ft-contact-item">
+                        <div class="ft-contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <p class="ft-contact-label">Email</p>
+                            <a class="ft-contact-value" href="mailto:info@madaranda.com">info@madaranda.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+                    <h6 class="ft-col-title">Opening Hours</h6>
+                    <div class="ft-hours-row">
+                        <span class="ft-hours-day">Sunday – Thursday</span>
+                        <span class="ft-hours-time">08:00 – 17:00</span>
+                    </div>
+                    <div class="ft-hours-row">
+                        <span class="ft-hours-day">Saturday</span>
+                        <span class="ft-hours-time">09:00 – 13:00</span>
+                    </div>
+                    <div class="ft-hours-row">
+                        <span class="ft-hours-day">Friday</span>
+                        <span class="ft-hours-time off">Closed</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ft-copy">
+        <div class="container">
+            <div class="ft-copy-inner">
+                <p class="ft-copy-text">&copy; 2025 <a href="#">Madar Randa</a>. All rights reserved.</p>
+                <div class="ft-copy-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+<!-- Scripts -->
+<script src="assets/js/vendor/jquery.min.js"></script>
+<script src="assets/js/plugins/swiper.js"></script>
+<script src="homepage.js"></script>
+
+</body>
+</html>

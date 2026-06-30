@@ -1,0 +1,20 @@
+---
+name: madar-randa-design
+description: Use this skill to generate well-branded interfaces and assets for Madar Randa (مدار رندا), Saudi Arabia's premier automatic door and engineering access solutions company. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping or production.
+user-invocable: true
+---
+
+Read the README.md file within this skill, and explore the other available files.
+
+If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy assets out and create static HTML files for the user to view. If working on production code, you can copy assets and read the rules here to become an expert in designing with this brand.
+
+If the user invokes this skill without any other guidance, ask them what they want to build or design, ask some questions, and act as an expert designer who outputs HTML artifacts _or_ production code, depending on the need.
+
+## Key Brand Facts
+- Company: Madar Randa (مدار رندا) — Saudi Arabia automatic door engineering, 30+ years
+- Archetype: The Ruler — authority, mastery, stability, engineering precision
+- Colors: Deep Navy #0C1E3C + Accent Blue #2B6CB0 + Engineering Silver #A8B4C8
+- Type: Barlow Condensed (display) + Barlow (body) + IBM Plex Sans Arabic
+- Language: Bilingual EN (LTR) + AR (RTL)
+- Tone: Bold, declarative, no exclamation marks, statistics over adjectives
+- Never: gradients on backgrounds, rounded pill buttons, glassmorphism, warm colors

@@ -1,0 +1,59 @@
+/* Madar Randa — Color Tokens
+   Brand: Deep Navy engineering aesthetic with Accent Blue CTAs
+   Palette psychology: Navy = institutional authority; Blue = precision/trust; Silver = engineered metal
+*/
+
+:root {
+  /* ── Brand Core ─────────────────────────────── */
+  --color-navy:          #0C1E3C;
+  --color-royal-blue:    #1A3A6B;
+  --color-blue-mid:      #1E4D8C;
+  --color-accent:        #2B6CB0;
+  --color-accent-light:  #3B82C4;
+
+  /* ── Neutral / Silver Scale ──────────────────── */
+  --color-silver:        #A8B4C8;
+  --color-silver-light:  #D4DCE8;
+  --color-silver-pale:   #EEF1F7;
+  --color-steel:         #4A5568;
+  --color-steel-mid:     #6B7280;
+  --color-charcoal:      #1F2937;
+  --color-white:         #FFFFFF;
+  --color-off-white:     #F7F9FC;
+
+  /* ── Borders ─────────────────────────────────── */
+  --color-border:        rgba(168, 180, 200, 0.25);
+  --color-border-strong: rgba(168, 180, 200, 0.5);
+  --color-border-dark:   rgba(43, 108, 176, 0.25);
+
+  /* ── Semantic: Surfaces ──────────────────────── */
+  --color-surface-dark:    var(--color-navy);
+  --color-surface-section: var(--color-off-white);
+  --color-surface-card:    var(--color-white);
+  --color-surface-subtle:  var(--color-silver-pale);
+
+  /* ── Semantic: Text ──────────────────────────── */
+  --color-text-primary:    var(--color-charcoal);
+  --color-text-secondary:  var(--color-steel);
+  --color-text-muted:      var(--color-steel-mid);
+  --color-text-on-dark:    var(--color-white);
+  --color-text-on-dark-2:  var(--color-silver);
+  --color-text-link:       var(--color-accent);
+  --color-text-eyebrow:    var(--color-accent);
+
+  /* ── Semantic: Interactive ───────────────────── */
+  --color-cta:             var(--color-accent);
+  --color-cta-hover:       var(--color-accent-light);
+  --color-focus-ring:      rgba(43, 108, 176, 0.3);
+
+  /* ── Status ──────────────────────────────────── */
+  --color-success:         #38A169;
+  --color-success-bg:      #C6F6D5;
+  --color-success-text:    #276749;
+  --color-warning:         #D69E2E;
+  --color-warning-bg:      #FEFCBF;
+  --color-warning-text:    #744210;
+  --color-danger:          #C53030;
+  --color-danger-bg:       #FED7D7;
+  --color-danger-text:     #9B2C2C;
+}
