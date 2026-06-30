@@ -126,7 +126,7 @@ git push origin main
 ------------------------------------------------------------------------
 
 # Team Rules
-
+git pull origin main
 1.  Always run `git pull origin main` before starting work.
 2.  Commit your own changes before pulling if you've already edited
     files.
