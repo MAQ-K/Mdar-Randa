@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services — Standalone Section</title>
+<style>
+/* ═══════════════════════════════════════════════════
+   OUR SERVICES — fully self-contained, zero dependencies
+   No Bootstrap, no FontAwesome, no Swiper, no local assets.
+═══════════════════════════════════════════════════ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+    --gold:#C8A86B;
+    --dark:#111;
+    --ff: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Red Hat Display",Arial,sans-serif;
+}
+
+body{font-family:var(--ff);background:#fff}
+
+/* ── Section wrapper ─────────────────────────────── */
+.sv-section{
+    background:var(--dark);
+    padding:100px 0;
+    overflow-x:clip;
+    position:relative;
+}
+.sv-section::before{
+    content:'';
+    position:absolute;
+    top:-120px;left:-120px;
+    width:520px;height:520px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.04) 0%,transparent 70%);
+    pointer-events:none;
+}
+
+/* ── Grid row (replaces Bootstrap col-lg-4 / col-lg-8) ── */
+.sv-row{
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    align-items:center;
+    gap:0;
+    position:relative;
+    z-index:1;
+}
+@media (max-width:991px){
+    .sv-row{ grid-template-columns:1fr; }
+}
+
+/* ── Left panel ──────────────────────────────────── */
+.sv-left{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:0 48px;
+    height:100%;
+}
+@media (max-width:991px){
+    .sv-left{ padding:0 24px; margin-bottom:48px; }
+}
+
+/* pill badge */
+.sv-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    border:1.5px solid rgba(255,255,255,.35);
+    border-radius:999px;
+    padding:5px 16px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#fff;
+    margin-bottom:24px;
+    width:fit-content;
+}
+.sv-pill::before{
+    content:'';
+    display:inline-block;
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--gold);
+    flex-shrink:0;
+}
+
+/* heading */
+.sv-heading{
+    font-size:clamp(30px,3.8vw,48px);
+    font-weight:800;
+    line-height:1.12;
+    color:#fff;
+    margin-bottom:22px;
+}
+.sv-heading .sv-gold{ color:var(--gold); font-style:italic; }
+
+/* description */
+.sv-desc{
+    font-size:14px;
+    color:rgba(255,255,255,.6);
+    line-height:1.75;
+    margin-bottom:38px;
+    max-width:400px;
+}
+
+/* CTA button */
+.sv-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    border:1.5px solid rgba(255,255,255,.5);
+    border-radius:999px;
+    padding:10px 22px 10px 18px;
+    font-size:14px;
+    font-weight:700;
+    color:#fff;
+    text-decoration:none;
+    width:fit-content;
+    transition:background .25s,border-color .25s;
+    margin-bottom:32px;
+}
+.sv-btn:hover{ background:var(--gold); border-color:var(--gold); }
+.sv-btn-icon{
+    width:32px;height:32px;
+    border-radius:50%;
+    background:var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+}
+.sv-btn-icon svg{ width:13px;height:13px; transform:rotate(-45deg); }
+
+/* prev / next nav */
+.sv-nav{ display:flex; gap:10px; margin-top:20px; padding-left:4px; }
+.sv-prev,.sv-next{
+    width:44px;height:44px;
+    border-radius:50%;
+    border:1.5px solid rgba(255,255,255,.3);
+    background:transparent;
+    color:#fff;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s,border-color .2s,opacity .2s;
+}
+.sv-prev:hover,.sv-next:hover{ background:var(--gold); border-color:var(--gold); }
+.sv-prev svg,.sv-next svg{ width:16px;height:16px; }
+.sv-prev:disabled,.sv-next:disabled{ opacity:.3; cursor:default; pointer-events:none; }
+
+/* ── Right panel — native scroll-snap slider ─────── */
+.sv-right{ overflow:hidden; }
+.sv-track{
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
+    padding:4px 0;
+}
+.sv-track::-webkit-scrollbar{ display:none; }
+.sv-track{ scrollbar-width:none; -ms-overflow-style:none; }
+
+.sv-card{
+    position:relative;
+    border-radius:20px;
+    overflow:hidden;
+    height:580px;
+    flex:0 0 calc((100% - 48px)/2.4); /* ~2.4 cards visible */
+    scroll-snap-align:start;
+    cursor:pointer;
+}
+@media (max-width:1400px){ .sv-card{ height:480px; } }
+@media (max-width:991px){
+    .sv-card{ flex-basis:calc((100% - 18px)/1.8); height:380px; }
+}
+@media (max-width:767px){
+    .sv-card{ flex-basis:calc((100% - 14px)/1.2); height:340px; }
+}
+
+.sv-card img{
+    width:100%;height:100%;
+    object-fit:cover;
+    display:block;
+}
+.sv-card::after{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,.1) 40%,rgba(0,0,0,.75) 100%);
+}
+.sv-card-num{
+    position:absolute; top:20px; left:22px;
+    font-size:13px; font-weight:700; color:#fff;
+    z-index:2; letter-spacing:.05em;
+}
+.sv-card-body{
+    position:absolute; bottom:0; left:0; right:0;
+    padding:22px; z-index:2;
+    transition:background .3s;
+}
+.sv-card:hover .sv-card-body{
+    background:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.85) 100%);
+}
+.sv-card-title{ font-size:17px; font-weight:700; color:#fff; margin-bottom:8px; }
+.sv-card-desc{ font-size:13px; color:rgba(255,255,255,.7); line-height:1.55; }
+
+/* ── RTL ─────────────────────────────────────────── */
+[dir="rtl"] .sv-nav{ padding-left:0; padding-right:4px; }
+[dir="rtl"] .sv-card-num{ left:auto; right:22px; }
+[dir="rtl"] .sv-btn-icon svg{ transform:rotate(225deg); }
+</style>
+</head>
+<body>
+
+<section class="sv-section">
+    <div class="sv-row">
+
+        <!-- LEFT — text -->
+        <div class="sv-left">
+            <span class="sv-pill">Our Services</span>
+
+            <h2 class="sv-heading">
+                Explore Our<br>
+                Comprehensive<br>
+                <span class="sv-gold">Interior Design<br>Services</span>
+            </h2>
+
+            <p class="sv-desc">
+                We believe that every space has the power to inspire, and that great
+                design brings that inspiration to life. Our mission is to craft environments
+                that stir creativity, evoke emotion, and reflect the essence of those who inhabit them.
+            </p>
+
+            <a class="sv-btn" href="#">
+                Explore All Services
+                <span class="sv-btn-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </span>
+            </a>
+
+            <div class="sv-nav">
+                <button class="sv-prev" type="button" aria-label="Previous">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                </button>
+                <button class="sv-next" type="button" aria-label="Next">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- RIGHT — card slider -->
+        <div class="sv-right">
+            <div class="sv-track" id="svTrack">
+
+                <div class="sv-card">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="Residential Interior Design">
+                    <span class="sv-card-num">01</span>
+                    <div class="sv-card-body">
+                        <h5 class="sv-card-title">Residential Interior Design</h5>
+                        <p class="sv-card-desc">Tailored design for private homes, room makeovers and complete home transformations.</p>
+                    </div>
+                </div>
+
+                <div class="sv-card">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=700&q=80" alt="Commercial Interior Design">
+                    <span class="sv-card-num">02</span>
+                    <div class="sv-card-body">
+                        <h5 class="sv-card-title">Commercial Interior Design</h5>
+                        <p class="sv-card-desc">Creating inspiring workspaces, retail environments and hospitality interiors.</p>
+                    </div>
+                </div>
+
+                <div class="sv-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=700&q=80" alt="Architectural Design">
+                    <span class="sv-card-num">03</span>
+                    <div class="sv-card-body">
+                        <h5 class="sv-card-title">Architectural Design</h5>
+                        <p class="sv-card-desc">Innovative structural concepts that balance aesthetics, function and sustainability.</p>
+                    </div>
+                </div>
+
+                <div class="sv-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=700&q=80" alt="Landscape Design">
+                    <span class="sv-card-num">04</span>
+                    <div class="sv-card-body">
+                        <h5 class="sv-card-title">Landscape Design</h5>
+                        <p class="sv-card-desc">Transforming outdoor spaces into beautiful, functional extensions of the home.</p>
+                    </div>
+                </div>
+
+                <div class="sv-card">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&q=80" alt="Space Planning">
+                    <span class="sv-card-num">05</span>
+                    <div class="sv-card-body">
+                        <h5 class="sv-card-title">Space Planning</h5>
+                        <p class="sv-card-desc">Optimizing every square meter for flow, comfort and maximum visual impact.</p>
+                    </div>
+                </div>
+
+                <div class="sv-card">
+                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=700&q=80" alt="Furniture & Styling">
+                    <span class="sv-card-num">06</span>
+                    <div class="sv-card-body">
+                        <h5 class="sv-card-title">Furniture &amp; Styling</h5>
+                        <p class="sv-card-desc">Curating bespoke furniture selections and accessories that define the space.</p>
+                    </div>
+                </div>
+
+                <div class="sv-card">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80" alt="Lighting Design">
+                    <span class="sv-card-num">07</span>
+                    <div class="sv-card-body">
+                        <h5 class="sv-card-title">Lighting Design</h5>
+                        <p class="sv-card-desc">Layered lighting schemes that enhance ambiance and highlight key architectural features.</p>
+                    </div>
+                </div>
+
+                <div class="sv-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-129418cb2dfe?w=700&q=80" alt="Renovation & Fit-Out">
+                    <span class="sv-card-num">08</span>
+                    <div class="sv-card-body">
+                        <h5 class="sv-card-title">Renovation &amp; Fit-Out</h5>
+                        <p class="sv-card-desc">End-to-end renovation management from concept through to final installation.</p>
+                    </div>
+                </div>
+
+                <div class="sv-card">
+                    <img src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=700&q=80" alt="Sustainable Design">
+                    <span class="sv-card-num">09</span>
+                    <div class="sv-card-body">
+                        <h5 class="sv-card-title">Sustainable Design</h5>
+                        <p class="sv-card-desc">Eco-conscious material choices and energy-efficient solutions without compromise.</p>
+                    </div>
+                </div>
+
+                <div class="sv-card">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=700&q=80" alt="3D Visualization">
+                    <span class="sv-card-num">10</span>
+                    <div class="sv-card-body">
+                        <h5 class="sv-card-title">3D Visualization</h5>
+                        <p class="sv-card-desc">Photorealistic renders so you see your space exactly as it will look before work begins.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+(function () {
+    'use strict';
+
+    var track = document.getElementById('svTrack');
+    var prev  = document.querySelector('.sv-prev');
+    var next  = document.querySelector('.sv-next');
+    if (!track || !prev || !next) return;
+
+    function cardStep() {
+        var card = track.querySelector('.sv-card');
+        if (!card) return 300;
+        var style = getComputedStyle(track);
+        var gap = parseFloat(style.columnGap || style.gap || 20);
+        return card.getBoundingClientRect().width + gap;
+    }
+
+    function updateButtons() {
+        var max = track.scrollWidth - track.clientWidth - 2;
+        prev.disabled = track.scrollLeft <= 2;
+        next.disabled = track.scrollLeft >= max;
+    }
+
+    prev.addEventListener('click', function () {
+        track.scrollBy({ left: -cardStep(), behavior: 'smooth' });
+    });
+    next.addEventListener('click', function () {
+        track.scrollBy({ left: cardStep(), behavior: 'smooth' });
+    });
+    track.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
+})();
+</script>
+
+</body>
+</html>
