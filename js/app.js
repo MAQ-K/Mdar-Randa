@@ -390,6 +390,51 @@ var MadarApp = (function () {
     startAuto();
   }
 
+  /* ── Products Slider (homepage) ──────────────────── */
+  function initProductsSlider() {
+    var track = document.getElementById('sv-track');
+    if (!track || track.dataset.svInit) return;
+    track.dataset.svInit = '1';
+
+    var section = track.closest('.sv-section');
+    var prevBtn = section && section.querySelector('.sv-prev');
+    var nextBtn = section && section.querySelector('.sv-next');
+    if (!prevBtn || !nextBtn) return;
+
+    function isRtl() { return document.documentElement.dir === 'rtl'; }
+
+    function cardStep() {
+      var card = track.querySelector('.sv-card');
+      if (!card) return 300;
+      var style = getComputedStyle(track);
+      var gap = parseFloat(style.columnGap || style.gap) || 20;
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    function updateButtons() {
+      var max = track.scrollWidth - track.clientWidth - 2;
+      if (isRtl()) {
+        prevBtn.disabled = track.scrollLeft >= -2;
+        nextBtn.disabled = Math.abs(track.scrollLeft) >= max;
+      } else {
+        prevBtn.disabled = track.scrollLeft <= 2;
+        nextBtn.disabled = track.scrollLeft >= max;
+      }
+    }
+
+    prevBtn.addEventListener('click', function () {
+      var step = cardStep() * (isRtl() ? 1 : -1);
+      track.scrollBy({ left: step, behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', function () {
+      var step = cardStep() * (isRtl() ? -1 : 1);
+      track.scrollBy({ left: step, behavior: 'smooth' });
+    });
+    track.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
+  }
+
   /* ── Scroll Animations (inner pages only) ─────────── */
   function initScrollAnimations() {
     /* Skip on homepage — user requested no animations there */
@@ -434,6 +479,7 @@ var MadarApp = (function () {
     initServicePage();
     initLazyImages();
     initHeroSlider();
+    initProductsSlider();
     initScrollAnimations();
     initBackToTop();
   }
