@@ -21,7 +21,7 @@ const SITE_CONFIG = {
   logo: {
     src: 'assets/logos/logo.png',
     alt: 'Madar Randa',
-    height: 36,
+    height: 52,
   },
 
   /* ── WhatsApp ─────────────────────────────────────── */
@@ -45,6 +45,8 @@ const SITE_CONFIG = {
   /* ── Navigation ───────────────────────────────────── */
   nav: {
     links: [
+      { en: 'Home',        ar: 'الرئيسية',  href: 'index.html'       },
+      { en: 'About',       ar: 'عن الشركة', href: 'about.html'       },
       {
         en: 'Products', ar: 'المنتجات', href: 'services.html',
         /* dropdown items — rendered as mega-menu panel */
@@ -62,13 +64,12 @@ const SITE_CONFIG = {
         ],
       },
       { en: 'Projects',    ar: 'المشاريع',  href: 'projects.html'    },
-      { en: 'About',       ar: 'عن الشركة', href: 'about.html'       },
       { en: 'Maintenance', ar: 'الصيانة',   href: 'maintenance.html' },
       { en: 'Contact',     ar: 'اتصل بنا',  href: 'contact.html'     },
     ],
     cta: {
       en: 'Get a Quote',
-      ar: 'اطلب عرsض سعر',
+      ar: 'اطلب عرض سعر',
       href: 'contact.html',
     },
   },
@@ -82,6 +83,8 @@ const SITE_CONFIG = {
         badgeAr: 'معتمدة CE · المملكة العربية السعودية',
         titleEn: ['Every Door', 'We Install', 'Still Works'],
         titleAr: ['كل باب نركّبه', 'لا يزال يعمل'],
+        subEn: 'CE-certified sliding, swing, and revolving doors engineered for hospitals, airports, and commercial lobbies across Saudi Arabia.',
+        subAr: 'أبواب أوتوماتيكية معتمدة CE للمستشفيات والمطارات والمراكز التجارية في جميع أنحاء المملكة.',
       },
       {
         img: 'assets/images/hero-hangar.jpg',
@@ -89,6 +92,8 @@ const SITE_CONFIG = {
         badgeAr: 'مواصفات طيرانية · أكثر من ٥٠م',
         titleEn: ['Aircraft Hangar', 'Doors Built', 'for Every Scale'],
         titleAr: ['أبواب هناجر', 'الطائرات'],
+        subEn: 'Custom-engineered aviation-grade hangar doors — supplied, installed, and maintained to exact specifications.',
+        subAr: 'أبواب هناجر مخصصة بمواصفات طيرانية، نوردها ونركّبها ونصونها بدقة تامة.',
       },
       {
         img: 'assets/images/project-install-1.png',
@@ -96,10 +101,23 @@ const SITE_CONFIG = {
         badgeAr: '٥٠٠+ مشروع منجز',
         titleEn: ['Trusted Across', 'Saudi Arabia', 'Since 1994'],
         titleAr: ['موثوقون في المملكة', 'منذ ١٩٩٤'],
+        subEn: 'Three decades of continuous operation, trusted by government, healthcare, and industrial clients nationwide.',
+        subAr: 'ثلاثة عقود من التشغيل المتواصل، موثوقون من الجهات الحكومية والصحية والصناعية في جميع المملكة.',
       },
     ],
     ctaPrimary:   { en: 'Request a Quote →', ar: 'اطلب عرض سعر ←', href: 'contact.html' },
     ctaSecondary: { en: 'View Projects',      ar: 'استعرض المشاريع',  href: 'projects.html' },
+    infoCard: {
+      numEn: '500', numSuffixEn: '+',
+      numAr: '٥٠٠', numSuffixAr: '+',
+      labelEn: 'Successful installations and counting',
+      labelAr: 'تركيب ناجح وفي تزايد مستمر',
+      checklist: [
+        { en: 'CE Certified Systems',      ar: 'أنظمة معتمدة CE'        },
+        { en: '24-Hour Engineer Response', ar: 'استجابة مهندسين ٢٤ ساعة' },
+        { en: 'Nationwide Coverage',       ar: 'تغطية على مستوى المملكة' },
+      ],
+    },
     stats: [
       { numEn: '30+',  numAr: '٣٠+',  labelEn: 'Years of Operation',  labelAr: 'سنة خبرة'     },
       { numEn: '500+', numAr: '٥٠٠+', labelEn: 'Projects Completed',  labelAr: 'مشروع منجز'   },

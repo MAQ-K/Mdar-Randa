@@ -348,6 +348,16 @@ var MadarApp = (function () {
     var slider = document.getElementById('hero-slider');
     if (!slider) return;
 
+    /* Hero entrance reveal — homepage skips the scroll-triggered
+       .animated class (initScrollAnimations), so the hero's own
+       fade-up content (badge/title/sub/actions/card) must be
+       revealed here instead, or it stays at opacity:0 forever. */
+    requestAnimationFrame(function () {
+      slider.querySelectorAll('.animate-fade-up').forEach(function (el) {
+        el.classList.add('animated');
+      });
+    });
+
     var slides   = slider.querySelectorAll('.hs__slide');
     var dots     = slider.querySelectorAll('.hs__dot');
     var curEl    = slider.querySelector('.hs__cur');
@@ -379,13 +389,29 @@ var MadarApp = (function () {
       dot.addEventListener('click', function () { goTo(parseInt(dot.dataset.index)); startAuto(); });
     });
 
-    /* touch swipe */
-    var tx = 0;
-    slider.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
-    slider.addEventListener('touchend', function (e) {
-      var dx = e.changedTouches[0].clientX - tx;
+    /* touch + mouse drag swipe */
+    var dragX = 0, dragging = false;
+
+    function dragEnd(x) {
+      if (!dragging) return;
+      dragging = false;
+      slider.classList.remove('hero-slider--dragging');
+      var dx = x - dragX;
       if (Math.abs(dx) > 50) { goTo(dx < 0 ? current + 1 : current - 1); startAuto(); }
-    }, { passive: true });
+    }
+
+    slider.addEventListener('touchstart', function (e) { dragX = e.touches[0].clientX; dragging = true; }, { passive: true });
+    slider.addEventListener('touchend', function (e) { dragEnd(e.changedTouches[0].clientX); }, { passive: true });
+
+    slider.addEventListener('mousedown', function (e) {
+      if (e.target.closest('button, a')) return;
+      dragX = e.clientX;
+      dragging = true;
+      slider.classList.add('hero-slider--dragging');
+      e.preventDefault();
+    });
+    window.addEventListener('mouseup', function (e) { dragEnd(e.clientX); });
+    slider.addEventListener('mouseleave', function (e) { dragEnd(e.clientX); });
 
     startAuto();
   }
@@ -433,6 +459,33 @@ var MadarApp = (function () {
     track.addEventListener('scroll', updateButtons, { passive: true });
     window.addEventListener('resize', updateButtons);
     updateButtons();
+
+    /* mouse drag-to-scroll (touch already works natively via overflow-x) */
+    var isDown = false, startX = 0, scrollStart = 0, moved = false;
+
+    track.addEventListener('mousedown', function (e) {
+      isDown = true;
+      moved = false;
+      startX = e.pageX;
+      scrollStart = track.scrollLeft;
+      track.classList.add('sv-track--dragging');
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', function (e) {
+      if (!isDown) return;
+      var dx = e.pageX - startX;
+      if (Math.abs(dx) > 5) moved = true;
+      track.scrollLeft = scrollStart - dx;
+    });
+    window.addEventListener('mouseup', function () {
+      if (!isDown) return;
+      isDown = false;
+      track.classList.remove('sv-track--dragging');
+    });
+    /* swallow the click that follows a drag so cards don't navigate unintentionally */
+    track.addEventListener('click', function (e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
   }
 
   /* ── Scroll Animations (inner pages only) ─────────── */

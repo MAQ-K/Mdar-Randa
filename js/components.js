@@ -99,12 +99,6 @@
               '<span class="nav__phone-icon">' + ICON.phone + '</span>' +
               '<span class="nav__phone-num">' + esc(cfg.contact.phone) + '</span>' +
             '</a>' +
-            '<div class="lang-switcher" role="group" aria-label="Language switcher">' +
-              '<button class="lang-switcher__btn' + (!ar ? ' lang-switcher__btn--active' : '') + '" ' +
-                'onclick="MadarApp.setLang(\'en\')" aria-label="Switch to English" aria-pressed="' + (!ar) + '">EN</button>' +
-              '<button class="lang-switcher__btn' + (ar ? ' lang-switcher__btn--active' : '') + '" ' +
-                'onclick="MadarApp.setLang(\'ar\')" aria-label="التبديل إلى العربية" aria-pressed="' + ar + '">ع</button>' +
-            '</div>' +
             '<a href="' + esc(nav.cta.href) + '" class="nav__cta">' + esc(ar ? nav.cta.ar : nav.cta.en) + '</a>' +
             '<button class="nav__burger" id="nav-burger" aria-label="' + (ar ? 'القائمة' : 'Menu') + '" aria-expanded="false">' +
               '<span></span><span></span>' +
@@ -136,12 +130,13 @@
         return '<span class="hs__title-line"><span>' + esc(line) + '</span></span>';
       }).join('');
       return '<div class="hs__slide' + (i === 0 ? ' hs__slide--active' : '') + '" ' +
-        'style="background-image:url(\'' + esc(s.img) + '\')" aria-hidden="' + (i !== 0) + '">' +
+        'aria-hidden="' + (i !== 0) + '">' +
         '<div class="hs__slide-overlay"></div>' +
         '<div class="hs__slide-content container">' +
           '<p class="hs__badge animate-fade-up">' + esc(ar ? s.badgeAr : s.badgeEn) + '</p>' +
           '<h1 class="hs__title animate-fade-up anim-delay-1">' + titleHtml + '</h1>' +
-          '<div class="hs__actions animate-fade-up anim-delay-2">' +
+          '<p class="hs__sub animate-fade-up anim-delay-2">' + esc(ar ? s.subAr : s.subEn) + '</p>' +
+          '<div class="hs__actions animate-fade-up anim-delay-3">' +
             '<a href="' + esc(h.ctaPrimary.href) + '" class="btn btn--accent btn--lg">' + esc(ar ? h.ctaPrimary.ar : h.ctaPrimary.en) + '</a>' +
             '<a href="' + esc(h.ctaSecondary.href) + '" class="btn btn--outline-white btn--lg">' + esc(ar ? h.ctaSecondary.ar : h.ctaSecondary.en) + '</a>' +
           '</div>' +
@@ -153,6 +148,19 @@
       return '<button class="hs__dot' + (i === 0 ? ' hs__dot--active' : '') + '" data-index="' + i + '" aria-label="Slide ' + (i+1) + '"></button>';
     }).join('');
 
+    var infoCardHtml = '';
+    if (h.infoCard) {
+      var ic = h.infoCard;
+      var checklistHtml = ic.checklist.map(function (item) {
+        return '<li><span class="hs__card-check" aria-hidden="true">✓</span>' + esc(ar ? item.ar : item.en) + '</li>';
+      }).join('');
+      infoCardHtml = '<div class="hs__card">' +
+        '<div class="hs__card-num">' + esc(ar ? ic.numAr : ic.numEn) + '<em>' + esc(ar ? ic.numSuffixAr : ic.numSuffixEn) + '</em></div>' +
+        '<p class="hs__card-label">' + esc(ar ? ic.labelAr : ic.labelEn) + '</p>' +
+        '<ul class="hs__card-list">' + checklistHtml + '</ul>' +
+      '</div>';
+    }
+
     var statsHtml = h.stats.map(function (s, i) {
       return (i > 0 ? '<div class="hs__stat-div" aria-hidden="true"></div>' : '') +
         '<div class="hs__stat">' +
@@ -162,7 +170,18 @@
     }).join('');
 
     return '<section class="hero-slider" id="hero-slider" aria-label="' + (ar ? 'الصفحة الرئيسية' : 'Homepage hero') + '">' +
+
+      /* Shared looping video background (sits behind all slides) */
+      '<div class="hs__bg-video" aria-hidden="true">' +
+        '<video autoplay muted loop playsinline preload="auto" poster="' + esc(h.slides[0].img) + '">' +
+          '<source src="assets/video/hero.mp4" type="video/mp4">' +
+        '</video>' +
+      '</div>' +
+
       slidesHtml +
+
+      /* Right info card (sits above slider/overlay) */
+      infoCardHtml +
 
       /* Stats bar */
       '<div class="hs__stats">' +
@@ -265,6 +284,18 @@
     return '<button class="back-to-top" id="back-to-top" aria-label="Back to top">' + ICON.chevU + '</button>';
   }
 
+  /* ── Language FAB (floating, fixed to the left — never moves with dir) */
+  function renderLangFab() {
+    var ar = isAr();
+    return '<button type="button" class="lang-fab lang-switcher" id="lang-fab" role="switch" aria-checked="' + ar + '" ' +
+      'aria-label="' + (ar ? 'Switch to English' : 'التبديل إلى العربية') + '" ' +
+      'onclick="MadarApp.setLang(\'' + (ar ? 'en' : 'ar') + '\')">' +
+      '<span class="lang-switcher__thumb' + (ar ? ' lang-switcher__thumb--ar' : '') + '" aria-hidden="true"></span>' +
+      '<span class="lang-switcher__option lang-switcher__option--en' + (!ar ? ' lang-switcher__option--active' : '') + '">EN</span>' +
+      '<span class="lang-switcher__option lang-switcher__option--ar' + (ar ? ' lang-switcher__option--active' : '') + '">ع</span>' +
+    '</button>';
+  }
+
   /* ── Mount ────────────────────────────────────────── */
   window.MadarComponents = {
     renderHeader:   renderHeader,
@@ -290,6 +321,16 @@
       /* FABs */
       var wa = document.getElementById('whatsapp-btn');
       if (wa) wa.innerHTML = renderWhatsApp() + renderBackToTop();
+
+      /* Language FAB — lives directly on <body>, fixed to the left,
+         independent of the header/footer markup so language switches
+         never move or rebuild its position. */
+      var langFab = document.getElementById('lang-fab');
+      if (langFab) {
+        langFab.outerHTML = renderLangFab();
+      } else {
+        document.body.insertAdjacentHTML('beforeend', renderLangFab());
+      }
 
       /* ── Nav behaviour ──────────────────────────── */
       var nav    = document.getElementById('main-nav');
