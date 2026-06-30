@@ -62,16 +62,24 @@
       '</li>';
     }).join('');
 
-    /* mobile links (flat, includes dropdown children) */
+    /* mobile links — dropdowns become collapsible accordions */
     var mobileHtml = nav.links.map(function (l) {
       var label = esc(ar ? l.ar : l.en);
-      var html = '<a href="' + esc(l.href) + '" class="mob__link">' + label + '</a>';
       if (l.dropdown) {
-        html += l.dropdown.map(function (d) {
+        var subItems = l.dropdown.map(function (d) {
           return '<a href="' + esc(d.href) + '" class="mob__link mob__link--sub">' + esc(ar ? d.ar : d.en) + '</a>';
         }).join('');
+        return '<div class="mob__group">' +
+          '<button type="button" class="mob__link mob__group-toggle" aria-expanded="false">' +
+            label +
+            '<span class="mob__group-chevron" aria-hidden="true">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>' +
+            '</span>' +
+          '</button>' +
+          '<div class="mob__group-items" aria-hidden="true">' + subItems + '</div>' +
+        '</div>';
       }
-      return html;
+      return '<a href="' + esc(l.href) + '" class="mob__link">' + label + '</a>';
     }).join('');
 
     /* initial nav class: on homepage start transparent, on other pages start solid */
@@ -379,6 +387,17 @@
           }
         });
       }
+
+      /* mobile accordion — Products dropdown toggle */
+      document.querySelectorAll('.mob__group-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var group = btn.closest('.mob__group');
+          var items = group.querySelector('.mob__group-items');
+          var open  = group.classList.toggle('mob__group--open');
+          btn.setAttribute('aria-expanded', String(open));
+          items.setAttribute('aria-hidden', String(!open));
+        });
+      });
 
       /* desktop dropdown: click-toggle (touch-friendly) */
       document.querySelectorAll('.nav__item--has-dd').forEach(function (item) {

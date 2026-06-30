@@ -25,6 +25,9 @@ var MadarApp = (function () {
     html.lang = lang;
     html.dir  = lang === 'ar' ? 'rtl' : 'ltr';
     saveLang(lang);
+    /* Update <title> from data-title-en / data-title-ar on <html> */
+    var newTitle = lang === 'ar' ? html.dataset.titleAr : html.dataset.titleEn;
+    if (newTitle) document.title = newTitle;
     // Remount header/footer/whatsapp with correct language
     MadarComponents.remount(activeHref);
     // Reinitialize page-specific interactives

@@ -349,3 +349,57 @@
 .pd-section-header--dark .eyebrow { color:var(--color-accent-light); }
 .pd-section-header--dark .section-title { color:#fff; }
 .pd-section-header--dark p { color:rgba(255,255,255,.7); }
+
+/* ── Responsive overrides for inline-grid unique sections ── */
+
+/* Villa gates: 3-col design options → 1-col on mobile */
+@media (max-width: 768px) {
+  .pd-design-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Hangar doors: 2-col config comparison → 1-col on mobile */
+@media (max-width: 768px) {
+  .pd-config-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Sliding motors: 4-step retrofit → 2-col tablet, 1-col mobile */
+@media (max-width: 900px) {
+  .pd-steps-grid { grid-template-columns: repeat(2,1fr) !important; }
+}
+@media (max-width: 560px) {
+  .pd-steps-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Numbers grid: 4-col → 2-col on mobile */
+@media (max-width: 560px) {
+  .pd-numbers__grid { grid-template-columns: repeat(2,1fr) !important; }
+}
+
+/* Activations: 4-col → 2-col on mobile */
+@media (max-width: 560px) {
+  .pd-activations { grid-template-columns: repeat(2,1fr) !important; }
+}
+
+/* Related grid: 3-col → 1-col on mobile */
+@media (max-width: 640px) {
+  .pd-related__grid { grid-template-columns: 1fr !important; }
+}
+
+/* CTA inner: flex-row → flex-col on mobile */
+@media (max-width: 640px) {
+  .pd-cta__inner { flex-direction:column; }
+}
+
+/* Intro grid gap on mobile */
+@media (max-width: 640px) {
+  .pd-intro__img-wrap::before { display:none; }
+}
+
+/* Arabic font applied globally to rtl context */
+[dir="rtl"] .pd-intro__eyebrow,
+[dir="rtl"] .pd-intro__h2,
+[dir="rtl"] .pd-intro__body,
+[dir="rtl"] .pd-num__value,
+[dir="rtl"] .pd-num__label,
+[dir="rtl"] .pd-cta__title,
+[dir="rtl"] .pd-cta__sub { font-family: var(--font-arabic); }

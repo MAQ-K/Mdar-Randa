@@ -14,6 +14,14 @@ body {
   line-height: var(--leading-normal);
   -webkit-font-smoothing: antialiased;
 }
+/* Apply Cairo to ALL text when page direction is Arabic */
+[dir="rtl"] body,
+[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,
+[dir="rtl"] p,[dir="rtl"] span,[dir="rtl"] a,
+[dir="rtl"] button,[dir="rtl"] input,[dir="rtl"] select,
+[dir="rtl"] textarea,[dir="rtl"] label {
+  font-family: var(--font-arabic);
+}
 img { max-width:100%; display:block; }
 a { color:inherit; text-decoration:none; }
 button { cursor:pointer; font-family:inherit; }
@@ -470,6 +478,35 @@ body { padding-top: 0; }
 }
 [dir="rtl"] .mob__link--sub { padding: 8px 16px 8px 0; }
 .mob__link--sub:hover { color: rgba(255,255,255,0.75); }
+
+/* Mobile accordion group (Products dropdown) */
+.mob__group { display: flex; flex-direction: column; }
+.mob__group-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+[dir="rtl"] .mob__group-toggle { text-align: right; }
+.mob__group-chevron {
+  width: 20px; height: 20px; flex-shrink: 0;
+  transition: transform 0.25s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.mob__group-chevron svg { width: 18px; height: 18px; }
+.mob__group--open .mob__group-chevron { transform: rotate(180deg); }
+.mob__group-items {
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.mob__group--open .mob__group-items {
+  max-height: 600px;
+}
 
 .mob__cta {
   display: block;
