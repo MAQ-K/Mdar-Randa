@@ -314,25 +314,6 @@
     mount: function (activeHref) {
       var isHomepage = !activeHref || activeHref === 'index.html';
 
-      /* SVG filter for logo colour — gamma per-channel maps #2b4090 → #0c1e3c
-         while preserving white (1^any = 1). Injected once; subsequent remounts skip. */
-      if (!document.getElementById('mr-logo-filter-svg')) {
-        document.body.insertAdjacentHTML('afterbegin',
-          '<svg id="mr-logo-filter-svg" xmlns="http://www.w3.org/2000/svg" ' +
-          'style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">' +
-            '<defs>' +
-              '<filter id="mr-logo-filter" color-interpolation-filters="sRGB">' +
-                '<feComponentTransfer>' +
-                  '<feFuncR type="gamma" amplitude="1" exponent="1.8"  offset="0"/>' +
-                  '<feFuncG type="gamma" amplitude="1" exponent="1.55" offset="0"/>' +
-                  '<feFuncB type="gamma" amplitude="1" exponent="2.54" offset="0"/>' +
-                '</feComponentTransfer>' +
-              '</filter>' +
-            '</defs>' +
-          '</svg>'
-        );
-      }
-
       /* Header */
       var hEl = document.getElementById('site-header');
       if (hEl) hEl.innerHTML = renderHeader(activeHref, isHomepage);
