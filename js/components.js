@@ -105,7 +105,7 @@
           '<div class="nav__right">' +
             '<a href="tel:' + esc(cfg.contact.phoneTel) + '" class="nav__phone" aria-label="Call us">' +
               '<span class="nav__phone-icon">' + ICON.phone + '</span>' +
-              '<span class="nav__phone-num">' + esc(cfg.contact.phone) + '</span>' +
+              '<span class="nav__phone-num" dir="ltr">' + esc(cfg.contact.phone) + '</span>' +
             '</a>' +
             '<a href="' + esc(nav.cta.href) + '" class="nav__cta">' + esc(ar ? nav.cta.ar : nav.cta.en) + '</a>' +
             '<button class="nav__burger" id="nav-burger" aria-label="' + (ar ? 'القائمة' : 'Menu') + '" aria-expanded="false">' +
@@ -237,14 +237,14 @@
     }).join('');
 
     var contactItems = [
-      { icon: ICON.phone, text: cfg.contact.phone,                         href: 'tel:' + cfg.contact.phoneTel },
-      { icon: ICON.email, text: cfg.contact.email,                         href: 'mailto:' + cfg.contact.email },
+      { icon: ICON.phone, text: cfg.contact.phone,                         href: 'tel:' + cfg.contact.phoneTel,      ltr: true },
+      { icon: ICON.email, text: cfg.contact.email,                         href: 'mailto:' + cfg.contact.email,      ltr: true },
       { icon: ICON.wa,    text: 'WhatsApp',                                href: 'https://wa.me/' + cfg.whatsapp.number },
       { icon: ICON.pin,   text: ar ? cfg.contact.addressAr : cfg.contact.addressEn, href: '#' },
     ].map(function (c) {
       return '<a href="' + esc(c.href) + '" class="footer__link footer__contact-item">' +
         '<span class="footer__contact-icon">' + c.icon + '</span>' +
-        '<span>' + esc(c.text) + '</span>' +
+        '<span' + (c.ltr ? ' dir="ltr"' : '') + '>' + esc(c.text) + '</span>' +
       '</a>';
     }).join('');
 

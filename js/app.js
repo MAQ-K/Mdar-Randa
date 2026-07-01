@@ -283,7 +283,7 @@ var MadarApp = (function () {
             '<ul class="feature-list animate-fade-up anim-delay-3">' + featureListHtml + '</ul>' +
             '<div class="btn-group animate-fade-up anim-delay-4" style="margin-top:28px">' +
               '<a href="contact.html" class="btn btn--accent btn--lg">' + (ar ? 'اطلب عرض سعر ←' : 'Request a Quote →') + '</a>' +
-              '<a href="tel:' + SITE_CONFIG.contact.phoneTel + '" class="btn btn--ghost">' + SITE_CONFIG.contact.phone + '</a>' +
+              '<a href="tel:' + SITE_CONFIG.contact.phoneTel + '" class="btn btn--ghost" dir="ltr">' + SITE_CONFIG.contact.phone + '</a>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -328,7 +328,7 @@ var MadarApp = (function () {
           '</div>' +
           '<div class="btn-group">' +
             '<a href="contact.html" class="btn btn--accent btn--lg">' + (ar ? 'اطلب عرض سعر ←' : 'Request a Quote →') + '</a>' +
-            '<a href="tel:' + SITE_CONFIG.contact.phoneTel + '" class="btn btn--outline-white">' + SITE_CONFIG.contact.phone + '</a>' +
+            '<a href="tel:' + SITE_CONFIG.contact.phoneTel + '" class="btn btn--outline-white" dir="ltr">' + SITE_CONFIG.contact.phone + '</a>' +
           '</div>' +
         '</div>' +
       '</div>';
