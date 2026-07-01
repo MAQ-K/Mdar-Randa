@@ -51,7 +51,7 @@ const SITE_CONFIG = {
         en: 'Products', ar: 'المنتجات', href: 'products.html',
         dropdown: [
           /* ── Door categories all live inside products.html ── */
-          { en: 'All Products',                     ar: 'جميع المنتجات',                     href: 'products.html'                  },
+          { en: 'Overhead & Automatic Door Systems',                     ar: 'الأبواب السحابة لأعلى  ', href: 'products.html'       },
           /* ── Standalone product pages ── */
           { en: 'Aluminum Rolling Shutters',        ar: 'النوافذ الألمنيوم السحابة (الشتر)', href: 'product-shutters.html'          },
           { en: 'Gate & Iron Door Motors',          ar: 'محركات الأبواب الحديدية',           href: 'product-gate-motors.html'       },
