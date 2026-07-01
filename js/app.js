@@ -491,6 +491,96 @@ var MadarApp = (function () {
     }, true);
   }
 
+  /* ── Product Pages — auto-assign animation classes ── */
+  function initProductAnimationClasses() {
+    if (!document.querySelector('.pd-intro, .pd-features, .pd-apps, .pd-why')) return;
+
+    function hasAnim(el) {
+      return el.classList.contains('animate-fade-up') ||
+        el.classList.contains('animate-fade-in') ||
+        el.classList.contains('animate-slide-left') ||
+        el.classList.contains('animate-slide-right') ||
+        el.classList.contains('animate-scale');
+    }
+
+    function tag(sel, cls) {
+      document.querySelectorAll(sel).forEach(function (el) {
+        if (hasAnim(el)) return;
+        cls.split(' ').forEach(function (c) { if (c) el.classList.add(c); });
+      });
+    }
+
+    function tagStagger(parentSel, childSel, cls) {
+      document.querySelectorAll(parentSel).forEach(function (parent) {
+        parent.querySelectorAll(childSel).forEach(function (el, i) {
+          if (hasAnim(el)) return;
+          cls.split(' ').forEach(function (c) { if (c) el.classList.add(c); });
+          el.classList.add('anim-delay-' + Math.min(i + 1, 5));
+        });
+      });
+    }
+
+    // Section headers
+    tag('.pd-section-header', 'animate-fade-up');
+    tag('.pd-features__intro', 'animate-fade-up');
+    tag('.pd-apps__header', 'animate-fade-up');
+
+    // Intro
+    tag('.pd-intro__eyebrow', 'animate-fade-up');
+    tag('.pd-intro__h2', 'animate-fade-up anim-delay-1');
+    tag('.pd-intro__body', 'animate-fade-up anim-delay-2');
+    tag('.pd-intro__img-wrap', 'animate-scale anim-delay-1');
+
+    // Feature cards
+    tagStagger('.pd-features__grid', '.pd-feat', 'animate-fade-up');
+
+    // Application cards
+    tagStagger('.pd-apps__grid', '.pd-app', 'animate-fade-up');
+
+    // Trust bar
+    tagStagger('.pd-trust__row', '.pd-badge', 'animate-fade-in');
+
+    // Why section
+    tag('.pd-why__text', 'animate-slide-left');
+    tag('.pd-why__card', 'animate-slide-right anim-delay-2');
+
+    // Numbers
+    tagStagger('.pd-numbers__grid', '.pd-num', 'animate-fade-up');
+
+    // Steps
+    tagStagger('.pd-how-steps', '.pd-step', 'animate-slide-left');
+
+    // Standards
+    tagStagger('.pd-standards', '.pd-standard', 'animate-slide-left');
+
+    // Related cards
+    tagStagger('.pd-related__grid', '.pd-rel-card', 'animate-fade-up');
+
+    // Energy stats & finishes
+    tagStagger('.pd-energy__grid', '.pd-energy__stat', 'animate-fade-up');
+    tag('.pd-finishes', 'animate-fade-up anim-delay-2');
+
+    // CTA band
+    tag('.pd-cta__content', 'animate-fade-up');
+    tag('.pd-cta__actions', 'animate-fade-up anim-delay-2');
+
+    // Activation methods
+    tagStagger('.pd-activations', '.pd-activation', 'animate-fade-up');
+
+    // Problem cards
+    tagStagger('.pd-problems', '.pd-problem', 'animate-fade-up');
+
+    // Compare table
+    tag('.pd-compare-wrap', 'animate-fade-up');
+
+    // BMS triggers & integrations
+    tagStagger('.pd-triggers', '.pd-trigger', 'animate-fade-up');
+    tagStagger('.pd-integrations', '.pd-int-item', 'animate-slide-right');
+
+    // Type tabs
+    tagStagger('.pd-type-tabs', '.pd-type-tab', 'animate-fade-in');
+  }
+
   /* ── Scroll Animations (inner pages only) ─────────── */
   function initScrollAnimations() {
     /* Skip on homepage — user requested no animations there */
@@ -536,6 +626,7 @@ var MadarApp = (function () {
     initLazyImages();
     initHeroSlider();
     initProductsSlider();
+    initProductAnimationClasses();
     initScrollAnimations();
     initBackToTop();
   }

@@ -395,6 +395,103 @@
   .pd-intro__img-wrap::before { display:none; }
 }
 
+/* ── Enhanced hovers ─────────────────────────────────── */
+
+/* Feature card icon brightens on card hover */
+.pd-feat:hover .pd-feat__icon {
+  background: linear-gradient(135deg,rgba(43,108,176,.22),rgba(59,130,196,.12));
+}
+
+/* Number cells: lift + accent value colour */
+.pd-num { transition: transform var(--transition-base); }
+.pd-num:hover { transform: translateY(-4px); }
+.pd-num:hover .pd-num__value { color: var(--color-accent-light); }
+
+/* Standard items: lift + deeper shadow */
+.pd-standard {
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+.pd-standard:hover {
+  box-shadow: 0 6px 20px -4px rgba(12,30,60,.14);
+  transform: translateY(-2px);
+}
+
+/* Step items: pale accent wash */
+.pd-step { transition: background var(--transition-base), border-radius var(--transition-base); }
+.pd-step:hover { background: rgba(43,108,176,.04); border-radius: var(--radius); }
+
+/* Problem cards: lift */
+.pd-problem {
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+.pd-problem:hover {
+  box-shadow: 0 8px 24px -6px rgba(12,30,60,.15);
+  transform: translateY(-3px);
+}
+
+/* Activation items: lift + accent border */
+.pd-activation {
+  transition: box-shadow var(--transition-base), transform var(--transition-base),
+              border-color var(--transition-base);
+}
+.pd-activation:hover {
+  box-shadow: 0 8px 24px -6px rgba(12,30,60,.12);
+  transform: translateY(-3px);
+  border-color: var(--color-accent);
+}
+.pd-activation:hover .pd-activation__icon {
+  background: linear-gradient(135deg,rgba(43,108,176,.22),rgba(59,130,196,.12));
+}
+
+/* Energy stat cards: lift + accent border */
+.pd-energy__stat {
+  transition: box-shadow var(--transition-base), transform var(--transition-base),
+              border-color var(--transition-base);
+}
+.pd-energy__stat:hover {
+  box-shadow: 0 8px 24px -6px rgba(43,108,176,.18);
+  transform: translateY(-2px);
+  border-color: rgba(43,108,176,.3);
+}
+
+/* BMS trigger items (dark bg): lift + brighter */
+.pd-trigger {
+  transition: background var(--transition-base), border-color var(--transition-base),
+              transform var(--transition-base);
+}
+.pd-trigger:hover {
+  background: rgba(255,255,255,.13);
+  border-color: rgba(255,255,255,.24);
+  transform: translateY(-3px);
+}
+
+/* Integration items: slide right nudge */
+.pd-int-item {
+  transition: background var(--transition-base), border-color var(--transition-base),
+              transform var(--transition-base);
+}
+.pd-int-item:hover {
+  background: rgba(255,255,255,.1);
+  border-color: rgba(255,255,255,.2);
+  transform: translateX(4px);
+}
+[dir="rtl"] .pd-int-item:hover { transform: translateX(-4px); }
+
+/* Badge: subtle lift */
+.pd-badge { transition: transform var(--transition-fast), box-shadow var(--transition-fast); }
+.pd-badge:hover { transform: translateY(-1px); box-shadow: 0 4px 12px -2px rgba(12,30,60,.1); }
+
+/* Finish swatch: scale + accent border */
+.pd-finish { transition: border-color var(--transition-fast), transform var(--transition-fast); }
+.pd-finish:hover { border-color: var(--color-accent); transform: scale(1.04); }
+
+/* Type panel image: subtle zoom */
+.pd-type-panel__img { transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.pd-type-panel__img:hover {
+  transform: scale(1.025);
+  box-shadow: 0 20px 40px -10px rgba(12,30,60,.25);
+}
+
 /* Arabic font applied globally to rtl context */
 [dir="rtl"] .pd-intro__eyebrow,
 [dir="rtl"] .pd-intro__h2,
