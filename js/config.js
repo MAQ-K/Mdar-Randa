@@ -50,21 +50,14 @@ const SITE_CONFIG = {
       {
         en: 'Products', ar: 'المنتجات', href: 'products.html',
         dropdown: [
-          /* ── Lifting & overhead doors (products.html sections) ── */
-          { en: 'Overhead Lifting Doors',         ar: 'الأبواب السحابة لأعلى',           href: 'products.html#prod-overhead'  },
-          { en: 'Sectional Doors',                ar: 'الأبواب المقطعية',                href: 'products.html#prod-sectional' },
-          { en: 'Automatic Glass Doors',          ar: 'الأبواب الزجاجية الأوتوماتيكية', href: 'products.html#prod-glass'     },
-          { en: 'High-Speed PVC Doors',           ar: 'الأبواب السريعة PVC',             href: 'products.html#prod-pvc'       },
-          { en: 'Aircraft Hangar Doors',          ar: 'أبواب هناجر الطائرات',            href: 'products.html#prod-hangar'    },
-          /* ── Other automatic door types ── */
-          { en: 'Automatic Sliding Doors',        ar: 'الأبواب الانزلاقية الأوتوماتيكية', href: 'product-sliding-doors.html'    },
-          { en: 'Automatic Swing Doors',          ar: 'الأبواب المفصلية الأوتوماتيكية',   href: 'product-swing-doors.html'      },
-          { en: 'Automatic Revolving Doors',      ar: 'الأبواب الدوارة الأوتوماتيكية',    href: 'product-revolving-doors.html'  },
-          { en: 'Security Gates & Barriers',      ar: 'البوابات والحواجز الأمنية',         href: 'product-security-barriers.html'},
-          { en: 'Loading Dock Systems',           ar: 'أنظمة رصيف التحميل',               href: 'product-loading-dock.html'     },
-          { en: 'Automatic Windows',              ar: 'النوافذ الأوتوماتيكية',             href: 'product-windows.html'          },
-          { en: 'Villa & Palace Gates',           ar: 'أبواب الفلل والقصور',               href: 'product-villa-gates.html'      },
-          { en: 'Sliding Door Motors',            ar: 'محركات الأبواب الانزلاقية',         href: 'product-sliding-motors.html'   },
+          /* ── Door categories all live inside products.html ── */
+          { en: 'All Products',                     ar: 'جميع المنتجات',                     href: 'products.html'                  },
+          /* ── Standalone product pages ── */
+          { en: 'Aluminum Rolling Shutters',        ar: 'النوافذ الألمنيوم السحابة (الشتر)', href: 'product-shutters.html'          },
+          { en: 'Gate & Iron Door Motors',          ar: 'محركات الأبواب الحديدية',           href: 'product-gate-motors.html'       },
+          { en: 'Road Barriers & Entrance Control', ar: 'حواجز الطرق والمداخل',              href: 'product-road-barriers.html'     },
+          { en: 'Loading Dock Equipment',           ar: 'رصيف معدات التحميل والتفريغ',       href: 'product-loading-dock.html'      },
+          { en: 'Security Gates & Entrances',       ar: 'بوابات ومداخل أمنية',               href: 'product-security-entrance.html' },
         ],
       },
       { en: 'Projects',    ar: 'المشاريع',  href: 'projects.html'    },
