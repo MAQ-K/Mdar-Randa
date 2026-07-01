@@ -4,7 +4,10 @@
 (function () {
   'use strict';
 
-  var SECTIONS = ['overhead', 'sectional', 'glass', 'pvc', 'hangar'];
+  var navItems = document.querySelectorAll('.pp-float-nav__item[data-target]');
+  var SECTIONS = navItems.length
+    ? Array.prototype.slice.call(navItems).map(function(el) { return el.dataset.target; })
+    : ['overhead', 'sectional', 'glass', 'pvc', 'hangar'];
 
   function smoothScrollTo(id) {
     var el = document.getElementById(id);
