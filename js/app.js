@@ -53,6 +53,7 @@ var MadarApp = (function () {
         wheelMultiplier: 1.4,     /* slightly amplified so each tick travels further */
       });
       (function raf(time) { _lenis.raf(time); requestAnimationFrame(raf); })(0);
+      window.__lenis = _lenis;
     } catch (e) { _lenis = null; } /* fall back to native if anything fails */
   }
 
