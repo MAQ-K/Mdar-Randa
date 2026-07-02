@@ -594,6 +594,20 @@
   .pp-sub-card--wide { flex-direction: column; }
 }
 
+/* ── Sub-card product images ──────────────────────────── */
+.pp-sub-card__img-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.pp-sub-card__img {
+  width: 100%; aspect-ratio: 16/9;
+  object-fit: cover; display: block;
+  transition: transform .4s ease;
+}
+.pp-sub-card:hover .pp-sub-card__img { transform: scale(1.04); }
+.pp-section--dark .pp-sub-card__img-wrap { border-radius: var(--radius); }
+
 /* ── Image hover animations ───────────────────────────── */
 .pp-split__img-wrap { overflow: hidden; }
 .pp-split__img {
