@@ -182,7 +182,7 @@
       /* Shared looping video background (sits behind all slides) */
       '<div class="hs__bg-video" aria-hidden="true">' +
         '<video autoplay muted loop playsinline preload="auto" poster="' + esc(h.slides[0].img) + '">' +
-          '<source src="assets/video/hero.mp4" type="video/mp4">' +
+          '<source src="assets/video/hero.webm" type="video/mp4">' +
         '</video>' +
       '</div>' +
 
