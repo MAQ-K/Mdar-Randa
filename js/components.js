@@ -181,8 +181,10 @@
 
       /* Shared looping video background (sits behind all slides) */
       '<div class="hs__bg-video" aria-hidden="true">' +
-        '<video autoplay muted loop playsinline preload="auto" poster="' + esc(h.slides[0].img) + '">' +
-          '<source src="assets/video/hero.webm" type="video/mp4">' +
+        '<video id="hs-video" autoplay muted loop playsinline preload="none" ' +
+          'poster="' + esc(h.slides[0].img) + '" width="1920" height="1080">' +
+          '<source data-src="assets/video/hero.webm" type="video/webm">' +
+          '<source data-src="assets/video/hero.mp4"  type="video/mp4">' +
         '</video>' +
       '</div>' +
 
@@ -320,7 +322,31 @@
 
       /* Hero (homepage only) */
       var heroEl = document.getElementById('site-hero');
-      if (heroEl) heroEl.innerHTML = renderHero();
+      if (heroEl) {
+        heroEl.innerHTML = renderHero();
+
+        /* Lazy-load hero video: defer all network cost until the element is
+           visible (fires immediately on homepage, but after first paint). */
+        var hsVid = document.getElementById('hs-video');
+        if (hsVid) {
+          var loadHeroVid = function () {
+            hsVid.querySelectorAll('source[data-src]').forEach(function (s) {
+              s.setAttribute('src', s.getAttribute('data-src'));
+              s.removeAttribute('data-src');
+            });
+            hsVid.load();
+            var p = hsVid.play();
+            if (p) p.catch(function () {});
+          };
+          if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (entries, obs) {
+              if (entries[0].isIntersecting) { loadHeroVid(); obs.disconnect(); }
+            }, { threshold: 0 }).observe(hsVid);
+          } else {
+            loadHeroVid();
+          }
+        }
+      }
 
       /* Footer */
       var fEl = document.getElementById('site-footer');

@@ -61,7 +61,7 @@ const SITE_CONFIG = {
         ],
       },
       { en: 'Projects',    ar: 'المشاريع',  href: 'projects.html'    },
-      { en: 'Maintenance', ar: 'الصيانة',   href: 'maintenance.html' },
+      { en: 'After-Sales Services', ar: 'خدمات ما بعد البيع',   href: 'maintenance.html' },
       { en: 'Contact',     ar: 'اتصل بنا',  href: 'contact.html'     },
     ],
     cta: {
@@ -145,7 +145,7 @@ const SITE_CONFIG = {
           { en: 'Automatic Sliding Doors',  ar: 'الأبواب الانزلاقية',    href: 'product-sliding-doors.html'    },
           { en: 'Automatic Swing Doors',    ar: 'الأبواب المفصلية',      href: 'product-swing-doors.html'      },
           { en: 'Automatic Revolving Doors',ar: 'الأبواب الدوارة',       href: 'product-revolving-doors.html'  },
-          { en: 'Security Gates & Barriers',ar: 'البوابات الأمنية',      href: 'product-security-barriers.html'},
+          { en: 'Security Gates & Barriers',ar: 'البوابات الأمنية',      href: 'product-road-barriers.html'},
           { en: 'Loading Dock Systems',     ar: 'رصيف التحميل',           href: 'product-loading-dock.html'    },
           { en: 'Villa & Palace Gates',     ar: 'أبواب الفلل والقصور',   href: 'product-villa-gates.html'     },
         ],
@@ -156,7 +156,7 @@ const SITE_CONFIG = {
         links: [
           { en: 'About',       ar: 'عن الشركة', href: 'about.html'       },
           { en: 'Projects',    ar: 'مشاريعنا',   href: 'projects.html'    },
-          { en: 'Maintenance', ar: 'الصيانة',    href: 'maintenance.html' },
+          { en: 'After-Sales Services', ar: 'خدمات ما بعد البيع',    href: 'maintenance.html' },
           { en: 'Contact',     ar: 'اتصل بنا',   href: 'contact.html'     },
         ],
       },
