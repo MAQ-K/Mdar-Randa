@@ -86,7 +86,7 @@ const SITE_CONFIG = {
       {
         img: 'assets/images/hero-hangar.jpg',
         badgeEn: 'Aviation Grade · 50m+ Widths',
-        badgeAr: 'مواصفات طيرانية · أكثر من ٥٠م',
+        badgeAr: 'مواصفات طيرانية · أكثر من 50م',
         titleEn: ['Aircraft Hangar', 'Doors Built', 'for Every Scale'],
         titleAr: ['أبواب هناجر', 'الطائرات'],
         subEn: 'Custom-engineered aviation-grade hangar doors — supplied, installed, and maintained to exact specifications.',
@@ -95,9 +95,9 @@ const SITE_CONFIG = {
       {
         img: 'assets/images/project-install-1.png',
         badgeEn: '500+ Completed Projects',
-        badgeAr: '٥٠٠+ مشروع منجز',
+        badgeAr: '500+ مشروع منجز',
         titleEn: ['Trusted Across', 'Saudi Arabia', 'Since 1994'],
-        titleAr: ['موثوقون في المملكة', 'منذ ١٩٩٤'],
+        titleAr: ['موثوقون في المملكة', 'منذ 1994'],
         subEn: 'Three decades of continuous operation, trusted by government, healthcare, and industrial clients nationwide.',
         subAr: 'ثلاثة عقود من التشغيل المتواصل، موثوقون من الجهات الحكومية والصحية والصناعية في جميع المملكة.',
       },
@@ -106,26 +106,26 @@ const SITE_CONFIG = {
     ctaSecondary: { en: 'View Projects',      ar: 'استعرض المشاريع',  href: 'projects.html' },
     infoCard: {
       numEn: '500', numSuffixEn: '+',
-      numAr: '٥٠٠', numSuffixAr: '+',
+      numAr: '500', numSuffixAr: '+',
       labelEn: 'Successful installations and counting',
       labelAr: 'تركيب ناجح وفي تزايد مستمر',
       checklist: [
         { en: 'CE Certified Systems',      ar: 'أنظمة معتمدة CE'        },
-        { en: '24-Hour Engineer Response', ar: 'استجابة مهندسين ٢٤ ساعة' },
+        { en: '24-Hour Engineer Response', ar: 'استجابة مهندسين 24 ساعة' },
         { en: 'Nationwide Coverage',       ar: 'تغطية على مستوى المملكة' },
       ],
     },
     stats: [
-      { numEn: '30+',  numAr: '٣٠+',  labelEn: 'Years of Operation',  labelAr: 'سنة خبرة'     },
-      { numEn: '500+', numAr: '٥٠٠+', labelEn: 'Projects Completed',  labelAr: 'مشروع منجز'   },
-      { numEn: '10+',  numAr: '١٠+',  labelEn: 'Product Categories',  labelAr: 'فئة منتجات'   },
+      { numEn: '30+',  numAr: '30+',  labelEn: 'Years of Operation',  labelAr: 'سنة خبرة'     },
+      { numEn: '500+', numAr: '500+', labelEn: 'Projects Completed',  labelAr: 'مشروع منجز'   },
+      { numEn: '10+',  numAr: '10+',  labelEn: 'Product Categories',  labelAr: 'فئة منتجات'   },
     ],
   },
 
   /* ── Footer ───────────────────────────────────────── */
   footer: {
     taglineEn: '30+ years engineering access solutions across Saudi Arabia.',
-    taglineAr: 'أكثر من ٣٠ عاماً من هندسة حلول الوصول في المملكة العربية السعودية.',
+    taglineAr: 'أكثر من 30 عاماً من هندسة حلول الوصول في المملكة العربية السعودية.',
     columns: [
       {
         titleEn: 'Overhead & Industrial Doors',
@@ -162,7 +162,7 @@ const SITE_CONFIG = {
       },
     ],
     legalEn: '© 2025 Madar Randa. All rights reserved.',
-    legalAr: '© ٢٠٢٥ مدار رندا. جميع الحقوق محفوظة.',
+    legalAr: '© 2025 مدار رندا. جميع الحقوق محفوظة.',
     visionLogo: 'assets/partners/vision-2030.png',
   },
 

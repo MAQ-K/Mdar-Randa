@@ -62,7 +62,7 @@ const SITE_CONFIG = {
   /* ── Footer ───────────────────────────────────────── */
   footer: {
     taglineEn: '30+ years engineering access solutions across Saudi Arabia.',
-    taglineAr: 'أكثر من ٣٠ عاماً من هندسة حلول الوصول في المملكة العربية السعودية.',
+    taglineAr: 'أكثر من 30 عاماً من هندسة حلول الوصول في المملكة العربية السعودية.',
     columns: [
       {
         titleEn: 'Products',
@@ -88,7 +88,7 @@ const SITE_CONFIG = {
       },
     ],
     legalEn: '© 2025 Madar Randa. All rights reserved.',
-    legalAr: '© ٢٠٢٥ مدار رندا. جميع الحقوق محفوظة.',
+    legalAr: '© 2025 مدار رندا. جميع الحقوق محفوظة.',
     visionLogo: '../assets/partners/vision-2030.png',
   },
 

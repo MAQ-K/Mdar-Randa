@@ -325,7 +325,7 @@ var MadarApp = (function () {
         '<div class="svc-cta-block animate-fade-up">' +
           '<div>' +
             '<p class="svc-cta-block__title">' + (ar ? 'مستعد للحصول على عرض سعر؟' : 'Ready to get a quote?') + '</p>' +
-            '<p class="svc-cta-block__sub">' + (ar ? 'مهندسونا يستجيبون خلال ٢٤ ساعة في جميع أنحاء المملكة.' : 'Our engineers respond within 24 hours across Saudi Arabia.') + '</p>' +
+            '<p class="svc-cta-block__sub">' + (ar ? 'مهندسونا يستجيبون خلال 24 ساعة في جميع أنحاء المملكة.' : 'Our engineers respond within 24 hours across Saudi Arabia.') + '</p>' +
           '</div>' +
           '<div class="btn-group">' +
             '<a href="contact.html" class="btn btn--accent btn--lg">' + (ar ? 'اطلب عرض سعر ←' : 'Request a Quote →') + '</a>' +
@@ -686,10 +686,10 @@ var SERVICES_DATA = [
     slug: 'fast-doors',
     title: 'Fast-Action Doors', titleAr: 'الأبواب السريعة',
     desc: 'High-speed roll-up doors for cold storage, pharmaceutical, and high-traffic industrial facilities. Speeds up to 2m/s.',
-    descAr: 'أبواب لفافية سريعة للمخازن الباردة والمرافق الدوائية والصناعية عالية الحركة. سرعة تصل إلى ٢ م/ث.',
+    descAr: 'أبواب لفافية سريعة للمخازن الباردة والمرافق الدوائية والصناعية عالية الحركة. سرعة تصل إلى 2 م/ث.',
     img: 'assets/images/product-fast-door.jpg',
     features: ['Opening speed up to 2 m/s','Self-repairing fabric on impact','IP65-rated motor enclosure','Temperature range -30°C to +60°C','Energy-saving: minimises cold air loss'],
-    featuresAr: ['سرعة فتح تصل إلى ٢ م/ث','قماش ذاتي الإصلاح عند الاصطدام','محرك بحماية IP65','نطاق درجات حرارة من -30 إلى +60°م','توفير الطاقة: تقليل فقدان الهواء البارد'],
+    featuresAr: ['سرعة فتح تصل إلى 2 م/ث','قماش ذاتي الإصلاح عند الاصطدام','محرك بحماية IP65','نطاق درجات حرارة من -30 إلى +60°م','توفير الطاقة: تقليل فقدان الهواء البارد'],
   },
   {
     slug: 'loading-dock',
