@@ -1747,8 +1747,9 @@ body { padding-top: 0; }
 
 /* ── About Page ──────────────────────────────────────── */
 .values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 .value-card {
@@ -1757,6 +1758,12 @@ body { padding-top: 0; }
   border: 1px solid var(--color-border);
   border-top: 3px solid var(--color-accent);
   border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1 1 220px;
+  max-width: 270px;
 }
 .value-card__icon { font-size:28px; margin-bottom:12px; }
 .value-card__title { font-family:var(--font-display); font-size:var(--text-md); font-weight:700; color:var(--color-navy); letter-spacing:-0.01em; margin-bottom:8px; }

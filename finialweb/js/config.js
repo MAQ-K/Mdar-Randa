@@ -53,6 +53,8 @@ const SITE_CONFIG = {
           /* ── Door categories all live inside products.html ── */
           { en: 'Overhead & Automatic Door Systems',                     ar: 'الأبواب السحابة لأعلى  ', href: 'products.html'       },
           /* ── Standalone product pages ── */
+          { en: 'Automatic Glass Doors',             ar: 'الأبواب الزجاجية الأوتوماتيكية',   href: 'product-glass-doors.html'       },
+          { en: 'Aircraft Hangar Doors',             ar: 'أبواب هناجر الطائرات',              href: 'product-hangar-doors.html'      },
           { en: 'Aluminum Rolling Shutters',        ar: 'النوافذ الألمنيوم السحابة (الشتر)', href: 'product-shutters.html'          },
           { en: 'Gate & Iron Door Motors',          ar: 'محركات الأبواب الحديدية',           href: 'product-gate-motors.html'       },
           { en: 'Road Barriers & Entrance Control', ar: 'حواجز الطرق والمداخل',              href: 'product-road-barriers.html'     },
@@ -110,14 +112,24 @@ const SITE_CONFIG = {
     taglineAr: 'أكثر من 30 عاماً من هندسة حلول الوصول في المملكة العربية السعودية.',
     columns: [
       {
+        titleEn: 'Company',
+        titleAr: 'الشركة',
+        links: [
+          { en: 'About',       ar: 'عن الشركة', href: 'about.html'       },
+          { en: 'Projects',    ar: 'مشاريعنا',   href: 'projects.html'    },
+          { en: 'After-Sales Services', ar: 'خدمات ما بعد البيع',    href: 'maintenance.html' },
+          { en: 'Contact',     ar: 'اتصل بنا',   href: 'contact.html'     },
+        ],
+      },
+      {
         titleEn: 'Overhead & Industrial Doors',
         titleAr: 'الأبواب السحابة والصناعية',
         links: [
           { en: 'Overhead Lifting Doors',   ar: 'الأبواب السحابة لأعلى',           href: 'products.html#prod-overhead'  },
           { en: 'Sectional Doors',          ar: 'الأبواب المقطعية',                href: 'products.html#prod-sectional' },
-          { en: 'Automatic Glass Doors',    ar: 'الأبواب الزجاجية الأوتوماتيكية', href: 'products.html#prod-glass'     },
+          { en: 'Automatic Glass Doors',    ar: 'الأبواب الزجاجية الأوتوماتيكية', href: 'product-glass-doors.html'     },
           { en: 'High-Speed PVC Doors',     ar: 'الأبواب السريعة PVC',             href: 'products.html#prod-pvc'       },
-          { en: 'Aircraft Hangar Doors',    ar: 'أبواب هناجر الطائرات',            href: 'products.html#prod-hangar'    },
+          { en: 'Aircraft Hangar Doors',    ar: 'أبواب هناجر الطائرات',            href: 'product-hangar-doors.html'    },
         ],
       },
       {
@@ -130,16 +142,6 @@ const SITE_CONFIG = {
           { en: 'Security Gates & Barriers',ar: 'البوابات الأمنية',      href: 'product-road-barriers.html'},
           { en: 'Loading Dock Systems',     ar: 'رصيف التحميل',           href: 'product-loading-dock.html'    },
           { en: 'Villa & Palace Gates',     ar: 'أبواب الفلل والقصور',   href: 'product-villa-gates.html'     },
-        ],
-      },
-      {
-        titleEn: 'Company',
-        titleAr: 'الشركة',
-        links: [
-          { en: 'About',       ar: 'عن الشركة', href: 'about.html'       },
-          { en: 'Projects',    ar: 'مشاريعنا',   href: 'projects.html'    },
-          { en: 'After-Sales Services', ar: 'خدمات ما بعد البيع',    href: 'maintenance.html' },
-          { en: 'Contact',     ar: 'اتصل بنا',   href: 'contact.html'     },
         ],
       },
     ],
