@@ -152,6 +152,8 @@
       '</div>';
     }).join('');
 
+    var multiSlide = h.slides.length > 1;
+
     var dotsHtml = h.slides.map(function (s, i) {
       return '<button class="hs__dot' + (i === 0 ? ' hs__dot--active' : '') + '" data-index="' + i + '" aria-label="Slide ' + (i+1) + '"></button>';
     }).join('');
@@ -198,22 +200,24 @@
         '<div class="container hs__stats-inner">' + statsHtml + '</div>' +
       '</div>' +
 
-      /* Controls */
-      '<div class="hs__controls">' +
-        '<div class="hs__dots">' + dotsHtml + '</div>' +
-        '<div class="hs__counter">' +
-          '<span class="hs__cur">01</span>' +
-          '<span class="hs__sep"> / </span>' +
-          '<span class="hs__total">0' + h.slides.length + '</span>' +
+      /* Controls (only meaningful with more than one slide) */
+      (multiSlide ?
+        '<div class="hs__controls">' +
+          '<div class="hs__dots">' + dotsHtml + '</div>' +
+          '<div class="hs__counter">' +
+            '<span class="hs__cur">01</span>' +
+            '<span class="hs__sep"> / </span>' +
+            '<span class="hs__total">0' + h.slides.length + '</span>' +
+          '</div>' +
         '</div>' +
-      '</div>' +
 
-      '<button class="hs__nav hs__prev" id="hs-prev" aria-label="Previous slide">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>' +
-      '</button>' +
-      '<button class="hs__nav hs__next" id="hs-next" aria-label="Next slide">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>' +
-      '</button>' +
+        '<button class="hs__nav hs__prev" id="hs-prev" aria-label="Previous slide">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>' +
+        '</button>' +
+        '<button class="hs__nav hs__next" id="hs-next" aria-label="Next slide">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>' +
+        '</button>'
+      : '') +
 
       /* Scroll hint */
       '<div class="hs__scroll-hint" aria-hidden="true">' +

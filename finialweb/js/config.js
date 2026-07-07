@@ -75,40 +75,22 @@ const SITE_CONFIG = {
   hero: {
     slides: [
       {
-        img: 'assets/images/hero-glass-door.jpg',
-        badgeEn: 'CE Certified · Saudi Arabia',
-        badgeAr: 'معتمدة CE · المملكة العربية السعودية',
-        titleEn: ['Every Door', 'We Install', 'Still Works'],
-        titleAr: ['كل باب نركّبه', 'لا يزال يعمل'],
-        subEn: 'CE-certified sliding, swing, and revolving doors engineered for hospitals, airports, and commercial lobbies across Saudi Arabia.',
-        subAr: 'أبواب أوتوماتيكية معتمدة CE للمستشفيات والمطارات والمراكز التجارية في جميع أنحاء المملكة.',
-      },
-      {
-        img: 'assets/images/hero-hangar.jpg',
-        badgeEn: 'Aviation Grade · 50m+ Widths',
-        badgeAr: 'مواصفات طيرانية · أكثر من 50م',
-        titleEn: ['Aircraft Hangar', 'Doors Built', 'for Every Scale'],
-        titleAr: ['أبواب هناجر', 'الطائرات'],
-        subEn: 'Custom-engineered aviation-grade hangar doors — supplied, installed, and maintained to exact specifications.',
-        subAr: 'أبواب هناجر مخصصة بمواصفات طيرانية، نوردها ونركّبها ونصونها بدقة تامة.',
-      },
-      {
         img: 'assets/images/project-install-1.png',
-        badgeEn: '500+ Completed Projects',
-        badgeAr: '500+ مشروع منجز',
-        titleEn: ['Trusted Across', 'Saudi Arabia', 'Since 1994'],
-        titleAr: ['موثوقون في المملكة', 'منذ 1994'],
-        subEn: 'Three decades of continuous operation, trusted by government, healthcare, and industrial clients nationwide.',
-        subAr: 'ثلاثة عقود من التشغيل المتواصل، موثوقون من الجهات الحكومية والصحية والصناعية في جميع المملكة.',
+        badgeEn: '30+ Years of Engineering Excellence',
+        badgeAr: 'أكثر من 30 عاماً من التميز الهندسي',
+        titleEn: ['30 Years of', 'Engineering', 'Access Solutions'],
+        titleAr: ['30 عاماً من', 'هندسة حلول الوصول'],
+        subEn: 'Three decades of continuous operation, trusted by government, hospitals, and industrial clients nationwide.',
+        subAr: 'ثلاثة عقود من التشغيل المتواصل، موثوقون من الجهات الحكومية والمستشفيات والصناعية في جميع المملكة.',
       },
     ],
     ctaPrimary:   { en: 'Request a Quote →', ar: 'اطلب عرض سعر ←', href: 'contact.html' },
     ctaSecondary: { en: 'View Projects',      ar: 'استعرض المشاريع',  href: 'projects.html' },
     infoCard: {
-      numEn: '500', numSuffixEn: '+',
-      numAr: '500', numSuffixAr: '+',
-      labelEn: 'Successful installations and counting',
-      labelAr: 'تركيب ناجح وفي تزايد مستمر',
+      numEn: '30', numSuffixEn: '+',
+      numAr: '30', numSuffixAr: '+',
+      labelEn: 'Years of Engineering Experience',
+      labelAr: 'عاماً من الخبرة الهندسية',
       checklist: [
         { en: 'CE Certified Systems',      ar: 'أنظمة معتمدة CE'        },
         { en: '24-Hour Engineer Response', ar: 'استجابة مهندسين 24 ساعة' },
@@ -168,10 +150,14 @@ const SITE_CONFIG = {
 
   /* ── Partner logos ────────────────────────────────── */
   partners: [
-    { src: 'assets/partners/assa-abloy.png', alt: 'ASSA ABLOY' },
-    { src: 'assets/partners/bft.png',        alt: 'BFT'        },
-    { src: 'assets/partners/came.png',        alt: 'CAME'       },
-    { src: 'assets/partners/jielong.png',     alt: 'Jielong'    },
+    { src: 'assets/partners/assa-abloy-logo-2048x281-1-320x110.webp', alt: 'ASSA ABLOY' },
+    { src: 'assets/partners/BFT-320x110.webp',                        alt: 'BFT'        },
+    { src: 'assets/partners/CAME_logo-320x110.webp',                  alt: 'CAME'       },
+    { src: 'assets/partners/jielong-373x248-1-320x110.webp',          alt: 'Jielong'    },
+    { src: 'assets/partners/826bf0869e09f07552985e7574126b9d-320x110.webp', alt: 'ACM'  },
+    { src: 'assets/partners/OIP-320x110.webp',                        alt: 'PROTECO'    },
+    { src: 'assets/partners/R-320x110.webp',                          alt: 'Elsamec'    },
+    { src: 'assets/partners/s-320x110.webp',                          alt: 'FAAC'       },
   ],
 
   /* ── SEO defaults ─────────────────────────────────── */

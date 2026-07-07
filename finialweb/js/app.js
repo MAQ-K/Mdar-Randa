@@ -363,12 +363,16 @@ var MadarApp = (function () {
     });
 
     var slides   = slider.querySelectorAll('.hs__slide');
+    var total    = slides.length;
+
+    /* single slide: no controls, no autoplay, nothing left to wire up */
+    if (total <= 1) return;
+
     var dots     = slider.querySelectorAll('.hs__dot');
     var curEl    = slider.querySelector('.hs__cur');
     var prevBtn  = document.getElementById('hs-prev');
     var nextBtn  = document.getElementById('hs-next');
     var current  = 0;
-    var total    = slides.length;
     var timer;
 
     function goTo(idx) {

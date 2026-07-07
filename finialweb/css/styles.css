@@ -1332,8 +1332,9 @@ body { padding-top: 0; }
 
 /* ── Testimonials ─────────────────────────────────────── */
 .testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 18px;
 }
 .testimonial-card {
@@ -1346,6 +1347,8 @@ body { padding-top: 0; }
   align-items: center;
   text-align: center;
   gap: 20px;
+  flex: 1 1 300px;
+  max-width: 380px;
 }
 .testimonial-card__quote {
   font-size: var(--text-base);
