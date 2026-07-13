@@ -37,8 +37,8 @@ This file tracks fixes requested by the client in **`assets/Madar randa review.d
 | C2 | Gate Motors page: rename "Iron Door Motors" → "Double-Leaf Door Motors" everywhere on the page | ✅ done, pending your verification |
 | C3 | Shutters page: copy says "Electric / Manual" — change to "Remote control or internal switch operation" | ✅ done, pending your verification |
 | C4 | Aircraft Hangar Doors — **decided: keep one page**, just make the Bi-Fold vs. Sliding configuration comparison read more clearly as two distinct products | ⬜ |
-| C5 | Aircraft Hangar Doors: a section (looked like the trust-badge row) isn't centered | ⬜ verify — current CSS already has `justify-content:center`, may already be fixed |
-| C6 | `product-road-barriers.html` is broken — live "Road Barriers" card on the homepage 404s (page only exists in `old/`) | ⬜ |
+| C5 | Aircraft Hangar Doors: a section (looked like the trust-badge row) isn't centered | ✔️ verified — already fixed, no code change needed |
+| C6 | `product-road-barriers.html` is broken — live "Road Barriers" card on the homepage 404s (page only exists in `old/`) | ✅ done, pending your verification |
 | C7 | Automatic Glass Doors: add a Hospital Doors variant | ⬜ image already available: `automatic-glass-doors/hospital-doors/hospital-door.png` |
 | C8 | Automatic Glass Doors: split into separate products per type (Sliding, Double-Leaf/Swing, Revolving) instead of one bundled page | ⬜ |
 | C9 | "Overhead Sliding Door" sub-card on `products.html` has no photo (placeholder arrow icon instead) — client wants it **deleted**, not fixed | ✅ done, pending your verification |
@@ -51,6 +51,8 @@ This file tracks fixes requested by the client in **`assets/Madar randa review.d
 ---
 
 ## History
+- **2026-07-13** — C6 done: restored `product-road-barriers.html` from `old/` to the top level (same fix pattern as hangar doors) — 5 sub-products (Folding Barriers, Private Parking Barrier, Road & Entrance Barriers, Security Personnel Barriers, Parking Management Systems). Verified it already used only live, existing image paths and internal links (`index.html`, `products.html`, `contact.html`) and `css/products.css` / `js/products.js`, which both already exist — copied as-is, no changes needed.
+- **2026-07-13** — C5 checked: confirmed via source inspection that `.pd-trust__row` (`css/product-pages.css:82`) already has `justify-content:center` with no conflicting override anywhere in the CSS (no RTL rule, no media query). No code change needed — closing as already fixed.
 - **2026-07-13** — C9 done: removed the empty "Overhead Sliding Door" card (`products.html:207-215`) from the Industrial/Commercial Doors sub-product grid — it had a placeholder arrow icon instead of a real photo. Grid now has 4 clean cards (Industrial, Fire-Rated, Showroom & Mall, Villa & Palace), all with real images. Left the section's generic "Need an overhead door?" CTA text as-is since it refers to the whole category, not the deleted card.
 - **2026-07-13** — C3 done: reworded `product-shutters.html` throughout — meta description, both FAQ answers (schema + on-page accordion), intro paragraph, sub-card title/description, and the comparison table's "Manual" row — from "Electric / Manual" to "Remote Control / Internal Switch." Also dropped the now-inaccurate "no power needed" claim on the old Manual row since these are always electric.
 - **2026-07-13** — C2 done: renamed the "Iron Door/Gate Motors" section on `product-gate-motors.html` to "Double-Leaf Door Motors" (Arabic: محركات الأبواب الضلفتين) — nav tab, H1, nav card, section heading, benefits heading, image alt text, and WhatsApp prefilled message. Left generic descriptive sentences that use "iron doors" as a material term (not the product name) untouched, and left `index.html`'s unrelated "Sliding Door Motors" card as-is (different section, out of scope).
