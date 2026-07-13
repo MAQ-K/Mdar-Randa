@@ -33,6 +33,11 @@ var MadarApp = (function () {
       var text = lang === 'ar' ? el.dataset.placeholderAr : el.dataset.placeholderEn;
       if (text) el.setAttribute('placeholder', text);
     });
+    /* Update plain-text elements such as <option> prompts */
+    document.querySelectorAll('[data-text-en]').forEach(function (el) {
+      var text = lang === 'ar' ? el.dataset.textAr : el.dataset.textEn;
+      if (text) el.textContent = text;
+    });
     // Remount header/footer/whatsapp with correct language
     MadarComponents.remount(activeHref);
     // Reinitialize page-specific interactives
