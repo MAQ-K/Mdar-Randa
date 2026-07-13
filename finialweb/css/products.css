@@ -518,7 +518,7 @@
 }
 .faq-item--open .faq-question__icon { transform: rotate(45deg); background: rgba(43,108,176,.1); }
 .faq-answer {
-  max-height: 0; overflow: hidden;
+  display: block; max-height: 0; overflow: hidden;
   font-size: var(--text-base); color: var(--color-steel);
   line-height: var(--leading-relaxed);
   transition: max-height .35s ease, padding .35s ease;

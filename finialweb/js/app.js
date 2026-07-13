@@ -28,6 +28,11 @@ var MadarApp = (function () {
     /* Update <title> from data-title-en / data-title-ar on <html> */
     var newTitle = lang === 'ar' ? html.dataset.titleAr : html.dataset.titleEn;
     if (newTitle) document.title = newTitle;
+    /* Update form placeholders from data-placeholder-en / data-placeholder-ar */
+    document.querySelectorAll('[data-placeholder-en]').forEach(function (el) {
+      var text = lang === 'ar' ? el.dataset.placeholderAr : el.dataset.placeholderEn;
+      if (text) el.setAttribute('placeholder', text);
+    });
     // Remount header/footer/whatsapp with correct language
     MadarComponents.remount(activeHref);
     // Reinitialize page-specific interactives
