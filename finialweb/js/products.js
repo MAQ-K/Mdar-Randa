@@ -73,24 +73,6 @@
     });
   }
 
-  /* ── FAQ Accordion ────────────────────────────────────── */
-  function initFAQ() {
-    document.querySelectorAll('#pp-faq .faq-question').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var item = btn.closest('.faq-item');
-        var wasOpen = item.classList.contains('faq-item--open');
-        document.querySelectorAll('#pp-faq .faq-item--open').forEach(function (el) {
-          el.classList.remove('faq-item--open');
-          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        });
-        if (!wasOpen) {
-          item.classList.add('faq-item--open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-  }
-
   /* ── Gallery Tabs ─────────────────────────────────────── */
   function initGalleryTabs() {
     var tabs = document.querySelectorAll('.pp-gallery__tab');
@@ -199,7 +181,6 @@
   function init() {
     initFloatNav();
     initNavCards();
-    initFAQ();
     initGalleryTabs();
     initAnimations();
   }

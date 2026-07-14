@@ -61,7 +61,7 @@
 /* ── Applications dark ───────────────────────────────── */
 .pd-apps { padding:var(--section-pad) 0; background:var(--color-navy); }
 .pd-apps__header { text-align:center; margin-bottom:48px; }
-.pd-apps__grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:16px; }
+.pd-apps__grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; justify-content:center; }
 .pd-app {
   background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
   border-radius:var(--radius); padding:24px 16px;
