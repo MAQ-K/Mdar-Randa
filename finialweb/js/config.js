@@ -67,9 +67,9 @@ const SITE_CONFIG = {
       { en: 'Contact',     ar: 'اتصل بنا',  href: 'contact.html'     },
     ],
     cta: {
-      en: 'Get a Quote',
-      ar: 'اطلب عرض سعر',
-      href: 'contact.html',
+      en: 'Maintenance Request',
+      ar: 'طلب صيانة',
+      href: 'https://www.madaranda.com/maintenance/',
     },
   },
 
