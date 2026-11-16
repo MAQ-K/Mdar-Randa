@@ -741,3 +741,6 @@
 [dir="rtl"] .pp-nav-scroll__btn--next svg { transform: rotate(180deg); }
 .pp-nav-scroll__btn:hover:not(:disabled) { background: var(--color-accent); border-color: var(--color-accent); color: #fff; transform: translateY(-2px); }
 .pp-nav-scroll__btn:disabled { opacity: .35; cursor: default; }
+
+/* Floating sub-nav: desktop only */
+@media (max-width: 900px) { .pp-float-nav { display: none !important; } }
