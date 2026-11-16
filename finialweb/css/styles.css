@@ -2999,3 +2999,9 @@ bdi.ltr-num { unicode-bidi: isolate; direction: ltr; }
 [dir="rtl"] input[dir="ltr"] { direction: ltr; text-align: right; }
 [dir="rtl"] .contact-item__text[dir="ltr"] { unicode-bidi: isolate; }
 [dir="rtl"] .nav__dd-icon svg { transform: scaleX(-1); }
+
+/* About badge: keep inside the viewport on tablet/mobile (was offset -24px outside) */
+@media (max-width: 900px) {
+  .about-media__badge { right: 12px; bottom: -16px; }
+  [dir="rtl"] .about-media__badge { right: auto; left: 12px; }
+}
