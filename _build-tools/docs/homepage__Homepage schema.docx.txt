@@ -1,0 +1,96 @@
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.madaranda.com/#business",
+      "name": "مدار رندا",
+      "url": "https://www.madaranda.com/",
+      "description": "مدار رندا متخصصة في توريد وتركيب وبرمجة وصيانة الأبواب الأوتوماتيكية والبوابات الكهربائية والحواجز الأمنية، بخبرة تتجاوز 30 عامًا وأكثر من 500 مشروع منفذ. تخدم جميع مدن القصيم، مع إمكانية تنفيذ مشروعات في مناطق أخرى حسب متطلبات المشروع.",
+      "telephone": "+966508009799",
+      "email": "info@madaranda.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "طريق الأمير سلطان بن عبدالعزيز، حي الفايزية",
+        "addressLocality": "بريدة",
+        "addressRegion": "القصيم",
+        "addressCountry": "SA"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "sameAs": [
+        "https://maps.app.goo.gl/zo8PaEZXbD4Shxct9"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.madaranda.com/#website",
+      "url": "https://www.madaranda.com/",
+      "name": "مدار رندا",
+      "inLanguage": "ar",
+      "publisher": {
+        "@id": "https://www.madaranda.com/#business"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.madaranda.com/#webpage",
+      "url": "https://www.madaranda.com/",
+      "name": "شركة أبواب أوتوماتيكية في القصيم | مدار رندا",
+      "description": "مدار رندا للأبواب الأوتوماتيكية والبوابات الكهربائية في القصيم. خبرة أكثر من 30 سنة و500+ مشروع منفذ. توريد وتركيب وصيانة مع توفر قطع الغيار. اطلب عرض سعر.",
+      "inLanguage": "ar",
+      "isPartOf": {
+        "@id": "https://www.madaranda.com/#website"
+      },
+      "about": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ما أنواع الأبواب الأوتوماتيكية المتوفرة لدى مدار رندا؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نوفر أبواب الكراجات والشتر والرول والأبواب الزجاجية والأبواب الصناعية، إلى جانب محركات البوابات والحواجز الأمنية وشتر النوافذ وأبواب هناجر الطائرات."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يمكن تحويل باب أو بوابة موجودة إلى نظام أوتوماتيكي؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يمكن تركيب أنظمة تشغيل أوتوماتيكية على العديد من الأبواب والبوابات القائمة، بعد المعاينة والتأكد من ملاءمتها للمحرك والتجهيزات المطلوبة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل تقدم مدار رندا خدمات الصيانة وقطع الغيار؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، نقدم خدمات الصيانة والدعم الفني، مع توفر قطع الغيار لجميع المنتجات."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل تقدم مدار رندا خدماتها خارج القصيم؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نخدم جميع مدن منطقة القصيم، ويمكن دراسة تنفيذ مشروعات في مناطق أخرى حسب موقع المشروع ومتطلباته."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف يتم تحديد أسعار الأبواب الأوتوماتيكية؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تعتمد الأسعار على نوع الباب ومقاساته والخامات والمحرك وأنظمة التحكم ومتطلبات التركيب. أرسل لنا صورة المدخل أو مقاساته للمساعدة في إعداد عرض سعر مناسب."
+          }
+        }
+      ]
+    }
+  ]
+}
+&lt;/script&gt;

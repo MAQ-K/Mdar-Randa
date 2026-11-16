@@ -1,0 +1,90 @@
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.madaranda.com/#business",
+      "name": "مدار رندا",
+      "url": "https://www.madaranda.com/",
+      "telephone": "+966508009799",
+      "email": "info@madaranda.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "طريق الأمير سلطان بن عبدالعزيز، حي الفايزية",
+        "addressLocality": "بريدة",
+        "addressRegion": "القصيم",
+        "addressCountry": "SA"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "sameAs": [
+        "https://maps.app.goo.gl/zo8PaEZXbD4Shxct9"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.madaranda.com/automatic-glass-doors-qassim#webpage",
+      "url": "https://www.madaranda.com/automatic-glass-doors-qassim",
+      "name": "أبواب زجاج اتوماتيك في القصيم | مدار رندا",
+      "description": "أبواب زجاج اتوماتيك سحاب ودوارة وأبواب مستشفيات في القصيم من مدار رندا. توريد وتركيب وصيانة، بمقاسات تناسب مشروعك. أرسل صورة المدخل واطلب عرض سعر.",
+      "inLanguage": "ar-SA",
+      "publisher": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "mainEntity": {
+        "@id": "https://www.madaranda.com/automatic-glass-doors-qassim#service"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.madaranda.com/automatic-glass-doors-qassim#service",
+      "name": "الأبواب الزجاجية الأوتوماتيكية",
+      "serviceType": "توريد وتركيب وصيانة الأبواب الزجاجية الأوتوماتيكية",
+      "description": "توفر مدار رندا أبواب زجاج اتوماتيك سحاب وأبواب دوارة زجاجية وأبواب مستشفيات أوتوماتيكية في جميع مدن القصيم، مع خدمات التوريد والتركيب والصيانة، بمقاسات وتصاميم وأنظمة تشغيل تناسب متطلبات المنشأة.",
+      "provider": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.madaranda.com/automatic-glass-doors-qassim#webpage"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "أنواع الأبواب الزجاجية الأوتوماتيكية",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "أبواب زجاج سحاب اتوماتيك",
+              "description": "توريد وتركيب أبواب زجاجية أوتوماتيكية سحابة للمحلات والمراكز التجارية والمباني الإدارية، بخيارات لضلفة واحدة أو ضلفتين وأنظمة تشغيل وتحكم تناسب المدخل."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "أبواب دوارة زجاجية أوتوماتيكية",
+              "description": "توريد وتركيب أبواب دوارة زجاجية للمداخل الرئيسية للفنادق والأبراج والمباني التجارية والإدارية، مع تجهيزات تشغيل وأمان وفق نظام الباب."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "أبواب المستشفيات الأوتوماتيكية",
+              "description": "توريد وتركيب أبواب أوتوماتيكية للمستشفيات والمنشآت الصحية، بخيارات انزلاقية ومتأرجحة وقابلة للطي حسب متطلبات القسم، مع أنظمة تشغيل وتحكم وتجهيزات سلامة مناسبة."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+&lt;/script&gt;

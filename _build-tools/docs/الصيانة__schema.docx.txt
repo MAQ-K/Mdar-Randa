@@ -1,0 +1,107 @@
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.madaranda.com/#business",
+      "name": "مدار رندا",
+      "url": "https://www.madaranda.com/",
+      "telephone": "+966508009799",
+      "email": "info@madaranda.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "طريق الأمير سلطان بن عبدالعزيز، حي الفايزية",
+        "addressLocality": "بريدة",
+        "addressRegion": "القصيم",
+        "addressCountry": "SA"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "sameAs": [
+        "https://maps.app.goo.gl/zo8PaEZXbD4Shxct9"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.madaranda.com/maintenance#service",
+      "url": "https://www.madaranda.com/maintenance",
+      "name": "صيانة أبواب الكراج والأبواب الأوتوماتيكية",
+      "serviceType": "صيانة وإصلاح وبرمجة الأبواب والبوابات الأوتوماتيكية",
+      "description": "خدمات صيانة لعملاء مدار رندا تشمل أبواب الكراج الرول والسيكشنال والبوابات الأوتوماتيكية وجميع منتجات الشركة، مع فحص الأعطال والإصلاح والبرمجة وتوفير قطع الغيار والصيانة الدورية وعقود الصيانة للمنشآت في جميع مدن القصيم.",
+      "provider": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.madaranda.com/maintenance#webpage"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.madaranda.com/maintenance#webpage",
+      "url": "https://www.madaranda.com/maintenance",
+      "name": "صيانة أبواب الكراج والأبواب الأوتوماتيكية بالقصيم | مدار رندا",
+      "inLanguage": "ar",
+      "about": {
+        "@id": "https://www.madaranda.com/maintenance#service"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "هل تشمل خدمات تصليح الأبواب الأوتوماتيكية جميع منتجات مدار رندا؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، نقدم لعملائنا خدمات الصيانة والإصلاح لجميع منتجات مدار رندا، وفق متطلبات كل منتج ونظام تشغيله."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "باب الكراج ما يفتح بالريموت، هل يحتاج إلى تغيير المحرك؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا يمكن تحديد السبب دون فحص؛ فقد ترتبط المشكلة بالريموت أو جهاز الاستقبال أو التغذية الكهربائية أو المحرك. نقدم أيضًا برمجة ريموت باب الكراج حسب توافقه مع النظام."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "باب الكراج يعلق أثناء الحركة، هل يمكن إصلاحه؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نفحص مسارات الحركة وأجزاء الرفع والمحرك لتحديد سبب التعليق وإمكانية إصلاحه. أرسل فيديو يوضح المشكلة لمساعدة الفريق في مراجعة التفاصيل قبل الزيارة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "باب الكراج ما يسكر بالكامل، ما الإجراء المناسب؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "اطلب فحص الباب لتحديد سبب التوقف، فقد ترتبط المشكلة بضبط حدود الإغلاق أو الحساسات أو وجود عائق في مسار الحركة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل تتوفر قطع غيار باب الكراج؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، تتوفر قطع الغيار لأبواب الكراج وجميع منتجاتنا، ويحدد الفريق القطع المناسبة حسب نوع النظام ومواصفاته."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف أستفسر عن ضمان منتجي؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يمكنك الرجوع إلى صفحة «خدمة ما بعد البيع والضمان» والتواصل مع الفريق ببيانات الفاتورة أو الطلب لمعرفة تفاصيل ضمان منتجك."
+          }
+        }
+      ]
+    }
+  ]
+}
+&lt;/script&gt;

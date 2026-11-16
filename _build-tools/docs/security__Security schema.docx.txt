@@ -1,0 +1,131 @@
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.madaranda.com/#business",
+      "name": "مدار رندا",
+      "url": "https://www.madaranda.com/",
+      "telephone": "+966508009799",
+      "email": "info@madaranda.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "طريق الأمير سلطان بن عبدالعزيز، حي الفايزية",
+        "addressLocality": "بريدة",
+        "addressRegion": "القصيم",
+        "addressCountry": "SA"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "sameAs": [
+        "https://maps.app.goo.gl/zo8PaEZXbD4Shxct9"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.madaranda.com/parking-security-systems/#service",
+      "url": "https://www.madaranda.com/parking-security-systems/",
+      "name": "الحواجز الأمنية وأنظمة المواقف",
+      "serviceType": "توريد وتركيب وبرمجة وصيانة الحواجز الأمنية وأنظمة مواقف السيارات",
+      "description": "توريد وتركيب وبرمجة وصيانة حواجز مداخل السيارات وحواجز المواقف الخاصة والمصدات الهيدروليكية والأعمدة الأمنية والشوك الأرضية وبوابات عبور الأفراد وأنظمة إدارة المواقف والحواجز المنطوية والمطبات الصناعية، مع توفر قطع الغيار والدعم الفني بعد التركيب في جميع مدن القصيم.",
+      "provider": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.madaranda.com/parking-security-systems/#webpage"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.madaranda.com/parking-security-systems/#webpage",
+      "url": "https://www.madaranda.com/parking-security-systems/",
+      "name": "حواجز مواقف سيارات وحلول تأمين المداخل بالقصيم | مدار رندا",
+      "inLanguage": "ar",
+      "about": {
+        "@id": "https://www.madaranda.com/parking-security-systems/#service"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ما الفرق بين حاجز مدخل السيارات وحاجز الموقف الخاص؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "حاجز المدخل ينظم مرور السيارات إلى المنشأة أو المواقف، بينما يحجز حاجز الموقف الخاص مساحة وقوف محددة لمنع استخدامها دون تصريح."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل تتوفر حواجز مواقف سيارات تعمل بالريموت؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، نوفر حواجز مداخل وحواجز للمواقف الخاصة تعمل بالريموت، ويُحدد الموديل المناسب وفق الاستخدام وطبيعة الموقع."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يمكن ربط حواجز السيارات بالكروت أو RFID؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، يمكن تجهيز البوابات الإلكترونية للسيارات بأنظمة متوافقة بالكروت الإلكترونية أو قارئ RFID للتحكم في دخول المركبات المصرح لها."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ما الفرق بين مصدات المواقف الهيدروليكية والأعمدة الأمنية؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "المصدات الأرضية العريضة تعترض مسار المركبات بجزء حاجز يرتفع من الأرض، بينما تستخدم الأعمدة الأمنية نقاطًا موزعة للتحكم في المرور. ويتحدد مستوى الحماية وفق تصميم كل موديل وتصنيفه."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يمكن تركيب مصدات أمنية دون حفر؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تتوفر حلول سطحية ومتنقلة، لكن متطلبات التثبيت وتجهيز الموقع تختلف بين الأنظمة. نراجع الموقع ومتطلبات الحماية لتحديد الحل المناسب."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يمكن ربط بوابات عبور الأفراد بالبصمة أو الكروت؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، نوفر خيارات للربط بالبصمة والكروت وأنظمة التذاكر، بعد التأكد من توافق البوابة وأجهزة التحكم والبرامج المستخدمة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف تتحدد أسعار حواجز مواقف السيارات؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يعتمد السعر على نوع الحاجز ومقاسه وكثافة الاستخدام ووسائل التحكم وتجهيزات الأمان وأعمال التركيب والربط المطلوبة. أرسل تفاصيل الموقع للحصول على عرض يوضح التجهيزات ونطاق العمل."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل تتوفر الصيانة وقطع الغيار بعد التركيب؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، نوفر خدمات الصيانة وقطع الغيار لجميع منتجاتنا، إلى جانب الدعم الفني بعد التركيب في جميع مدن القصيم."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ما المعلومات المطلوبة لترشيح النظام؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "أرسل نوع المنشأة، ومدينة التنفيذ، وصورة المدخل أو المخطط، وأبعاد المسار، وعدد المستخدمين أو كثافة حركة السيارات المتوقعة، ووسيلة التحكم المطلوبة إن كانت محددة."
+          }
+        }
+      ]
+    }
+  ]
+}
+&lt;/script&gt;

@@ -1,0 +1,50 @@
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.madaranda.com/#business",
+      "name": "مدار رندا",
+      "url": "https://www.madaranda.com/",
+      "description": "مدار رندا شركة متخصصة في توريد وتركيب وبرمجة وصيانة الأبواب الأوتوماتيكية والبوابات الكهربائية والحواجز الأمنية، بخبرة تتجاوز 30 عامًا وأكثر من 500 مشروع منفذ للمنازل والمنشآت التجارية والصناعية.",
+      "telephone": "+966508009799",
+      "email": "info@madaranda.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "طريق الأمير سلطان بن عبدالعزيز، حي الفايزية",
+        "addressLocality": "بريدة",
+        "addressRegion": "القصيم",
+        "addressCountry": "SA"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "sameAs": [
+        "https://maps.app.goo.gl/zo8PaEZXbD4Shxct9"
+      ]
+    },
+    {
+      "@type": "AboutPage",
+      "@id": "https://www.madaranda.com/about.html#webpage",
+      "url": "https://www.madaranda.com/about.html",
+      "name": "من نحن | مدار رندا للأبواب الأوتوماتيكية",
+      "description": "تعرّف على مدار رندا المتخصصة في توريد وتركيب وصيانة الأبواب الأوتوماتيكية والبوابات والحواجز الأمنية في القصيم، بخبرة تتجاوز 30 عامًا وأكثر من 500 مشروع منفذ.",
+      "inLanguage": "ar",
+      "isPartOf": {
+        "@id": "https://www.madaranda.com/#website"
+      },
+      "about": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "mainEntity": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "publisher": {
+        "@id": "https://www.madaranda.com/#business"
+      }
+    }
+  ]
+}
+&lt;/script&gt;

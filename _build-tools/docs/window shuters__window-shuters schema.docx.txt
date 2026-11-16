@@ -1,0 +1,80 @@
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.madaranda.com/#business",
+      "name": "مدار رندا",
+      "url": "https://www.madaranda.com/",
+      "telephone": "+966508009799",
+      "email": "info@madaranda.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "طريق الأمير سلطان بن عبدالعزيز، حي الفايزية",
+        "addressLocality": "بريدة",
+        "addressRegion": "القصيم",
+        "addressCountry": "SA"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "sameAs": [
+        "https://maps.app.goo.gl/zo8PaEZXbD4Shxct9"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.madaranda.com/window-shutters/#webpage",
+      "url": "https://www.madaranda.com/window-shutters/",
+      "name": "شتر نوافذ ألمنيوم كهربائي في القصيم | مدار رندا",
+      "description": "شتر نوافذ ألمنيوم معزول بخيارات كهربائية ويدوية، وصناديق مخفية وخارجية. توريد وتركيب شتر النوافذ في القصيم من مدار رندا. اطلب عرض سعر.",
+      "inLanguage": "ar-SA",
+      "publisher": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "mainEntity": {
+        "@id": "https://www.madaranda.com/window-shutters/#service"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.madaranda.com/window-shutters/#service",
+      "name": "شتر نوافذ ألمنيوم كهربائي ويدوي",
+      "serviceType": "توريد وتركيب وصيانة شتر النوافذ الألمنيوم",
+      "description": "توريد وتركيب وصيانة شتر نوافذ ألمنيوم معزول بالبولي يوريثان، بصناديق مخفية أو خارجية، وخيارات تشغيل يدوية وكهربائية بمفتاح حائط أو ريموت، مع إمكانية التحكم الذكي في الأنظمة المتوافقة.",
+      "provider": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.madaranda.com/window-shutters/#webpage"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "أنواع شتر النوافذ",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "شتر نوافذ ألمنيوم بصندوق مخفي"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "شتر نوافذ ألمنيوم بصندوق خارجي"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+&lt;/script&gt;

@@ -1,0 +1,87 @@
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.madaranda.com/#business",
+      "name": "مدار رندا",
+      "url": "https://www.madaranda.com/",
+      "telephone": "+966508009799",
+      "email": "info@madaranda.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "طريق الأمير سلطان بن عبدالعزيز، حي الفايزية",
+        "addressLocality": "بريدة",
+        "addressRegion": "القصيم",
+        "addressCountry": "SA"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "sameAs": [
+        "https://maps.app.goo.gl/zo8PaEZXbD4Shxct9"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.madaranda.com/automatic-gate-motors#webpage",
+      "url": "https://www.madaranda.com/automatic-gate-motors",
+      "name": "محركات بوابات أتوماتيكية سحاب ومفصلية في القصيم | مدار رندا",
+      "description": "محركات بوابات كهربائية سحاب ومفصلية في القصيم من مدار رندا، الوكيل الحصري لمحركات Proteco الإيطالية بالسعودية. توريد وتركيب وبرمجة وصيانة. اطلب عرض سعر.",
+      "inLanguage": "ar-SA",
+      "publisher": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "mainEntity": {
+        "@id": "https://www.madaranda.com/automatic-gate-motors#service"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.madaranda.com/automatic-gate-motors#service",
+      "name": "محركات بوابات أوتوماتيكية للسحاب والمفصلي",
+      "serviceType": "توريد وتركيب وبرمجة وصيانة محركات البوابات الكهربائية",
+      "description": "توفر مدار رندا محركات بوابات أوتوماتيكية للسحاب والمفصلي، مع خدمات التوريد والتركيب والبرمجة والصيانة في القصيم، وهي الوكيل الحصري لمحركات Proteco الإيطالية في المملكة العربية السعودية.",
+      "provider": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.madaranda.com/automatic-gate-motors#webpage"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "أنواع محركات البوابات الأوتوماتيكية",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "محركات بوابات سحاب"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "محركات بوابات مفصلية بالأذرع"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "محركات بوابات مفصلية بالكفرات"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+&lt;/script&gt;

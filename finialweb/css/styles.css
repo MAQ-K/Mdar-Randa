@@ -1420,7 +1420,7 @@ body { padding-top: 0; }
   justify-content: space-between;
   gap: 12px;
 }
-[dir="rtl"] .faq-question { text-align:right; flex-direction:row-reverse; }
+[dir="rtl"] .faq-question { text-align:right; }
 .faq-question__text {
   font-family: var(--font-display);
   font-size: 15px;
@@ -2910,3 +2910,56 @@ body { padding-top: 0; }
 .contact-trust li { position:relative; padding-inline-start:22px; font-size:13.5px; color:var(--color-silver); line-height:1.6; }
 .contact-trust li::before { content:'✓'; position:absolute; inset-inline-start:0; color:var(--color-accent-light); font-weight:700; }
 [dir="rtl"] .contact-trust li { font-family:var(--font-arabic); }
+
+/* RTL: question text takes the row, numbers/emails stay readable but align with Arabic text */
+.faq-question__text { flex: 1; }
+[dir="rtl"] input[dir="ltr"], [dir="rtl"] textarea[dir="ltr"] { text-align: right; }
+bdi.ltr-num { unicode-bidi: isolate; direction: ltr; }
+
+/* Client logos: bigger tiles */
+.partners-row { gap: 18px; }
+.partner-item { width: 180px; height: 104px; padding: 16px 20px; opacity: 1; box-shadow: 0 6px 18px -10px rgba(0,0,0,.35); }
+.partner-item img { max-height: 64px; max-width: 140px; object-fit: contain; }
+@media (max-width: 600px) { .partner-item { width: calc(50% - 9px); height: 88px; } .partner-item img { max-height: 52px; } }
+
+/* ── Google reviews strip (all pages) ──────────────── */
+.rv-strip { display: flex; gap: 18px; align-items: stretch; margin-top: 32px; }
+.rv-viewport { flex: 1; min-width: 0; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.rv-track, .rv-dup { display: flex; gap: 18px; width: max-content; }
+.rv-track { animation: rv-scroll 45s linear infinite; }
+.rv-strip:hover .rv-track, .rv-strip:focus-within .rv-track { animation-play-state: paused; }
+@keyframes rv-scroll { to { transform: translateX(calc(-50% - 9px)); } }
+[dir="rtl"] .rv-track { animation-name: rv-scroll-rtl; }
+@keyframes rv-scroll-rtl { to { transform: translateX(calc(50% + 9px)); } }
+@media (prefers-reduced-motion: reduce) {
+  .rv-track { animation: none; }
+  .rv-dup { display: none; }
+  .rv-viewport { overflow-x: auto; mask-image: none; -webkit-mask-image: none; }
+}
+.rv-card { flex: 0 0 300px; display: flex; flex-direction: column; gap: 10px; padding: 20px 22px; background: #fff; color: var(--color-charcoal); border: 1px solid var(--color-border); border-radius: var(--radius-lg); text-decoration: none; box-shadow: 0 8px 22px -14px rgba(12,30,60,.25); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.rv-card:hover { transform: translateY(-4px); border-color: var(--color-accent); box-shadow: 0 16px 32px -14px rgba(12,30,60,.3); }
+.rv-card__top { display: flex; align-items: center; justify-content: space-between; }
+.rv-card__g { width: 22px; height: 22px; flex-shrink: 0; }
+.rv-stars { color: #D7DCE4; letter-spacing: 2px; font-size: 16px; line-height: 1; }
+.rv-star--on { color: #FBBC05; }
+.rv-card__text { font-size: var(--text-sm); line-height: 1.7; color: var(--color-steel); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.rv-card__meta { font-size: 12.5px; color: var(--color-steel-mid); margin-top: auto; }
+.rv-card__meta strong { color: var(--color-navy); }
+.rv-card--summary { flex: 0 0 220px; align-items: center; justify-content: center; text-align: center; background: var(--color-navy); color: #fff; border-color: var(--color-navy); }
+.rv-card--summary .rv-card__g { width: 34px; height: 34px; }
+.rv-card__score { font-size: 44px; font-weight: 800; line-height: 1; }
+.rv-card--summary .rv-card__meta { color: var(--color-silver); margin: 0; }
+.rv-card__cta { font-size: 13px; font-weight: 700; color: var(--color-accent-light); }
+[dir="rtl"] .rv-card, [dir="rtl"] .rv-band__title { font-family: var(--font-arabic); }
+.rv-band__title { text-align: center; }
+.section--dark .rv-card { border-color: transparent; }
+@media (max-width: 700px) { .rv-strip { flex-direction: column; } .rv-card--summary { flex-basis: auto; } .rv-card { flex-basis: 260px; } }
+
+/* Page header photo with dark-blue shade (inner pages).
+   Pages set: style="background-image: var(--hero-shade), url('img')" */
+.pp-page-header, .hero.hero--page {
+  --hero-shade: linear-gradient(120deg, rgba(6,14,32,.93) 0%, rgba(12,30,60,.84) 55%, rgba(26,58,107,.78) 100%);
+  background-color: var(--color-navy);
+  background-image: var(--hero-shade);
+  background-size: cover; background-position: center;
+}

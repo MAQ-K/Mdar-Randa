@@ -1,0 +1,91 @@
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.madaranda.com/#business",
+      "name": "مدار رندا",
+      "url": "https://www.madaranda.com/",
+      "telephone": "+966508009799",
+      "email": "info@madaranda.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "طريق الأمير سلطان بن عبدالعزيز، حي الفايزية",
+        "addressLocality": "بريدة",
+        "addressRegion": "القصيم",
+        "addressCountry": "SA"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "sameAs": [
+        "https://maps.app.goo.gl/zo8PaEZXbD4Shxct9"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.madaranda.com/after-sales-warranty#service",
+      "url": "https://www.madaranda.com/after-sales-warranty",
+      "name": "خدمة ما بعد البيع والضمان",
+      "serviceType": "دعم ما بعد البيع ومتابعة استفسارات التشغيل وطلبات الضمان",
+      "description": "دعم ومتابعة لعملاء مدار رندا بعد التركيب، يشمل المساعدة في تشغيل المنتج واستقبال الملاحظات وتوضيح شروط الضمان ومراجعة طلباته باستخدام رقم الفاتورة أو بيانات الطلب. تختلف مدة الضمان وتغطيته حسب المنتج وشروطه.",
+      "provider": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.madaranda.com/after-sales-warranty#webpage"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.madaranda.com/after-sales-warranty#webpage",
+      "url": "https://www.madaranda.com/after-sales-warranty",
+      "name": "خدمة ما بعد البيع وضمان الأبواب الأوتوماتيكية | مدار رندا",
+      "inLanguage": "ar",
+      "about": {
+        "@id": "https://www.madaranda.com/after-sales-warranty#service"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "كيف أعرف مدة ضمان منتجي وشروطه؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تجد التفاصيل في مستندات الشراء أو الضمان الخاصة بمنتجك، ويمكنك التواصل معنا ببيانات الطلب للاستفسار."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل تقديم الطلب يعني أن الحالة مشمولة بالضمان؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تقديم الطلب يتيح للفريق مراجعة الحالة، ويُحدد شمولها وفق بيانات المنتج وطبيعة المشكلة وشروط الضمان."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ماذا أفعل إذا انتهى الضمان وأحتاج إصلاحًا؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يمكنك الانتقال إلى صفحة «الصيانة» لطلب فحص المنتج وإصلاحه."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف أتابع طلبي؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تواصل معنا عبر واتساب مع ذكر رقم الفاتورة أو بيانات الطلب لتسهيل المتابعة."
+          }
+        }
+      ]
+    }
+  ]
+}
+&lt;/script&gt;

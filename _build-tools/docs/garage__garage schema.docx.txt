@@ -1,0 +1,74 @@
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.madaranda.com/#business",
+      "name": "مدار رندا",
+      "url": "https://www.madaranda.com/",
+      "telephone": "+966508009799",
+      "email": "info@madaranda.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "طريق الأمير سلطان بن عبدالعزيز، حي الفايزية",
+        "addressLocality": "بريدة",
+        "addressRegion": "القصيم",
+        "addressCountry": "SA"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "sameAs": [
+        "https://maps.app.goo.gl/zo8PaEZXbD4Shxct9"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.madaranda.com/automatic-garage-doors#webpage",
+      "url": "https://www.madaranda.com/automatic-garage-doors",
+      "name": "أبواب كراجات أوتوماتيكية في القصيم | مدار رندا",
+      "description": "أبواب كراجات أوتوماتيكية رول وأمريكية من مدار رندا في القصيم، بمقاسات وألوان متنوعة وخيارات للتحكم الكهربائي. توريد وتركيب وصيانة. اطلب عرض سعر.",
+      "inLanguage": "ar-SA",
+      "publisher": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "mainEntity": {
+        "@id": "https://www.madaranda.com/automatic-garage-doors#service"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.madaranda.com/automatic-garage-doors#service",
+      "name": "أبواب كراجات أوتوماتيكية في القصيم",
+      "serviceType": "توريد وتركيب وصيانة أبواب الكراجات الأوتوماتيكية",
+      "description": "توريد وتركيب وصيانة أبواب كراجات رول وأمريكية سيكشنال، بمقاسات وألوان متنوعة وخيارات للتشغيل الكهربائي والتحكم بالريموت، مع الصيانة والدعم الفني.",
+      "provider": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.madaranda.com/automatic-garage-doors#webpage"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "أنواع أبواب الكراجات",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "أبواب كراج أمريكية (سيكشنال)"
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "أبواب كراج رول"
+          }
+        ]
+      }
+    }
+  ]
+}
+&lt;/script&gt;

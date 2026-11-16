@@ -142,8 +142,8 @@
     var contactHtml = '<div class="footer__contact">' +
       '<span class="footer__col-title">' + (ar ? 'تواصل معنا' : 'Contact Us') + '</span>' +
       '<p class="footer__contact-name">' + esc(ar ? cfg.company.nameAr : cfg.company.nameEn) + '</p>' +
-      '<a href="tel:' + esc(c.phoneTel) + '" class="footer__link" dir="ltr">' + esc(c.phone) + '</a>' +
-      '<a href="mailto:' + esc(c.email) + '" class="footer__link">' + esc(c.email) + '</a>' +
+      '<a href="tel:' + esc(c.phoneTel) + '" class="footer__link"><bdi class="ltr-num">' + esc(c.phone) + '</bdi></a>' +
+      '<a href="mailto:' + esc(c.email) + '" class="footer__link"><bdi class="ltr-num">' + esc(c.email) + '</bdi></a>' +
       '<p class="footer__brand-text">' + esc(ar ? c.addressAr : c.addressEn) + '</p>' +
       '<a href="' + esc(c.mapsUrl) + '" class="footer__link footer__map-link" target="_blank" rel="noopener">' +
         (ar ? 'موقعنا على خرائط Google' : 'Our location on Google Maps') + '</a>' +
@@ -167,6 +167,37 @@
         '</div>' +
       '</div>' +
     '</footer>';
+  }
+
+  /* ── Google reviews strip ────────────────────────────
+     Auto-scrolling cards; every card opens the Google reviews in a new tab.
+     Renders into [data-reviews] slots, or a band above the footer on pages without one. */
+  var G_ICON = '<svg class="rv-card__g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.7c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.6 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.7c-2.1 1.4-4.8 2.3-8.5 2.3-6.2 0-11.5-4.1-13.4-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg>';
+  function stars(n) {
+    var out = '';
+    for (var i = 1; i <= 5; i++) out += '<span class="rv-star' + (i <= Math.round(n) ? ' rv-star--on' : '') + '">★</span>';
+    return '<span class="rv-stars" role="img" aria-label="' + n + '/5">' + out + '</span>';
+  }
+  function renderReviewCards() {
+    var r = cfg.reviews;
+    if (!r || !r.items || !r.items.length) return '';
+    var ar = isAr();
+    var link = function (inner, cls) {
+      return '<a class="rv-card ' + (cls || '') + '" href="' + esc(r.url) + '" target="_blank" rel="noopener">' + inner + '</a>';
+    };
+    var cards = r.items.map(function (it) {
+      return link(
+        '<span class="rv-card__top">' + G_ICON + stars(it.rating) + '</span>' +
+        '<span class="rv-card__text">' + esc(it.text) + '</span>' +
+        '<span class="rv-card__meta"><strong>' + esc(it.name) + '</strong>' + (it.date ? ' · ' + esc(it.date) : '') + '</span>');
+    }).join('');
+    var summary = r.rating ? link(
+      G_ICON + '<span class="rv-card__score">' + esc(r.rating) + '</span>' + stars(r.rating) +
+      (r.count ? '<span class="rv-card__meta">' + esc(r.count) + (ar ? ' تقييم على Google' : ' Google reviews') + '</span>' : '') +
+      '<span class="rv-card__cta">' + (ar ? 'اطلع على تقييماتنا في جوجل' : 'See our Google reviews') + '</span>', 'rv-card--summary') : '';
+    /* track is duplicated so the CSS marquee loops seamlessly */
+    return '<div class="rv-strip" aria-label="' + (ar ? 'تقييمات Google' : 'Google reviews') + '">' + summary +
+      '<div class="rv-viewport"><div class="rv-track">' + cards + '<span class="rv-dup" aria-hidden="true">' + cards + '</span></div></div></div>';
   }
 
   /* ── WhatsApp FAB ─────────────────────────────────── */
@@ -206,6 +237,7 @@
   window.MadarComponents = {
     renderHeader:   renderHeader,
     renderFooter:   renderFooter,
+    renderReviews:  renderReviewCards,
     renderWhatsApp: renderWhatsApp,
 
     mount: function (activeHref) {
@@ -240,6 +272,19 @@
       /* Footer */
       var fEl = document.getElementById('site-footer');
       if (fEl) fEl.innerHTML = renderFooter();
+
+      /* Google reviews: fill slots, or add one band above the footer */
+      var rvHtml = renderReviewCards();
+      var slots = document.querySelectorAll('[data-reviews]');
+      if (!slots.length && rvHtml && fEl) {
+        var band = document.createElement('section');
+        band.className = 'section section--pale rv-band';
+        band.innerHTML = '<div class="container"><h2 class="section-title rv-band__title" data-reviews-title></h2><div data-reviews></div></div>';
+        fEl.parentNode.insertBefore(band, fEl);
+        slots = document.querySelectorAll('[data-reviews]');
+      }
+      document.querySelectorAll('[data-reviews-title]').forEach(function (t) { t.textContent = isAr() ? 'آراء عملائنا' : 'Client Reviews'; });
+      slots.forEach(function (el) { el.innerHTML = rvHtml; });
 
       /* FABs */
       var wa = document.getElementById('whatsapp-btn');

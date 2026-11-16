@@ -72,6 +72,19 @@ const SITE_CONFIG = {
     },
   },
 
+  /* ── Google reviews strip (shown on every page) ───────
+     Paste REAL reviews from the Google Business Profile only (exact text, name, stars, date).
+     While `items` is empty, nothing is rendered and pages keep their "see our reviews" button.
+     rating/count: the overall score shown on Google (leave null to hide the summary card). */
+  reviews: {
+    url: 'https://share.google/V15DhNAwxAjHoYN1G',
+    rating: null,          // e.g. 4.9
+    count: null,           // e.g. 120
+    items: [
+      // { name: 'اسم العميل', rating: 5, date: '2026-10', text: 'نص التقييم كما هو في جوجل' },
+    ],
+  },
+
   /* ── Footer ───────────────────────────────────────── */
   footer: {
     taglineEn: 'Madar Randa specializes in the supply, installation and maintenance of automatic doors, electric gates and security barriers. With over 30 years of experience, we provide solutions for homes and commercial and industrial facilities across all cities of Al-Qassim, with spare parts availability and technical support after installation.',

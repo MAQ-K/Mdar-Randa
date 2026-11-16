@@ -1,0 +1,118 @@
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.madaranda.com/#business",
+      "name": "مدار رندا",
+      "url": "https://www.madaranda.com/",
+      "telephone": "+966508009799",
+      "email": "info@madaranda.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "طريق الأمير سلطان بن عبدالعزيز، حي الفايزية",
+        "addressLocality": "بريدة",
+        "addressRegion": "القصيم",
+        "addressCountry": "SA"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "sameAs": [
+        "https://maps.app.goo.gl/zo8PaEZXbD4Shxct9"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.madaranda.com/industrial-commercial-doors#webpage",
+      "url": "https://www.madaranda.com/industrial-commercial-doors",
+      "name": "أبواب صناعية ومعدات تحميل وتفريغ في القصيم | مدار رندا",
+      "description": "أبواب صناعية مقطعية وسريعة PVC ومقاومة للحريق، مع رافعات هيدروليكية وإطارات ربل لأرصفة التحميل في القصيم. توريد وتركيب وصيانة من مدار رندا.",
+      "inLanguage": "ar-SA",
+      "publisher": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "mainEntity": {
+        "@id": "https://www.madaranda.com/industrial-commercial-doors#service"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.madaranda.com/industrial-commercial-doors#service",
+      "name": "الأبواب الصناعية ومعدات التحميل والتفريغ",
+      "serviceType": "توريد وتركيب وصيانة الأبواب الصناعية ومعدات أرصفة التحميل",
+      "description": "توريد وتركيب وصيانة الأبواب الصناعية ومعدات التحميل والتفريغ في جميع مدن القصيم، وتشمل الأبواب المقطعية الصناعية والأبواب السريعة PVC والأبواب المقاومة للحريق والرافعات الهيدروليكية وإطارات الربل الخارجية لأبواب التحميل، بمقاسات وتجهيزات تناسب متطلبات المشروع.",
+      "provider": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.madaranda.com/industrial-commercial-doors#webpage"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "الأبواب الصناعية ومعدات التحميل والتفريغ",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "الأبواب الصناعية",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "الأبواب المقطعية الصناعية",
+                  "description": "توريد وتركيب أبواب مقطعية صناعية للمصانع والمستودعات، بألواح مترابطة تتحرك لأعلى على مسارات داخل المنشأة، مع خيارات للعزل والتشغيل الكهربائي."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "الأبواب السريعة PVC",
+                  "description": "توريد وتركيب أبواب PVC سريعة الفتح والإغلاق للمصانع والمستودعات، مع أنظمة تشغيل كهربائية وخيارات للتحكم وتجهيزات الأمان حسب الموديل."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "الأبواب المقاومة للحريق",
+                  "description": "توريد وتركيب أبواب مقاومة للحريق للمباني والمنشآت، بمقاسات وتصنيفات وتجهيزات تحدد وفق متطلبات المشروع ووثائق المنتج والاشتراطات المعتمدة."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "معدات أرصفة التحميل والتفريغ",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "رافعات ومنصات التحميل الهيدروليكية",
+                  "description": "توريد وتركيب رافعات ومنصات تحميل هيدروليكية تساعد على تعويض فرق الارتفاع بين أرضية المستودع والشاحنة، بمقاسات وقدرات تحميل تناسب متطلبات الموقع."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "إطارات ربل أبواب التحميل والتفريغ",
+                  "description": "توريد وتركيب إطارات ربل خارجية حول أبواب التحميل للمستودعات والمصانع، تساعد على الحد من دخول الأتربة والهواء والعوامل الجوية أثناء التحميل والتفريغ."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+&lt;/script&gt;

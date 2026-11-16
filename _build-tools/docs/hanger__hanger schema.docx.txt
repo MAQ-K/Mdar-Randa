@@ -1,0 +1,82 @@
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.madaranda.com/#business",
+      "name": "مدار رندا",
+      "url": "https://www.madaranda.com/",
+      "telephone": "+966508009799",
+      "email": "info@madaranda.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "طريق الأمير سلطان بن عبدالعزيز، حي الفايزية",
+        "addressLocality": "بريدة",
+        "addressRegion": "القصيم",
+        "addressCountry": "SA"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "sameAs": [
+        "https://maps.app.goo.gl/zo8PaEZXbD4Shxct9"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.madaranda.com/aircraft-hangar-doors#webpage",
+      "url": "https://www.madaranda.com/aircraft-hangar-doors",
+      "name": "أبواب هناجر وحظائر الطائرات في القصيم | مدار رندا",
+      "description": "أبواب هناجر الطائرات المنطوية وأبواب PVC للرفع الرأسي في القصيم من مدار رندا. توريد وتركيب بمقاسات تناسب مشروعك. أرسل المخططات واطلب عرض سعر.",
+      "inLanguage": "ar-SA",
+      "publisher": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "mainEntity": {
+        "@id": "https://www.madaranda.com/aircraft-hangar-doors#service"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.madaranda.com/aircraft-hangar-doors#service",
+      "name": "أبواب هناجر وحظائر الطائرات",
+      "serviceType": "توريد وتركيب أبواب هناجر الطائرات",
+      "description": "توريد وتركيب أبواب هناجر وحظائر الطائرات في جميع مدن القصيم، وتشمل الأبواب المعدنية المنطوية لأعلى وأبواب PVC للرفع الرأسي، بمقاسات وأنظمة تشغيل كهربائية وتجهيزات أمان تحدد وفق المتطلبات الفنية للمشروع.",
+      "provider": {
+        "@id": "https://www.madaranda.com/#business"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "منطقة القصيم"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.madaranda.com/aircraft-hangar-doors#webpage"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "أنواع أبواب هناجر وحظائر الطائرات",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "أبواب هناجر الطائرات المنطوية لأعلى",
+              "description": "توريد وتركيب أبواب معدنية معزولة لحظائر الطائرات، تُرفع وتُطوى لأعلى، بمقاسات وتجهيزات تشغيل وأمان تناسب الهيكل الإنشائي للهنجر ومتطلبات المشروع."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "أبواب هناجر الطائرات PVC للرفع الرأسي",
+              "description": "توريد وتركيب أبواب هناجر الطائرات من PVC للرفع الرأسي، مع عناصر تدعيم معدنية وأنظمة تشغيل كهربائية، بمقاسات وتجهيزات تناسب أبعاد الفتحة ومتطلبات المشروع."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+&lt;/script&gt;
