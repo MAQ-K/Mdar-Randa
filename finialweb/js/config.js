@@ -52,7 +52,7 @@ const SITE_CONFIG = {
     mapsUrl: 'https://share.google/V15DhNAwxAjHoYN1G',
     /* Embed of the same Business Profile listing (place CID), not guessed coordinates */
     mapsEmbed: 'https://maps.google.com/maps?cid=12660875854452605789&output=embed',
-    reviewsUrl: 'https://share.google/V15DhNAwxAjHoYN1G',
+    reviewsUrl: 'https://maps.app.goo.gl/Tk2GUo1TzbyfGwEt6',
   },
 
   /* ── Navigation ───────────────────────────────────── */
@@ -77,7 +77,13 @@ const SITE_CONFIG = {
      While `items` is empty, nothing is rendered and pages keep their "see our reviews" button.
      rating/count: the overall score shown on Google (leave null to hide the summary card). */
   reviews: {
-    url: 'https://share.google/V15DhNAwxAjHoYN1G',
+    url: 'https://maps.app.goo.gl/Tk2GUo1TzbyfGwEt6',
+    /* LIVE reviews from Google (option 1). Paste both to switch it on:
+       apiKey  – Google Cloud key with "Places API (New)" + "Maps JavaScript API",
+                 restricted to HTTP referrer madaranda.com/*
+       placeId – from Google's Place ID Finder (starts with "ChIJ") */
+    apiKey: '',
+    placeId: '',
     rating: null,          // e.g. 4.9
     count: null,           // e.g. 120
     items: [

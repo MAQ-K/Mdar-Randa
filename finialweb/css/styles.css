@@ -309,7 +309,7 @@ body { padding-top: 0; }
   text-decoration: none;
   transition: background var(--transition-fast), color var(--transition-fast);
 }
-[dir="rtl"] .nav__dd-item { font-family: var(--font-arabic); flex-direction: row-reverse; }
+[dir="rtl"] .nav__dd-item { font-family: var(--font-arabic); }
 .nav__dd-item:hover { background: rgba(43,108,176,0.15); color: #fff; }
 .nav__dd-icon { display: flex; opacity: 0; transition: opacity var(--transition-fast); flex-shrink: 0; }
 .nav__dd-icon svg { width: 13px; height: 13px; stroke: var(--color-accent-light); }
@@ -638,7 +638,7 @@ body { padding-top: 0; }
 [dir="rtl"] .hs__title { font-family: var(--font-arabic); letter-spacing: 0; font-size: clamp(36px, 6vw, 72px); line-height: 1.2; }
 
 .hs__title-line { display: block; overflow: hidden; }
-.hs__title-line span { display: block; }
+.hs__title-line > span { display: block; }
 
 .hs__sub {
   max-width: 520px;
@@ -1472,7 +1472,7 @@ body { padding-top: 0; }
   text-decoration: none;
   color: var(--color-silver-light);
 }
-[dir="rtl"] .contact-item { flex-direction:row-reverse; }
+[dir="rtl"] .contact-item { flex-direction:row; }
 .contact-item__icon { font-size:16px; margin-top:2px; flex-shrink:0; }
 .contact-item__text { font-size:14px; line-height:1.5; }
 [dir="rtl"] .contact-item__text { font-family:var(--font-arabic); }
@@ -1868,8 +1868,8 @@ body { padding-top: 0; }
 .anim-delay-4 { transition-delay: 0.4s; }
 .anim-delay-5 { transition-delay: 0.5s; }
 .animated {
-  opacity: 1 !important;
-  transform: none !important;
+  opacity: 1;
+  transform: none;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -2963,3 +2963,39 @@ bdi.ltr-num { unicode-bidi: isolate; direction: ltr; }
   background-image: var(--hero-shade);
   background-size: cover; background-position: center;
 }
+
+/* ── About: experience stats band (simple, compact) ── */
+.stats-band { padding: 48px 0; background: var(--color-royal-blue); }
+.stats-band .section-header { margin-bottom: 28px; }
+.stats-band .section-title { font-size: clamp(22px, 2.4vw, 30px); }
+.stat-cards { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 980px; margin: 0 auto; }
+.stat-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; padding: 6px 24px; }
+.stat-card + .stat-card { border-inline-start: 1px solid rgba(255,255,255,.18); }
+.stat-card__num { display: inline-flex; align-items: baseline; direction: ltr; font-family: var(--font-display); font-size: clamp(32px, 3.4vw, 42px); font-weight: 800; line-height: 1.1; color: #fff; }
+.stat-card__num em { font-style: normal; font-size: .6em; color: var(--color-accent-light); }
+[dir="rtl"] .stat-card__num { flex-direction: row-reverse; }
+.stat-card__icon { height: 46px; display: flex; align-items: center; }
+.stat-card__icon svg { width: 34px; height: 34px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.stat-card__label { font-size: var(--text-md); font-weight: 700; color: #fff; }
+.stat-card__desc { font-size: 13px; color: var(--color-silver-light); line-height: 1.6; }
+[dir="rtl"] .stat-card__label, [dir="rtl"] .stat-card__desc { font-family: var(--font-arabic); }
+@media (max-width: 768px) {
+  .stat-cards { grid-template-columns: 1fr; gap: 18px; }
+  .stat-card + .stat-card { border-inline-start: 0; border-top: 1px solid rgba(255,255,255,.18); padding-top: 18px; }
+}
+
+/* Homepage hero title: calmer scale, clean line spacing per language */
+.hs__title { font-size: clamp(38px, 5.4vw, 70px); line-height: 1.08; margin-bottom: 24px; }
+[dir="rtl"] .hs__title { font-size: clamp(34px, 4.8vw, 62px); line-height: 1.35; font-weight: 800; }
+.hs__sub { font-size: 17px; line-height: 1.75; color: var(--color-silver-light); }
+[dir="rtl"] .hs__sub { font-size: 18px; line-height: 1.9; }
+@media (max-width: 480px) { .hs__title { font-size: clamp(30px, 9vw, 44px); } [dir="rtl"] .hs__title { font-size: clamp(28px, 8.5vw, 40px); } }
+
+/* Step cards: larger text (all pages); title-less steps (warranty request) read as the main text */
+.step-card__body { font-size: var(--text-base); line-height: 1.75; }
+.step-card:not(:has(.step-card__title)) .step-card__body { font-size: 16.5px; color: var(--color-charcoal); font-weight: 500; }
+
+/* RTL: numbers/emails typed left-to-right but aligned with the Arabic form */
+[dir="rtl"] input[dir="ltr"] { direction: ltr; text-align: right; }
+[dir="rtl"] .contact-item__text[dir="ltr"] { unicode-bidi: isolate; }
+[dir="rtl"] .nav__dd-icon svg { transform: scaleX(-1); }

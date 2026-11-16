@@ -215,7 +215,7 @@ def reviews(s):
         <h2 class="section-title section-title--dark" id="reviews-title">{L(*s['h2'])}</h2>
         {f'<p class="section-subtitle section-subtitle--dark">{L(*s["text"])}</p>' if s.get('text') else ''}
         <div class="btn-group">
-          {btn(('اطلع على تقييماتنا في جوجل', 'See Our Google Reviews', GOOGLE, 'btn--accent'))}
+          {btn(('اطلع على تقييماتنا في جوجل', 'See Our Google Reviews', 'https://maps.app.goo.gl/Tk2GUo1TzbyfGwEt6', 'btn--accent'))}
         </div>
       </div>
     </section>

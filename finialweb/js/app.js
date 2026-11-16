@@ -351,6 +351,7 @@ var MadarApp = (function () {
     tagStagger('.steps-grid', '.step-card', 'animate-fade-up');
     tagStagger('.trust-bar__grid', '.trust-bar__item', 'animate-fade-up');
     tagStagger('.vm-grid', '.vm-card', 'animate-fade-up');
+    tagStagger('.stat-cards', '.stat-card', 'animate-fade-up');
     tagStagger('.partners-row', '.partner-item', 'animate-fade-in');
     tagStagger('.faq-list', '.faq-item', 'animate-fade-up');
     tagStagger('.sv-track', '.sv-card', 'animate-fade-up');

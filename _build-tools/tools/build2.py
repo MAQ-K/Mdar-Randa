@@ -204,7 +204,7 @@ def reviews(s):
             <h2 class="pp-sh__title" id="reviews-title">{L(*s['h2'])}</h2>
             {t}
           </div>
-          <div class="pp-section-cta__actions">{btn(('اطلع على تقييماتنا في جوجل', 'See Our Google Reviews', GOOGLE, 'btn--accent'))}</div>
+          <div class="pp-section-cta__actions">{btn(('اطلع على تقييماتنا في جوجل', 'See Our Google Reviews', 'https://maps.app.goo.gl/Tk2GUo1TzbyfGwEt6', 'btn--accent'))}</div>
         </div>
         <div data-reviews></div>
       </div>

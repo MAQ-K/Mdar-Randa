@@ -178,8 +178,9 @@
     for (var i = 1; i <= 5; i++) out += '<span class="rv-star' + (i <= Math.round(n) ? ' rv-star--on' : '') + '">★</span>';
     return '<span class="rv-stars" role="img" aria-label="' + n + '/5">' + out + '</span>';
   }
+  var liveReviews = null;   /* filled from the Google Places API when configured */
   function renderReviewCards() {
-    var r = cfg.reviews;
+    var r = liveReviews || cfg.reviews;
     if (!r || !r.items || !r.items.length) return '';
     var ar = isAr();
     var link = function (inner, cls) {
@@ -198,6 +199,56 @@
     /* track is duplicated so the CSS marquee loops seamlessly */
     return '<div class="rv-strip" aria-label="' + (ar ? 'تقييمات Google' : 'Google reviews') + '">' + summary +
       '<div class="rv-viewport"><div class="rv-track">' + cards + '<span class="rv-dup" aria-hidden="true">' + cards + '</span></div></div></div>';
+  }
+
+  /* Google reviews: fill slots, or add one band above the footer */
+  function fillReviewSlots() {
+    var fEl = document.getElementById('site-footer');
+    var rvHtml = renderReviewCards();
+    var slots = document.querySelectorAll('[data-reviews]');
+    if (!slots.length && rvHtml && fEl) {
+      var band = document.createElement('section');
+      band.className = 'section section--pale rv-band';
+      band.innerHTML = '<div class="container"><h2 class="section-title rv-band__title" data-reviews-title></h2><div data-reviews></div></div>';
+      fEl.parentNode.insertBefore(band, fEl);
+      slots = document.querySelectorAll('[data-reviews]');
+    }
+    document.querySelectorAll('[data-reviews-title]').forEach(function (t) { t.textContent = isAr() ? 'آراء عملائنا' : 'Client Reviews'; });
+    slots.forEach(function (el) { el.innerHTML = rvHtml; });
+  }
+
+  /* Live Google reviews (Places API New, via Maps JS). Needs reviews.apiKey + reviews.placeId in config.
+     Google returns at most 5 reviews plus the overall rating and count. */
+  function loadLiveReviews() {
+    var r = cfg.reviews;
+    if (!r || !r.apiKey || !r.placeId || window.__mrReviewsLoading) return;
+    window.__mrReviewsLoading = true;
+    window.__mrReviewsReady = function () {
+      google.maps.importLibrary('places').then(function (lib) {
+        var place = new lib.Place({ id: r.placeId, requestedLanguage: isAr() ? 'ar' : 'en' });
+        return place.fetchFields({ fields: ['rating', 'userRatingCount', 'reviews'] }).then(function () {
+          liveReviews = {
+            url: r.url,
+            rating: place.rating,
+            count: place.userRatingCount,
+            items: (place.reviews || []).map(function (rv) {
+              return {
+                name: rv.authorAttribution ? rv.authorAttribution.displayName : '',
+                rating: rv.rating,
+                date: rv.relativePublishTimeDescription || '',
+                text: rv.text || ''
+              };
+            }).filter(function (it) { return it.text; })
+          };
+          fillReviewSlots();
+        });
+      }).catch(function () { /* keep the static fallback (buttons) on any API error */ });
+    };
+    var sc = document.createElement('script');
+    sc.async = true;
+    sc.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(r.apiKey) +
+      '&v=weekly&loading=async&callback=__mrReviewsReady&language=' + (isAr() ? 'ar' : 'en');
+    document.head.appendChild(sc);
   }
 
   /* ── WhatsApp FAB ─────────────────────────────────── */
@@ -238,6 +289,7 @@
     renderHeader:   renderHeader,
     renderFooter:   renderFooter,
     renderReviews:  renderReviewCards,
+    loadLiveReviews: loadLiveReviews,
     renderWhatsApp: renderWhatsApp,
 
     mount: function (activeHref) {
@@ -273,18 +325,8 @@
       var fEl = document.getElementById('site-footer');
       if (fEl) fEl.innerHTML = renderFooter();
 
-      /* Google reviews: fill slots, or add one band above the footer */
-      var rvHtml = renderReviewCards();
-      var slots = document.querySelectorAll('[data-reviews]');
-      if (!slots.length && rvHtml && fEl) {
-        var band = document.createElement('section');
-        band.className = 'section section--pale rv-band';
-        band.innerHTML = '<div class="container"><h2 class="section-title rv-band__title" data-reviews-title></h2><div data-reviews></div></div>';
-        fEl.parentNode.insertBefore(band, fEl);
-        slots = document.querySelectorAll('[data-reviews]');
-      }
-      document.querySelectorAll('[data-reviews-title]').forEach(function (t) { t.textContent = isAr() ? 'آراء عملائنا' : 'Client Reviews'; });
-      slots.forEach(function (el) { el.innerHTML = rvHtml; });
+      fillReviewSlots();
+      loadLiveReviews();
 
       /* FABs */
       var wa = document.getElementById('whatsapp-btn');
