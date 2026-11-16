@@ -123,107 +123,6 @@
     '</header>';
   }
 
-  /* ── Homepage Hero Slider ─────────────────────────── */
-  function renderHero() {
-    var ar    = isAr();
-    var h     = cfg.hero;
-    if (!h) return '';
-
-    var slidesHtml = h.slides.map(function (s, i) {
-      var lines = (ar ? s.titleAr : s.titleEn);
-      var titleHtml = lines.map(function (line) {
-        return '<span class="hs__title-line"><span>' + esc(line) + '</span></span>';
-      }).join('');
-      return '<div class="hs__slide' + (i === 0 ? ' hs__slide--active' : '') + '" ' +
-        'aria-hidden="' + (i !== 0) + '">' +
-        '<div class="hs__slide-overlay"></div>' +
-        '<div class="hs__slide-content container">' +
-          '<p class="hs__badge animate-fade-up">' + esc(ar ? s.badgeAr : s.badgeEn) + '</p>' +
-          '<h1 class="hs__title animate-fade-up anim-delay-1">' + titleHtml + '</h1>' +
-          '<p class="hs__sub animate-fade-up anim-delay-2">' + esc(ar ? s.subAr : s.subEn) + '</p>' +
-          '<div class="hs__actions animate-fade-up anim-delay-3">' +
-            '<a href="' + esc(h.ctaPrimary.href) + '" class="btn btn--accent btn--lg">' + esc(ar ? h.ctaPrimary.ar : h.ctaPrimary.en) + '</a>' +
-            '<a href="' + esc(h.ctaSecondary.href) + '" class="btn btn--outline-white btn--lg">' + esc(ar ? h.ctaSecondary.ar : h.ctaSecondary.en) + '</a>' +
-          '</div>' +
-        '</div>' +
-      '</div>';
-    }).join('');
-
-    var multiSlide = h.slides.length > 1;
-
-    var dotsHtml = h.slides.map(function (s, i) {
-      return '<button class="hs__dot' + (i === 0 ? ' hs__dot--active' : '') + '" data-index="' + i + '" aria-label="Slide ' + (i+1) + '"></button>';
-    }).join('');
-
-    var infoCardHtml = '';
-    if (h.infoCard) {
-      var ic = h.infoCard;
-      var checklistHtml = ic.checklist.map(function (item) {
-        return '<li><span class="hs__card-check" aria-hidden="true">✓</span>' + esc(ar ? item.ar : item.en) + '</li>';
-      }).join('');
-      infoCardHtml = '<div class="hs__card">' +
-        '<div class="hs__card-num">' + esc(ar ? ic.numAr : ic.numEn) + '<em>' + esc(ar ? ic.numSuffixAr : ic.numSuffixEn) + '</em></div>' +
-        '<p class="hs__card-label">' + esc(ar ? ic.labelAr : ic.labelEn) + '</p>' +
-        '<ul class="hs__card-list">' + checklistHtml + '</ul>' +
-      '</div>';
-    }
-
-    var statsHtml = h.stats.map(function (s, i) {
-      return (i > 0 ? '<div class="hs__stat-div" aria-hidden="true"></div>' : '') +
-        '<div class="hs__stat">' +
-          '<span class="hs__stat-num">' + esc(ar ? s.numAr : s.numEn) + '</span>' +
-          '<span class="hs__stat-label">' + esc(ar ? s.labelAr : s.labelEn) + '</span>' +
-        '</div>';
-    }).join('');
-
-    return '<section class="hero-slider" id="hero-slider" aria-label="' + (ar ? 'الصفحة الرئيسية' : 'Homepage hero') + '">' +
-
-      /* Shared looping video background (sits behind all slides) */
-      '<div class="hs__bg-video" aria-hidden="true">' +
-        '<video id="hs-video" autoplay muted loop playsinline preload="none" ' +
-          'poster="' + esc(h.slides[0].img) + '" width="1920" height="1080">' +
-          '<source data-src="assets/video/hero.webm" type="video/webm">' +
-          '<source data-src="assets/video/hero.mp4"  type="video/mp4">' +
-        '</video>' +
-      '</div>' +
-
-      slidesHtml +
-
-      /* Right info card (sits above slider/overlay) */
-      infoCardHtml +
-
-      /* Stats bar */
-      '<div class="hs__stats">' +
-        '<div class="container hs__stats-inner">' + statsHtml + '</div>' +
-      '</div>' +
-
-      /* Controls (only meaningful with more than one slide) */
-      (multiSlide ?
-        '<div class="hs__controls">' +
-          '<div class="hs__dots">' + dotsHtml + '</div>' +
-          '<div class="hs__counter">' +
-            '<span class="hs__cur">01</span>' +
-            '<span class="hs__sep"> / </span>' +
-            '<span class="hs__total">0' + h.slides.length + '</span>' +
-          '</div>' +
-        '</div>' +
-
-        '<button class="hs__nav hs__prev" id="hs-prev" aria-label="Previous slide">' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>' +
-        '</button>' +
-        '<button class="hs__nav hs__next" id="hs-next" aria-label="Next slide">' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>' +
-        '</button>'
-      : '') +
-
-      /* Scroll hint */
-      '<div class="hs__scroll-hint" aria-hidden="true">' +
-        '<div class="hs__scroll-line"></div>' +
-        '<span>' + (ar ? 'مرر' : 'Scroll') + '</span>' +
-      '</div>' +
-    '</section>';
-  }
-
   /* ── Footer ───────────────────────────────────────── */
   function renderFooter() {
     var f  = cfg.footer;
@@ -239,17 +138,29 @@
       '</div>';
     }).join('');
 
+    var c = cfg.contact;
+    var contactHtml = '<div class="footer__contact">' +
+      '<span class="footer__col-title">' + (ar ? 'تواصل معنا' : 'Contact Us') + '</span>' +
+      '<p class="footer__contact-name">' + esc(ar ? cfg.company.nameAr : cfg.company.nameEn) + '</p>' +
+      '<a href="tel:' + esc(c.phoneTel) + '" class="footer__link" dir="ltr">' + esc(c.phone) + '</a>' +
+      '<a href="mailto:' + esc(c.email) + '" class="footer__link">' + esc(c.email) + '</a>' +
+      '<p class="footer__brand-text">' + esc(ar ? c.addressAr : c.addressEn) + '</p>' +
+      '<a href="' + esc(c.mapsUrl) + '" class="footer__link footer__map-link" target="_blank" rel="noopener">' +
+        (ar ? 'موقعنا على خرائط Google' : 'Our location on Google Maps') + '</a>' +
+    '</div>';
+
     return '<footer class="footer" role="contentinfo">' +
       '<div class="container">' +
         '<div class="footer__grid">' +
           '<div>' +
             '<img src="' + esc(cfg.logo.src) + '" alt="' + esc(cfg.logo.alt) + '" class="footer__logo" onerror="this.style.display=\'none\'">' +
-            '<div class="footer__brand-name">' + esc(cfg.company.nameAr) + '</div>' +
-            '<span class="footer__brand-tag">' + esc(cfg.company.taglineEn) + '</span>' +
             '<p class="footer__brand-text">' + esc(ar ? f.taglineAr : f.taglineEn) + '</p>' +
           '</div>' +
           columnsHtml +
+          contactHtml +
         '</div>' +
+        '<iframe class="footer__map" src="' + esc(c.mapsEmbed) + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ' +
+          'title="' + (ar ? 'موقع مدار رندا على الخريطة' : 'Madar Randa location map') + '"></iframe>' +
         '<div class="footer__bottom">' +
           '<span class="footer__legal">' + esc(ar ? f.legalAr : f.legalEn) + '</span>' +
           '<img src="' + esc(f.visionLogo) + '" alt="Saudi Vision 2030" class="footer__vision">' +
@@ -294,7 +205,6 @@
   /* ── Mount ────────────────────────────────────────── */
   window.MadarComponents = {
     renderHeader:   renderHeader,
-    renderHero:     renderHero,
     renderFooter:   renderFooter,
     renderWhatsApp: renderWhatsApp,
 
@@ -305,31 +215,25 @@
       var hEl = document.getElementById('site-header');
       if (hEl) hEl.innerHTML = renderHeader(activeHref, isHomepage);
 
-      /* Hero (homepage only) */
-      var heroEl = document.getElementById('site-hero');
-      if (heroEl) {
-        heroEl.innerHTML = renderHero();
-
-        /* Lazy-load hero video: defer all network cost until the element is
-           visible (fires immediately on homepage, but after first paint). */
-        var hsVid = document.getElementById('hs-video');
-        if (hsVid) {
-          var loadHeroVid = function () {
-            hsVid.querySelectorAll('source[data-src]').forEach(function (s) {
-              s.setAttribute('src', s.getAttribute('data-src'));
-              s.removeAttribute('data-src');
-            });
-            hsVid.load();
-            var p = hsVid.play();
-            if (p) p.catch(function () {});
-          };
-          if ('IntersectionObserver' in window) {
-            new IntersectionObserver(function (entries, obs) {
-              if (entries[0].isIntersecting) { loadHeroVid(); obs.disconnect(); }
-            }, { threshold: 0 }).observe(hsVid);
-          } else {
-            loadHeroVid();
-          }
+      /* Hero video (homepage, static markup): defer network cost until visible */
+      var hsVid = document.getElementById('hs-video');
+      if (hsVid && !hsVid.dataset.loaded) {
+        hsVid.dataset.loaded = '1';
+        var loadHeroVid = function () {
+          hsVid.querySelectorAll('source[data-src]').forEach(function (s) {
+            s.setAttribute('src', s.getAttribute('data-src'));
+            s.removeAttribute('data-src');
+          });
+          hsVid.load();
+          var p = hsVid.play();
+          if (p) p.catch(function () {});
+        };
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver(function (entries, obs) {
+            if (entries[0].isIntersecting) { loadHeroVid(); obs.disconnect(); }
+          }, { threshold: 0 }).observe(hsVid);
+        } else {
+          loadHeroVid();
         }
       }
 

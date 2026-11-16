@@ -73,6 +73,65 @@
     });
   }
 
+  /* ── Nav cards row: prev/next buttons + mouse drag ────── */
+  var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+
+  function initNavScroll() {
+    document.querySelectorAll('.pp-nav-cards__grid').forEach(function (track) {
+      if (track.dataset.scrollInit) return;
+      track.dataset.scrollInit = '1';
+
+      var nav = document.createElement('div');
+      nav.className = 'pp-nav-scroll';
+      nav.innerHTML =
+        '<button type="button" class="pp-nav-scroll__btn pp-nav-scroll__btn--prev" aria-label="Previous">' + ARROW + '</button>' +
+        '<button type="button" class="pp-nav-scroll__btn pp-nav-scroll__btn--next" aria-label="Next">' + ARROW + '</button>';
+      track.parentNode.insertBefore(nav, track.nextSibling);
+      var prevBtn = nav.children[0], nextBtn = nav.children[1];
+
+      function rtl() { return document.documentElement.dir === 'rtl'; }
+      function step() {
+        var card = track.querySelector('.pp-nav-card');
+        return card ? card.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 16) : 280;
+      }
+      function update() {
+        var max = track.scrollWidth - track.clientWidth - 2;
+        var pos = Math.abs(track.scrollLeft);           /* RTL scrollLeft is negative */
+        nav.hidden = max <= 0;                          /* all cards fit: no buttons */
+        prevBtn.disabled = pos <= 2;
+        nextBtn.disabled = pos >= max;
+      }
+      prevBtn.addEventListener('click', function () { track.scrollBy({ left: step() * (rtl() ? 1 : -1), behavior: 'smooth' }); });
+      nextBtn.addEventListener('click', function () { track.scrollBy({ left: step() * (rtl() ? -1 : 1), behavior: 'smooth' }); });
+      track.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+
+      /* mouse drag-to-scroll (touch scrolls natively) */
+      var down = false, startX = 0, startScroll = 0, moved = false;
+      track.addEventListener('mousedown', function (e) {
+        if (e.button !== 0) return;
+        down = true; moved = false; startX = e.pageX; startScroll = track.scrollLeft;
+        e.preventDefault();
+      });
+      window.addEventListener('mousemove', function (e) {
+        if (!down) return;
+        var dx = e.pageX - startX;
+        if (!moved && Math.abs(dx) > 5) { moved = true; track.classList.add('pp-nav-cards__grid--dragging'); }
+        if (moved) track.scrollLeft = startScroll - dx;
+      });
+      window.addEventListener('mouseup', function () {
+        if (!down) return;
+        down = false;
+        track.classList.remove('pp-nav-cards__grid--dragging');
+      });
+      /* a drag must not also count as a click on the card under the pointer */
+      track.addEventListener('click', function (e) {
+        if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+      }, true);
+    });
+  }
+
   /* ── Gallery Tabs ─────────────────────────────────────── */
   function initGalleryTabs() {
     var tabs = document.querySelectorAll('.pp-gallery__tab');
@@ -181,6 +240,7 @@
   function init() {
     initFloatNav();
     initNavCards();
+    initNavScroll();
     initGalleryTabs();
     initAnimations();
   }

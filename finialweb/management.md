@@ -61,9 +61,33 @@ This file tracks fixes requested by the client in **`assets/Madar randa review.d
 | E7 | Homepage "Our Products" slider: reduce to only the 7 real, live top-level product pages, with correct links | ✅ done, pending your verification |
 | E8 | Homepage "Our Products" slider: swap in the best-looking available photo for each of the 7 cards | ✅ done, pending your verification |
 
+### F. Content update 2026-11 (`update stuff/` — approved content docs)
+| # | Task | Status |
+|---|------|--------|
+| F0 | Convert update images to WebP into `assets/images/products/<page>/` | ✅ done, pending your verification |
+| F1 | Shared: nav, footer (blurb, 12 page links, contact, map), Arabic default, unified CSS blocks | ✅ done, pending your verification |
+| F2 | Homepage | ✅ done, pending your verification |
+| F3 | About us | ✅ done, pending your verification |
+| F4 | After-sales & warranty (`after-sales-warranty.html`) | ✅ done — warranty-request mechanism on hold (WhatsApp for now) |
+| F5 | Maintenance (`maintenance.html`) — same design as the service pages | ✅ done, pending your verification |
+| F6 | Garage doors (`product-garage-doors.html`) | ✅ done, pending your verification |
+| F7 | Shutter & roll (`product-shutter-roll-doors.html`) | ✅ done — no schema doc supplied; perforated image missing |
+| F8 | Industrial + loading (`product-industrial-doors.html`) | ✅ done, pending your verification |
+| F9 | Glass doors (`product-glass-doors.html`) | ✅ done, pending your verification |
+| F10 | Gate motors (`product-gate-motors.html`) | ✅ done, pending your verification |
+| F11 | Security & parking (`product-security-entrance.html`) | ✅ done, pending your verification |
+| F12 | Window shutters (`product-shutters.html`) | ✅ done, pending your verification |
+| F13 | Hangar doors (`product-hangar-doors.html`) | ✅ done, pending your verification |
+| F14 | Service pages redesigned with old pp- layout (nav cards, floating sub-nav, rich product sections); draft at `design-draft.html` | ✅ done — delete draft before launch |
+| F15 | Hovers + scroll animations on all pages | ✅ done, pending your verification |
+| F16 | Contact page refresh; quote form now opens WhatsApp pre-filled (it used to fake success and lose requests) | ✅ done, pending your verification |
+| F17 | Remaining live images → WebP (client logos renamed, hero poster, logo, maintenance, Vision 2030 — was a broken image) | ✅ done |
+| F18 | Dead code removed (project filter, service-page data); homepage hero/H1 now static HTML | ✅ done |
+
 ---
 
 ## History
+- **2026-11-16** — F0–F4 done. Moved `projects.html` + `products.html` to `old/`. Homepage links to 3 product pages not built yet (`product-garage-doors.html`, `product-shutter-roll-doors.html`, `product-industrial-doors.html`). Missing from client: perforated-shutter image, Google review texts, real project photos.
 - **2026-07-15** — E8 done: reviewed every available candidate photo for each of the 7 homepage product cards (looked at all images in each product's `assets/images/products/<category>/` folder, not just whichever was already wired up) and picked whichever looked best. Swapped 3 of 7: Glass Doors card from the plain office-lobby `hero-glass-door.jpg` to `double-leaf-door.png` (King Fahd Port entrance — better architecture, lighting, water view); Gate Motors card from `single-leaf-motor.png` to `double-leaf-motor.png` (more symmetric, reads more clearly as a gate at small card size). Left Hangar Doors, Road Barriers, Security Gates & Entrances, Shutters, and Loading Dock as-is — their current images (`aircraft-hangar-door.png`, `folding-barriers.png`, `hydraulic-blockers.png`, `rolling-shutter.png`, `hydraulic-lift.png`) were already the best-looking option in their folder (Shutters only has one photo available). Verified via headless-browser test: all 7 images load with nonzero width, no broken icons, zero console errors.
 - **2026-07-15** — E7 done: the homepage "Our Products" slider (`index.html`, `#products` `.sv-track`) had 10 cards, several linking to pages that don't exist at the top level anymore (`product-sliding-doors.html`, `product-windows.html`, `product-swing-doors.html`, `product-revolving-doors.html` — all only in `old/` or deleted per E4) plus two anchor links into `products.html`. Replaced the whole set with exactly the 7 real, live top-level product pages: Automatic Glass Doors, Aircraft Hangar Doors, Road Barriers, Security Gates & Entrances, Aluminum Window Shutters, Gate Motors, Loading Dock Equipment. Reused each page's own verified `og:image` as the card photo for consistency (e.g. `hero-glass-door.jpg`, `hydraulic-blockers.png`, `rolling-shutter.png`) instead of introducing new/unverified images. Confirmed the `.sv-track` slider JS (`js/app.js`) reads card count dynamically via `querySelector`, so no JS changes were needed for the drop from 10→7 cards. Verified via headless-browser test: all 7 cards present in the right order with correct hrefs, all images load (lazy-load confirmed working, not broken), next/prev arrows still scroll the track, zero console errors.
 - **2026-07-15** — E6 done: on `product-glass-doors.html`, swapped the 3rd Configurations card from Hospital to Revolving — verified `revolving-door.png` is a genuine rotating-drum revolving door photo before using it, title/description now say "Revolving Automatic Glass Doors" / "الأبواب الزجاجية الأوتوماتيكية الدوارة". Removed the now-redundant "Looking for a revolving entrance instead? See our page" note that linked to `product-revolving-doors.html` — that page doesn't exist (deleted per E4's revert) and is no longer needed since revolving is now covered on this page directly. Gave Hospital its own full standalone section (`#prod-glass-hospital`), same pattern used for the hangar-door products in E5: reused `.pd-intro`/`.pd-check-list` classes, own eyebrow/heading/3-point checklist, `hospital-door.png` image, light-gray background for visual separation from the grid above it. Updated supporting copy sitewide on the page to reflect 4 total configurations instead of 3: intro paragraph, "By the Numbers" stat (3→4, label list), Product JSON-LD description, and both the JSON-LD and on-page FAQ answers for "what types are available." Verified via headless-browser screenshot: all 4 images load with no broken icons, zero console errors, both sections render correctly with no overlap/alignment issues.

@@ -1,0 +1,161 @@
+// ═══════════════════════════════════════════════════════════
+//  مدار راندا — Backend Server (آمن)
+//  التوكن مخفي هنا في الخادم، لا يظهر للعميل أبداً
+//
+//  التثبيت:  npm install express cors
+//  التشغيل:  node server.js
+// ═══════════════════════════════════════════════════════════
+
+const express = require("express");
+const cors    = require("cors");
+const crypto  = require("crypto");
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+// ─── ⚙️ إعدادات تقنيات (سرية — لا تنشرها) ──────────────────
+const TAQNYAT_TOKEN = "3059c140d4c1d87d5ce1ddbb3ba61c6d";
+const SENDER_NAME   = "MRanda";
+// ────────────────────────────────────────────────────────────
+
+// تخزين مؤقت في الذاكرة (استبدله بقاعدة بيانات لاحقاً)
+let requests = [];
+let otpStore = {};      // { phone: { otp, expiresAt } }
+let closeOtpStore = {}; // { requestId: { otp, expiresAt } }
+
+// ─── إرسال SMS عبر تقنيات ──────────────────────────────────
+async function sendSMS(phone, message) {
+  const formatted = phone.startsWith("0") ? "966" + phone.slice(1) : phone;
+  const res = await fetch("https://api.taqnyat.sa/v1/messages", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${TAQNYAT_TOKEN}`,
+    },
+    body: JSON.stringify({
+      sender: SENDER_NAME,
+      recipients: [formatted],
+      body: message,
+    }),
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error("SMS فشل: " + JSON.stringify(data));
+  return data;
+}
+
+// ═══ نقاط الاتصال (API) ═══
+
+// 1) إرسال OTP للتحقق من جوال العميل
+app.post("/api/send-otp", async (req, res) => {
+  const { phone } = req.body;
+  if (!phone) return res.status(400).json({ error: "رقم الجوال مطلوب" });
+
+  const otp = crypto.randomInt(1000, 9999).toString();
+  otpStore[phone] = { otp, expiresAt: Date.now() + 5 * 60 * 1000 };
+
+  try {
+    await sendSMS(phone, `مدار راندا: رمز التحقق هو ${otp}\nصالح لمدة 5 دقائق.`);
+    res.json({ success: true });
+  } catch (e) {
+    console.error("SMS error:", e.message);
+    res.status(500).json({ error: "تعذّر إرسال الرمز" });
+  }
+});
+
+// 2) التحقق من OTP
+app.post("/api/verify-otp", (req, res) => {
+  const { phone, otp } = req.body;
+  const stored = otpStore[phone];
+  if (!stored)                       return res.status(400).json({ error: "لم يُرسل رمز لهذا الرقم" });
+  if (Date.now() > stored.expiresAt) return res.status(400).json({ error: "انتهت صلاحية الرمز" });
+  if (stored.otp !== otp)            return res.status(400).json({ error: "الرمز غير صحيح" });
+  delete otpStore[phone];
+  res.json({ success: true });
+});
+
+// 3) إنشاء طلب صيانة (+ SMS تأكيد)
+app.post("/api/requests", async (req, res) => {
+  const { client, phone, city, district, type, desc } = req.body;
+  if (!client || !phone || !city || !district || !type || !desc)
+    return res.status(400).json({ error: "جميع الحقول مطلوبة" });
+
+  const request = {
+    id: "REQ-" + Date.now().toString().slice(-6),
+    client, phone, city, district, type, desc,
+    status: "pending", assignedGroup: null,
+    createdAt: new Date().toISOString(),
+  };
+  requests.push(request);
+
+  try {
+    await sendSMS(phone, `مدار راندا: تم استلام طلبك رقم ${request.id}.\nنعمل على مراجعته وإرسال موعدك.`);
+  } catch (e) { console.error("SMS:", e.message); }
+
+  res.json({ success: true, request });
+});
+
+// 4) جلب كل الطلبات (للموظفين)
+app.get("/api/requests", (_, res) => res.json(requests));
+
+// 5) جلب طلبات عميل واحد برقمه
+app.get("/api/requests/phone/:phone", (req, res) =>
+  res.json(requests.filter(r => r.phone === req.params.phone))
+);
+
+// 6) إسناد الطلب لمجموعة (+ OTP إغلاق يُرسل للعميل)
+app.post("/api/requests/:id/assign", async (req, res) => {
+  const { groupName } = req.body;
+  const request = requests.find(r => r.id === req.params.id);
+  if (!request) return res.status(404).json({ error: "الطلب غير موجود" });
+
+  const otp = crypto.randomInt(1000, 9999).toString();
+  closeOtpStore[request.id] = { otp, expiresAt: Date.now() + 24 * 60 * 60 * 1000 };
+  request.status = "assigned";
+  request.assignedGroup = groupName;
+  request.otp = otp;
+
+  try {
+    await sendSMS(request.phone,
+      `مدار راندا: تم إسناد طلبك ${request.id} لفريق الصيانة.\n` +
+      `رمز إغلاق الطلب: ${otp}\nأعطِه للفني بعد انتهاء العمل فقط.`
+    );
+  } catch (e) { console.error("SMS:", e.message); }
+
+  res.json({ success: true, request });
+});
+
+// 7) إغلاق الطلب بـ OTP (الفني يدخله)
+app.post("/api/requests/:id/close", (req, res) => {
+  const { otp } = req.body;
+  const request = requests.find(r => r.id === req.params.id);
+  if (!request) return res.status(404).json({ error: "الطلب غير موجود" });
+
+  const stored = closeOtpStore[request.id];
+  if (!stored)            return res.status(400).json({ error: "لا يوجد رمز إغلاق" });
+  if (stored.otp !== otp) return res.status(400).json({ error: "رمز الإغلاق غير صحيح" });
+
+  request.status = "closed";
+  delete closeOtpStore[request.id];
+  res.json({ success: true, request });
+});
+
+// 8) تعليق الطلب مع سبب (+ SMS)
+app.post("/api/requests/:id/suspend", async (req, res) => {
+  const { reason } = req.body;
+  const request = requests.find(r => r.id === req.params.id);
+  if (!request) return res.status(404).json({ error: "الطلب غير موجود" });
+
+  request.status = "suspended";
+  request.pendingReason = reason;
+
+  try {
+    await sendSMS(request.phone, `مدار راندا: تم تعليق طلبك ${request.id} مؤقتاً.\nالسبب: ${reason}`);
+  } catch (e) { console.error("SMS:", e.message); }
+
+  res.json({ success: true, request });
+});
+
+// ─── تشغيل الخادم ──────────────────────────────────────────
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log(`✅ خادم مدار راندا يعمل على المنفذ ${PORT}`));
