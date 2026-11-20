@@ -69,7 +69,7 @@ def main():
             t = re.sub(r'\n[ \t]+', '\n', t)                          # indentation (textarea/pre are empty here)
             t = re.sub(r'\n{2,}', '\n', t)
             open(d, 'w', encoding='utf8', newline='\n').write(t)
-        elif f.endswith('.webp') and '/products/' in f:
+        elif f.endswith('.webp') and ('/products/' in f or '/team/' in f):
             im = Image.open(s); im.load()
             if im.width > MAX_W:
                 im = im.resize((MAX_W, round(im.height * MAX_W / im.width)), Image.LANCZOS)

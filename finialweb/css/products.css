@@ -700,11 +700,7 @@
 /* Maintenance: fault cards + city chips */
 .pp-sub-card--check { flex-direction: row; align-items: center; gap: 16px; padding: 20px; }
 .pp-sub-card--check .pp-sub-card__h3 { font-size: var(--text-base); margin: 0; }
-.city-chips { list-style: none; padding: 0; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; max-width: 860px; }
-.city-chip { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 99px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); color: #fff; font-weight: 700; font-size: var(--text-md); transition: background .2s, border-color .2s, transform .2s; }
-[dir="rtl"] .city-chip { font-family: var(--font-arabic); }
-.city-chip svg { width: 18px; height: 18px; stroke: var(--color-accent-light); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.city-chip:hover { background: var(--color-accent); border-color: var(--color-accent); transform: translateY(-3px); }
+/* .city-chips / .city-chip now live in styles.css (also used by about.html) */
 .pp-section--dark .note-text { color: rgba(255,255,255,.65); margin-top: 28px; }
 
 /* Nav cards: horizontal scroll row (all service pages) */

@@ -39,6 +39,34 @@ const SITE_CONFIG = {
     messageAr: 'مرحباً، أود طلب عرض سعر لحلول الأبواب لديكم.',
     ariaLabelEn: 'Chat with us on WhatsApp',
     ariaLabelAr: 'تواصل معنا عبر واتساب',
+    /* Pre-filled message per request type. A link with data-wa="<key>" gets the
+       message in the current language (see MadarApp.initWaLinks). */
+    messages: {
+      maintenance: {
+        ar: 'مرحباً، أود طلب صيانة.\nنوع المنتج: \nوصف العطل: \nالموقع: \n(سأرفق صورة أو فيديو للعطل)',
+        en: "Hello, I'd like to request maintenance.\nProduct type: \nFault description: \nLocation: \n(I'll attach a photo or video of the fault)",
+      },
+      contracts: {
+        ar: 'مرحباً، أود الاستفسار عن عقود الصيانة الدورية للمنشأة.\nاسم المنشأة: \nعدد الأبواب/الأنظمة وأنواعها: \nالموقع: ',
+        en: "Hello, I'd like to ask about periodic maintenance contracts for our facility.\nFacility name: \nNumber and types of doors/systems: \nLocation: ",
+      },
+      warranty: {
+        ar: 'مرحباً، أود تقديم طلب ضمان.\nرقم الفاتورة أو بيانات الطلب: \nالاسم: \nموقع التركيب: \nوصف المشكلة: \n(سأرفق صورة أو فيديو إن أمكن)',
+        en: "Hello, I'd like to submit a warranty request.\nInvoice number or order details: \nName: \nInstallation location: \nIssue description: \n(I'll attach a photo or video if possible)",
+      },
+      aftersales: {
+        ar: 'مرحباً، لدي استفسار بخصوص خدمة ما بعد البيع لمنتج تم تركيبه.\nرقم الفاتورة أو بيانات الطلب: \nالاستفسار: ',
+        en: 'Hello, I have an after-sales question about an installed product.\nInvoice number or order details: \nQuestion: ',
+      },
+      window: {
+        ar: 'مرحباً، أحتاج مساعدة في اختيار شتر النوافذ المناسب (صندوق مخفي أو خارجي).\nسأرسل صورة النافذة ومقاساتها.',
+        en: "Hello, I need help choosing the right window shutter (concealed or external box).\nI'll send a photo of the window and its dimensions.",
+      },
+      quote: {
+        ar: 'مرحباً، أود طلب عرض سعر لحلول الأبواب لديكم.',
+        en: "Hello, I'd like to request a quote for your door solutions.",
+      },
+    },
   },
 
   /* ── Contact ──────────────────────────────────────── */

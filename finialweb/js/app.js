@@ -392,8 +392,144 @@ var MadarApp = (function () {
     });
   }
 
+  function isRtl() { return document.documentElement.dir === 'rtl'; }
+
+  /* ── WhatsApp links with a pre-filled message per request type ──
+     <a data-wa="maintenance" href="https://wa.me/...">; text comes from SITE_CONFIG.whatsapp.messages */
+  function initWaLinks() {
+    var wa = SITE_CONFIG.whatsapp;
+    document.querySelectorAll('a[data-wa]').forEach(function (a) {
+      var m = wa.messages && wa.messages[a.dataset.wa];
+      if (!m) return;
+      a.href = 'https://wa.me/' + wa.number + '?text=' + encodeURIComponent(isRtl() ? m.ar : m.en);
+    });
+  }
+
+  /* ── Image galleries: big image, prev/next arrows, thumbnails, swipe ──
+     <div class="mr-gallery"> .mr-gallery__main > img.pp-split__img + .mr-gallery__thumbs > button[data-src][data-alt] */
+  var GAL_ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>';
+  function initGalleries() {
+    document.querySelectorAll('.mr-gallery').forEach(function (g) {
+      var main = g.querySelector('.mr-gallery__main');
+      var img = main && main.querySelector('img');
+      var thumbs = Array.prototype.slice.call(g.querySelectorAll('.mr-gallery__thumb'));
+      if (!img || thumbs.length < 2) return;
+      var ar = isRtl();
+
+      if (!g.dataset.galInit) {
+        g.dataset.galInit = '1';
+        main.insertAdjacentHTML('beforeend',
+          '<button type="button" class="mr-gallery__nav mr-gallery__nav--prev">' + GAL_ARROW + '</button>' +
+          '<button type="button" class="mr-gallery__nav mr-gallery__nav--next">' + GAL_ARROW.replace('15 18 9 12 15 6', '9 18 15 12 9 6') + '</button>' +
+          '<span class="mr-gallery__count" aria-hidden="true"></span>');
+        var current = 0;
+        var show = function (i) {
+          current = (i + thumbs.length) % thumbs.length;
+          var t = thumbs[current];
+          thumbs.forEach(function (b, k) {
+            b.classList.toggle('is-active', k === current);
+            b.setAttribute('aria-current', k === current ? 'true' : 'false');
+          });
+          if (img.getAttribute('src') !== t.dataset.src) {
+            img.classList.add('is-swapping');
+            var pre = new Image();
+            pre.onload = pre.onerror = function () {
+              img.src = t.dataset.src;
+              img.alt = t.dataset.alt || '';
+              img.classList.remove('is-swapping');
+            };
+            pre.src = t.dataset.src;
+          }
+          main.querySelector('.mr-gallery__count').textContent = (current + 1) + ' / ' + thumbs.length;
+        };
+        thumbs.forEach(function (b, k) { b.addEventListener('click', function () { show(k); }); });
+        main.querySelector('.mr-gallery__nav--prev').addEventListener('click', function () { show(current - 1); });
+        main.querySelector('.mr-gallery__nav--next').addEventListener('click', function () { show(current + 1); });
+
+        /* swipe (touch) - in RTL a swipe to the right moves forward */
+        var x0 = null, y0 = 0;
+        main.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+        main.addEventListener('touchend', function (e) {
+          if (x0 === null) return;
+          var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+          x0 = null;
+          if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+          var forward = isRtl() ? dx > 0 : dx < 0;
+          show(current + (forward ? 1 : -1));
+        }, { passive: true });
+        /* keyboard: arrow keys while focus is inside the gallery */
+        g.addEventListener('keydown', function (e) {
+          if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+          var forward = (e.key === 'ArrowRight') !== isRtl();
+          show(current + (forward ? 1 : -1));
+          e.preventDefault();
+        });
+        show(0);
+      }
+
+      /* labels follow the language (re-run on every language switch) */
+      main.querySelector('.mr-gallery__nav--prev').setAttribute('aria-label', ar ? 'الصورة السابقة' : 'Previous image');
+      main.querySelector('.mr-gallery__nav--next').setAttribute('aria-label', ar ? 'الصورة التالية' : 'Next image');
+      thumbs.forEach(function (b, k) {
+        b.setAttribute('aria-label', (ar ? 'عرض الصورة ' : 'Show image ') + (k + 1));
+      });
+    });
+  }
+
+  /* ── PDF catalogs in a popup: <a class="catalog-btn" href="x.pdf" data-pdf> ──
+     Browsers without a built-in PDF viewer (most phones) just open the file in a new tab. */
+  var pdfModal = null;
+  function openPdf(href, title) {
+    if (navigator.pdfViewerEnabled === false) { window.open(href, '_blank', 'noopener'); return; }
+    var ar = isRtl();
+    if (!pdfModal) {
+      pdfModal = document.createElement('dialog');
+      pdfModal.className = 'pdf-modal';
+      pdfModal.innerHTML =
+        '<div class="pdf-modal__bar">' +
+          '<h2 class="pdf-modal__title"></h2>' +
+          '<a class="pdf-modal__open" target="_blank" rel="noopener"></a>' +
+          '<button type="button" class="pdf-modal__close">&times;</button>' +
+        '</div>' +
+        '<iframe class="pdf-modal__frame"></iframe>';
+      document.body.appendChild(pdfModal);
+      pdfModal.querySelector('.pdf-modal__close').addEventListener('click', function () { pdfModal.close(); });
+      pdfModal.addEventListener('click', function (e) { if (e.target === pdfModal) pdfModal.close(); }); /* backdrop */
+      pdfModal.addEventListener('close', function () {
+        pdfModal.querySelector('iframe').src = 'about:blank';
+        document.documentElement.style.overflow = '';
+        if (window.__lenis) window.__lenis.start();
+      });
+    }
+    pdfModal.querySelector('.pdf-modal__title').textContent = title;
+    var open = pdfModal.querySelector('.pdf-modal__open');
+    open.href = href;
+    open.textContent = ar ? 'فتح في نافذة جديدة' : 'Open in new tab';
+    pdfModal.querySelector('.pdf-modal__close').setAttribute('aria-label', ar ? 'إغلاق' : 'Close');
+    pdfModal.querySelector('iframe').title = title;
+    pdfModal.querySelector('iframe').src = href;
+    document.documentElement.style.overflow = 'hidden';
+    if (window.__lenis) window.__lenis.stop();
+    if (pdfModal.showModal) pdfModal.showModal(); else window.open(href, '_blank', 'noopener');
+  }
+  function initPdfLinks() {
+    document.querySelectorAll('a[data-pdf]').forEach(function (a) {
+      if (a.dataset.pdfInit) return;
+      a.dataset.pdfInit = '1';
+      a.addEventListener('click', function (e) {
+        if (e.ctrlKey || e.metaKey || e.shiftKey) return;   /* let "open in new tab" work */
+        e.preventDefault();
+        var label = a.querySelector('.catalog-btn__label');
+        openPdf(a.getAttribute('href'), label ? label.textContent : a.textContent);
+      });
+    });
+  }
+
   /* ── Run all interactives ─────────────────────────── */
   function initInteractives() {
+    initWaLinks();
+    initGalleries();
+    initPdfLinks();
     initFAQ();
     initRFQForm();
     initLazyImages();
