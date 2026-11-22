@@ -196,25 +196,30 @@
       G_ICON + '<span class="rv-card__score">' + esc(r.rating) + '</span>' + stars(r.rating) +
       (r.count ? '<span class="rv-card__meta">' + esc(r.count) + (ar ? ' تقييم على Google' : ' Google reviews') + '</span>' : '') +
       '<span class="rv-card__cta">' + (ar ? 'اطلع على تقييماتنا في جوجل' : 'See our Google reviews') + '</span>', 'rv-card--summary') : '';
-    /* track is duplicated so the CSS marquee loops seamlessly */
     return '<div class="rv-strip" aria-label="' + (ar ? 'تقييمات Google' : 'Google reviews') + '">' + summary +
-      '<div class="rv-viewport"><div class="rv-track">' + cards + '<span class="rv-dup" aria-hidden="true">' + cards + '</span></div></div></div>';
+      '<div class="rv-grid">' + cards + '</div></div>';
   }
 
-  /* Google reviews: fill slots, or add one band above the footer */
+  /* Google reviews: one standalone section per page, placed just before the section that held the old slot
+     (the final CTA), or above the footer when a page has no slot. */
+  function makeReviewBand(before, parent, html) {
+    var band = document.createElement('section');
+    band.className = 'section section--pale rv-band';
+    band.innerHTML = '<div class="container"><h2 class="section-title rv-band__title"><span class="lang-ar">آراء عملائنا</span><span class="lang-en">Client Reviews</span></h2><div data-reviews>' + html + '</div></div>';
+    parent.insertBefore(band, before);
+  }
   function fillReviewSlots() {
+    var html = renderReviewCards();
+    if (!html) return;
+    var done = false;
+    document.querySelectorAll('[data-reviews]').forEach(function (el) {
+      if (el.closest('.rv-band')) { el.innerHTML = html; done = true; return; }
+      var host = el.closest('section');
+      el.remove();
+      if (host && !done) { makeReviewBand(host, host.parentNode, html); done = true; }
+    });
     var fEl = document.getElementById('site-footer');
-    var rvHtml = renderReviewCards();
-    var slots = document.querySelectorAll('[data-reviews]');
-    if (!slots.length && rvHtml && fEl) {
-      var band = document.createElement('section');
-      band.className = 'section section--pale rv-band';
-      band.innerHTML = '<div class="container"><h2 class="section-title rv-band__title" data-reviews-title></h2><div data-reviews></div></div>';
-      fEl.parentNode.insertBefore(band, fEl);
-      slots = document.querySelectorAll('[data-reviews]');
-    }
-    document.querySelectorAll('[data-reviews-title]').forEach(function (t) { t.textContent = isAr() ? 'آراء عملائنا' : 'Client Reviews'; });
-    slots.forEach(function (el) { el.innerHTML = rvHtml; });
+    if (!done && fEl) makeReviewBand(fEl, fEl.parentNode, html);
   }
 
   /* Live Google reviews (Places API New, via Maps JS). Needs reviews.apiKey + reviews.placeId in config.

@@ -1,5 +1,5 @@
 // Headless-Chrome QA of deploy/madaranda: JS errors, horizontal overflow, broken images,
-// H1 count, mixed-language leaks — at 390 / 768 / 1440 px, Arabic + English. Full-page screenshots.
+// H1 count, mixed-language leaks, oversized images — at 320..1440 px (QA_WIDTHS env to override), Arabic + English. Full-page screenshots.
 // usage: node qa.js   (launches Chrome itself, closes it at the end)
 const { spawn } = require('child_process');
 const fs = require('fs'), path = require('path');
@@ -9,7 +9,7 @@ const SITE = path.join(ROOT, 'deploy', 'madaranda');
 const SHOTS = path.join(ROOT, 'deploy', 'qa-shots');
 const CHROME = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 const PORT = 9400 + Math.floor(Math.random() * 500);
-const WIDTHS = [390, 768, 1440];
+const WIDTHS = (process.env.QA_WIDTHS || '320,360,390,414,600,768,1024,1440').split(',').map(Number);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 fs.rmSync(SHOTS, { recursive: true, force: true }); fs.mkdirSync(SHOTS, { recursive: true });
@@ -34,7 +34,7 @@ async function connect() {
   const evaluate = async expr => (await cmd('Runtime.evaluate', { expression: expr, returnByValue: true, awaitPromise: true })).result?.result?.value;
   await cmd('Page.enable'); await cmd('Runtime.enable'); await cmd('Log.enable');
 
-  const pages = fs.readdirSync(SITE).filter(f => f.endsWith('.html')).sort();
+  const pages = fs.readdirSync(SITE).filter(f => f.endsWith('.html') && (!process.env.QA_PAGES || process.env.QA_PAGES.split(',').includes(f))).sort();
   const report = [];
   for (const page of pages) {
     for (const lang of ['ar', 'en']) {
@@ -62,13 +62,16 @@ async function connect() {
           const broken = [...document.images].filter(i => i.naturalWidth === 0 && i.getAttribute('src')).map(i => i.getAttribute('src'));
           const other = document.documentElement.dir === 'rtl' ? '.lang-en' : '.lang-ar';
           const leaks = [...document.querySelectorAll(other)].filter(e => e.getClientRects().length && getComputedStyle(e).display !== 'none').length;
-          return { scrollW: document.documentElement.scrollWidth, vw, over: [...new Set(over)].slice(0, 6), broken, h1: document.querySelectorAll('h1').length, leaks, dir: document.documentElement.dir };
+          const bigImgs = [...document.images].filter(i => { const b = i.getBoundingClientRect(); const s = getComputedStyle(i); return b.width && s.display !== 'none' && !i.closest('.hs__bg-video') && (innerWidth < 768 ? b.height > 460 : b.height > 720); })
+            .map(i => (i.parentElement.className + '>' + i.className + ' ' + (i.getAttribute('src') || '').split('/').pop()) + ' ' + Math.round(i.getBoundingClientRect().width) + 'x' + Math.round(i.getBoundingClientRect().height));
+          return { bigImgs: [...new Set(bigImgs)].slice(0, 4), scrollW: document.documentElement.scrollWidth, vw, over: [...new Set(over)].slice(0, 14), broken, h1: document.querySelectorAll('h1').length, leaks, dir: document.documentElement.dir };
         })()`);
         const errs = events.filter(e => e.method === 'Runtime.exceptionThrown' || (e.method === 'Log.entryAdded' && e.params.entry.level === 'error' && !/favicon|ERR_NAME|net::|googleapis|unpkg/.test(e.params.entry.text)))
           .map(e => e.method === 'Runtime.exceptionThrown' ? (e.params.exceptionDetails.exception?.description || e.params.exceptionDetails.text) : e.params.entry.text);
         const issues = [];
         if (r.scrollW > r.vw + 1) issues.push(`page scrolls sideways (${r.scrollW}px > ${r.vw}px)`);
         if (r.over.length) issues.push('overflowing: ' + r.over.join(', '));
+        if (r.bigImgs.length) issues.push('big images: ' + r.bigImgs.join(', '));
         if (r.broken.length) issues.push('broken images: ' + r.broken.join(', '));
         if (r.h1 !== 1) issues.push('h1 count ' + r.h1);
         if (r.leaks) issues.push(r.leaks + ' other-language elements visible');
