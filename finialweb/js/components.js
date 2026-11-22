@@ -197,15 +197,24 @@
       (r.count ? '<span class="rv-card__meta">' + esc(r.count) + (ar ? ' تقييم على Google' : ' Google reviews') + '</span>' : '') +
       '<span class="rv-card__cta">' + (ar ? 'اطلع على تقييماتنا في جوجل' : 'See our Google reviews') + '</span>', 'rv-card--summary') : '';
     return '<div class="rv-strip" aria-label="' + (ar ? 'تقييمات Google' : 'Google reviews') + '">' + summary +
-      '<div class="rv-grid">' + cards + '</div></div>';
+      '<div class="rv-grid">' + cards + '</div>' +
+      '<div class="rv-nav"><button type="button" class="rv-nav__btn" data-rv-dir="-1" aria-label="' + (ar ? 'السابق' : 'Previous') + '"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button>' +
+      '<button type="button" class="rv-nav__btn rv-nav__btn--next" data-rv-dir="1" aria-label="' + (ar ? 'التالي' : 'Next') + '"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button></div></div>';
   }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-rv-dir]');
+    if (!b) return;
+    var g = b.closest('.rv-strip').querySelector('.rv-grid');
+    g.scrollBy({ left: (document.documentElement.dir === 'rtl' ? -1 : 1) * Number(b.getAttribute('data-rv-dir')) * g.clientWidth * 0.85, behavior: 'smooth' });
+  });
 
   /* Google reviews: one standalone section per page, placed just before the section that held the old slot
      (the final CTA), or above the footer when a page has no slot. */
   function makeReviewBand(before, parent, html) {
     var band = document.createElement('section');
     band.className = 'section section--pale rv-band';
-    band.innerHTML = '<div class="container"><h2 class="section-title rv-band__title"><span class="lang-ar">آراء عملائنا</span><span class="lang-en">Client Reviews</span></h2><div data-reviews>' + html + '</div></div>';
+    band.innerHTML = '<div class="container"><h2 class="section-title rv-band__title"><span class="lang-ar">آراء عملائنا</span><span class="lang-en">Client Reviews</span></h2><div data-reviews>' + html + '</div>' +
+      '<div class="center-actions rv-band__more"><a href="' + esc(cfg.reviews.url) + '" class="btn btn--accent" target="_blank" rel="noopener"><span class="lang-ar">شاهد المزيد من التقييمات على Google</span><span class="lang-en">See More Reviews on Google</span></a></div></div>';
     parent.insertBefore(band, before);
   }
   function fillReviewSlots() {

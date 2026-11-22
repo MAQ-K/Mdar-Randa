@@ -3117,5 +3117,17 @@ bdi.ltr-num { unicode-bidi: isolate; direction: ltr; }
 @media (max-width: 900px) {
   .rv-grid { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
              -webkit-overflow-scrolling: touch; padding: 4px 2px 18px; scrollbar-width: thin; }
-  .rv-grid .rv-card { flex: 0 0 min(300px, 80%); scroll-snap-align: start; }
+  .rv-grid .rv-card { flex: 0 0 min(320px, 86%); scroll-snap-align: start; }
+  .rv-nav { display: flex; justify-content: center; gap: 12px; margin-top: 4px; }
 }
+
+.rv-nav { display: none; }
+.rv-nav__btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--color-border); background: #fff; color: var(--color-navy); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.rv-nav__btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+[dir="rtl"] .rv-nav__btn svg { transform: scaleX(-1); }
+.rv-nav__btn:hover { background: var(--color-navy); color: #fff; }
+/* breadcrumb everywhere: Home › current page only */
+.breadcrumb__item:nth-child(3):not(.breadcrumb__current),
+.breadcrumb__item:nth-child(3):not(.breadcrumb__current) + .breadcrumb__sep { display: none; }
+
+.rv-band__more { margin-top: 28px; text-align: center; }

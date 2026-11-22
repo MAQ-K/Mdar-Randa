@@ -78,7 +78,7 @@ async function connect() {
         if (r.dir !== (lang === 'ar' ? 'rtl' : 'ltr')) issues.push('dir is ' + r.dir);
         if (errs.length) issues.push('JS errors: ' + [...new Set(errs)].join(' | ').slice(0, 300));
         report.push({ page, lang, w, issues });
-        if (lang === 'ar' && (w === 390 || w === 1440)) {
+        if (lang === 'ar' && (w === 390 || w === 1440 || process.env.QA_SHOT_ALL)) {
           const shot = await cmd('Page.captureScreenshot', { format: 'jpeg', quality: 55, captureBeyondViewport: true });
           if (shot.result) fs.writeFileSync(path.join(SHOTS, `${page.replace('.html', '')}-${w}.jpg`), Buffer.from(shot.result.data, 'base64'));
         }
